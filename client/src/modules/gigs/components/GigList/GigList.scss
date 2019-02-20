@@ -6,12 +6,17 @@
 			margin-bottom: 15px;
 		}
 
-		li {
+		ul {
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			border:1px solid #ddd;
-			padding:10px;
+
+			li {
+				display: flex;
+				width:33%;
+				flex-direction: column;
+				justify-content: center;
+				border: 1px solid #ddd;
+				padding: 10px;
+			}
 		}
 	}
 }

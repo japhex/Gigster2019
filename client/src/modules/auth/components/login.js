@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from 'react-router-dom';
 import {connect} from "react-redux"
 import { login } from '../actions';
+import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
 
 class Login extends Component {
     state = {
@@ -26,21 +27,18 @@ class Login extends Component {
 
     render() {
         return (
-            <Fragment>
-                <div className="main-wrapper">
-                    <div className="box">
-                        <div className="box-header">
-                            <h1>Login</h1>
-                        </div>
-                        <form className="box-form">
-                            <input className="form-item" placeholder="Username" name="username" onChange={this.handleChange}/>
-                            <input className="form-item" placeholder="Password" name="password" type="password" onChange={this.handleChange}/>
-                            <button className="form-submit" onClick={this.handleFormSubmit}>Login</button>
-                        </form>
-                        <Link className="link" to="/signup">Don't have an account? <span className="link-signup">Signup</span></Link>
+            <UnauthenticatedLayout>
+                <form>
+                    <div className="form-control">
+                        <input placeholder="Username" name="username" onChange={this.handleChange} />
                     </div>
-                </div>
-            </Fragment>
+	                <div className="form-control">
+                        <input placeholder="Password" name="password" type="password" onChange={this.handleChange}/>
+                    </div>
+                    <button variant="contained" color="primary" onClick={this.handleFormSubmit}>Login</button>
+	                <small>Don't have an account? <span className="link-signup">Signup</span></small>
+                </form>
+            </UnauthenticatedLayout>
         );
     }
 }

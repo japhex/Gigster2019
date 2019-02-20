@@ -18,7 +18,7 @@ export function* fetchLogin(action) {
 
 		yield put(setUser(data.username, data.userId, data.token));
 		yield put({type: LOGIN_SUCCESS, payload });
-		yield put(push('/'));
+		yield put(push('/gigs'));
 	} catch (error) {
 		yield put({type: LOGIN_FAILED, payload: error.message});
 	}

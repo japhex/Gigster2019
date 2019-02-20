@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
-import AuthHelperMethods from './../../../components/AuthHelperMethods';
 import history from './../../../utils/routing';
+import {logout} from 'modules/auth/actions';
 import './Header.scss';
 import {connect} from "react-redux"
 
 class Header extends Component {
-	Auth = new AuthHelperMethods();
-
 	handleLogout = () => {
-		this.Auth.logout()
+		const {logout} = this.props;
+		logout();
 		history.push('/login');
 	}
 
@@ -33,4 +32,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, {})(Header);
+export default connect(mapStateToProps, {logout})(Header);

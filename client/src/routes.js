@@ -5,6 +5,7 @@ import GigList from './modules/gigs/components/GigList/GigList';
 import Login from './modules/auth/components/login';
 import Signup from './signup';
 import Auth from './utils/auth';
+import 'App.scss';
 
 const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) => (
 	<Route {...rest} render={props => {

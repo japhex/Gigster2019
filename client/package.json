@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "3.9.2",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "connected-react-router": "6.3.1",
     "jsonwebtoken": "8.4.0",
     "jwt-decode": "^2.2.0",
