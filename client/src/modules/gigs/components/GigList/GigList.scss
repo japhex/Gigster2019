@@ -1,0 +1,17 @@
+.gig {
+	&__list {
+		padding:20px;
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		li {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			border:1px solid #ddd;
+			padding:10px;
+		}
+	}
+}
