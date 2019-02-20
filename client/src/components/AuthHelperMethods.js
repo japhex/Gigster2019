@@ -51,25 +51,25 @@ export default class AuthHelperMethods {
     }
 
     fetch = (url, options) => {
-        const headers = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        if (this.loggedIn()) {
-            headers['Authorization'] = 'Bearer ' + this.getToken()
-        }
-
-        return fetch(url, {headers, ...options}).then(this._checkStatus).then(response => response.json())
+        // const headers = {
+        //     'Accept': 'application/json',
+        //     'Content-Type': 'application/json'
+        // }
+        //
+        // if (this.loggedIn()) {
+        //     headers['Authorization'] = 'Bearer ' + this.getToken()
+        // }
+        //
+        // return fetch(url, {headers, ...options}).then(this._checkStatus).then(response => response.json())
     }
 
     _checkStatus = (response) => {
-        if (response.status >= 200 && response.status < 300) {
-            return response
-        } else {
-            const error = new Error(response.statusText)
-            error.response = response
-            throw error
-        }
+        // if (response.status >= 200 && response.status < 300) {
+        //     return response
+        // } else {
+        //     const error = new Error(response.statusText)
+        //     error.response = response
+        //     throw error
+        // }
     }
 }

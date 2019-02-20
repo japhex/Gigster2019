@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class GigsAPI {
 	static getAll() {
-		return axios.get(`/gigs`).then(res => res.data);
+		return axios.get(`/api/gigs`).then(res => res.data);
 	}
 }
 

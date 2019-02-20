@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use('/', APIAuth);
-app.use('/gigs', APIGigs);
+app.use('/api/', APIAuth);
+app.use('/api/gigs', APIGigs);
 
 models.sequelize.sync().then(() => {
     app.listen(PORT, function () {});

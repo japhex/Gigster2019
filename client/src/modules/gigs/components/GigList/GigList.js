@@ -14,14 +14,14 @@ class GigList extends Component {
 		const {gigs} = this.props;
 
 		return (
-			<Fragment>
+			<div className="gig__list">
 				<p>You're going to:</p>
-				<ul className="gig__list">
+				<ul>
 					{gigs.map(gig =>
 						<Gig key={gig.id} gig={gig} />
 					)}
 				</ul>
-			</Fragment>
+			</div>
 		);
 	}
 }

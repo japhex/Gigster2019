@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from "react";
-import AuthHelperMethods from './components/AuthHelperMethods';
 import { Link } from 'react-router-dom';
+import {connect} from "react-redux"
+import { login } from '../actions';
 
 class Login extends Component {
-    Auth = new AuthHelperMethods();
-
     state = {
         username: "",
         password: ""
@@ -15,23 +14,13 @@ class Login extends Component {
     }
 
     handleFormSubmit = async (e) => {
+    	const {login} = this.props;
         e.preventDefault();
+
         try {
-	        const response = await this.Auth.login(this.state.username, this.state.password);
-
-	        if (response === false) {
-		        return alert("Sorry those credentials don't exist!");
-	        }
-
-	        this.props.history.replace('/');
+	        await login(this.state);
         } catch(err) {
         	console.log(err);
-        }
-    }
-
-    componentWillMount() {
-        if (this.Auth.loggedIn()) {
-	        this.props.history.replace('/');
         }
     }
 
@@ -56,4 +45,8 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+	return {}
+};
+
+export default connect(mapStateToProps, { login })(Login);

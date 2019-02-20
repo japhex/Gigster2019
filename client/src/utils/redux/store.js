@@ -4,8 +4,8 @@ import createSagaMiddleware from 'redux-saga';
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import logger from 'redux-logger';
 import { middleware as flashMiddleware } from 'redux-flash';
-import rootReducer from './rootReducers';
-import rootSaga from './rootSagas';
+import rootReducer from '../../rootReducers';
+import rootSaga from '../../rootSagas';
 
 export const STATE_LOCAL_STORAGE_KEY = 'state';
 
@@ -23,7 +23,7 @@ export default (history, initialState = {}) => {
 	}
 
 	const store = createStore(
-		connectRouter(history)(rootReducer),
+		rootReducer(history),
 		// initialState,
 		loadState(),
 		compose(
@@ -35,6 +35,7 @@ export default (history, initialState = {}) => {
 
 	store.subscribe(throttle(() => {
 		saveState({
+			login: store.getState().login,
 			gigs: store.getState().gigs,
 		});
 	}, 1000));

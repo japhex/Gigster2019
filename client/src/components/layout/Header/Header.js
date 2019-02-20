@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import AuthHelperMethods from './../../../components/AuthHelperMethods';
-import withAuth from './../../../components/withAuth';
 import history from './../../../utils/routing';
 import './Header.scss';
+import {connect} from "react-redux"
 
 class Header extends Component {
 	Auth = new AuthHelperMethods();
@@ -19,7 +19,7 @@ class Header extends Component {
 			<header>
 				<h1>Gigster</h1>
 				<div>
-					Welcome, {user.username}
+					Welcome, <span>{user.username}</span>
 					<span onClick={this.handleLogout}>(logout)</span>
 				</div>
 			</header>
@@ -27,4 +27,10 @@ class Header extends Component {
 	}
 }
 
-export default withAuth(Header);
+const mapStateToProps = (state) => {
+	return {
+		user: state.login.user
+	};
+};
+
+export default connect(mapStateToProps, {})(Header);

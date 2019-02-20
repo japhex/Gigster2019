@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-	const { username, password } = req.body;
+	const { username, password } = req.body.payload;
 
 	try {
 		const user = await models.user.findOne({where: { username: username }})
@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
 
 		if (result) {
 			let token = jwt.sign({id: user.id, username: user.username}, 'super secret', { expiresIn: 129600 });
-			res.json({success: true, err: null, token});
+			res.json({success: true, err: null, token, username: user.username, userId: user.id});
 		} else {
 			res.status(401).json({success: false, token: null, err: 'Entered Password and Hash do not match!'});
 		}

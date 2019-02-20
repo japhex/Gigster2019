@@ -1,6 +1,6 @@
 import axios from 'axios';
 import history from './../../utils/routing';
-import { getStore } from './../../store';
+import { getStore } from '../redux/store';
 
 /**
  * Ensure every request contains the authentication details.
@@ -8,7 +8,8 @@ import { getStore } from './../../store';
  * For finer grained control you can create instances of axios
  */
 axios.interceptors.request.use((config) => {
-	const token = localStorage.getItem('id_token');
+	const state = getStore().getState();
+	const token = state.login.user.token;
 
 	// TODO if token is null or undefined then we should cancel reqeust and show them the login here!
 	// Unless its to the login api
@@ -39,6 +40,7 @@ axios.interceptors.request.use((config) => {
 axios.interceptors.response.use((response) => {
 	return response
 }, (err) => {
+	console.log(err);
 	if(err.response.status === 401) {
 		history.push('/login');
 	}
