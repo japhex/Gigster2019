@@ -16,7 +16,7 @@
     "react-google-maps": "9.4.5",
     "react-redux": "6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.3",
+    "react-scripts": "2.1.5",
     "redux": "4.0.1",
     "redux-flash": "2.0.1",
     "redux-logger": "3.0.6",
