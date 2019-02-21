@@ -9,10 +9,15 @@ class Gig extends Component {
 		return (
 			<li className="gig__card">
 				<h1>
-					{gig.band} <small>[{moment(gig.date).format("MMM Do YYYY")}]</small>
+					{gig.band} <small>{moment(gig.date).format("MMM Do YYYY")}</small>
+					<p>[ {gig.venue} ]</p>
 				</h1>
-				<img src={gig.artistInfo.artist.image[4]['#text']} width="300px" />
-				<p>{gig.venue}</p>
+				<ul className="gig__tags">
+					{gig.artistInfo.artist.tags.tag.map(tag =>
+						<li>{tag.name}</li>
+					)}
+				</ul>
+				<img src={gig.artistInfo.artist.image[5]['#text']} />
 			</li>
 		);
 	}

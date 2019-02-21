@@ -8,7 +8,7 @@ export default function(state = initialState, action) {
 		case FETCH_GIGS_SUCCESS:
 			return {
 				...state,
-				gigs: action.gigs
+				gigs: action.gigs === "" ? [] : action.gigs
 			};
 		default:
 			return state;

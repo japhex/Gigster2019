@@ -23,11 +23,33 @@
 				margin-left: auto;
 				color:#f44242;
 			}
+
+			p {
+				margin-left:10px;
+				font-size:0.8rem;
+			}
 		}
 
 		img {
 			width:200px;
 			margin:10px 0;
+		}
+	}
+
+	&__tags {
+		min-height: 50px;
+		flex-flow: wrap;
+		margin-top: 10px;
+
+		li {
+			display: inline-table;
+			background: #f44242;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 0.8rem;
+			padding: 2px 5px;
+			border-radius: 3px;
+			margin: 0 10px 5px 0;
 		}
 	}
 }
