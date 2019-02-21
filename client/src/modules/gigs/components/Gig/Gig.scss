@@ -1,9 +1,33 @@
 .gig {
 	&__card {
-		width:25%;
+		display: flex;
+		width:33%;
+		flex-direction: column;
+		justify-content: center;
+		border: 1px solid #ddd;
+		padding: 10px;
+		margin:10px;
+		border-radius: 3px;
 
-		h2, h2, p {
+		h1, h2, p {
 			display: flex;
+		}
+
+		h1 {
+			display: flex;
+			align-items:center;
+			font-size:1rem;
+			text-transform: uppercase;
+
+			small {
+				margin-left: auto;
+				color:#f44242;
+			}
+		}
+
+		img {
+			width:200px;
+			margin:10px 0;
 		}
 	}
 }

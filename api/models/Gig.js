@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         band: DataTypes.STRING,
         date: DataTypes.DATE,
-	    location: DataTypes.STRING
+	    venue: DataTypes.STRING,
+	    location: DataTypes.STRING,
     }, {
         freezeTableName: true
     });
