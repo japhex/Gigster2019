@@ -4,6 +4,10 @@ class GigsAPI {
 	static getAll() {
 		return axios.get(`/api/gigs`).then(res => res.data);
 	}
+
+	static getAdditionalDetails() {
+		return axios.get(`/api/gigs/details`).then(res => res.data);
+	}
 }
 
 export default GigsAPI;

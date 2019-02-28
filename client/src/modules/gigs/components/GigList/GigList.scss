@@ -2,8 +2,29 @@
 	&__list {
 		padding:20px;
 
+		> h1 {
+			font-size: 1rem;
+			text-transform: uppercase;
+			color: #444;
+			padding-left: 10px;
+			padding-bottom: 30px;
+		}
+
 		ul {
 			display: flex;
+			flex-wrap:wrap;
+		}
+
+		&--new {
+			width:66%;
+
+			.gig__card {
+				width:45%;
+			}
+		}
+
+		&--old {
+			width:33%;
 		}
 	}
 }

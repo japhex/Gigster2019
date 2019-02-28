@@ -1,12 +1,13 @@
 .gig {
 	&__card {
 		display: flex;
-		width:33%;
 		flex-direction: column;
 		justify-content: center;
+		position: relative;
+		width:100%;
 		border: 1px solid #ddd;
 		padding: 10px;
-		margin:10px;
+		margin:10px 10px 25px 10px;
 		border-radius: 3px;
 
 		h1, h2, p {
@@ -18,6 +19,8 @@
 			align-items:center;
 			font-size:1rem;
 			text-transform: uppercase;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 10px;
 
 			small {
 				margin-left: auto;
@@ -36,12 +39,25 @@
 		}
 	}
 
+	&__on-tour {
+		position: absolute;
+		top: -21px;
+		left: 0;
+		background: rgb(82, 67, 170);
+		color: #fff;
+		text-transform: uppercase;
+		font-size: 0.8rem;
+		padding: 2px 5px;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+
 	&__tags {
 		min-height: 50px;
 		flex-flow: wrap;
 		margin-top: 10px;
 
-		li {
+		.tag {
 			display: inline-table;
 			background: #f44242;
 			color: #fff;
@@ -49,7 +65,7 @@
 			font-size: 0.8rem;
 			padding: 2px 5px;
 			border-radius: 3px;
-			margin: 0 10px 5px 0;
+			margin: 0 5px 5px 0;
 		}
 	}
 }

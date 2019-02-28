@@ -1,7 +1,7 @@
 import throttle from 'lodash/throttle';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { connectRouter, routerMiddleware } from 'connected-react-router'
+import { routerMiddleware } from 'connected-react-router'
 import logger from 'redux-logger';
 import { middleware as flashMiddleware } from 'redux-flash';
 import rootReducer from '../../rootReducers';
@@ -63,7 +63,7 @@ export const loadState = () => {
 
 		return JSON.parse(serializedState);
 	} catch(err) {
-		console.log('Unable to retreived state from localStorage');
+		console.log('Unable to retrieve state from localStorage');
 		return undefined;
 	}
 }
@@ -83,16 +83,3 @@ export const saveState = (state) => {
 		// ignore write errors
 	}
 }
-
-
-
-// const persistedState = loadState();
-// const store = createStore(
-//   app,
-//   persistedState
-// );
-// store.subscribe(() => {
-//   saveState({
-//     todos: store.getState().todos
-//   });
-// });

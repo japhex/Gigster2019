@@ -1,26 +1,21 @@
-import React, {Component} from 'react'
-import moment from 'moment';
+import React from 'react'
 import './Gig.scss';
+import GigHeader from "./GigHeader/GigHeader"
+import GigTags from "./GigTags/GigTags"
 
-class Gig extends Component {
-	render() {
-		const {gig} = this.props;
+function Gig(props) {
+	const {gig, type} = props;
 
-		return (
-			<li className="gig__card">
-				<h1>
-					{gig.band} <small>{moment(gig.date).format("MMM Do YYYY")}</small>
-					<p>[ {gig.venue} ]</p>
-				</h1>
-				<ul className="gig__tags">
-					{gig.artistInfo.artist.tags.tag.map(tag =>
-						<li>{tag.name}</li>
-					)}
-				</ul>
-				<img src={gig.artistInfo.artist.image[5]['#text']} />
-			</li>
-		);
-	}
+	return (
+		<li className="gig__card" data-test="component-gig">
+			<GigHeader gig={gig} type={type} />
+			<GigTags gig={gig} />
+			{/* X other people on Gigster are attending this show! */}
+			{type === 'new' && gig.artistInfo !== undefined &&
+				<img src={gig.artistInfo.artist.image[5]['#text']}/>
+			}
+		</li>
+	);
 }
 
 export default Gig;

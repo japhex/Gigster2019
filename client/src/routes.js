@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import GigLayout from './components/layout/GigLayout/GigLayout';
-import GigList from './modules/gigs/components/GigList/GigList';
+import UserGigs from './modules/gigs/pages/UserGigs';
 import Login from './modules/auth/components/login';
 import Signup from './signup';
 import Auth from './utils/auth';
@@ -21,7 +21,7 @@ const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) => (
 
 export default (
 	<Switch>
-		<PrivateRoute exact path="/gigs" component={GigList} layout={GigLayout} />
+		<PrivateRoute exact path="/gigs" component={UserGigs} layout={GigLayout} />
 		<Route exact path="/login" component={Login} />
 		<Route exact path="/signup" component={Signup} />
 	</Switch>
