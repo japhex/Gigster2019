@@ -18,8 +18,10 @@ class Header extends Component {
 			<header>
 				<h1>Gigster</h1>
 				<div>
-					Welcome, <span>{user.username}</span>
-					<span onClick={this.handleLogout}>(logout)</span>
+					<div className="header__user">
+						Welcome, <span>{user.username}</span>
+					</div>
+					<a onClick={this.handleLogout}>(logout)</a>
 				</div>
 			</header>
 		);

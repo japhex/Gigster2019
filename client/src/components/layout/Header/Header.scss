@@ -5,14 +5,18 @@ header {
 	padding:20px;
 
 	h1 {
-
 	}
 
 	> div {
+		display: flex;
 		margin-left:auto;
 
 		span {
 			cursor: pointer;
 		}
+	}
+
+	.header__user {
+		margin-right: 10px;
 	}
 }
