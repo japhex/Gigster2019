@@ -1,17 +1,27 @@
 import React, {Component} from 'react'
 import { Formik, Field, Form } from 'formik';
 import {postCreateGig} from './../../actions/gigs';
-import './CreateGig.scss';
+import './CreateUpdateGig.scss';
 import {connect} from "react-redux"
 
-class CreateGig extends Component {
+class CreateUpdateGig extends Component {
+	state = {
+		gig: {}
+	}
+
+	componentDidMount() {
+		const {gigId, gigs} = this.props;
+		const gig = gigs.filter(gig => gig.id === parseInt(gigId));
+
+		this.setState({gig:gig[0]})
+	}
+
 	render() {
-		const {gig, postCreateGig} = this.props;
+		const {gig} = this.state;
+		const {postCreateGig} = this.props;
 
 		return (
-			<Formik initialValues={gig} onSubmit={(values) => {
-					postCreateGig(values);
-				}}
+			<Formik initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
 				render={({ errors, status, touched, isSubmitting }) => (
 					<Form>
 						<Field type="text" name="band" />
@@ -30,4 +40,10 @@ class CreateGig extends Component {
 	}
 }
 
-export default connect(null, { postCreateGig })(CreateGig);
+const mapStateToProps = (state) => {
+	return {
+		gigs: state.gigs.gigs
+	};
+};
+
+export default connect(mapStateToProps, { postCreateGig })(CreateUpdateGig);

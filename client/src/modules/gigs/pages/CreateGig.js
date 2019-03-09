@@ -1,9 +1,9 @@
 import React from 'react'
-import CreateGig from './../model/Create/CreateGig';
+import CreateUpdateGig from '../model/CreateUpdateGig/CreateUpdateGig';
 
 function Gigs() {
 	return (
-		<CreateGig />
+		<CreateUpdateGig />
 	);
 }
 

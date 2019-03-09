@@ -16,7 +16,9 @@ class Header extends Component {
 
 		return (
 			<header>
-				<h1>Gigster</h1>
+				<h1>
+					<a href="/gigs">Gigster</a>
+				</h1>
 				<div className="navbar">
 					<ul>
 						<li>

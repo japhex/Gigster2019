@@ -1,6 +1,7 @@
 import React from 'react'
 import './Gig.scss';
 import GigHeader from "./GigHeader/GigHeader"
+import GigFooter from "./GigFooter/GigFooter"
 import GigTags from "./GigTags/GigTags"
 
 function Gig(props) {
@@ -14,6 +15,7 @@ function Gig(props) {
 			{type === 'new' && gig.artistInfo !== undefined &&
 				<img src={gig.artistInfo.artist.image[5]['#text']}/>
 			}
+			<GigFooter gigId={gig.id} />
 		</li>
 	);
 }

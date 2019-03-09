@@ -36,7 +36,7 @@ export default function(state = initialState, action) {
 			};
 		case POST_CREATE_GIG_SUCCESS:
 			gigs = splitGigs(action.gigs);
-			
+
 			return {
 				...state,
 				gigs: action.gigs,
