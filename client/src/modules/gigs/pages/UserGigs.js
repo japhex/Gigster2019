@@ -2,6 +2,7 @@ import React, {Suspense, lazy, Component} from 'react'
 import './UserGigs.scss';
 import {fetchGigs, fetchGigsAdditionalDetail} from "../actions/gigs"
 import {connect} from "react-redux"
+import Loader from 'components/utils/Loader';
 const GigList = lazy(() => import('./../components/GigList/GigList'));
 
 class UserGigs extends Component {
@@ -18,7 +19,7 @@ class UserGigs extends Component {
 		const {newGigs, oldGigs, gigsStatus} = this.props;
 
 		return (
-			<Suspense fallback={`loading...`}>
+			<Suspense fallback={<Loader />}>
 				<div className="gig-list__container">
 					<GigList type="new" title="Upcoming Shows" gigs={newGigs} gigsStatus={gigsStatus} />
 					<GigList type="old" title="Past Shows" gigs={oldGigs} gigsStatus={gigsStatus} />

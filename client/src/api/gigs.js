@@ -8,6 +8,10 @@ class GigsAPI {
 	static getAdditionalDetails() {
 		return axios.get(`/api/gigs/details`).then(res => res.data);
 	}
+
+	static create(gig) {
+		return axios.post(`/api/gigs/create`, gig).then(res => res.data);
+	}
 }
 
 export default GigsAPI;

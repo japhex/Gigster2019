@@ -9,4 +9,14 @@ router.get('/', jwtMW, async (req, res) => {
 	res.json(gigs);
 });
 
+router.get('/details', jwtMW, async (req, res) => {
+	const gigs = await gigsService.getAdditionalGigDetail(req, res);
+	res.json(gigs);
+});
+
+router.post('/create', jwtMW, async (req, res) => {
+	const gigs = await gigsService.createGig(req, res);
+	res.json(gigs);
+});
+
 module.exports = router;

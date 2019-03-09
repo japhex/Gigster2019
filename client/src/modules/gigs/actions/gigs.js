@@ -6,6 +6,10 @@ export const FETCH_GIGS_ADDITIONAL_DETAIL_REQUEST = 'FETCH_GIGS_ADDITIONAL_DETAI
 export const FETCH_GIGS_ADDITIONAL_DETAIL_SUCCESS = 'FETCH_GIGS_ADDITIONAL_DETAIL_SUCCESS';
 export const FETCH_GIGS_ADDITIONAL_DETAIL_FAILED = 'FETCH_GIGS_ADDITIONAL_DETAIL_FAILED';
 
+export const POST_CREATE_GIG_REQUEST = 'FETCH_CREATE_GIG_REQUEST';
+export const POST_CREATE_GIG_SUCCESS = 'FETCH_CREATE_GIG_SUCCESS';
+export const POST_CREATE_GIG_FAILED = 'FETCH_CREATE_GIG_FAILED';
+
 export function fetchGigs() {
 	return {
 		type: FETCH_GIGS_REQUEST
@@ -16,4 +20,11 @@ export function fetchGigsAdditionalDetail() {
 	return {
 		type: FETCH_GIGS_ADDITIONAL_DETAIL_REQUEST
 	};
+}
+
+export function postCreateGig(gig) {
+	return {
+		type: POST_CREATE_GIG_REQUEST,
+		gig: gig
+	}
 }

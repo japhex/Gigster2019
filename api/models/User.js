@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
 	user.associate = function (models) {
-		user.hasMany(models.gig, {as: 'Gigs', foreignKey: 'userId'});
+		user.belongsToMany(models.gig, {as: 'Gigs', foreignKey: 'userId', through: 'users_gigs'});
 	};
   
     return user;

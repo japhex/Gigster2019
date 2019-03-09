@@ -17,6 +17,15 @@ class Header extends Component {
 		return (
 			<header>
 				<h1>Gigster</h1>
+				<div className="navbar">
+					<ul>
+						<li>
+							<a href="/gigs/create">
+								+ Add gig
+							</a>
+						</li>
+					</ul>
+				</div>
 				<div>
 					<div className="header__user">
 						Welcome, <span>{user.username}</span>

@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 
 	gig.associate = function (models) {
 		gig.hasMany(models.support, {as: 'Supports', foreignKey: 'gigId'});
+		gig.belongsToMany(models.user, {as: 'User', foreignKey: 'gigId', through: 'users_gigs'});
 	};
 
 	return gig;
