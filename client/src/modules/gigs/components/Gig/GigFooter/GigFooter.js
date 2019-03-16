@@ -5,7 +5,8 @@ function GigFooter(props) {
 
 	return (
 		<div className="gig__card-footer">
-			<a href={`/gigs/update/${gigId}`}>Edit</a> | <a href="">Delete</a>
+			<a className="button button-edit" href={`/gigs/update/${gigId}`}>Edit</a>
+			<a className="button button-delete" href="">Delete</a>
 		</div>
 	);
 }

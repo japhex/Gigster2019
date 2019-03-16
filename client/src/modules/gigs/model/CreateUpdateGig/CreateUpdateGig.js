@@ -1,43 +1,38 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
 import {postCreateGig} from './../../actions/gigs';
 import './CreateUpdateGig.scss';
 import {connect} from "react-redux"
 
-class CreateUpdateGig extends Component {
-	state = {
-		gig: {}
-	}
+const CreateUpdateGig = (props) => {
+	const [gig, setGig] = useState([]);
 
-	componentDidMount() {
-		const {gigId, gigs} = this.props;
+	useEffect(() => {
+		const {gigId, gigs} = props;
 		const gig = gigs.filter(gig => gig.id === parseInt(gigId));
 
-		this.setState({gig:gig[0]})
-	}
+		setGig({gig:gig[0]})
+	}, []);
 
-	render() {
-		const {gig} = this.state;
-		const {postCreateGig} = this.props;
+	const {postCreateGig} = props;
 
-		return (
-			<Formik initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
-				render={({ errors, status, touched, isSubmitting }) => (
-					<Form>
-						<Field type="text" name="band" />
-						{errors.band && touched.band && <div>{errors.band}</div>}
-						<Field type="date" name="date" />
-						{errors.date && touched.date && <div>{errors.date}</div>}
-						<Field type="text" name="venue" />
-						{errors.venue && touched.venue && <div>{errors.venue}</div>}
-						<button type="submit" disabled={isSubmitting}>
-							Submit
-						</button>
-					</Form>
-				)}
-			/>
-		);
-	}
+	return (
+		<Formik initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
+			render={({ errors, status, touched, isSubmitting }) => (
+				<Form>
+					<Field type="text" name="band" />
+					{errors.band && touched.band && <div>{errors.band}</div>}
+					<Field type="date" name="date" />
+					{errors.date && touched.date && <div>{errors.date}</div>}
+					<Field type="text" name="venue" />
+					{errors.venue && touched.venue && <div>{errors.venue}</div>}
+					<button type="submit" disabled={isSubmitting}>
+						Submit
+					</button>
+				</Form>
+			)}
+		/>
+	);
 }
 
 const mapStateToProps = (state) => {
