@@ -3,7 +3,7 @@ import moment from 'moment';
 
 function GigHeader(props) {
 	const {gig, type} = props;
-	const onTour = gig.artistInfo !== undefined && type !== 'new' ? <span className="gig__on-tour">{gig.artistInfo.artist.ontour && 'On tour!'}</span> : '';
+	const onTour = (gig.artistInfo !== undefined && gig.artistInfo.artist !== undefined) && type !== 'new' ? <span className="gig__on-tour">{gig.artistInfo.artist.ontour && 'On tour!'}</span> : '';
 
 	return (
 		<h1>
