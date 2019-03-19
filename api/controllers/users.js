@@ -4,9 +4,8 @@ module.exports = {
 	async getAll(req, res) {
 		try {
 			const users = await models.user.findAll({include:['Gigs']});
-			const safeUsers = await this.sanitizeUsers(users);
 
-			return safeUsers;
+			return await this.sanitizeUsers(users);
 		} catch(err){
 			console.log(err);
 			res.status(500);
