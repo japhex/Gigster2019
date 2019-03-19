@@ -15,18 +15,3 @@ export function* fetchUsers() {
 export function* watchFetchUsers() {
 	yield takeEvery(FETCH_USERS_REQUEST, fetchUsers);
 }
-
-// Fetch user from DB by username
-export function* fetchUser(action) {
-	console.log('test');
-	try {
-		const user = yield UsersAPI.getUser(action.username);
-		yield put({type: FETCH_USER_SUCCESS, user});
-	} catch(err) {
-		yield put({type: FETCH_USER_FAILED, payload: err});
-	}
-}
-
-export function* watchFetchUser() {
-	yield takeEvery(FETCH_USER_REQUEST, fetchUser);
-}
