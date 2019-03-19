@@ -1,14 +1,14 @@
 import {FETCH_USERS_SUCCESS} from '../actions/users';
 
 const initialState = {
-	users: []
+	collection: []
 };
 export default function(state = initialState, action) {
 	switch(action.type) {
 		case FETCH_USERS_SUCCESS:
 			return {
 				...state,
-				users: action.users
+				collection: action.users
 			};
 		default:
 			return state;

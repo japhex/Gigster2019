@@ -1,6 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, Suspense, lazy} from 'react'
 import {fetchUsers} from "../actions/users"
 import {connect} from "react-redux"
+import Loader from 'components/utils/Loader';
+const UsersList = lazy(() => import('./../components/UsersList'));
 
 function Users(props) {
 	useEffect(() => {
@@ -13,16 +15,16 @@ function Users(props) {
 
 	return (
 		<>
-			{users.map(user =>
-				<p>{user.username}</p>
-			)}
+			<Suspense fallback={<Loader />}>
+				<UsersList users={users} />
+			</Suspense>
 		</>
 	);
 }
 
 const mapStateToProps = (state) => {
 	return {
-		users: state.users.users
+		users: state.users.collection
 	};
 };
 

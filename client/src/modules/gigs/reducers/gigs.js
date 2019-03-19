@@ -2,7 +2,7 @@ import {splitGigs} from './../middleware/utils';
 import {FETCH_GIGS_SUCCESS, FETCH_GIGS_FAILED, FETCH_GIGS_ADDITIONAL_DETAIL_SUCCESS, POST_CREATE_GIG_SUCCESS} from './../actions/gigs';
 
 const initialState = {
-	gigs: [],
+	collection: [],
 	oldGigs: [],
 	newGigs: [],
 	gigsStatus: ""
@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
 
 			return {
 				...state,
-				gigs: action.gigs,
+				collection: action.gigs,
 				oldGigs: gigs.oldGigs,
 				newGigs: gigs.newGigs,
 				gigsStatus: ""
@@ -29,7 +29,7 @@ export default function(state = initialState, action) {
 			const gigsDetail = splitGigs(action.gigs);
 			return {
 				...state,
-				gigs: action.gigs,
+				collection: action.gigs,
 				oldGigs: gigsDetail.oldGigs,
 				newGigs: gigsDetail.newGigs,
 				gigsStatus: ""
@@ -39,7 +39,7 @@ export default function(state = initialState, action) {
 
 			return {
 				...state,
-				gigs: action.gigs,
+				collection: action.gigs,
 				oldGigs: gigs.oldGigs,
 				newGigs: gigs.newGigs,
 				gigsStatus: ""

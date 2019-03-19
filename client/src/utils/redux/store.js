@@ -37,6 +37,7 @@ export default (history, initialState = {}) => {
 		saveState({
 			login: store.getState().login,
 			gigs: store.getState().gigs,
+			users: store.getState().users
 		});
 	}, 1000));
 
