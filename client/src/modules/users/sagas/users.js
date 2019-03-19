@@ -1,11 +1,11 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import UsersAPI from '../../../api/users';
-import {FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILED } from '../actions/users';
+import { FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILED, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAILED } from '../actions/users';
 
 // Fetch users from DB
-export function* fetchUsers(action) {
+export function* fetchUsers() {
 	try {
-		const users = yield UsersAPI.getAll(action.users);
+		const users = yield UsersAPI.getAll();
 		yield put({type: FETCH_USERS_SUCCESS, users});
 	} catch(err) {
 		yield put({type: FETCH_USERS_FAILED, payload: err});
@@ -14,4 +14,19 @@ export function* fetchUsers(action) {
 
 export function* watchFetchUsers() {
 	yield takeEvery(FETCH_USERS_REQUEST, fetchUsers);
+}
+
+// Fetch user from DB by username
+export function* fetchUser(action) {
+	console.log('test');
+	try {
+		const user = yield UsersAPI.getUser(action.username);
+		yield put({type: FETCH_USER_SUCCESS, user});
+	} catch(err) {
+		yield put({type: FETCH_USER_FAILED, payload: err});
+	}
+}
+
+export function* watchFetchUser() {
+	yield takeEvery(FETCH_USER_REQUEST, fetchUser);
 }

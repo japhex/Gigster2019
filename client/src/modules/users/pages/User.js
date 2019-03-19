@@ -1,16 +1,23 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from "react-redux"
+import {fetchUser} from './../actions/users';
 
-function Users(props) {
+function User(props) {
+	const [user, setUser] = useState(props.user);
+
 	useEffect(() => {
+		const {fetchUser} = props;
 
+		if (user === undefined) {
+			setUser(fetchUser(props.match.params.username));
+		}
 	}, []);
-
-	const { user } = props;
 
 	return (
 		<>
-			<h1>{user.username}</h1>
+			{user !== undefined &&
+				<h1>{user.username}</h1>
+			}
 		</>
 	);
 }
@@ -21,4 +28,4 @@ const mapStateToProps = (state, props) => {
 	};
 };
 
-export default connect(mapStateToProps, null)(Users);
+export default connect(mapStateToProps, {fetchUser})(User);

@@ -54,4 +54,9 @@ router.get('/users/all', jwtMW, async (req, res) => {
 	res.json(users);
 });
 
+router.get('/users/:username', jwtMW, async (req, res) => {
+	const users = await usersService.getUser(req, res);
+	res.json(users);
+});
+
 module.exports = router;
