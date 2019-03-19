@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const exjwt = require('express-jwt');
 const jwtMW = exjwt({secret: 'super secret'});
+const usersService = require('./../controllers/users');
 
 router.post('/signup', async (req, res) => {
 	const { username, password } = req.body;
@@ -46,6 +47,11 @@ router.post('/login', async (req, res) => {
 
 router.get('/', jwtMW, (req, res) => {
 	res.send('You are authenticated');
+});
+
+router.get('/users/all', jwtMW, async (req, res) => {
+	const users = await usersService.getAll(req, res);
+	res.json(users);
 });
 
 module.exports = router;

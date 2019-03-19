@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import {logout} from 'modules/auth/actions';
 import './Header.scss';
@@ -16,19 +17,19 @@ const Header = (props) => {
 	return (
 		<header>
 			<h1>
-				<a href="/gigs">Gigster</a>
+				<Link to="/gigs">Gigster</Link>
 			</h1>
 			<div className="navbar">
 				<ul>
 					<li>
-						<a href="/gigs/create">
+						<Link to="/gigs/create">
 							+ Add gig
-						</a>
+						</Link>
 					</li>
 					<li>
-						<a href="/users">
+						<Link to="/users">
 							Users
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</div>

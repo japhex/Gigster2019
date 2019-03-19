@@ -31,6 +31,10 @@ a {
 		margin-right:0;
 	}
 
+	&:hover {
+		filter: brightness(90%);
+	}
+
 	&-edit {
 		background: #e4c442;
 		color:#fff;

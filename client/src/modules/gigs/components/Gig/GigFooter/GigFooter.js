@@ -1,12 +1,13 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function GigFooter(props) {
 	const {gigId} = props;
 
 	return (
 		<div className="gig__card-footer">
-			<a className="button button-edit" href={`/gigs/update/${gigId}`}>Edit</a>
-			<a className="button button-delete" href="">Delete</a>
+			<Link className="button button-edit" to={`/gigs/update/${gigId}`}>Edit</Link>
+			<Link className="button button-delete" to="">Delete</Link>
 		</div>
 	);
 }
