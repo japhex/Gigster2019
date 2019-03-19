@@ -11,7 +11,7 @@ function User(props) {
 		if (user === undefined) {
 			setUser(fetchUser(props.match.params.username));
 		}
-	}, []);
+	});
 
 	return (
 		<>

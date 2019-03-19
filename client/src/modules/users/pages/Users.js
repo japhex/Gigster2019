@@ -5,13 +5,13 @@ import Loader from 'components/utils/Loader';
 const UsersList = lazy(() => import('./../components/UsersList'));
 
 function Users(props) {
+	const { users } = props;
+
 	useEffect(() => {
 		const {fetchUsers} = props;
 
 		fetchUsers();
-	}, []);
-
-	const { users } = props;
+	});
 
 	return (
 		<>
