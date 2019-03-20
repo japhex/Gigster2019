@@ -4,14 +4,17 @@ import {postCreateGig} from './../../actions/gigs';
 import './CreateUpdateGig.scss';
 import {connect} from "react-redux"
 
-const CreateUpdateGig = ({gigId, gigs, postCreateGig}) => {
+const CreateUpdateGig = (props) => {
 	const [gig, setGig] = useState([]);
 
 	useEffect(() => {
+		const {gigId, gigs} = props;
 		const gig = gigs.filter(gig => gig.id === parseInt(gigId));
 
 		setGig({gig:gig[0]})
 	}, []);
+
+	const {postCreateGig} = props;
 
 	return (
 		<Formik initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
@@ -34,7 +37,7 @@ const CreateUpdateGig = ({gigId, gigs, postCreateGig}) => {
 
 const mapStateToProps = (state) => {
 	return {
-		gigs: state.gigs.gigs
+		gigs: state.gigs.collection
 	};
 };
 

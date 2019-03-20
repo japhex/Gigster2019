@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
 import {connect} from "react-redux"
 import { login } from '../actions';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
@@ -43,8 +42,4 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-	return {}
-};
-
-export default connect(mapStateToProps, { login })(Login);
+export default connect(null, { login })(Login);

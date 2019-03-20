@@ -5,14 +5,11 @@ import {logout} from 'modules/auth/actions';
 import './Header.scss';
 import {connect} from "react-redux"
 
-const Header = (props) => {
+const Header = ({logout, user}) => {
 	const handleLogout = () => {
-		const {logout} = props;
 		logout();
 		history.push('/login');
 	}
-
-	const {user} = props;
 
 	return (
 		<header>

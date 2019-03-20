@@ -29,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GigFooter.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GigFooter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/components/Gig/GigFooter/GigFooter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
@@ -62,6 +62,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GigLayout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/layout/GigLayout/GigLayout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CreateGig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/pages/CreateGig.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,44 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateUpdateGig.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateUpdateGig.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/model/CreateUpdateGig/CreateUpdateGig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gigs.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/pages/Gigs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateGig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/pages/UpdateGig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserGigs.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/pages/UserGigs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#54#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="482">
+              <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -146,12 +122,13 @@
       <find>fetchGigsAdditionalDetail</find>
       <find>name</find>
       <find>font-f</find>
-      <find>fetchUser</find>
       <find>fetchuser</find>
       <find>console.log</find>
       <find>console.log(</find>
       <find>console.log('t</find>
       <find>&lt;user</find>
+      <find>fetchUser</find>
+      <find>CreateUpdateGig</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/client/src/utils</dir>
@@ -163,9 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/modules/gigs/pages/Gigs.js" />
-        <option value="$PROJECT_DIR$/client/public/index.html" />
-        <option value="$PROJECT_DIR$/client/src/components/utils/Loader.js" />
         <option value="$PROJECT_DIR$/client/src/components/utils/Loader.scss" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/actions/gigs.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/sagas/gigs.js" />
@@ -179,8 +153,6 @@
         <option value="$PROJECT_DIR$/client/src/modules/gigs/pages/CreateGig.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/pages/UpdateGig.js" />
         <option value="$PROJECT_DIR$/client/src/components/layout/Header/Header.scss" />
-        <option value="$PROJECT_DIR$/client/src/components/layout/UsersLayout/UsersLayout.js" />
-        <option value="$PROJECT_DIR$/client/src/components/layout/Header/Header.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/components/Gig/Gig.scss" />
         <option value="$PROJECT_DIR$/client/src/App.scss" />
         <option value="$PROJECT_DIR$/client/src/modules/users/reducers/gigs.js" />
@@ -209,11 +181,16 @@
         <option value="$PROJECT_DIR$/client/src/modules/users/components/UsersList.js" />
         <option value="$PROJECT_DIR$/client/src/modules/users/pages/Users.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/pages/UserGigs.js" />
-        <option value="$PROJECT_DIR$/client/src/modules/gigs/model/CreateUpdateGig/CreateUpdateGig.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/components/GigList/GigList.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/components/Gig/GigTags/GigTags.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/components/Gig/GigHeader/GigHeader.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/components/Gig/GigFooter/GigFooter.js" />
+        <option value="$PROJECT_DIR$/client/src/modules/auth/components/login.js" />
+        <option value="$PROJECT_DIR$/client/src/components/layout/Header/Header.js" />
+        <option value="$PROJECT_DIR$/client/src/components/layout/GigLayout/GigLayout.js" />
+        <option value="$PROJECT_DIR$/client/src/components/layout/UnauthenticatedLayout/UnauthenticatedLayout.js" />
+        <option value="$PROJECT_DIR$/client/src/components/layout/UsersLayout/UsersLayout.js" />
+        <option value="$PROJECT_DIR$/client/src/modules/gigs/model/CreateUpdateGig/CreateUpdateGig.js" />
       </list>
     </option>
   </component>
@@ -315,7 +292,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
-              <item name="Header" type="462c0819:PsiDirectoryNode" />
+              <item name="GigLayout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
@@ -340,14 +317,6 @@
               <item name="Gigster" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gigster" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -376,49 +345,6 @@
               <item name="gigs" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Gig" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gigster" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="gigs" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Gig" type="462c0819:PsiDirectoryNode" />
-              <item name="GigFooter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gigster" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="gigs" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Gig" type="462c0819:PsiDirectoryNode" />
-              <item name="GigHeader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gigster" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="gigs" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Gig" type="462c0819:PsiDirectoryNode" />
-              <item name="GigTags" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gigster" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="gigs" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="GigList" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gigster" type="b2602c69:ProjectViewProjectNode" />
@@ -597,12 +523,12 @@
       <workItem from="1551698415728" duration="8762000" />
       <workItem from="1551868110429" duration="246000" />
       <workItem from="1551868810365" duration="20720000" />
-      <workItem from="1552906081220" duration="21466000" />
+      <workItem from="1552906081220" duration="21771000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122664000" />
+    <option name="totallyTimeSpent" value="122969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -656,37 +582,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/actions/gigs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/models/Gig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/api/gigs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/sagas/gigs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -723,34 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/layout/UnauthenticatedLayout/UnauthenticatedLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/layout/UsersLayout/UsersLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/layout/Header/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1017,13 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/model/CreateUpdateGig/CreateUpdateGig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/components/GigList/GigList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1051,12 +911,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/components/Gig/GigHeader/GigHeader.js">
+    <entry file="file://$PROJECT_DIR$/client/src/modules/auth/components/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        <state relative-caret-position="216">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1068,6 +928,60 @@
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/utils/Loader.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AuthHelperMethods.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/layout/GigLayout/GigLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/layout/Header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/layout/UsersLayout/UsersLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/layout/UnauthenticatedLayout/UnauthenticatedLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/components/Gig/GigHeader/GigHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/model/CreateUpdateGig/CreateUpdateGig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
         </state>
       </provider>
     </entry>

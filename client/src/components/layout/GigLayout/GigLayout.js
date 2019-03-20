@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './../Header/Header';
 import { connect } from 'react-redux';
 
-class GigLayout extends Component {
-	render() {
-		return (
-			<div>
-				<Header />
-				{this.props.children}
-			</div>
-		);
-	}
+const GigLayout = ({children}) => {
+	return (
+		<div>
+			<Header />
+			{children}
+		</div>
+	);
 }
 
 export default connect()(GigLayout);

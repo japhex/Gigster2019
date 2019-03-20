@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import './UnauthenticatedLayout.scss';
 
-class UnauthenticatedLayout extends Component {
-	render() {
-		return (
-			<div className="unauthenticated">
-				{this.props.children}
-			</div>
-		);
-	}
+const UnauthenticatedLayout = ({children}) => {
+	return (
+		<div className="unauthenticated">
+			{children}
+		</div>
+	);
 }
 
 export default connect()(UnauthenticatedLayout);
