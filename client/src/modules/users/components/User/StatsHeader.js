@@ -4,10 +4,11 @@ function GigList(props) {
 	const {user} = props;
 
 	return (
-		<>
-			Past gigs: {user.oldGigs.length}<br />
-			Upcoming gigs: {user.newGigs.length}
-		</>
+		user.oldGigs !== undefined &&
+			<>
+				Past gigs: {user.oldGigs.length}<br />
+				Upcoming gigs: {user.newGigs.length}
+			</>
 	);
 }
 

@@ -21,9 +21,9 @@ export function* watchFetchUsers() {
 //========================
 // Fetch user by username from DB
 //========================
-export function* fetchUserByUsername(action) {
+export function* fetchUserByUsername({username}) {
 	try {
-		const user = yield UsersAPI.getUserByUsername(action.username);
+		const user = yield UsersAPI.getUserByUsername(username);
 		yield put({type: FETCH_USER_BY_USERNAME_SUCCESS, user});
 	} catch(err) {
 		yield put({type: FETCH_USER_BY_USERNAME_FAILED, payload: err});
