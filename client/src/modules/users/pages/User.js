@@ -19,7 +19,7 @@ function User(props) {
 	return (
 		user !== undefined &&
 			<>
-				<StatsHeader />
+				<StatsHeader user={user} />
 				<h1>{user.username}</h1>
 				<GigList gigs={user.Gigs} />
 			</>
