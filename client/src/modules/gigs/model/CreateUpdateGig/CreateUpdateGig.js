@@ -12,7 +12,7 @@ const CreateUpdateGig = (props) => {
 		const gig = gigs.filter(gig => gig.id === parseInt(gigId));
 
 		setGig({gig:gig[0]})
-	}, []);
+	});
 
 	const {postCreateGig} = props;
 
