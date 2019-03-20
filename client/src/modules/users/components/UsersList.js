@@ -1,9 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function UsersList(props) {
-	const { users } = props;
-
+function UsersList({users}) {
 	return (
 		<>
 			{users.map(user => {

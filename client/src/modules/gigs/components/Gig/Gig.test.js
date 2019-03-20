@@ -11,18 +11,3 @@ describe('Gig component', () => {
 		expect(component.length).toBe(1);
 	});
 });
-//
-//
-// describe('FilterName', () => {
-// 	it('renders with empty tooltip', () => {
-// 		const wrapper = shallow(<FilterName filterName="Test Filter" />);
-// 		const component = findByTestAttr(wrapper, 'component-filter-name');
-// 		expect(component.length).toBe(1);
-// 	});
-//
-// 	it('renders tooltip when specified as prop', () => {
-// 		const wrapper = shallow(<FilterName filterName="Test Filter" tooltip="Test tooltip" />);
-// 		const component = findByTestAttr(wrapper, 'component-filter-name__tooltip');
-// 		expect(component.length).toBe(1);
-// 	});
-// });

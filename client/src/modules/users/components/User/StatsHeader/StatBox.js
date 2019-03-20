@@ -1,8 +1,6 @@
 import React from 'react'
 
-function GigList(props) {
-	const {digit, message} = props;
-
+function GigList({digit, message}) {
 	return (
 		<div className="user-stats__box">
 			<h1>{digit}</h1>

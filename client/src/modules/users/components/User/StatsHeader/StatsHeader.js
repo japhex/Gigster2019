@@ -2,9 +2,7 @@ import React from 'react'
 import StatBox from './StatBox';
 import './StatsHeader.scss';
 
-function GigList(props) {
-	const {user} = props;
-
+function GigList({user}) {
 	return (
 		user.oldGigs !== undefined &&
 			<>

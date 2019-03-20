@@ -1,13 +1,12 @@
 import React from 'react'
+import Gig from './../../../gigs/components/Gig/Gig';
 
-function GigList(props) {
-	const {gigs} = props;
-
+function GigList({gigs}) {
 	return (
 		<>
 			{gigs !== undefined &&
 				gigs.map(gig =>
-					<p key={gig.id}>{gig.band}</p>
+					<Gig key={gig.id} gig={gig} type="old" />
 				)
 			}
 		</>

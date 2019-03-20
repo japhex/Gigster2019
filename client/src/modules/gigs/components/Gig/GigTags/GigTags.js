@@ -1,8 +1,6 @@
 import React from 'react'
 
-function GigTags(props) {
-	const {gig} = props;
-
+function GigTags({gig}) {
 	return (
 		<ul className="gig__tags">
 			{(gig.artistInfo !== undefined && gig.artistInfo.artist !== undefined) &&

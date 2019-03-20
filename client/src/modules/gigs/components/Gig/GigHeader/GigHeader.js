@@ -1,8 +1,7 @@
 import React from 'react'
 import moment from 'moment';
 
-function GigHeader(props) {
-	const {gig, type} = props;
+function GigHeader({gig, type}) {
 	const onTour = (gig.artistInfo !== undefined && gig.artistInfo.artist !== undefined) && type !== 'new' ? <span className="gig__on-tour">{gig.artistInfo.artist.ontour && 'On tour!'}</span> : '';
 
 	return (

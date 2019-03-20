@@ -2,9 +2,7 @@ import React from 'react'
 import Gig from '../Gig/Gig';
 import './GigList.scss';
 
-function GigList (props) {
-	const {gigsStatus, type, title, gigs} = props;
-
+function GigList ({gigsStatus, type, title, gigs}) {
 	return (
 		<div className={`gig__list gig__list--${type}`}>
 			{gigsStatus === ""

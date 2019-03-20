@@ -4,9 +4,7 @@ import GigHeader from "./GigHeader/GigHeader"
 import GigFooter from "./GigFooter/GigFooter"
 import GigTags from "./GigTags/GigTags"
 
-function Gig(props) {
-	const {gig, type} = props;
-
+function Gig({gig, type}) {
 	return (
 		<li className="gig__card" data-test="component-gig">
 			<GigHeader gig={gig} type={type} />

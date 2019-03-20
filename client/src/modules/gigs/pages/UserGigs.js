@@ -5,17 +5,11 @@ import {connect} from "react-redux"
 import Loader from 'components/utils/Loader';
 const GigList = lazy(() => import('./../components/GigList/GigList'));
 
-const UserGigs = (props) => {
+const UserGigs = ({newGigs, oldGigs, gigsStatus, fetchGigs, fetchGigsAdditionalDetail}) => {
 	useEffect(() => {
-		const {fetchGigs, fetchGigsAdditionalDetail} = props;
-
-		// if (gigs.length === 0) {
 		fetchGigs();
 		fetchGigsAdditionalDetail();
-		// }
 	}, []);
-
-	const {newGigs, oldGigs, gigsStatus} = props;
 
 	return (
 		<Suspense fallback={<Loader />}>
