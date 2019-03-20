@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {connect} from "react-redux"
 import {fetchUserByUsername} from "../actions/users"
 import GigList from "../../users/components/User/GigList"
-import StatsHeader from "../../users/components/User/StatsHeader"
+import StatsHeader from "../components/User/StatsHeader/StatsHeader"
 
 function User(props) {
 	// State
