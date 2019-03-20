@@ -1,39 +1,35 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from "react-redux"
+import {fetchUserByUsername} from "../actions/users"
 import GigList from "../../users/components/User/GigList"
-import UsersAPI from "../../../api/users"
+import StatsHeader from "../../users/components/User/StatsHeader"
 
 function User(props) {
+	// State
 	const [user, setUser] = useState(props.user);
+	// Props
 	const paramUsername = props.match.params.username;
+	const {fetchUserByUsername} = props;
 
+	// Lifecycle
 	useEffect(() => {
-		if (user === undefined) {
-			const getUser = async () => {
-				const user = await UsersAPI.getUser(paramUsername);
-				setUser(user[0]);
-			}
-
-			getUser();
-		}
+		fetchUserByUsername(paramUsername);
 	}, [paramUsername]);
 
 	return (
-		<>
-			{user !== undefined &&
-				<>
-					<h1>{user.username}</h1>
-					<GigList gigs={user.Gigs} />
-				</>
-			}
-		</>
+		user !== undefined &&
+			<>
+				<StatsHeader />
+				<h1>{user.username}</h1>
+				<GigList gigs={user.Gigs} />
+			</>
 	);
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
 	return {
-		user: state.users.collection.filter(user => user.username === props.match.params.username)[0]
+		user: state.users.activeUser
 	};
 };
 
-export default connect(mapStateToProps, null)(User);
+export default connect(mapStateToProps, {fetchUserByUsername})(User);

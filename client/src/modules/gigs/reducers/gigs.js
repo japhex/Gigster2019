@@ -1,4 +1,4 @@
-import {splitGigs} from './../middleware/utils';
+import {splitGigs} from '../../middleware/utils';
 import {FETCH_GIGS_SUCCESS, FETCH_GIGS_FAILED, FETCH_GIGS_ADDITIONAL_DETAIL_SUCCESS, POST_CREATE_GIG_SUCCESS} from './../actions/gigs';
 
 const initialState = {

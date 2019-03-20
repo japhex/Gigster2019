@@ -5,7 +5,7 @@ class UsersAPI {
 		return axios.get(`/api/users/all`).then(res => res.data);
 	}
 
-	static getUser(username) {
+	static getUserByUsername(username) {
 		return axios.get(`/api/users/${username}`).then(res => res.data);
 	}
 }
