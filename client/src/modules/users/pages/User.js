@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import {fetchUserByUsername} from "../actions/users"
 import GigList from "../../users/components/User/GigList"
 import StatsHeader from "../components/User/StatsHeader/StatsHeader"
+import './User.scss';
 
 function User(props) {
 	// State
@@ -19,8 +20,8 @@ function User(props) {
 	return (
 		user !== undefined &&
 			<>
+				<h1 className="user-username">{user.username}</h1>
 				<StatsHeader user={user} />
-				<h1>{user.username}</h1>
 				<GigList gigs={user.Gigs} />
 			</>
 	);

@@ -4,7 +4,7 @@ import GigHeader from "./GigHeader/GigHeader"
 import GigFooter from "./GigFooter/GigFooter"
 import GigTags from "./GigTags/GigTags"
 
-function Gig({gig, type}) {
+function Gig({gig, type, withoutCrud}) {
 	return (
 		<li className="gig__card" data-test="component-gig">
 			<GigHeader gig={gig} type={type} />
@@ -13,7 +13,10 @@ function Gig({gig, type}) {
 			{type === 'new' && gig.artistInfo !== undefined &&
 				<img src={gig.artistInfo.artist.image[5]['#text']}/>
 			}
-			<GigFooter gigId={gig.id} />
+			{/* Only let user edit their gigs */}
+			{!withoutCrud &&
+				<GigFooter gigId={gig.id}/>
+			}
 		</li>
 	);
 }
