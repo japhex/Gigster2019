@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {connect} from "react-redux"
 import {fetchUserByUsername} from "../actions/users"
 import GigList from "../../users/components/User/GigList"
@@ -6,15 +6,14 @@ import StatsHeader from "../components/User/StatsHeader/StatsHeader"
 import './User.scss';
 
 function User(props) {
-	// State
-	const [user, setUser] = useState(props.user);
+	const {user} = props;
 	// Props
 	const paramUsername = props.match.params.username;
 	const {fetchUserByUsername} = props;
 
 	// Lifecycle
 	useEffect(() => {
-		fetchUserByUsername(paramUsername);
+		fetchUserByUsername(paramUsername)
 	}, [paramUsername]);
 
 	return (

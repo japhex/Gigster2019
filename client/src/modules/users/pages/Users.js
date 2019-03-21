@@ -7,7 +7,7 @@ const UsersList = lazy(() => import('./../components/UsersList'));
 function Users({users, fetchUsers}) {
 	useEffect(() => {
 		fetchUsers();
-	});
+	}, []);
 
 	return (
 		<>
