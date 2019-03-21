@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux"
 import {fetchUserByUsername} from "../actions/users"
-import UserBlock from "../components/User/UserBlock"
+import UserBlock from '../components/User/UserBlock';
 
 function User(props) {
 	const {user} = props;
