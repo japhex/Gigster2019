@@ -53,8 +53,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/modules/users/pages/User.scss">
+      <file leaf-file-name="UserBlock.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/modules/users/components/User/UserBlock.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
               <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
@@ -71,14 +71,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/modules/users/pages/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="72">
+              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserBlock.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/modules/users/components/User/UserBlock.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -146,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/modules/gigs/sagas/gigs.js" />
         <option value="$PROJECT_DIR$/client/src/modules/gigs/sagas/gigs-model.js" />
         <option value="$PROJECT_DIR$/client/src/api/gigs.js" />
         <option value="$PROJECT_DIR$/api/routes/gigs.js" />
@@ -197,6 +205,7 @@
         <option value="$PROJECT_DIR$/client/src/modules/gigs/components/Gig/Gig.js" />
         <option value="$PROJECT_DIR$/client/src/modules/users/pages/Users.js" />
         <option value="$PROJECT_DIR$/client/src/modules/users/pages/User.js" />
+        <option value="$PROJECT_DIR$/client/src/modules/users/components/User/UserBlock.js" />
       </list>
     </option>
   </component>
@@ -480,9 +489,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/modules/users/components/User" />
       <recent name="$PROJECT_DIR$/client/src/modules/users/components/User/StatsHeader" />
       <recent name="$PROJECT_DIR$/client/src/modules" />
-      <recent name="$PROJECT_DIR$/client/src/modules/users/components/User" />
       <recent name="$PROJECT_DIR$/client/src/utils/redux" />
       <recent name="$PROJECT_DIR$/client/src/modules/auth/components" />
     </key>
@@ -518,12 +527,12 @@
       <workItem from="1551698415728" duration="8762000" />
       <workItem from="1551868110429" duration="246000" />
       <workItem from="1551868810365" duration="20720000" />
-      <workItem from="1552906081220" duration="23889000" />
+      <workItem from="1552906081220" duration="24151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125087000" />
+    <option name="totallyTimeSpent" value="125349000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -577,13 +586,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/controllers/gigs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/modules/gigs/model/Update/UpdateGig.js" />
     <entry file="file://$PROJECT_DIR$/client/src/components/layout/Header/Header.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -913,7 +915,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/modules/users/pages/User.scss">
+    <entry file="file://$PROJECT_DIR$/client/src/modules/users/components/User/UserBlock.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
@@ -972,11 +974,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/modules/users/pages/User.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state relative-caret-position="72">
+          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/modules/users/components/User/UserBlock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>

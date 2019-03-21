@@ -1,9 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux"
 import {fetchUserByUsername} from "../actions/users"
-import GigList from "../../users/components/User/GigList"
-import StatsHeader from "../components/User/StatsHeader/StatsHeader"
-import './User.scss';
+import UserBlock from "../components/User/UserBlock"
 
 function User(props) {
 	const {user} = props;
@@ -18,11 +16,7 @@ function User(props) {
 
 	return (
 		user !== undefined &&
-			<>
-				<h1 className="user-username">{user.username}</h1>
-				<StatsHeader user={user} />
-				<GigList gigs={user.Gigs} />
-			</>
+			<UserBlock user={user} />
 	);
 }
 
