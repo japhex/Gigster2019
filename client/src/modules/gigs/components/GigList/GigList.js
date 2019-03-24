@@ -2,7 +2,7 @@ import React from 'react'
 import Gig from '../Gig/Gig';
 import './GigList.scss';
 
-function GigList ({gigsStatus, type, title, gigs}) {
+function GigList ({gigsStatus, type, title, gigs, loadingAdditionalContent}) {
 	return (
 		<div className={`gig__list gig__list--${type}`}>
 			{gigsStatus === ""
@@ -11,7 +11,7 @@ function GigList ({gigsStatus, type, title, gigs}) {
 						<h1>{title}</h1>
 						<ul>
 							{gigs.map(gig =>
-								<Gig key={gig.id} gig={gig} type={type} />
+								<Gig key={gig.id} gig={gig} type={type} loadingAdditionalContent={loadingAdditionalContent} />
 							)}
 						</ul>
 					</>

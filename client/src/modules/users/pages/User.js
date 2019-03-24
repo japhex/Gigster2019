@@ -16,6 +16,7 @@ function User(props) {
 
 	return (
 		user !== undefined &&
+			// ADD IS LOADING USER TO REDUX STATE TO STOP FLASH ON PAGELOAD
 			<UserBlock user={user} />
 	);
 }

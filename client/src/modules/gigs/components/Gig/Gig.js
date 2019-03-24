@@ -3,15 +3,23 @@ import './Gig.scss';
 import GigHeader from "./GigHeader/GigHeader"
 import GigFooter from "./GigFooter/GigFooter"
 import GigTags from "./GigTags/GigTags"
+import Loader from 'components/utils/Loader';
 
-function Gig({gig, type, withoutCrud}) {
+function Gig({gig, type, withoutCrud, loadingAdditionalContent}) {
 	return (
 		<li className="gig__card" data-test="component-gig">
 			<GigHeader gig={gig} type={type} />
-			<GigTags gig={gig} />
 			{/* X other people on Gigster are attending this show! */}
-			{type === 'new' && gig.artistInfo !== undefined &&
-				<img src={gig.artistInfo.artist.image[5]['#text']}/>
+			{/* When loading additional content - display it here */}
+			{loadingAdditionalContent ?
+					<Loader />
+				:
+					<>
+						<GigTags gig={gig} />
+						{type === 'new' && gig.artistInfo !== undefined &&
+							<img src={gig.artistInfo.artist.image[5]['#text']}/>
+						}
+					</>
 			}
 			{/* Only let user edit their gigs */}
 			{!withoutCrud &&
