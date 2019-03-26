@@ -10,7 +10,6 @@ function Gig({gig, type, withoutCrud, loadingAdditionalContent}) {
 		<li className="gig__card" data-test="component-gig">
 			<GigHeader gig={gig} type={type} />
 			{/* X other people on Gigster are attending this show! */}
-			{/* When loading additional content - display it here */}
 			{loadingAdditionalContent ?
 					<Loader />
 				:
