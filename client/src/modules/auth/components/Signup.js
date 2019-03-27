@@ -25,9 +25,9 @@ const Signup = ({history}) => {
         <>
             <form>
                 <h1>Signup</h1>
-                <input className="form-item" placeholder="Username" name="username" onChange={handleChange}/>
-                <input className="form-item" placeholder="Password" name="password" type="password" onChange={handleChange}/>
-                <button className="form-submit" onClick={handleFormSubmit}>Signup</button>
+                <input placeholder="Username" name="username" onChange={handleChange}/>
+                <input placeholder="Password" name="password" type="password" onChange={handleChange}/>
+                <button onClick={handleFormSubmit}>Signup</button>
                 <Link className="link" to="/login">Already have an account? <span className="link-signup">Login</span></Link>
             </form>
         </>

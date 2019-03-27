@@ -1,45 +1,46 @@
-import React, { Component } from "react";
+import React, {useState} from "react"
 import {connect} from "react-redux"
 import { login } from '../actions';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
 
-class Login extends Component {
-    state = {
-        username: "",
-        password: ""
+const Login = () => {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+
+    const handleChange = (e) => {
+	    if (e.target.name === 'username') {
+		    setUsername(e.target.value)
+	    }
+	    if (e.target.name === 'password') {
+		    setPassword(e.target.value)
+	    }
     }
 
-    handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
-
-    handleFormSubmit = async (e) => {
+    const handleFormSubmit = async (e) => {
     	const {login} = this.props;
         e.preventDefault();
 
         try {
-	        await login(this.state);
+	        await login({username: username, password:password});
         } catch(err) {
         	console.log(err);
         }
     }
 
-    render() {
-        return (
-            <UnauthenticatedLayout>
-                <form>
-                    <div className="form-control">
-                        <input placeholder="Username" name="username" onChange={this.handleChange} />
-                    </div>
-	                <div className="form-control">
-                        <input placeholder="Password" name="password" type="password" onChange={this.handleChange}/>
-                    </div>
-                    <button variant="contained" color="primary" onClick={this.handleFormSubmit}>Login</button>
-	                <small>Don't have an account? <span className="link-signup">Signup</span></small>
-                </form>
-            </UnauthenticatedLayout>
-        );
-    }
+    return (
+        <UnauthenticatedLayout>
+            <form>
+                <div className="form-control">
+                    <input placeholder="Username" name="username" onChange={handleChange} />
+                </div>
+                <div className="form-control">
+                    <input placeholder="Password" name="password" type="password" onChange={handleChange}/>
+                </div>
+                <button variant="contained" color="primary" onClick={handleFormSubmit}>Login</button>
+                <small>Don't have an account? <span className="link-signup">Signup</span></small>
+            </form>
+        </UnauthenticatedLayout>
+    );
 }
 
 export default connect(null, { login })(Login);
