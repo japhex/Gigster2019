@@ -4,20 +4,17 @@ import {postCreateGig} from './../../actions/gigs';
 import './CreateUpdateGig.scss';
 import {connect} from "react-redux"
 
-const CreateUpdateGig = (props) => {
+const CreateUpdateGig = ({gigId, gigs, postCreateGig}) => {
 	const [gig, setGig] = useState([]);
 
 	useEffect(() => {
-		const {gigId, gigs} = props;
 		const gig = gigs.filter(gig => gig.id === parseInt(gigId));
 
-		setGig({gig:gig[0]})
-	});
-
-	const {postCreateGig} = props;
+		setGig(gig[0])
+	}, [gigId]);
 
 	return (
-		<Formik initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
+		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
 			render={({ errors, status, touched, isSubmitting }) => (
 				<Form>
 					<Field type="text" name="band" />
