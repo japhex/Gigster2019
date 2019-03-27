@@ -17,7 +17,7 @@ export default class Signup extends Component {
 
     handleFormSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("/signup", {username: this.state.username, password: this.state.password});
+        await axios.post("/api/signup", {username: this.state.username, password: this.state.password});
         this.props.history.replace('/login');
     }
 
