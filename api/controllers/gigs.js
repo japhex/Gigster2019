@@ -7,7 +7,6 @@ module.exports = {
 			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
 			return user.Gigs;
 		} catch(err){
-			console.log(err);
 			res.status(500);
 			return {error:err};
 		}
@@ -34,7 +33,6 @@ module.exports = {
 
 			return newGigs;
 		} catch(err){
-			console.log(err);
 			res.status(500);
 			return {error:err};
 		}
@@ -48,7 +46,6 @@ module.exports = {
 
 			return user.Gigs;
 		} catch(err){
-			console.log(err);
 			res.status(500);
 			return {error:err};
 		}
