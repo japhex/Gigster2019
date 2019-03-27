@@ -40,7 +40,3 @@ That should be it, just run
 ```
 npm start
 ```
-
-There's no signup form (because I'm lazy...feel free to add one..!) so you can manually create a DB user record, use the following hash in the password field to get the password 'test' - *$2a$10$ZkULy1TFFLD9hNak9d0Jzu0FAgGtBj6u4KKu7FvScOGQjr69QMmrO*
-
-You can manually add gigs, but the UI should also now allow the addition of gigs...
