@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import { login } from '../actions';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
 
-const Login = () => {
+const Login = ({ login }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -17,7 +17,6 @@ const Login = () => {
     }
 
     const handleFormSubmit = async (e) => {
-    	const {login} = this.props;
         e.preventDefault();
 
         try {
