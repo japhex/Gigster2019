@@ -2,28 +2,31 @@ import React, {useEffect} from 'react'
 import {connect} from "react-redux"
 import {fetchUserByUsername} from "../actions/users"
 import UserBlock from '../components/User/UserBlock';
+import Loader from 'components/utils/Loader';
 
 function User(props) {
-	const {user} = props;
-	// Props
+	const {user, isLoading} = props;
 	const paramUsername = props.match.params.username;
 	const {fetchUserByUsername} = props;
 
-	// Lifecycle
 	useEffect(() => {
 		fetchUserByUsername(paramUsername)
 	}, [paramUsername]);
 
 	return (
 		user !== undefined &&
-			// ADD IS LOADING USER TO REDUX STATE TO STOP FLASH ON PAGELOAD
-			<UserBlock user={user} />
+			isLoading ?
+				<Loader />
+			:
+				<UserBlock user={user}/>
+
 	);
 }
 
 const mapStateToProps = (state) => {
 	return {
-		user: state.users.activeUser
+		user: state.users.activeUser,
+		isLoading: state.users.isLoading
 	};
 };
 

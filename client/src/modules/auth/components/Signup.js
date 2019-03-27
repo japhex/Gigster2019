@@ -1,8 +1,9 @@
 import React, {useState} from "react"
 import AuthAPI from 'api/auth'
 import { Link } from 'react-router-dom';
+import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
 
-const Signup = ({history}) => {
+const Signup = ({ history }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -22,7 +23,7 @@ const Signup = ({history}) => {
     }
 
     return (
-        <>
+	    <UnauthenticatedLayout>
             <form>
                 <h1>Signup</h1>
                 <input placeholder="Username" name="username" onChange={handleChange}/>
@@ -30,7 +31,7 @@ const Signup = ({history}) => {
                 <button onClick={handleFormSubmit}>Signup</button>
                 <Link className="link" to="/login">Already have an account? <span className="link-signup">Login</span></Link>
             </form>
-        </>
+        </UnauthenticatedLayout>
     );
 }
 

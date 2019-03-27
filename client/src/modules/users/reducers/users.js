@@ -1,12 +1,20 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import {splitGigs} from '../../middleware/utils';
-import {FETCH_USERS_SUCCESS, FETCH_USER_BY_USERNAME_SUCCESS} from '../actions/users';
+import {FETCH_USERS_SUCCESS, FETCH_USER_BY_USERNAME_SUCCESS} from '../actions/users'
 
 const initialState = {
 	collection: [],
-	activeUser: {}
+	activeUser: {},
+	isLoading: false
 };
 export default function(state = initialState, action) {
 	switch(action.type) {
+		case LOCATION_CHANGE:
+			return {
+				...state,
+				activeUser: {},
+				isLoading: true
+			}
 		case FETCH_USERS_SUCCESS:
 			return {
 				...state,
@@ -21,6 +29,7 @@ export default function(state = initialState, action) {
 					oldGigs: gigsDetail.oldGigs,
 					newGigs: gigsDetail.newGigs
 				},
+				isLoading: false
 			};
 		default:
 			return state;
