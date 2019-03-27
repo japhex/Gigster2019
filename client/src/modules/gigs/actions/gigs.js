@@ -10,6 +10,10 @@ export const POST_CREATE_GIG_REQUEST = 'FETCH_CREATE_GIG_REQUEST';
 export const POST_CREATE_GIG_SUCCESS = 'FETCH_CREATE_GIG_SUCCESS';
 export const POST_CREATE_GIG_FAILED = 'FETCH_CREATE_GIG_FAILED';
 
+export const POST_UPDATE_GIG_REQUEST = 'FETCH_UPDATE_GIG_REQUEST';
+export const POST_UPDATE_GIG_SUCCESS = 'FETCH_UPDATE_GIG_SUCCESS';
+export const POST_UPDATE_GIG_FAILED = 'FETCH_UPDATE_GIG_FAILED';
+
 export function fetchGigs() {
 	return {
 		type: FETCH_GIGS_REQUEST
@@ -25,6 +29,13 @@ export function fetchGigsAdditionalDetail() {
 export function postCreateGig(gig) {
 	return {
 		type: POST_CREATE_GIG_REQUEST,
+		gig: gig
+	}
+}
+
+export function postUpdateGig(gig) {
+	return {
+		type: POST_UPDATE_GIG_REQUEST,
 		gig: gig
 	}
 }

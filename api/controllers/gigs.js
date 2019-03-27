@@ -49,5 +49,16 @@ module.exports = {
 			res.status(500);
 			return {error:err};
 		}
+	},
+	async updateGig(req, res) {
+		try {
+			await models.gig.update(req.body, {where: {id: req.params.id}});
+			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+
+			return user.Gigs;
+		} catch(err){
+			res.status(500);
+			return {error:err};
+		}
 	}
 };

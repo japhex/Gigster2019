@@ -12,6 +12,10 @@ class GigsAPI {
 	static create(gig) {
 		return axios.post(`/api/gigs/create`, gig).then(res => res.data);
 	}
+
+	static update(gig) {
+		return axios.put(`/api/gigs/update/${gig.id}`, gig).then(res => res.data);
+	}
 }
 
 export default GigsAPI;

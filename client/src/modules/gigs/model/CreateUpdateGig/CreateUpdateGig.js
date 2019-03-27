@@ -1,20 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
-import {postCreateGig} from './../../actions/gigs';
+import {postCreateGig, postUpdateGig} from './../../actions/gigs';
 import './CreateUpdateGig.scss';
 import {connect} from "react-redux"
 
-const CreateUpdateGig = ({gigId, gigs, postCreateGig}) => {
+const CreateUpdateGig = ({gigId, gigs, postCreateGig, postUpdateGig}) => {
 	const [gig, setGig] = useState([]);
 
 	useEffect(() => {
-		const gig = gigs.filter(gig => gig.id === parseInt(gigId));
-
-		setGig(gig[0])
+		if (gigId !== undefined) {
+			const gig = gigs.filter(gig => gig.id === parseInt(gigId));
+			setGig(gig[0])
+		}
 	}, [gigId]);
 
 	return (
-		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {postCreateGig(values)}}
+		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {gig.length === 0 ? postCreateGig(values) : postUpdateGig(values)}}
 			render={({ errors, status, touched, isSubmitting }) => (
 				<Form>
 					<Field type="text" name="band" />
@@ -38,4 +39,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { postCreateGig })(CreateUpdateGig);
+export default connect(mapStateToProps, { postCreateGig, postUpdateGig })(CreateUpdateGig);

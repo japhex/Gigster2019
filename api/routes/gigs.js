@@ -19,4 +19,9 @@ router.post('/create', jwtMW, async (req, res) => {
 	res.json(gigs);
 });
 
+router.put('/update/:id', jwtMW, async (req, res) => {
+	const gigs = await gigsService.updateGig(req, res);
+	res.json(gigs);
+});
+
 module.exports = router;
