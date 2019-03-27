@@ -1,5 +1,5 @@
 import {splitGigs} from '../../middleware/utils';
-import {FETCH_GIGS_SUCCESS, FETCH_GIGS_FAILED, FETCH_GIGS_ADDITIONAL_DETAIL_REQUEST, FETCH_GIGS_ADDITIONAL_DETAIL_SUCCESS, POST_CREATE_GIG_SUCCESS} from './../actions/gigs';
+import {FETCH_GIGS_SUCCESS, FETCH_GIGS_FAILED, FETCH_GIGS_ADDITIONAL_DETAIL_REQUEST, FETCH_GIGS_ADDITIONAL_DETAIL_SUCCESS, CREATE_GIG_SUCCESS, DELETE_GIG_SUCCESS} from './../actions/gigs';
 
 const initialState = {
 	collection: [],
@@ -40,7 +40,7 @@ export default function(state = initialState, action) {
 				gigsStatus: "",
 				loadingAdditionalContent: false
 			};
-		case POST_CREATE_GIG_SUCCESS:
+		case CREATE_GIG_SUCCESS:
 			gigs = splitGigs(action.gigs);
 
 			return {
@@ -49,6 +49,15 @@ export default function(state = initialState, action) {
 				oldGigs: gigs.oldGigs,
 				newGigs: gigs.newGigs,
 				gigsStatus: ""
+			};
+		case DELETE_GIG_SUCCESS:
+			gigs = splitGigs(action.gigs);
+
+			return {
+				...state,
+				collection: action.gigs,
+				oldGigs: gigs.oldGigs,
+				newGigs: gigs.newGigs,
 			};
 		default:
 			return state;

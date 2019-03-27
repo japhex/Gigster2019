@@ -16,6 +16,10 @@ class GigsAPI {
 	static update(gig) {
 		return axios.put(`/api/gigs/update/${gig.id}`, gig).then(res => res.data);
 	}
+
+	static delete(gigId) {
+		return axios.delete(`/api/gigs/delete/${gigId}`).then(res => res.data);
+	}
 }
 
 export default GigsAPI;

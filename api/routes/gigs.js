@@ -24,4 +24,9 @@ router.put('/update/:id', jwtMW, async (req, res) => {
 	res.json(gigs);
 });
 
+router.delete('/delete/:id', jwtMW, async (req, res) => {
+	const gigs = await gigsService.deleteGig(req, res);
+	res.json(gigs);
+});
+
 module.exports = router;

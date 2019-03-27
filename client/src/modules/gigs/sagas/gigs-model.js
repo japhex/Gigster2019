@@ -1,31 +1,55 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import GigsAPI from '../../../api/gigs';
-import {POST_CREATE_GIG_REQUEST, POST_CREATE_GIG_SUCCESS, POST_CREATE_GIG_FAILED, POST_UPDATE_GIG_REQUEST, POST_UPDATE_GIG_SUCCESS, POST_UPDATE_GIG_FAILED} from '../actions/gigs'
+import {
+	CREATE_GIG_REQUEST,
+	CREATE_GIG_SUCCESS,
+	CREATE_GIG_FAILED,
+	UPDATE_GIG_REQUEST,
+	UPDATE_GIG_SUCCESS,
+	UPDATE_GIG_FAILED,
+	DELETE_GIG_SUCCESS,
+	DELETE_GIG_FAILED,
+	DELETE_GIG_REQUEST
+} from '../actions/gigs'
 
-// Post create gig
+// Create gig
 export function* createGig(action) {
 	try {
 		const gigs = yield GigsAPI.create(action.gig);
-		yield put({type: POST_CREATE_GIG_SUCCESS, gigs});
+		yield put({type: CREATE_GIG_SUCCESS, gigs});
 	} catch(err) {
-		yield put({type: POST_CREATE_GIG_FAILED, payload: err});
+		yield put({type: CREATE_GIG_FAILED, payload: err});
 	}
 }
 
 export function* watchCreateGig() {
-	yield takeEvery(POST_CREATE_GIG_REQUEST, createGig);
+	yield takeEvery(CREATE_GIG_REQUEST, createGig);
 }
 
-// Put update gig
+// Update gig
 export function* updateGig(action) {
 	try {
 		const gigs = yield GigsAPI.update(action.gig);
-		yield put({type: POST_UPDATE_GIG_SUCCESS, gigs});
+		yield put({type: UPDATE_GIG_SUCCESS, gigs});
 	} catch(err) {
-		yield put({type: POST_UPDATE_GIG_FAILED, payload: err});
+		yield put({type: UPDATE_GIG_FAILED, payload: err});
 	}
 }
 
 export function* watchUpdateGig() {
-	yield takeEvery(POST_UPDATE_GIG_REQUEST, updateGig);
+	yield takeEvery(UPDATE_GIG_REQUEST, updateGig);
+}
+
+// Delete gig
+export function* deleteGig(action) {
+	try {
+		const gigs = yield GigsAPI.delete(action.gigId);
+		yield put({type: DELETE_GIG_SUCCESS, gigs});
+	} catch(err) {
+		yield put({type: DELETE_GIG_FAILED, payload: err});
+	}
+}
+
+export function* watchDeleteGig() {
+	yield takeEvery(DELETE_GIG_REQUEST, deleteGig);
 }
