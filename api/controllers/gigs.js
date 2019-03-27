@@ -69,7 +69,7 @@ module.exports = {
 
 			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
 
-			return user.Gigs;
+			return this.getAdditionalGigDetail(req, res);
 		} catch(err){
 			res.status(500);
 			return {error:err};
