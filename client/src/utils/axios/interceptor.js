@@ -4,8 +4,6 @@ import { getStore } from '../redux/store';
 
 /**
  * Ensure every request contains the authentication details.
- *
- * For finer grained control you can create instances of axios
  */
 axios.interceptors.request.use((config) => {
 	const state = getStore().getState();
