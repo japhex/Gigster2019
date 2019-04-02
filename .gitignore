@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/**/*/node_modules
 
 # testing
 /coverage
@@ -20,5 +21,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .idea
+.idea/
+.idea/*
+.idea/dictionaries/J.xml
 .idea/workspace.xml
-../.idea/workspace.xml
