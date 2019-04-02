@@ -1,4 +1,8 @@
 .user {
+	&-sidebar {
+		flex:1;
+	}
+
 	&-username {
 		display: flex;
 		align-items: center;
@@ -8,6 +12,7 @@
 	&-gigs {
 		display: flex;
 		flex-wrap: wrap;
+		flex:5;
 
 		li {
 			flex: 1 0 23%;

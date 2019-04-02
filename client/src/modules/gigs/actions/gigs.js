@@ -30,14 +30,14 @@ export function fetchGigsAdditionalDetail() {
 	};
 }
 
-export function postCreateGig(gig) {
+export function createGig(gig) {
 	return {
 		type: CREATE_GIG_REQUEST,
 		gig: gig
 	}
 }
 
-export function postUpdateGig(gig) {
+export function updateGig(gig) {
 	return {
 		type: UPDATE_GIG_REQUEST,
 		gig: gig

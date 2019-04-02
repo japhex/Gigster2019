@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
-import {postCreateGig, postUpdateGig} from './../../actions/gigs';
+import {createGig, updateGig} from './../../actions/gigs';
 import './CreateUpdateGig.scss';
 import {connect} from "react-redux"
 
-const CreateUpdateGig = ({gigId, gigs, postCreateGig, postUpdateGig}) => {
+const CreateUpdateGig = ({gigId, gigs, createGig, updateGig}) => {
 	const [gig, setGig] = useState([]);
 
 	useEffect(() => {
@@ -15,7 +15,7 @@ const CreateUpdateGig = ({gigId, gigs, postCreateGig, postUpdateGig}) => {
 	}, [gigId]);
 
 	return (
-		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {gig.length === 0 ? postCreateGig(values) : postUpdateGig(values)}}
+		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {gig.length === 0 ? createGig(values) : updateGig(values)}}
 			render={({ errors, status, touched, isSubmitting }) => (
 				<Form>
 					<Field type="text" name="band" />
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { postCreateGig, postUpdateGig })(CreateUpdateGig);
+export default connect(mapStateToProps, { createGig, updateGig })(CreateUpdateGig);

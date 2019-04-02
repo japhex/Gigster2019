@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import { Link } from 'react-router-dom';
 import {connect} from "react-redux"
 import { login } from '../actions';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
@@ -31,7 +32,11 @@ const Login = ({ login }) => {
                     <input placeholder="Password" name="password" type="password" onChange={handleChange}/>
                 </div>
                 <button variant="contained" color="primary" onClick={handleFormSubmit}>Login</button>
-                <small>Don't have an account? <span className="link-signup">Signup</span></small>
+	            <div className="">
+                    <small>Don't have an account?
+	                    <Link to="/signup">Signup</Link>
+                    </small>
+	            </div>
             </form>
         </UnauthenticatedLayout>
     );

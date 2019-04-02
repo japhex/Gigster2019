@@ -6,7 +6,7 @@ function UsersList({users}) {
 		<>
 			{users.map(user => {
 				const {username} = user;
-				return <Link to={`/users/${username}`} key={username}>{username}</Link>
+				return <div><Link to={`/users/${username}`} key={username}>{username}</Link></div>
 			})}
 		</>
 	);

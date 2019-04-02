@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from './../Header/Header';
-import { connect } from 'react-redux';
+import './UsersLayout.scss';
 
 const UsersLayout = ({children}) => {
 	return (
 		<div>
 			<Header />
-			{children}
+			<div className="layout-users">
+				{children}
+			</div>
 		</div>
 	);
 }
 
-export default connect()(UsersLayout);
+export default UsersLayout;

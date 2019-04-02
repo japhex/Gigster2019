@@ -6,8 +6,10 @@ import './UserBlock.scss';
 function UserBlock({user}) {
 	return (
 		<>
-			<h1 className="user-username">{user.username}</h1>
-			<StatsHeader user={user} />
+			<div className="user-sidebar">
+				<h1 className="user-username">{user.username}</h1>
+				<StatsHeader user={user} />
+			</div>
 			<GigList gigs={user.Gigs} />
 		</>
 	);

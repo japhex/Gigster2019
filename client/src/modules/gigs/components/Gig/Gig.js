@@ -15,9 +15,6 @@ function Gig({gig, type, withoutCrud, loadingAdditionalContent}) {
 				:
 					<>
 						<GigTags gig={gig} />
-						{type === 'new' && gig.artistInfo !== undefined &&
-							<img src={gig.artistInfo.artist.image[5]['#text']}/>
-						}
 					</>
 			}
 			{/* Only let user edit their gigs */}
