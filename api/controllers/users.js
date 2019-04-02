@@ -26,7 +26,7 @@ module.exports = {
 		}
 	},
 	sanitizeUsers(users) {
-		users = users.map(({username, createdAt, Gigs}) => ({...{}, username, createdAt, Gigs}))
+		users = users.map(({id, username, createdAt, Gigs}) => ({...{}, id, username, createdAt, Gigs}))
 
 		return users;
 	}
