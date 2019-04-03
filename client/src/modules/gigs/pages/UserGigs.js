@@ -1,15 +1,10 @@
-import React, {Suspense, lazy, useEffect} from 'react'
+import React, {Suspense, lazy} from 'react'
 import './UserGigs.scss';
 import Loader from 'components/utils/Loader';
 import withGigs from 'modules/middleware/withGigs';
 const GigList = lazy(() => import('./../components/GigList/GigList'));
 
 const UserGigs = ({newGigs, oldGigs, gigsStatus, fetchGigs, fetchGigsAdditionalDetail, loadingAdditionalContent}) => {
-	useEffect(() => {
-		fetchGigs();
-		fetchGigsAdditionalDetail();
-	}, []);
-
 	return (
 		<Suspense fallback={<Loader />}>
 			<div className="gig-list__container">

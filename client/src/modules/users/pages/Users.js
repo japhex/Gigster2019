@@ -1,14 +1,9 @@
-import React, {useEffect, Suspense, lazy} from 'react'
-import {fetchUsers} from "../actions/users"
-import {connect} from "react-redux"
+import React, {Suspense, lazy} from 'react'
 import Loader from 'components/utils/Loader';
+import withUsers from 'modules/middleware/withUsers';
 const UsersList = lazy(() => import('./../components/UsersList'));
 
-const Users = ({users, fetchUsers}) => {
-	useEffect(() => {
-		fetchUsers();
-	}, []);
-
+const Users = ({users}) => {
 	return (
 		<>
 			<Suspense fallback={<Loader />}>
@@ -18,10 +13,4 @@ const Users = ({users, fetchUsers}) => {
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		users: state.users.collection
-	};
-};
-
-export default connect(mapStateToProps, { fetchUsers })(Users);
+export default withUsers(Users);
