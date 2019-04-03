@@ -1,10 +1,8 @@
 import React from 'react'
 import CreateUpdateGig from '../model/CreateUpdateGig/CreateUpdateGig';
 
-function Gigs() {
-	return (
-		<CreateUpdateGig />
-	);
-}
+const CreateGig = () => (
+	<CreateUpdateGig />
+);
 
-export default Gigs;
+export default CreateGig;

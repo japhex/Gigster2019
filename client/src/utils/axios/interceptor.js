@@ -3,14 +3,12 @@ import history from './../../utils/routing';
 import { getStore } from '../redux/store';
 
 /**
- * Ensure every request contains the authentication details.
+ * Ensure every request contains a valid token
  */
 axios.interceptors.request.use((config) => {
 	const state = getStore().getState();
 	const token = state.login.user.token;
 
-	// TODO if token is null or undefined then we should cancel reqeust and show them the login here!
-	// Unless its to the login api
 	if(config.url !== '/login' && !token) {
 		history.push('/login');
 		return {
@@ -22,13 +20,6 @@ axios.interceptors.request.use((config) => {
 	config.headers.Authorization = `bearer ${token}`;
 	config.headers.FromReact = true;
 	config.withCredentials = true;
-
-	if(config.url !== '/login') {
-		// Must have a token and user otherwise direct to login and keep them out of the app pages
-
-	} else if(config.url !== '/login') {
-		// Must have a context otherwise direct to context selection page
-	}
 
 	return config;
 }, (err) => {

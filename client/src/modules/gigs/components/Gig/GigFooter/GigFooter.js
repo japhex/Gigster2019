@@ -3,7 +3,7 @@ import {deleteGig} from './../../../actions/gigs';
 import {Link} from 'react-router-dom'
 import {connect} from "react-redux"
 
-function GigFooter({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) {
+const GigFooter = ({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => {
 	const handleDeleteClick = async () => {
 		await deleteGig(gigId);
 	}

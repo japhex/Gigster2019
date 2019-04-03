@@ -4,7 +4,7 @@ import {fetchUserByUsername} from "../actions/users"
 import UserBlock from '../components/User/UserBlock';
 import Loader from 'components/utils/Loader';
 
-function User(props) {
+const User = (props) => {
 	const {user, isLoading} = props;
 	const paramUsername = props.match.params.username;
 	const {fetchUserByUsername} = props;

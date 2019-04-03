@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import Loader from 'components/utils/Loader';
 const UsersList = lazy(() => import('./../components/UsersList'));
 
-function Users({users, fetchUsers}) {
+const Users = ({users, fetchUsers}) => {
 	useEffect(() => {
 		fetchUsers();
 	}, []);
