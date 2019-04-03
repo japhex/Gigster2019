@@ -1,7 +1,6 @@
 import React from 'react'
-import {deleteGig} from './../../../actions/gigs';
 import {Link} from 'react-router-dom'
-import {connect} from "react-redux"
+import withGigs from 'modules/middleware/withGigs';
 
 const GigFooter = ({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => {
 	const handleDeleteClick = async () => {
@@ -16,4 +15,4 @@ const GigFooter = ({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => 
 	);
 }
 
-export default connect(null, { deleteGig })(GigFooter);
+export default withGigs(GigFooter);

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {fetchGigs, fetchGigsAdditionalDetail} from "modules/gigs/actions/gigs"
+import {fetchGigs, fetchGigsAdditionalDetail, createGig, updateGig, deleteGig} from "modules/gigs/actions/gigs"
 import {compose} from 'redux';
 import {connect} from "react-redux";
 
@@ -16,6 +16,7 @@ const withGigs = WrappedComponent => (props) => {
 
 const mapStateToProps = (state) => {
 	return {
+		gigs: state.gigs.collection,
 		oldGigs: state.gigs.oldGigs,
 		newGigs: state.gigs.newGigs,
 		gigsStatus: state.gigs.gigsStatus,
@@ -24,7 +25,7 @@ const mapStateToProps = (state) => {
 };
 
 const composedWithGigs = compose(
-	connect(mapStateToProps, { fetchGigs, fetchGigsAdditionalDetail }),
+	connect(mapStateToProps, { fetchGigs, fetchGigsAdditionalDetail, createGig, updateGig, deleteGig }),
 	withGigs
 )
 

@@ -41,10 +41,10 @@ module.exports = {
 		try {
 			const gig = await models.gig.create(req.body);
 			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-
 			await user.addGig(gig.id)
+			const newUser = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
 
-			return user.Gigs;
+			return newUser.Gigs;
 		} catch(err){
 			res.status(500);
 			return {error:err};

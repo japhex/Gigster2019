@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
-import {createGig, updateGig} from './../../actions/gigs';
 import './CreateUpdateGig.scss';
-import {connect} from "react-redux"
+import withGigs from 'modules/middleware/withGigs';
 
 const CreateUpdateGig = ({gigId, gigs, createGig, updateGig}) => {
 	const [gig, setGig] = useState([]);
@@ -33,10 +32,4 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig}) => {
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		gigs: state.gigs.collection
-	};
-};
-
-export default connect(mapStateToProps, { createGig, updateGig })(CreateUpdateGig);
+export default withGigs(CreateUpdateGig);
