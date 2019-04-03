@@ -40,11 +40,12 @@ module.exports = {
 	async createGig(req, res) {
 		try {
 			const gig = await models.gig.create(req.body);
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+			let user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
 			await user.addGig(gig.id)
-			const newUser = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
 
-			return newUser.Gigs;
+			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+
+			return user.Gigs;
 		} catch(err){
 			res.status(500);
 			return {error:err};
@@ -64,9 +65,7 @@ module.exports = {
 	async deleteGig(req, res) {
 		try {
 			let user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-
 			await user.removeGig(req.params.id);
-
 			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
 
 			return this.getAdditionalGigDetail(req, res);

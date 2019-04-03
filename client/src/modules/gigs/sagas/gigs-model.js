@@ -16,7 +16,6 @@ import {
 export function* createGig(action) {
 	try {
 		const gigs = yield GigsAPI.create(action.gig);
-		console.log(gigs);
 		yield put({type: CREATE_GIG_SUCCESS, gigs});
 	} catch(err) {
 		yield put({type: CREATE_GIG_FAILED, payload: err});
