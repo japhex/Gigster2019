@@ -1,8 +1,7 @@
 import React, {Suspense, lazy, useEffect} from 'react'
 import './UserGigs.scss';
-import {fetchGigs, fetchGigsAdditionalDetail} from "../actions/gigs"
-import {connect} from "react-redux"
 import Loader from 'components/utils/Loader';
+import withGigs from 'modules/middleware/withGigs';
 const GigList = lazy(() => import('./../components/GigList/GigList'));
 
 const UserGigs = ({newGigs, oldGigs, gigsStatus, fetchGigs, fetchGigsAdditionalDetail, loadingAdditionalContent}) => {
@@ -21,13 +20,4 @@ const UserGigs = ({newGigs, oldGigs, gigsStatus, fetchGigs, fetchGigsAdditionalD
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		oldGigs: state.gigs.oldGigs,
-		newGigs: state.gigs.newGigs,
-		gigsStatus: state.gigs.gigsStatus,
-		loadingAdditionalContent: state.gigs.loadingAdditionalContent
-	};
-};
-
-export default connect(mapStateToProps, { fetchGigs, fetchGigsAdditionalDetail })(UserGigs);
+export default withGigs(UserGigs);
