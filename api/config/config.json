@@ -8,10 +8,11 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "japhex",
+    "password": "hioEc8rEiZ3irN6",
+    "database": "gigster",
+    "host": "gigster.cstjkya67e0j.eu-west-2.rds.amazonaws.com",
+	"port":"3306",
     "dialect": "mysql"
   },
   "production": {

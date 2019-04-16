@@ -34,7 +34,7 @@ const Header = ({logout, user}) => {
 				<div className="header__user">
 					Welcome, <span>{user.username}</span>
 				</div>
-				<a onClick={handleLogout}>(logout)</a>
+				<span onClick={handleLogout}>(logout)</span>
 			</div>
 		</header>
 	);
