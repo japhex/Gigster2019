@@ -2,7 +2,7 @@ import React from 'react'
 import Gig from '../Gig/Gig';
 import './GigList.scss';
 
-const GigList = ({gigsStatus, type, title, gigs, loadingAdditionalContent}) => (
+const GigList = ({gigsStatus, type, title, gigs, loadingAdditionalContent, gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => (
 	<div className={`gig__list gig__list--${type}`}>
 		{gigsStatus === ""
 			?
@@ -10,7 +10,7 @@ const GigList = ({gigsStatus, type, title, gigs, loadingAdditionalContent}) => (
 					<h1>{title}</h1>
 					<ul>
 						{gigs.map(gig =>
-							<Gig key={gig.id} gig={gig} type={type} loadingAdditionalContent={loadingAdditionalContent} />
+							<Gig key={gig.id} gig={gig} type={type} loadingAdditionalContent={loadingAdditionalContent} gigId={gigId} fetchGigs={fetchGigs} fetchGigsAdditionalDetail={fetchGigsAdditionalDetail} deleteGig={deleteGig} />
 						)}
 					</ul>
 				</>

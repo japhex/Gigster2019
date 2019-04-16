@@ -3,7 +3,7 @@ import SearchAPI from '../../../api/search';
 import { FETCH_ARTIST_SEARCH_REQUEST, FETCH_ARTIST_SEARCH_SUCCESS, FETCH_ARTIST_SEARCH_FAILED, FETCH_VENUE_SEARCH_REQUEST, FETCH_VENUE_SEARCH_SUCCESS, FETCH_VENUE_SEARCH_FAILED } from '../actions/search';
 
 // Fetch artist search results from Songkick API
-export function* fetchArtistSearchTest(action) {
+export function* fetchArtistSearch(action) {
 	try {
 		const artists = yield SearchAPI.getArtistSearch(action.artist);
 		yield put({type: FETCH_ARTIST_SEARCH_SUCCESS, artists});
@@ -13,7 +13,7 @@ export function* fetchArtistSearchTest(action) {
 }
 
 export function* watchFetchArtistSearch() {
-	yield takeEvery(FETCH_ARTIST_SEARCH_REQUEST, fetchArtistSearchTest);
+	yield takeEvery(FETCH_ARTIST_SEARCH_REQUEST, fetchArtistSearch);
 }
 
 // Fetch venue search results from Songkick API

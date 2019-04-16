@@ -6,11 +6,9 @@ import {connect} from "react-redux";
 
 const withGigs = WrappedComponent => (props) => {
 	useEffect(() => {
-		console.log('test')
-		fetchGigs();
-		fetchGigsAdditionalDetail();
-		console.log('test2')
-	});
+		props.fetchGigs();
+		props.fetchGigsAdditionalDetail();
+	}, []);
 
 	return (
 		<WrappedComponent {...props} />

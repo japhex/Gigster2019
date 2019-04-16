@@ -5,7 +5,7 @@ import {fetchUsers} from "../users/actions/users"
 
 const withUsers = WrappedComponent => (props) => {
 	useEffect(() => {
-		fetchUsers();
+		props.fetchUsers();
 	}, []);
 
 	return (

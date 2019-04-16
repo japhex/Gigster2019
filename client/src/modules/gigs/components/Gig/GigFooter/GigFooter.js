@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import withGigs from 'modules/middleware/withGigs';
 
 const GigFooter = ({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => {
 	const handleDeleteClick = async () => {
@@ -15,4 +14,4 @@ const GigFooter = ({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => 
 	);
 }
 
-export default withGigs(GigFooter);
+export default GigFooter;
