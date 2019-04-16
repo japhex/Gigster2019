@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import {fetchGigs, fetchGigsAdditionalDetail, createGig, updateGig, deleteGig} from "modules/gigs/actions/gigs"
+import {fetchArtistSearch, fetchVenueSearch} from "modules/gigs/actions/search"
 import {compose} from 'redux';
 import {connect} from "react-redux";
 
@@ -25,7 +26,7 @@ const mapStateToProps = (state) => {
 };
 
 const composedWithGigs = compose(
-	connect(mapStateToProps, { fetchGigs, fetchGigsAdditionalDetail, createGig, updateGig, deleteGig }),
+	connect(mapStateToProps, { fetchGigs, fetchGigsAdditionalDetail, createGig, updateGig, deleteGig, fetchArtistSearch, fetchVenueSearch }),
 	withGigs
 )
 

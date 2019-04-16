@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const APIAuth = require('./routes/users');
 const APIGigs = require('./routes/gigs');
+const APISearch = require('./routes/third-parties/songkick');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const models = require("./models");
@@ -19,6 +20,7 @@ app.use(cookieParser());
 
 app.use('/api/', APIAuth);
 app.use('/api/gigs', APIGigs);
+app.use('/api/search', APISearch);
 
 models.sequelize.sync().then(() => {
     app.listen(PORT, function () {});
