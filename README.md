@@ -40,3 +40,10 @@ That should be it, just run
 ```
 npm start
 ```
+
+## Running the app with a remote DB rather than local MySQL
+Start the api server in the **api** directory by using:
+
+```
+npm run start-test
+```
