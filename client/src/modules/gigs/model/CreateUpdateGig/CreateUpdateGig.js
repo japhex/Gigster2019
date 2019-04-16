@@ -4,7 +4,7 @@ import _ from 'lodash';
 import './CreateUpdateGig.scss';
 import withGigs from 'modules/middleware/withGigs';
 
-const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, fetchVenueSearch}) => {
+const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, fetchVenueSearch, searchArtists, searchVenues}) => {
 	const [gig, setGig] = useState([]);
 
 	useEffect(() => {
@@ -24,14 +24,14 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 		keyUpSearch(key, keyCodePressed, searchTerm, searchType, regex);
 	}
 
-	const keyUpSearch = _.debounce((key, keyCodePressed, searchTerm, searchType, regex) => {
+	const keyUpSearch = _.debounce(async (key, keyCodePressed, searchTerm, searchType, regex) => {
 		if (searchTerm === '') {
 			// close
 		} else if (regex.test(key) || keyCodePressed === 8) {
 			if (searchType === 'artist') {
-				console.log(fetchArtistSearch(searchTerm));
+				await fetchArtistSearch(searchTerm);
 			} else {
-				console.log(fetchVenueSearch(searchTerm));
+				await fetchVenueSearch(searchTerm);
 			}
 		}
 	}, 1000);
@@ -47,8 +47,10 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 					<Field type="text" name="venue" onKeyUp={handleKeyUp} />
 					{errors.venue && touched.venue && <div>{errors.venue}</div>}
 					<button type="submit" disabled={isSubmitting}>
-						Submit
+						{gig.length === 0 ? 'Create' : 'Update'}
 					</button>
+					{searchArtists.resultsPage !== undefined && searchArtists.resultsPage.results.artist[0].displayName}
+					{searchVenues.resultsPage !== undefined && searchVenues.resultsPage.results.venue[0].displayName}
 				</Form>
 			)}
 		/>

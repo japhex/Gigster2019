@@ -4,7 +4,7 @@ const config = require('../../config/songkick.json');
 module.exports = {
 	async searchArtist(req, res) {
 		try {
-			return await rp.get(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${config.apiKey}&query=${req.body.artist}`);
+			return await rp.get(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${config.apiKey}&query=${req.body.artist}&page=1`);
 		} catch(err){
 			res.status(500);
 			return {error:err};
@@ -12,7 +12,7 @@ module.exports = {
 	},
 	async searchVenue(req, res) {
 		try {
-			return await rp.get(`https://api.songkick.com/api/3.0/search/venues.json?apikey=${config.apiKey}&query=${req.body.venue}`);
+			return await rp.get(`https://api.songkick.com/api/3.0/search/venues.json?apikey=${config.apiKey}&query=${req.body.venue}&page=1`);
 		} catch(err){
 			res.status(500);
 			return {error:err};

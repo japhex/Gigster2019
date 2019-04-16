@@ -6,9 +6,11 @@ import {connect} from "react-redux";
 
 const withGigs = WrappedComponent => (props) => {
 	useEffect(() => {
+		console.log('test')
 		fetchGigs();
 		fetchGigsAdditionalDetail();
-	}, []);
+		console.log('test2')
+	});
 
 	return (
 		<WrappedComponent {...props} />
@@ -21,7 +23,9 @@ const mapStateToProps = (state) => {
 		oldGigs: state.gigs.oldGigs,
 		newGigs: state.gigs.newGigs,
 		gigsStatus: state.gigs.gigsStatus,
-		loadingAdditionalContent: state.gigs.loadingAdditionalContent
+		loadingAdditionalContent: state.gigs.loadingAdditionalContent,
+		searchArtists: state.search.artists,
+		searchVenues: state.search.venues,
 	};
 };
 
