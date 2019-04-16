@@ -5,7 +5,7 @@ import GigFooter from "./GigFooter/GigFooter"
 import GigTags from "./GigTags/GigTags"
 import Loader from 'components/utils/Loader';
 
-const Gig = ({gig, type, withoutCrud, loadingAdditionalContent, gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => (
+const Gig = ({gig, type, withoutCrud, loadingAdditionalContent, deleteGig}) => (
 	<li className="gig__card" data-test="component-gig">
 		<GigHeader gig={gig} type={type} />
 		{/* X other people on Gigster are attending this show! */}
@@ -18,7 +18,7 @@ const Gig = ({gig, type, withoutCrud, loadingAdditionalContent, gigId, fetchGigs
 		}
 		{/* Only let user edit their gigs */}
 		{!withoutCrud &&
-			<GigFooter gigId={gigId} fetchGigs={fetchGigs} fetchGigsAdditionalDetail={fetchGigsAdditionalDetail} deleteGig={deleteGig} />
+			<GigFooter gigId={gig.id} deleteGig={deleteGig} />
 		}
 	</li>
 );

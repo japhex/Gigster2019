@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const GigFooter = ({gigId, fetchGigs, fetchGigsAdditionalDetail, deleteGig}) => {
+const GigFooter = ({gigId, deleteGig}) => {
 	const handleDeleteClick = async () => {
 		await deleteGig(gigId);
 	}
