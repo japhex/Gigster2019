@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
+import _ from 'lodash';
 import './CreateUpdateGig.scss';
 import withGigs from 'modules/middleware/withGigs';
 
@@ -13,29 +14,37 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 		}
 	}, [gigId]);
 
-	const artistOnKeyUp = (event) => {
-		const artistSearch = event.target.value;
-		const artistResult = fetchArtistSearch(artistSearch);
+	const handleKeyUp = (event) => {
+		const key = event.key;
+		const keyCodePressed = event.keyCode;
+		const searchTerm = event.target.value;
+		const searchType = event.target.name;
+		const regex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/;
 
-		console.log(artistResult);
+		keyUpSearch(key, keyCodePressed, searchTerm, searchType, regex);
 	}
 
-	const venueOnKeyUp = (event) => {
-		const venueSearch = event.target.value;
-		const venueResult = fetchVenueSearch(venueSearch);
-
-		console.log(venueResult);
-	}
+	const keyUpSearch = _.debounce((key, keyCodePressed, searchTerm, searchType, regex) => {
+		if (searchTerm === '') {
+			// close
+		} else if (regex.test(key) || keyCodePressed === 8) {
+			if (searchType === 'artist') {
+				console.log(fetchArtistSearch(searchTerm));
+			} else {
+				console.log(fetchVenueSearch(searchTerm));
+			}
+		}
+	}, 1000);
 
 	return (
 		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {gig.length === 0 ? createGig(values) : updateGig(values)}}
 			render={({ errors, status, touched, isSubmitting }) => (
 				<Form>
-					<Field type="text" name="band" onKeyUp={artistOnKeyUp} />
-					{errors.band && touched.band && <div>{errors.band}</div>}
+					<Field type="text" name="artist" onKeyUp={handleKeyUp} />
+					{errors.artist && touched.artist && <div>{errors.artist}</div>}
 					<Field type="date" name="date" />
 					{errors.date && touched.date && <div>{errors.date}</div>}
-					<Field type="text" name="venue" onKeyUp={venueOnKeyUp} />
+					<Field type="text" name="venue" onKeyUp={handleKeyUp} />
 					{errors.venue && touched.venue && <div>{errors.venue}</div>}
 					<button type="submit" disabled={isSubmitting}>
 						Submit

@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             field: 'id'
         },
-        band: DataTypes.STRING
+	    artist: DataTypes.STRING
     }, {
         freezeTableName: true
     });

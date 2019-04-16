@@ -6,7 +6,7 @@ const GigHeader = ({gig, type}) => {
 
 	return (
 		<h1>
-			{gig.band} {onTour}
+			{gig.artist} {onTour}
 			<small>{moment(gig.date).format("MMM Do YYYY")}</small>
 			<p>[ {gig.venue} ]</p>
 		</h1>

@@ -20,7 +20,7 @@ module.exports = {
 				const gig = user.Gigs[i];
 				const obj = gig.toJSON();
 
-				obj.artistInfo = await rp.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${gig.band}&api_key=61726d01845437a55a440275a1b4e5b9&format=json`);
+				obj.artistInfo = await rp.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${gig.artist}&api_key=61726d01845437a55a440275a1b4e5b9&format=json`);
 
 				if (obj.artistInfo !== '') {
 					obj.artistInfo = JSON.parse(obj.artistInfo);

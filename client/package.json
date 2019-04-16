@@ -26,7 +26,8 @@
     "redux-flash": "2.0.1",
     "redux-form": "8.1.0",
     "redux-logger": "3.0.6",
-    "redux-saga": "1.0.1"
+    "redux-saga": "1.0.1",
+    "underscore": "1.9.1"
   },
   "scripts": {
     "start": "react-scripts start",
