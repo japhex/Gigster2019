@@ -3,7 +3,7 @@ import { watchLogin } from './modules/auth/sagas';
 import { watchFetchGigs, watchFetchGigsAdditionalDetail } from "./modules/gigs/sagas/gigs";
 import { watchCreateGig, watchUpdateGig, watchDeleteGig } from "./modules/gigs/sagas/gigs-model";
 import { watchFetchUsers, watchFetchUserByUsername } from "./modules/users/sagas/users";
-import { watchFetchArtistSearch, watchFetchVenueSearch} from "./modules/gigs/sagas/search";
+import { watchFetchArtistSearch, watchFetchVenueSearch, watchFetchEventSearch} from "./modules/gigs/sagas/search";
 
 export default function* rootSaga() {
 	yield all([
@@ -16,6 +16,7 @@ export default function* rootSaga() {
 		watchUpdateGig(),
 		watchDeleteGig(),
 		watchFetchArtistSearch(),
-		watchFetchVenueSearch()
+		watchFetchVenueSearch(),
+		watchFetchEventSearch()
 	]);
 }

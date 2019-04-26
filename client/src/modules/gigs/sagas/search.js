@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import SearchAPI from '../../../api/search';
-import { FETCH_ARTIST_SEARCH_REQUEST, FETCH_ARTIST_SEARCH_SUCCESS, FETCH_ARTIST_SEARCH_FAILED, FETCH_VENUE_SEARCH_REQUEST, FETCH_VENUE_SEARCH_SUCCESS, FETCH_VENUE_SEARCH_FAILED } from '../actions/search';
+import {FETCH_ARTIST_SEARCH_REQUEST, FETCH_ARTIST_SEARCH_SUCCESS, FETCH_ARTIST_SEARCH_FAILED, FETCH_VENUE_SEARCH_REQUEST, FETCH_VENUE_SEARCH_SUCCESS, FETCH_VENUE_SEARCH_FAILED, FETCH_EVENT_SEARCH_SUCCESS, FETCH_EVENT_SEARCH_FAILED, FETCH_EVENT_SEARCH_REQUEST} from '../actions/search'
 
 // Fetch artist search results from Songkick API
 export function* fetchArtistSearch(action) {
@@ -28,4 +28,18 @@ export function* fetchVenueSearch(action) {
 
 export function* watchFetchVenueSearch() {
 	yield takeEvery(FETCH_VENUE_SEARCH_REQUEST, fetchVenueSearch);
+}
+
+// Fetch event search results from Songkick API
+export function* fetchEventSearch(action) {
+	try {
+		const events = yield SearchAPI.getEventSearch(action.event);
+		yield put({type: FETCH_EVENT_SEARCH_SUCCESS, events});
+	} catch(err) {
+		yield put({type: FETCH_EVENT_SEARCH_FAILED, payload: err});
+	}
+}
+
+export function* watchFetchEventSearch() {
+	yield takeEvery(FETCH_EVENT_SEARCH_REQUEST, fetchEventSearch);
 }

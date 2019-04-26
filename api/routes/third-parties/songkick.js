@@ -14,4 +14,9 @@ router.post('/venue', jwtMW, async (req, res) => {
 	res.json(venue);
 });
 
+router.post('/event', jwtMW, async (req, res) => {
+	const event = await songkickService.searchEvent(req, res);
+	res.json(event);
+});
+
 module.exports = router;

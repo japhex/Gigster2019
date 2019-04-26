@@ -8,7 +8,11 @@ import Loader from 'components/utils/Loader';
 const Gig = ({gig, type, withoutCrud, loadingAdditionalContent, deleteGig}) => (
 	<li className="gig__card" data-test="component-gig">
 		<GigHeader gig={gig} type={type} />
-		{/* X other people on Gigster are attending this show! */}
+		{/*
+			X other people on Gigster are attending this show!
+			Can add this once we linked to actual songkick gig ID's rather than storing gigs internally..!!!
+			Exciting.
+		*/}
 		{loadingAdditionalContent ?
 				<Loader />
 			:

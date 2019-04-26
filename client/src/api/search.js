@@ -8,6 +8,10 @@ class SearchAPI {
 	static getVenueSearch(venue) {
 		return axios.post(`/api/search/venue`, {venue:venue}).then(res => res.data);
 	}
+
+	static getEventSearch(event) {
+		return axios.post(`/api/search/event`, {event:event}).then(res => res.data);
+	}
 }
 
 export default SearchAPI;

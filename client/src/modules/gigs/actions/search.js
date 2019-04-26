@@ -6,6 +6,10 @@ export const FETCH_VENUE_SEARCH_REQUEST = 'FETCH_VENUE_SEARCH_REQUEST';
 export const FETCH_VENUE_SEARCH_SUCCESS = 'FETCH_VENUE_SEARCH_SUCCESS';
 export const FETCH_VENUE_SEARCH_FAILED = 'FETCH_VENUE_SEARCH_FAILED';
 
+export const FETCH_EVENT_SEARCH_REQUEST = 'FETCH_EVENT_SEARCH_REQUEST';
+export const FETCH_EVENT_SEARCH_SUCCESS = 'FETCH_EVENT_SEARCH_SUCCESS';
+export const FETCH_EVENT_SEARCH_FAILED = 'FETCH_EVENT_SEARCH_FAILED';
+
 export function fetchArtistSearch(artist) {
 	return {
 		type: FETCH_ARTIST_SEARCH_REQUEST,
@@ -17,6 +21,13 @@ export function fetchVenueSearch(venue) {
 	return {
 		type: FETCH_VENUE_SEARCH_REQUEST,
 		venue: venue
+	};
+}
+
+export function fetchEventSearch(event) {
+	return {
+		type: FETCH_EVENT_SEARCH_REQUEST,
+		event: event
 	};
 }
 
