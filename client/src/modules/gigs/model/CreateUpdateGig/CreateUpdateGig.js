@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
 import _ from 'lodash';
+import {FormControl, InputLabel, TextField, Input, Button} from '@material-ui/core';
 import withGigs from 'modules/middleware/withGigs';
 import GigEventSearch from 'modules/gigs/components/GigEventSearch/GigEventSearch';
 import './CreateUpdateGig.scss';
@@ -42,15 +43,27 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 					<GigEventSearch fetchEventSearch={fetchEventSearch} searchEvents={searchEvents} />
 					Add gig manually:
 					<Form>
-						<Field type="text" name="artist" onKeyUp={handleKeyUp} />
+						<Field type="text" render={() => (
+							<FormControl>
+								<InputLabel>Artist</InputLabel>
+								<Input name="artist" onKeyUp={handleKeyUp} />
+							</FormControl>
+						)}/>
 						{errors.artist && touched.artist && <div>{errors.artist}</div>}
-						<Field type="date" name="date" />
+						<Field type="date" render={() => (
+							<TextField label="Date" type="date" name="date" />
+						)} />
 						{errors.date && touched.date && <div>{errors.date}</div>}
-						<Field type="text" name="venue" onKeyUp={handleKeyUp} />
+						<Field type="text" render={() => (
+							<FormControl>
+								<InputLabel>Venue</InputLabel>
+								<Input name="venue" onKeyUp={handleKeyUp} />
+							</FormControl>
+						)} />
 						{errors.venue && touched.venue && <div>{errors.venue}</div>}
-						<button type="submit" disabled={isSubmitting}>
+						<Button variant="contained" color="primary" disabled={isSubmitting}>
 							{gig.length === 0 ? 'Create' : 'Update'}
-						</button>
+						</Button>
 						{searchArtists.resultsPage !== undefined && searchArtists.resultsPage.results.artist[0].displayName}
 						{searchVenues.resultsPage !== undefined && searchVenues.resultsPage.results.venue[0].displayName}
 					</Form>
