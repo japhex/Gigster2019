@@ -19,11 +19,10 @@ module.exports = {
 		}
 	},
 	async searchEvent(req, res) {
-		const artist = req.body.artist;
-		const venue = req.body.venue;
+		const artist = req.body.event.artist;
 
 		try {
-			return await rp.get(`https://api.songkick.com/api/3.0/events.json?apikey=${config.apiKey}${artist !== undefined && `&artist_name=${artist}`}${venue !== undefined && `&location=${venue}`}`)
+			return await rp.get(`https://api.songkick.com/api/3.0/events.json?apikey=${config.apiKey}${artist !== undefined ? `&artist_name=${artist}` : ''}`)
 		} catch(err) {
 			res.status(500);
 			return {error:err};
