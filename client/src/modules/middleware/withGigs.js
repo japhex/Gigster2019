@@ -6,8 +6,8 @@ import {connect} from "react-redux";
 
 const withGigs = WrappedComponent => (props) => {
 	useEffect(() => {
-		props.fetchGigs();
-		props.fetchGigsAdditionalDetail();
+		// props.fetchGigs();
+		// props.fetchGigsAdditionalDetail();
 	}, []);
 
 	return (

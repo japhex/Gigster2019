@@ -1,35 +1,89 @@
+const models = require('./models')
+const bcrypt = require('bcryptjs')
+const jsonwebtoken = require('jsonwebtoken')
+
 export default {
 	User: {
-		gigs: (parent, args, context, info) => parent.getGigs(),
+		gigs: (parent) => parent.getGigs(),
 	},
 	Query: {
-		users: (parent, args, { db }, info) => db.user.findAll(),
-		user: (parent, { id }, { db }, info) => db.user.findById(id),
-		gigs: (parent, args, { db }, info) => db.gig.findAll(),
-		gig: (parent, { id }, { db }, info) => db.gig.findById(id)
+		users: () => models.user.findAll(),
+		user: (parent, { id }) => models.user.findById(id),
+		gigs: async (parent, args, { user }) => {
+			const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});
+			return returnUser.Gigs;
+		},
+		gig: (parent, { id }) => Gig.findById(id)
 	},
 	Mutation: {
-		createGig: (parent, { title, content, authorId }, { db }, info) =>
-			db.post.create({
-				title: title,
-				content: content,
-				authorId: authorId
-			}),
-		updateGig: (parent, { title, content, id }, { db }, info) =>
-			db.post.update({
-				title: title,
-				content: content
-			},
-			{
-				where: {
-					id: id
-				}
-			}),
-		deleteGig: (parent, {id}, { db }, info) =>
-			db.post.destroy({
-				where: {
-					id: id
-				}
+		async signup (root, { username, password }) {
+			const user = await models.user.create({
+				username,
+				password: await bcrypt.hash(password, 10),
+				is_admin: 0
 			})
+
+			return jsonwebtoken.sign(
+				{
+					id: user.id,
+					username: user.username,
+					is_admin: user.is_admin
+				},
+				process.env.JWT_SECRET,
+				{ expiresIn: '1y' }
+			)
+		},
+
+		async login(root, {username, password}) {
+			console.log('here')
+			const user = await models.user.findOne({ where: { username:username } })
+
+			if (!user) {
+				throw new Error('No user with that username')
+			}
+
+			const valid = await bcrypt.compare(password, user.password)
+
+			if (!valid) {
+				throw new Error('Incorrect password')
+			}
+
+			return jsonwebtoken.sign(
+				{
+					id: user.id,
+					username: user.username,
+					is_admin: user.is_admin
+				},
+				'super secret',
+				{ expiresIn: '1y' }
+			)
+		},
+		async createGig(root, { title, content }, { user }) {
+			if (!user) {
+				throw new Error('You are not authenticated!')
+			}
+
+			// return Gig.create({
+			// 	user_id: user.id,
+			// 	title,
+			// 	content
+			// })
+		},
+
+		async updateGig (root, { id, title, content }, { user }) {
+			if (!user) {
+				throw new Error('You are not authenticated!')
+			}
+
+			const gig = await models.gig.findById(id)
+
+			if (!gig) {
+				throw new Error('No post found')
+			}
+
+			// await post.update({ title, content })
+
+			return gig
+		}
 	}
 };

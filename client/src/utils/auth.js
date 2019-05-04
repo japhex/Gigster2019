@@ -1,11 +1,9 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import * as jwt from 'jsonwebtoken';
-import { getStore } from './redux/store';
 
 const isUserAuthenticated = async () => {
-	const state = getStore().getState();
-	const token = state.login.user.token;
+	const token = localStorage.getItem('token');
 
 	if (!token) return false;
 

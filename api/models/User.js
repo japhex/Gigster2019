@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define('user', {
+    var User = sequelize.define('user', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -18,9 +18,9 @@ module.exports = function(sequelize, DataTypes) {
         freezeTableName: true
     });
 
-	user.associate = function (models) {
-		user.belongsToMany(models.gig, {as: 'Gigs', foreignKey: 'userId', through: 'users_gigs'});
+	User.associate = function (models) {
+		User.belongsToMany(models.gig, {as: 'Gigs', foreignKey: 'userId', through: 'users_gigs'});
 	};
   
-    return user;
+    return User;
   }

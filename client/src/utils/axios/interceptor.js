@@ -1,13 +1,11 @@
 import axios from 'axios';
 import history from './../../utils/routing';
-import { getStore } from '../redux/store';
 
 /**
  * Ensure every request contains a valid token
  */
 axios.interceptors.request.use((config) => {
-	const state = getStore().getState();
-	const token = state.login.user.token;
+	const token = localStorage.getItem('token');
 
 	if(config.url !== '/login' && !token) {
 		history.push('/login');
