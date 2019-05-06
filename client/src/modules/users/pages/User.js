@@ -1,33 +1,31 @@
-import React, {useEffect} from 'react'
-import {connect} from "react-redux"
-import {fetchUserByUsername} from "../actions/users"
+import React from 'react'
 import UserBlock from '../components/User/UserBlock';
-import Loader from 'components/utils/Loader';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+
+const getUser = gql`
+query user($username: String!){
+  user(username:$username) {
+    id
+    username
+    gigs {
+       artist
+    }
+  }
+}`;
 
 const User = (props) => {
-	const {user, isLoading} = props;
 	const paramUsername = props.match.params.username;
-	const {fetchUserByUsername} = props;
-
-	useEffect(() => {
-		fetchUserByUsername(paramUsername)
-	}, [paramUsername]);
 
 	return (
-		user !== undefined &&
-			isLoading ?
-				<Loader />
-			:
-				<UserBlock user={user}/>
-
-	);
+		<Query query={getUser} variables={{username:paramUsername}}>
+			{({ loading, error, data }) => {
+				if (loading) return <p>Loading…</p>;
+				if (error) return <p>Error :(</p>;
+				return <UserBlock user={data.user} />
+			}}
+		</Query>
+	)
 }
 
-const mapStateToProps = (state) => {
-	return {
-		user: state.users.activeUser,
-		isLoading: state.users.isLoading
-	};
-};
-
-export default connect(mapStateToProps, {fetchUserByUsername})(User);
+export default User;
