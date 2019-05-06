@@ -5,10 +5,7 @@ import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from "react-apollo";
 import routes from './routes';
-import './utils/axios/interceptor';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import createStore from './utils/redux/store';
+import { BrowserRouter as Router } from "react-router-dom"
 import history from './utils/routing';
 
 const httpLink = createHttpLink({
@@ -31,17 +28,13 @@ const client = new ApolloClient({
 	cache: new InMemoryCache()
 });
 
-const store = createStore(history);
-
 class App extends Component {
 	render() {
 		return (
 			<ApolloProvider client={client}>
-				<Provider store={store}>
-					<ConnectedRouter history={history}>
-						{routes}
-					</ConnectedRouter>
-				</Provider>
+				<Router history={history}>
+					{routes}
+				</Router>
 			</ApolloProvider>
 		);
 	}

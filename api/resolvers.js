@@ -8,6 +8,7 @@ export default {
 	},
 	Query: {
 		users: () => models.user.findAll(),
+		loggedInUser: async (parent, args, { user }) => await models.user.findOne({where: {id: user.id}}),
 		user: (parent, { username }) => models.user.findOne({where: {username: username}, include: ['Gigs']}),
 		gigs: async (parent, args, { user }) => {
 			const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});

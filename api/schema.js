@@ -16,6 +16,7 @@ export default `
   
   type Query {
     users: [User!]!
+    loggedInUser: User
     user(username: String!): User
     gigs: [Gig!]!
     gig(id: ID!): Gig

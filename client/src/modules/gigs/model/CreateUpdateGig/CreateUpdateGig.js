@@ -2,11 +2,10 @@ import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form } from 'formik';
 import _ from 'lodash';
 import {FormControl, InputLabel, TextField, Input, Button} from '@material-ui/core';
-import withGigs from 'modules/middleware/withGigs';
 import GigEventSearch from 'modules/gigs/components/GigEventSearch/GigEventSearch';
 import './CreateUpdateGig.scss';
 
-const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, fetchVenueSearch,  fetchEventSearch, searchArtists, searchVenues, searchEvents}) => {
+const CreateUpdateGig = ({gigId, gigs}) => {
 	const [gig, setGig] = useState([]);
 
 	useEffect(() => {
@@ -29,18 +28,18 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 	const keyUpSearch = _.debounce(async (key, keyCodePressed, searchTerm, searchType, regex) => {
 		 if (regex.test(key) || keyCodePressed === 8) {
 			if (searchType === 'artist') {
-				await fetchArtistSearch(searchTerm);
+				// await fetchArtistSearch(searchTerm);
 			} else if (searchType === 'venue') {
-				await fetchVenueSearch(searchTerm);
+				// await fetchVenueSearch(searchTerm);
 			}
 		}
 	}, 1000);
 
 	return (
-		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {gig.length === 0 ? createGig(values) : updateGig(values)}}
+		<Formik enableReinitialize={true} initialValues={gig} onSubmit={(values) => {return true}}
 			render={({ errors, status, touched, isSubmitting }) => (
 				<>
-					<GigEventSearch fetchEventSearch={fetchEventSearch} searchEvents={searchEvents} />
+					<GigEventSearch />
 					Add gig manually:
 					<Form>
 						<Field type="text" render={() => (
@@ -64,8 +63,7 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 						<Button variant="contained" color="primary" disabled={isSubmitting}>
 							{gig.length === 0 ? 'Create' : 'Update'}
 						</Button>
-						{searchArtists.resultsPage !== undefined && searchArtists.resultsPage.results.artist[0].displayName}
-						{searchVenues.resultsPage !== undefined && searchVenues.resultsPage.results.venue[0].displayName}
+						{/* Output results */}
 					</Form>
 				</>
 			)}
@@ -73,4 +71,4 @@ const CreateUpdateGig = ({gigId, gigs, createGig, updateGig, fetchArtistSearch, 
 	);
 }
 
-export default withGigs(CreateUpdateGig);
+export default CreateUpdateGig;

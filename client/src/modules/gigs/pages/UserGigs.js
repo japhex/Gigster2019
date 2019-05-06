@@ -2,7 +2,6 @@ import React from 'react'
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import './UserGigs.scss';
-import withGigs from 'modules/middleware/withGigs';
 import GigList from './../components/GigList/GigList';
 
 const getGigs = gql`
@@ -12,7 +11,7 @@ const getGigs = gql`
   }
 }`;
 
-const UserGigs = ({newGigs, oldGigs, gigsStatus, fetchGigs, fetchGigsAdditionalDetail, loadingAdditionalContent, gigId, deleteGig}) => {
+const UserGigs = () => {
 	return (
 		<>
 			<Query query={getGigs} >
@@ -27,11 +26,11 @@ const UserGigs = ({newGigs, oldGigs, gigsStatus, fetchGigs, fetchGigsAdditionalD
 				}}
 			</Query>
 			<div className="gig-list__container">
-				<GigList type="new" title="Upcoming Shows" gigs={newGigs} gigsStatus={gigsStatus} loadingAdditionalContent={loadingAdditionalContent} gigId={gigId} fetchGigs={fetchGigs} fetchGigsAdditionalDetail={fetchGigsAdditionalDetail} deleteGig={deleteGig} />
-				<GigList type="old" title="Past Shows" gigs={oldGigs} gigsStatus={gigsStatus} loadingAdditionalContent={loadingAdditionalContent} gigId={gigId} fetchGigs={fetchGigs} fetchGigsAdditionalDetail={fetchGigsAdditionalDetail} deleteGig={deleteGig} />
+				<GigList type="new" title="Upcoming Shows" />
+				<GigList type="old" title="Past Shows" />
 			</div>
 		</>
 	);
 }
 
-export default withGigs(UserGigs);
+export default UserGigs;

@@ -1,49 +1,59 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
-import {logout} from 'modules/auth/actions';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 import './Header.scss';
-import {connect} from "react-redux"
 
-const Header = ({logout, user}) => {
+const getUser = gql`
+    query loggedInUser {
+        loggedInUser {
+            username
+        }
+}`;
+
+const Header = ({logout}) => {
 	const handleLogout = () => {
 		logout();
 		history.push('/login');
 	}
 
 	return (
-		<header>
-			<h1>
-				<Link to="/gigs">Gigster</Link>
-			</h1>
-			<div className="navbar">
-				<ul>
-					<li>
-						<Link to="/gigs/create">
-							+ Add gig
-						</Link>
-					</li>
-					<li>
-						<Link to="/users">
-							Users
-						</Link>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<div className="header__user">
-					Welcome, <span>{user.username}</span>
-				</div>
-				<span onClick={handleLogout}>(logout)</span>
-			</div>
-		</header>
+		<Query query={getUser}>
+			{({ loading, error, data }) => {
+				if (loading) return <p>Loading…</p>;
+				if (error) return <p>Error :(</p>;
+
+				return (
+					<header>
+						<h1>
+							<Link to="/gigs">Gigster</Link>
+						</h1>
+						<div className="navbar">
+							<ul>
+								<li>
+									<Link to="/gigs/create">
+										+ Add gig
+									</Link>
+								</li>
+								<li>
+									<Link to="/users">
+										Users
+									</Link>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<div className="header__user">
+								Welcome, <span>{data.loggedInUser.username}</span>
+							</div>
+							<span onClick={handleLogout}>(logout)</span>
+						</div>
+					</header>
+				)
+			}}
+		</Query>
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		user: state.login.user
-	};
-};
-
-export default connect(mapStateToProps, {logout})(Header);
+export default Header;

@@ -9,7 +9,7 @@ const UserBlock = ({user}) => (
 			<h1 className="user-username">{user.username}</h1>
 			<StatsHeader user={user} />
 		</div>
-		<GigList gigs={user.Gigs} />
+		<GigList gigs={user.gigs} />
 	</>
 );
 

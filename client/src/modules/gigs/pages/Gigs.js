@@ -1,10 +1,8 @@
-import React, {Suspense, lazy} from 'react'
-const UserGigs = lazy(() => import('./UserGigs'));
+import React from 'react'
+import UserGigs from './UserGigs';
 
 const Gigs = () => (
-	<Suspense fallback={`loading...`}>
-		<UserGigs />
-	</Suspense>
+	<UserGigs />
 );
 
 export default Gigs;
