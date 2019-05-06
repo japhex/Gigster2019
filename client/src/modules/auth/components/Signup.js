@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import AuthAPI from 'api/auth'
 import { Link } from 'react-router-dom';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
 
@@ -18,7 +17,7 @@ const Signup = ({ history }) => {
 
     const handleFormSubmit = async e => {
         e.preventDefault();
-        await AuthAPI.signup({username: username, password: password});
+        // await AuthAPI.signup({username: username, password: password});
         history.replace('/login');
     }
 

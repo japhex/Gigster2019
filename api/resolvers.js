@@ -8,8 +8,8 @@ export default {
 	},
 	Query: {
 		users: () => models.user.findAll(),
-		loggedInUser: async (parent, args, { user }) => await models.user.findOne({where: {id: user.id}}),
-		user: (parent, { username }) => models.user.findOne({where: {username: username}, include: ['Gigs']}),
+		loggedInUser: async (parent, args, { user }) => user,
+		user: async (parent, { username }) => await models.user.findOne({where: {username: username}, include: ['Gigs']}),
 		gigs: async (parent, args, { user }) => {
 			const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});
 			return returnUser.Gigs;
@@ -36,7 +36,6 @@ export default {
 		},
 
 		async login(root, {username, password}) {
-			console.log('here')
 			const user = await models.user.findOne({ where: { username:username } })
 
 			if (!user) {

@@ -14,15 +14,15 @@ Gigster currently runs on:
 - Node.js
 - Express.js (thinking about moving to koa.js?)
 - MySQL (as mostly models and data are relational)
+- GraphQL
 - JWT Authentication
 - Sequelize.js (ORM)
 - request and request-promise (to handle external API requests, e.g. to the Last.FM API)
 
 ### Front-end
 - React.js (including Suspense, Hooks...)
-- Redux (thinking about moving to purely the React Context API...)
-- Redux-saga
-- axios
+- GraphQL
+- Apollo
 - Formik
 - SASS (preferred over styled components, still)
 
