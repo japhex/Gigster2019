@@ -10,6 +10,8 @@ query user($username: String!) {
         username
         gigs {
             artist
+            date
+            venue
         }
     }
 }`;

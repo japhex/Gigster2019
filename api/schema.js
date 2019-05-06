@@ -1,4 +1,14 @@
-export default `
+import { makeExecutableSchema } from 'graphql-tools';
+import {GraphQLDate} from 'graphql-iso-date';
+
+const resolveFunctions = {
+	Date: GraphQLDate
+};
+
+const schemaString = `
+
+  scalar Date
+
   type User {
     id: ID!
     username: String!
@@ -9,7 +19,7 @@ export default `
   type Gig {
     id: ID!
     artist: String
-    date: String!
+    date: Date
     venue: String!
     location: String!
   }
@@ -28,4 +38,8 @@ export default `
     createGig(artist: String, date: String, venue: String, location: String): Gig!
     updateGig(id: ID!, artist: String, date:String, venue:String, location:String): [Int!]!
   }
-`
+`;
+
+makeExecutableSchema({ typeDefs: schemaString, resolvers: resolveFunctions });
+
+export default schemaString
