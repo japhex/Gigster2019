@@ -12,7 +12,6 @@ const schemaString = `
   type User {
     id: ID!
     username: String!
-    lastName: String!
     gigs: [Gig!]!
   }
   
@@ -37,6 +36,7 @@ const schemaString = `
     login(username: String!, password: String!): String
     createGig(artist: String, date: String, venue: String, location: String): Gig!
     updateGig(id: ID!, artist: String, date:String, venue:String, location:String): [Int!]!
+    deleteGig(id: ID!): [Gig!]!
   }
 `;
 

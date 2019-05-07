@@ -84,6 +84,20 @@ export default {
 			// await post.update({ title, content })
 
 			return gig
+		},
+
+		async deleteGig (root, { id }, { user }) {
+			const userId = user.id
+
+			if (!user) {
+				throw new Error('You are not authenticated!')
+			}
+
+			let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+			await userWithGigs.removeGig(id);
+			userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+
+			return userWithGigs.Gigs;
 		}
 	}
 };

@@ -1,26 +1,16 @@
 import React from 'react'
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import {getGigs} from "api/gigs/gigs"
 import './UserGigs.scss';
 import GigList from './../components/GigList/GigList';
-
-const getGigs = gql`
-{
-  gigs {
-    id
-    artist
-    date
-    venue
-  }
-}`;
+import QueryHandler from 'components/utils/QueryHandler'
 
 const UserGigs = () => {
 	return (
 		<>
 			<Query query={getGigs} >
 				{({ loading, error, data }) => {
-					if (loading) return <p>Loading…</p>;
-					if (error) return <p>Error :(</p>;
+					if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
 					const gigs = data.gigs;
 					const oldGigs = gigs.filter(gig => Date.parse(gig.date) < Date.now());
