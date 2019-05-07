@@ -58,16 +58,21 @@ export default {
 				{ expiresIn: '1y' }
 			)
 		},
-		async createGig(root, { title, content }, { user }) {
+		async createGig(root, { artist, date, venue }, { user }) {
+			const userId = user.id
+
 			if (!user) {
 				throw new Error('You are not authenticated!')
 			}
 
-			// return Gig.create({
-			// 	user_id: user.id,
-			// 	title,
-			// 	content
-			// })
+			const gig = await models.gig.create({artist:artist,date:date,venue:venue});
+
+			let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+			await userWithGigs.addGig(gig.id)
+
+			userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+
+			return userWithGigs.Gigs;
 		},
 
 		async updateGig (root, { id, title, content }, { user }) {

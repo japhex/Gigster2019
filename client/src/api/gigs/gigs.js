@@ -10,6 +10,17 @@ export const getGigs = gql`
   }
 }`;
 
+export const createGigMutation = gql`
+	mutation createGig($artist: String!, $date: Date!, $venue: String!) {
+		createGig(artist: $artist, date: $date, venue: $venue) {
+			id
+			artist
+			date
+			venue
+		}
+	}
+`;
+
 export const deleteGigMutation = gql`
 	mutation deleteGig($id: ID!) {
 		deleteGig(id: $id) {

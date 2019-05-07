@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Search from '@material-ui/icons/Search';
 import './GigEventSearch.scss';
 
-const GigEventSearch = ({fetchEventSearch, searchEvents}) => {
+const GigEventSearch = () => {
 	const [eventArtist, setEventArtist] = useState('');
 
 	const debouncedArtist = useDebounce(eventArtist, 500);
@@ -19,7 +19,7 @@ const GigEventSearch = ({fetchEventSearch, searchEvents}) => {
 	}, [debouncedArtist]);
 
 	async function getFetchEventSearch() {
-		await fetchEventSearch({artist: eventArtist});
+		// await fetchEventSearch({artist: eventArtist});
 	}
 
 	return (
@@ -36,10 +36,10 @@ const GigEventSearch = ({fetchEventSearch, searchEvents}) => {
 				</FormControl>
 			</form>
 			{
-				(searchEvents.resultsPage !== undefined && searchEvents.resultsPage.totalEntries !== 0) ?
-					searchEvents.resultsPage.results.event[0].displayName
-				:
-					'No results'
+				// (searchEvents.resultsPage !== undefined && searchEvents.resultsPage.totalEntries !== 0) ?
+				// 	searchEvents.resultsPage.results.event[0].displayName
+				// :
+				// 	'No results'
 			}
 		</>
 	);
