@@ -1,11 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import GigDelete from "./GigDelete"
 
-const GigFooter = ({gigId}) => {
+const GigFooter = ({gigId, switchEditMode}) => {
 	return (
 		<div className="gig__card-footer">
-			<Link className="button button-edit" to={`/gigs/update/${gigId}`}>Edit</Link>
+			<span className="button button-edit" onClick={switchEditMode}>Edit</span>
 			<GigDelete gigId={gigId} />
 		</div>
 	);

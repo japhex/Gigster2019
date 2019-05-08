@@ -35,7 +35,7 @@ const schemaString = `
     signup(username: String!, password: String!): String
     login(username: String!, password: String!): String
     createGig(artist: String, date: Date, venue: String): [Gig!]!
-    updateGig(id: ID!, artist: String, date:String, venue:String, location:String): [Int!]!
+    updateGig(id: ID!, artist: String, date: Date, venue: String): [Gig!]!
     deleteGig(id: ID!): [Gig!]!
   }
 `;

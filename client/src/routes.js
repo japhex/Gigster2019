@@ -6,7 +6,7 @@ import UsersHome from './modules/users/pages/Users';
 import UserPage from './modules/users/pages/UserPage';
 import GigsHome from './modules/gigs/pages/Gigs';
 import CreateGig from './modules/gigs/pages/CreateGig';
-import UpdateGig from './modules/gigs/pages/UpdateGig';
+import UpdateGig from './modules/gigs/components/Gig/UpdateGig';
 import Login from './modules/auth/components/Login';
 import Signup from './modules/auth/components/Signup';
 import { PrivateRoute } from './utils/auth';

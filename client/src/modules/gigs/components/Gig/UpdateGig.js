@@ -2,26 +2,28 @@ import React from 'react'
 import { Mutation } from "react-apollo";
 import { Formik, Field, Form } from 'formik';
 import {Button} from '@material-ui/core';
-import {createGigMutation, getGigs} from "../../../api/gigs/gigs"
+import {updateGigMutation, getGigs} from "../../../../api/gigs/gigs"
 
-const CreateGig = () => {
+const UpdateGig = ({initialValues, switchEditMode}) => {
 	return (
-		<Mutation mutation={createGigMutation} update={(cache, { data }) => {
-			const newGigs = data.createGig;
+		<Mutation mutation={updateGigMutation} update={(cache, { data }) => {
+			const newGigs = data.updateGig;
 			cache.writeQuery({query:getGigs, data: {gigs:newGigs}})
+			switchEditMode()
 		}}>
 			{(createGig) => (
-				<Formik onSubmit={async (values) => {
+				<Formik enableReinitialize={true} initialValues={initialValues} onSubmit={async (values) => {
 					await createGig({variables: values})
 				}}
 				        render={({ errors, status, touched, isSubmitting }) => (
 					        <Form>
+						        <Field type="hidden" name="id" />
 						        <Field type="text" name="artist" />
 						        <Field type="date" name="date" />
 						        <Field type="text" name="venue" />
 
 						        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
-							        Create gig
+							        Update gig
 						        </Button>
 					        </Form>
 				        )}
@@ -31,4 +33,4 @@ const CreateGig = () => {
 	);
 }
 
-export default CreateGig;
+export default UpdateGig;

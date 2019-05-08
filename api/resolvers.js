@@ -75,20 +75,15 @@ export default {
 			return userWithGigs.Gigs;
 		},
 
-		async updateGig (root, { id, title, content }, { user }) {
+		async updateGig (root, { id, artist, date, venue }, { user }) {
 			if (!user) {
 				throw new Error('You are not authenticated!')
 			}
 
-			const gig = await models.gig.findById(id)
+			await models.gig.update({artist:artist, date:date, venue:venue}, {where: {id: id}});
+			const userWithGigs = await models.user.findOne({where: {id: user.id}, include:['Gigs']});
 
-			if (!gig) {
-				throw new Error('No post found')
-			}
-
-			// await post.update({ title, content })
-
-			return gig
+			return userWithGigs.Gigs;
 		},
 
 		async deleteGig (root, { id }, { user }) {

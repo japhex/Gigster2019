@@ -21,6 +21,17 @@ export const createGigMutation = gql`
 	}
 `;
 
+export const updateGigMutation = gql`
+	mutation updateGig($id: ID!, $artist: String!, $date: Date!, $venue: String!) {
+		updateGig(id: $id, artist: $artist, date: $date, venue: $venue) {
+			id
+			artist
+			date
+			venue
+		}
+	}
+`;
+
 export const deleteGigMutation = gql`
 	mutation deleteGig($id: ID!) {
 		deleteGig(id: $id) {
