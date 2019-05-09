@@ -1,5 +1,6 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
+import {Button} from '@material-ui/core';
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
 
 const GigDelete = ({gigId}) => {
@@ -9,12 +10,14 @@ const GigDelete = ({gigId}) => {
 			cache.writeQuery({query:getGigs, data: {gigs:newGigs}})
 		}}>
 			{(deleteGig) => (
-				<button className="button button-delete" onClick={
+				<Button size="small" variant="contained" color="primary" onClick={
 					e => {
 						e.preventDefault();
 						deleteGig({variables: {id: gigId}})
 					}
-				}>Delete</button>
+				}>
+					Delete
+				</Button>
 			)}
 		</Mutation>
 	);
