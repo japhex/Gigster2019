@@ -24,7 +24,7 @@ Gigster currently runs on:
 - GraphQL
 - Apollo
 - Formik
-- SASS (preferred over styled components, still)
+- Styled components
 
 ## Running the app
 You'll need to create a local MySQL DB called **gigster** and use something like MAMP to run a local MySQL server instance.

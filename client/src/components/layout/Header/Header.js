@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import './Header.scss';
+import {Header} from './HeaderStyled';
 
 const getUser = gql`
     query loggedInUser {
@@ -12,7 +12,7 @@ const getUser = gql`
         }
 }`;
 
-const Header = ({logout}) => {
+const AppHeader = ({logout}) => {
 	const handleLogout = () => {
 		logout();
 		history.push('/login');
@@ -25,7 +25,7 @@ const Header = ({logout}) => {
 				if (error) return <p>Error :(</p>;
 
 				return (
-					<header>
+					<Header>
 						<h1>
 							<Link to="/gigs">Gigster</Link>
 						</h1>
@@ -49,11 +49,11 @@ const Header = ({logout}) => {
 							</div>
 							<span onClick={handleLogout}>(logout)</span>
 						</div>
-					</header>
+					</Header>
 				)
 			}}
 		</Query>
 	);
 }
 
-export default Header;
+export default AppHeader;
