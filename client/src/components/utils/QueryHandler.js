@@ -1,7 +1,8 @@
 import React from 'react';
+import Loader from './Loader'
 
 const QueryHandler = ({loading, error}) => {
-	if (loading) return <p>Loading…</p>;
+	if (loading) return <Loader />;
 	if (error) return <p>Error :(</p>;
 }
 
