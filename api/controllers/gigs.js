@@ -1,16 +1,8 @@
 const models = require('../models');
 const rp = require('request-promise');
+import {checkUser} from './utils'
 
 module.exports = {
-	async getAll(req, res) {
-		try {
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-			return user.Gigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
 	async getAdditionalGigDetail(req, res) {
 		const newGigs = [];
 		try {
@@ -36,42 +28,68 @@ module.exports = {
 			res.status(500);
 			return {error:err};
 		}
-	},
-	async createGig(req, res) {
-		try {
-			const gig = await models.gig.create(req.body);
-			let user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-			await user.addGig(gig.id)
-
-			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-
-			return user.Gigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async updateGig(req, res) {
-		try {
-			await models.gig.update(req.body, {where: {id: req.params.id}});
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-
-			return user.Gigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async deleteGig(req, res) {
-		try {
-			let user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-			await user.removeGig(req.params.id);
-			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-
-			return this.getAdditionalGigDetail(req, res);
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
 	}
 };
+
+// Get all gigs for user
+export const apiGetGigs = async (user) => {
+	try {
+		checkUser(user);
+
+		const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});
+		return returnUser.Gigs;
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}
+
+// Create gig
+export const apiCreateGig = async ({ artist, date, venue }, user) => {
+	try {
+		checkUser(user);
+
+		const userId = user.id
+
+		const gig = await models.gig.create({artist:artist,date:date,venue:venue});
+
+		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+		await userWithGigs.addGig(gig.id)
+
+		userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+
+		return userWithGigs.Gigs;
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}
+
+// Update gig
+export const apiUpdateGig = async ({ id, artist, date, venue }, user) => {
+	try {
+		checkUser(user);
+
+		await models.gig.update({artist:artist, date:date, venue:venue}, {where: {id: id}});
+		const userWithGigs = await models.user.findOne({where: {id: user.id}, include:['Gigs']});
+
+		return userWithGigs.Gigs;
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}
+
+// Delete gig
+export const apiDeleteGig = async ({ id }, user) => {
+	try {
+		checkUser(user);
+
+		const userId = user.id
+
+		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+		await userWithGigs.removeGig(id);
+		userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+
+		return userWithGigs.Gigs;
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}

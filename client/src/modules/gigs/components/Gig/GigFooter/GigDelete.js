@@ -1,5 +1,6 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import {Button} from '@material-ui/core';
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
 
@@ -17,6 +18,7 @@ const GigDelete = ({gigId}) => {
 					}
 				}>
 					Delete
+					<DeleteTwoToneIcon />
 				</Button>
 			)}
 		</Mutation>

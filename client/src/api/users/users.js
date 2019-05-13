@@ -20,3 +20,10 @@ query user($username: String!) {
         }
     }
 }`;
+
+export const getLoggedInUser = gql`
+    query loggedInUser {
+        loggedInUser {
+            username
+        }
+}`;

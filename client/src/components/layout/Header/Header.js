@@ -2,15 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import {Header} from './HeaderStyled';
-
-const getUser = gql`
-    query loggedInUser {
-        loggedInUser {
-            username
-        }
-}`;
+import {getLoggedInUser} from "api/users/users"
+import QueryHandler from "../../utils/QueryHandler"
 
 const AppHeader = ({logout}) => {
 	const handleLogout = () => {
@@ -19,10 +13,9 @@ const AppHeader = ({logout}) => {
 	}
 
 	return (
-		<Query query={getUser}>
+		<Query query={getLoggedInUser}>
 			{({ loading, error, data }) => {
-				if (loading) return <p>Loading…</p>;
-				if (error) return <p>Error :(</p>;
+				if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
 				return (
 					<Header>
