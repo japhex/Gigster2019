@@ -2,7 +2,9 @@ import React from 'react'
 import { Mutation } from "react-apollo";
 import { Formik, Field, Form } from 'formik';
 import {Button} from '@material-ui/core';
+import {TextField} from 'formik-material-ui';
 import {updateGigMutation, getGigs} from "../../../../api/gigs/gigs"
+import {Div} from './UpdateGigStyled';
 
 const UpdateGig = ({initialValues, switchEditMode}) => {
 	return (
@@ -17,14 +19,16 @@ const UpdateGig = ({initialValues, switchEditMode}) => {
 				}}
 				        render={({ errors, status, touched, isSubmitting }) => (
 					        <Form>
-						        <Field type="hidden" name="id" />
-						        <Field type="text" name="artist" />
-						        <Field type="date" name="date" />
-						        <Field type="text" name="venue" />
+						        <Div>
+							        <Field type="hidden" name="id" component={TextField}  />
+							        <Field type="text" name="artist" component={TextField} />
+							        <Field type="date" name="date" component={TextField} />
+							        <Field type="text" name="venue" component={TextField} />
 
-						        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
-							        Update gig
-						        </Button>
+							        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
+								        Update gig
+							        </Button>
+						        </Div>
 					        </Form>
 				        )}
 				/>

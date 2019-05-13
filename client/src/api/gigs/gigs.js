@@ -2,12 +2,12 @@ import gql from "graphql-tag";
 
 export const getGigs = gql`
 {
-  gigs {
-    id
-    artist
-    date
-    venue
-  }
+    gigs {
+        id
+        artist
+        date
+        venue
+    }
 }`;
 
 export const createGigMutation = gql`

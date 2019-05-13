@@ -2,6 +2,7 @@ import React from 'react'
 import { Mutation } from "react-apollo";
 import { Formik, Field, Form } from 'formik';
 import {Button} from '@material-ui/core';
+import {TextField} from 'formik-material-ui';
 import {createGigMutation, getGigs} from "../../../api/gigs/gigs"
 
 const CreateGig = () => {
@@ -16,9 +17,9 @@ const CreateGig = () => {
 				}}
 				        render={({ errors, status, touched, isSubmitting }) => (
 					        <Form>
-						        <Field type="text" name="artist" />
-						        <Field type="date" name="date" />
-						        <Field type="text" name="venue" />
+						        <Field type="text" name="artist" component={TextField} />
+						        <Field type="date" name="date" component={TextField} />
+						        <Field type="text" name="venue" component={TextField} />
 
 						        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
 							        Create gig

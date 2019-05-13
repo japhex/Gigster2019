@@ -14,3 +14,7 @@ export const Div = styled.div`
     }
   }
 `
+
+export const Span = styled.span`
+	margin-right:10px;
+`

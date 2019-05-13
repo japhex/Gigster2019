@@ -1,10 +1,7 @@
-const express = require('express');
 import { ApolloServer, gql } from "apollo-server-express";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
-const APIAuth = require('./routes/users');
-const APIGigs = require('./routes/gigs');
-const APISearch = require('./routes/third-parties/songkick');
+const express = require('express');
 const PORT = process.env.PORT || 3001;
 const models = require("./models");
 const jwt = require('express-jwt')
@@ -24,10 +21,6 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app, path:'/api' });
-
-// app.use('/api/', APIAuth);
-// app.use('/api/gigs', APIGigs);
-// app.use('/api/search', APISearch);
 
 models.sequelize.sync().then(() => {
     app.listen(PORT, function () {});

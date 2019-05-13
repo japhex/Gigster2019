@@ -3,6 +3,7 @@ import { Mutation } from "react-apollo";
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import {Button} from '@material-ui/core';
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
+import {Span} from './GigDeleteStyled';
 
 const GigDelete = ({gigId}) => {
 	return (
@@ -17,8 +18,8 @@ const GigDelete = ({gigId}) => {
 						deleteGig({variables: {id: gigId}})
 					}
 				}>
-					Delete
-					<DeleteTwoToneIcon />
+					<Span>Delete</Span>
+					<DeleteTwoToneIcon fontSize="small" />
 				</Button>
 			)}
 		</Mutation>
