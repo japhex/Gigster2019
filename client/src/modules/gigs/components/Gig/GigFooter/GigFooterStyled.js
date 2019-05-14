@@ -6,11 +6,10 @@ export const Div = styled.div`
   justify-content:flex-end;
   padding-top:10px;
   
-  button {
-    margin-right:10px;
-    
-    &:last-child {
-      margin-right:0;
+  
+  button { 
+    &:first-child {
+      margin-right:10px;
     }
   }
 `

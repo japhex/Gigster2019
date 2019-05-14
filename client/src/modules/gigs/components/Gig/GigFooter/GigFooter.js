@@ -6,7 +6,7 @@ import {Div, Span} from './GigFooterStyled';
 
 const GigFooter = ({gigId, switchEditMode}) => {
 	return (
-		<Div className="gig__card-footer">
+		<Div>
 			<Button size="small" variant="contained" color="primary" onClick={switchEditMode}>
 				<Span>Edit</Span>
 				<EditTwoToneIcon fontSize="small" />
