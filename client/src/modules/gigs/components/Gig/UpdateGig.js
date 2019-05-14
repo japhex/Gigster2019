@@ -28,6 +28,9 @@ const UpdateGig = ({initialValues, switchEditMode}) => {
 							        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
 								        Update gig
 							        </Button>
+							        <Button variant="contained" onClick={() => switchEditMode()}>
+								        Cancel
+							        </Button>
 						        </Div>
 					        </Form>
 				        )}
