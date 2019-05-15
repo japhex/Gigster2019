@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
 import { Formik, Field, Form } from 'formik';
-import {Button} from '@material-ui/core';
+import {Button, KIND, SIZE} from 'baseui/button';
 import {TextField} from 'formik-material-ui';
 import {updateGigMutation, getGigs} from "../../../../api/gigs/gigs"
 import {Div} from './UpdateGigStyled';
@@ -26,10 +26,10 @@ const UpdateGig = ({initialValues, switchEditMode}) => {
 							        <Field type="text" name="venue" component={TextField} />
 
 							        <div className="buttons">
-								        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
+								        <Button size={SIZE.compact} isLoading={isSubmitting} type="submit">
 									        Update gig
 								        </Button>
-								        <Button variant="contained" onClick={() => switchEditMode()}>
+								        <Button kind={KIND.secondary} size={SIZE.compact} onClick={() => switchEditMode()}>
 									        Cancel
 								        </Button>
 							        </div>

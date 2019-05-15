@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { Mutation } from "react-apollo";
-import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
-import {Button} from '@material-ui/core';
+import {Button, SIZE} from 'baseui/button';
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
 import {Span} from './GigDeleteStyled';
 import Confirm from 'components/utils/alerts/Confirm'
+import Delete from "baseui/icon/delete"
 
 const GigDelete = ({gigId}) => {
 	const [active, setActive] = useState(false)
@@ -24,11 +24,10 @@ const GigDelete = ({gigId}) => {
 		}}>
 			{(deleteGig) => (
 				<>
-					<Button size="small" variant="contained" color="primary" onClick={() => {
+					<Button size={SIZE.compact} endEnhancer={() => <Delete size={24} />} onClick={() => {
 						handleDeleteClick(deleteGig)
 					}}>
-						<Span>Delete</Span>
-						<DeleteTwoToneIcon fontSize="small" />
+						Delete
 					</Button>
 					<Confirm active={active} callbackConfirm={() => handleDeleteGig(deleteGig)} callbackCancel={() => setActive(false)} />
 				</>

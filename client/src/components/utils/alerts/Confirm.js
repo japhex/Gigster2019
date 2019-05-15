@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {Button,Dialog,DialogActions,DialogTitle} from '@material-ui/core';
+import {Dialog,DialogActions,DialogTitle} from '@material-ui/core';
+import {Button, KIND, SIZE} from 'baseui/button';
 
 const Confirm = ({active, callbackConfirm, callbackCancel}) => {
 	const [activeAlert, setActiveAlert] = useState(false)
@@ -25,11 +26,11 @@ const Confirm = ({active, callbackConfirm, callbackCancel}) => {
 					{'Are you sure you want to delete this gig?'}
 				</DialogTitle>
 				<DialogActions>
-					<Button onClick={() => handleCancelClick()} color="primary" size="small" variant="contained">
-						No
-					</Button>
-					<Button onClick={() => handleConfirmClick()} color="secondary" size="small" variant="contained">
+					<Button onClick={() => handleConfirmClick()} size={SIZE.compact}>
 						Yes
+					</Button>
+					<Button onClick={() => handleCancelClick()} kind={KIND.secondary} size={SIZE.compact}>
+						Cancel
 					</Button>
 				</DialogActions>
 			</Dialog>

@@ -1,15 +1,14 @@
 import React from 'react'
 import GigDelete from "./GigDelete"
-import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
-import {Button} from '@material-ui/core';
-import {Div, Span} from './GigFooterStyled';
+import {Div} from './GigFooterStyled';
+import {Button, KIND, SIZE} from 'baseui/button';
+import Overflow from 'baseui/icon/overflow';
 
 const GigFooter = ({gigId, switchEditMode}) => {
 	return (
 		<Div>
-			<Button size="small" variant="contained" color="primary" onClick={switchEditMode}>
-				<Span>Edit</Span>
-				<EditTwoToneIcon fontSize="small" />
+			<Button kind={KIND.secondary} size={SIZE.compact} endEnhancer={() => <Overflow size={24} />} onClick={switchEditMode}>
+				Edit
 			</Button>
 			<GigDelete gigId={gigId} />
 		</Div>

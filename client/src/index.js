@@ -1,9 +1,16 @@
-// import 'babel-polyfill';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
+import { Provider as StyletronProvider } from "styletron-react";
+import { Client as Styletron } from "styletron-engine-atomic";
+import {LightTheme, BaseProvider} from 'baseui';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+const engine = new Styletron();
+
+ReactDOM.render(
+	<StyletronProvider value={engine}>
+		<BaseProvider theme={LightTheme}>
+			<App />
+		</BaseProvider>
+	</StyletronProvider>, document.getElementById('root')
+);
