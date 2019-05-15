@@ -25,12 +25,14 @@ const UpdateGig = ({initialValues, switchEditMode}) => {
 							        <Field type="date" name="date" component={TextField} />
 							        <Field type="text" name="venue" component={TextField} />
 
-							        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
-								        Update gig
-							        </Button>
-							        <Button variant="contained" onClick={() => switchEditMode()}>
-								        Cancel
-							        </Button>
+							        <div className="buttons">
+								        <Button variant="contained" color="primary" disabled={isSubmitting} type="submit">
+									        Update gig
+								        </Button>
+								        <Button variant="contained" onClick={() => switchEditMode()}>
+									        Cancel
+								        </Button>
+							        </div>
 						        </Div>
 					        </Form>
 				        )}
