@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { Mutation } from "react-apollo";
 import {Button, SIZE} from 'baseui/button';
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
-import {Span} from './GigDeleteStyled';
 import Confirm from 'components/utils/alerts/Confirm'
 import Delete from "baseui/icon/delete"
 

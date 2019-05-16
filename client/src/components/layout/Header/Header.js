@@ -1,15 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
 import {Header} from './HeaderStyled';
 import {getLoggedInUser} from "api/users/users"
 import QueryHandler from "../../utils/QueryHandler"
+import CreateGig from "../../../modules/gigs/pages/CreateGig"
 
 const AppHeader = ({logout}) => {
+	const [addGigActive, setAddGigActive] = useState(false)
+
 	const handleLogout = () => {
 		logout();
 		history.push('/login');
+	}
+
+	const handleAddGig = (e) => {
+		e.preventDefault()
+		setAddGigActive(!addGigActive);
 	}
 
 	return (
@@ -25,9 +33,10 @@ const AppHeader = ({logout}) => {
 						<div className="navbar">
 							<ul>
 								<li>
-									<Link to="/gigs/create">
+									<span onClick={(e) => handleAddGig(e)}>
 										+ Add gig
-									</Link>
+									</span>
+									<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 								</li>
 								<li>
 									<Link to="/users">

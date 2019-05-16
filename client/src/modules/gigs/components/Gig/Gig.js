@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './Gig.scss';
 import UpdateGig from './UpdateGig'
 import DisplayGig from "./DisplayGig"
-import {Card, StyledBody, StyledAction} from 'baseui/card';
+import {Card, StyledBody} from 'baseui/card';
 
 const Gig = ({gig, type, withoutCrud}) => {
 	const [editMode, setEditMode] = useState(false);
