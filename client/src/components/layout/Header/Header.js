@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
 import {Header} from './HeaderStyled';
+import {Button, KIND} from 'baseui/button';
 import {getLoggedInUser} from "api/users/users"
 import QueryHandler from "../../utils/QueryHandler"
 import CreateGig from "../../../modules/gigs/pages/CreateGig"
@@ -33,9 +34,7 @@ const AppHeader = ({logout}) => {
 						<div className="navbar">
 							<ul>
 								<li>
-									<span onClick={(e) => handleAddGig(e)}>
-										+ Add gig
-									</span>
+									<Button kind={KIND.minimal} onClick={(e) => handleAddGig(e)}>+ Add gig</Button>
 									<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 								</li>
 								<li>

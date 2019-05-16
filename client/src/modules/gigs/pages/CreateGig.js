@@ -6,12 +6,14 @@ import {Button, KIND, SIZE} from 'baseui/button';
 import {createGigMutation, getGigs} from "../../../api/gigs/gigs"
 import {Input} from "baseui/input"
 import {Div} from "./CreateGigStyled"
+import {Buttons} from "../../../components/utils/styled/ModalStyled"
 
 const CreateGig = ({addMode, callback}) => {
 	return (
 		<Mutation mutation={createGigMutation} update={(cache, { data }) => {
 			const newGigs = data.createGig;
 			cache.writeQuery({query:getGigs, data: {gigs:newGigs}})
+			callback()
 		}}>
 			{(createGig) => (
 				<Formik onSubmit={async (values) => {
@@ -35,12 +37,14 @@ const CreateGig = ({addMode, callback}) => {
 								        </Div>
 
 								        <ModalFooter>
-									        <Button size={SIZE.compact} isLoading={isSubmitting}>
-										        Create gig
-									        </Button>
-									        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
-										        Cancel
-									        </Button>
+									        <Buttons>
+										        <Button size={SIZE.compact} isLoading={isSubmitting}>
+											        Create gig
+										        </Button>
+										        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
+											        Cancel
+										        </Button>
+									        </Buttons>
 								        </ModalFooter>
 							        </ModalBody>
 						        </Form>
