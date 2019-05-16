@@ -8,10 +8,4 @@ export const Div = styled.div`
     div {
         margin-bottom:10px;
 	}
-  
-	.buttons {
-		button:first-child {
-			margin-right:10px;
-		}
-	}
 `
