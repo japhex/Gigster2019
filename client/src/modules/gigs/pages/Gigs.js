@@ -1,9 +1,9 @@
 import React from 'react'
 import { Query } from "react-apollo";
 import {getGigs} from "api/gigs/gigs"
-import './UserGigs.scss';
 import GigList from './../components/GigList/GigList';
 import QueryHandler from 'components/utils/QueryHandler'
+import {Div} from './GigsStyled'
 
 const UserGigs = () => (
 	<Query query={getGigs} >
@@ -15,10 +15,10 @@ const UserGigs = () => (
 			const newGigs = gigs.filter(gig => Date.parse(gig.date) > Date.now());
 
 			return (
-				<div className="gig-list__container">
+				<Div>
 					<GigList type="new" title="Upcoming Shows" gigs={newGigs} />
 					<GigList type="old" title="Past Shows" gigs={oldGigs} />
-				</div>
+				</Div>
 			)
 		}}
 	</Query>

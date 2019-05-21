@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
-import {Header} from './HeaderStyled';
+import {Header, H1} from './HeaderStyled';
 import {Button, KIND} from 'baseui/button';
 import {getLoggedInUser} from "api/users/users"
 import QueryHandler from "../../utils/QueryHandler"
@@ -28,9 +28,9 @@ const AppHeader = ({logout}) => {
 
 				return (
 					<Header>
-						<h1>
+						<H1>
 							<Link to="/gigs">Gigster</Link>
-						</h1>
+						</H1>
 						<div className="navbar">
 							<ul>
 								<li>
@@ -39,7 +39,7 @@ const AppHeader = ({logout}) => {
 								</li>
 								<li>
 									<Link to="/users">
-										Users
+										<Button kind={KIND.minimal}>Users</Button>
 									</Link>
 								</li>
 							</ul>

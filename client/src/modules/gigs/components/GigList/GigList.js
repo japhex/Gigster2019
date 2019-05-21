@@ -1,24 +1,24 @@
 import React from 'react'
 import Gig from '../Gig/Gig';
-import './GigList.scss';
+import {GigListContainer, Ul, H1} from "./GigListStyled"
 
 const GigList = ({type, title, gigs, withoutCrud}) => (
-	<div className={`gig__list gig__list--${type}`}>
+	<GigListContainer>
 		<>
-			<h1>{title}</h1>
+			<H1>{title}</H1>
 			{gigs.length > 0 ?
-				<ul>
+				<Ul>
 					{gigs.map(gig =>
 						<Gig key={gig.id} gig={gig} type={type} withoutCrud={withoutCrud} />
 					)}
-				</ul>
+				</Ul>
 			:
 				<>
 					No {title}
 				</>
 			}
 		</>
-	</div>
+	</GigListContainer>
 );
 
 export default GigList;

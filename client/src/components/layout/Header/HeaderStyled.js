@@ -26,3 +26,9 @@ export const Header = styled.header`
 		}
 	}
 `
+
+export const H1 = styled.h1`
+	a {
+		color:#000;
+	}	
+`
