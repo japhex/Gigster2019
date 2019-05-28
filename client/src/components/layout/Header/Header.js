@@ -34,12 +34,12 @@ const AppHeader = ({logout}) => {
 						<div className="navbar">
 							<ul>
 								<li>
-									<Button kind={KIND.minimal} onClick={(e) => handleAddGig(e)}>+ Add gig</Button>
+									<Button kind={KIND.tertiary} onClick={(e) => handleAddGig(e)}>+ Add gig</Button>
 									<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 								</li>
 								<li>
 									<Link to="/users">
-										<Button kind={KIND.minimal}>Users</Button>
+										<Button kind={KIND.tertiary}>Users</Button>
 									</Link>
 								</li>
 							</ul>
