@@ -1,10 +1,10 @@
 import React from 'react';
-import './Loader.scss'
+import {LoaderContainer, Loader} from './LoaderStyled';
 
-const Loader = () => (
-	<div className="loader-container">
-		<div className="loader"></div>
-	</div>
+const CSSLoader = () => (
+	<LoaderContainer>
+		<Loader />
+	</LoaderContainer>
 )
 
-export default Loader;
+export default CSSLoader;

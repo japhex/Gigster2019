@@ -1,10 +1,10 @@
 import React from 'react';
-import './UnauthenticatedLayout.scss';
+import {UnauthenticatedLayoutContainer} from './UnauthenticatedLayoutStyled'
 
 const UnauthenticatedLayout = ({children}) => (
-	<div className="unauthenticated">
+	<UnauthenticatedLayoutContainer>
 		{children}
-	</div>
+	</UnauthenticatedLayoutContainer>
 );
 
 export default UnauthenticatedLayout;

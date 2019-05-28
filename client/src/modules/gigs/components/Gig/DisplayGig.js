@@ -1,5 +1,4 @@
 import React from 'react'
-import './Gig.scss';
 import GigHeader from './GigHeader/GigHeader'
 import GigFooter from './GigFooter/GigFooter'
 

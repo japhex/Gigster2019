@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import './Gig.scss';
 import UpdateGig from './UpdateGig'
 import DisplayGig from "./DisplayGig"
 import {Card, StyledBody} from 'baseui/card';
