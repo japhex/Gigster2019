@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import {getUsers} from "api/users/users"
 import {Link} from 'react-router-dom';
 import QueryHandler from 'components/utils/QueryHandler'
+import {Card, StyledBody, StyledThumbnail} from "baseui/card"
 
 const UsersList = () => (
 	<Query query={getUsers} >
@@ -10,7 +11,16 @@ const UsersList = () => (
 			if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
 			return data.users.map(({ id, username }) => (
-				<div key={id}><Link to={`/users/${username}`}>{username}</Link></div>
+				<div key={id}>
+					<Link to={`/users/${username}`}>
+						<Card title={username}>
+							<StyledThumbnail src={''} />
+							<StyledBody>
+								test
+							</StyledBody>
+						</Card>
+					</Link>
+				</div>
 			))
 		}}
 	</Query>

@@ -4,8 +4,8 @@ import QueryHandler from 'components/utils/QueryHandler'
 import { Query } from "react-apollo";
 import {getUser} from "api/users/users"
 
-const User = (props) => {
-	const paramUsername = props.match.params.username;
+const User = ({match}) => {
+	const paramUsername = match.params.username;
 
 	return (
 		<Query query={getUser} variables={{username:paramUsername}}>
