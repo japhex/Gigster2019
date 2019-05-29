@@ -37,12 +37,12 @@ const AppHeader = ({logout}) => {
 						<div className="navbar">
 							<ul>
 								<li>
-									<Button kind={KIND.tertiary} onClick={(e) => handleAddGig(e)} endEnhancer={() => <Plus size={24} />}>Add gig</Button>
+									<Button kind={KIND.secondary} onClick={(e) => handleAddGig(e)} endEnhancer={() => <Plus size={24} />}>Add gig</Button>
 									<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 								</li>
 								<li>
 									<Link to="/users">
-										<Button kind={KIND.tertiary} endEnhancer={() => <Search size={24} />}>Users</Button>
+										<Button kind={KIND.secondary} endEnhancer={() => <Search size={24} />}>Users</Button>
 									</Link>
 								</li>
 								<li>

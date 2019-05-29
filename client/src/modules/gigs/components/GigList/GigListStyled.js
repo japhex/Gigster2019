@@ -14,7 +14,9 @@ export const H1 = styled.div`
     align-items: center;
 	font-size: 1rem;
 	text-transform: uppercase;
-	color: #444;
+	color: #666;
 	padding-left: 10px;
-	padding-bottom: 30px;
+	padding-bottom: 20px;
+	border-bottom:1px solid;
+	margin-bottom:15px;
 `
