@@ -10,6 +10,8 @@ export const Ul = styled.div`
 `
 
 export const H1 = styled.div`
+    display: flex;
+    align-items: center;
 	font-size: 1rem;
 	text-transform: uppercase;
 	color: #444;

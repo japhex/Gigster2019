@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+
 * {
-	font-family: 'Helvetica Neue';
+	font-family: 'Cabin', serif !important;
 	margin:0;
 	padding:0;
 	list-style-type: none;
+}
+
+body {
+	background: #121212;
 }
 
 a {

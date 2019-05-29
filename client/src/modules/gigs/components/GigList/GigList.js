@@ -1,11 +1,12 @@
 import React from 'react'
 import Gig from '../Gig/Gig';
+import ChevronRight from 'baseui/icon/chevron-right'
 import {GigListContainer, Ul, H1} from "./GigListStyled"
 
 const GigList = ({type, title, gigs, withoutCrud}) => (
 	<GigListContainer>
 		<>
-			<H1>{title}</H1>
+			<H1><ChevronRight size={24} />{title}</H1>
 			{gigs.length > 0 ?
 				<Ul>
 					{gigs.map(gig =>
