@@ -16,7 +16,9 @@ const Gig = ({gig, type, withoutCrud}) => {
 		<GigContainer>
 			<Card title={`${gig.artist}`}>
 				<StyledBody>
-					<GigRating />
+					{type === 'old' &&
+						<GigRating />
+					}
 					<UpdateGig initialValues={gig} switchEditMode={switchEditMode} editMode={editMode} />
 					<DisplayGig gig={gig} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} />
 				</StyledBody>

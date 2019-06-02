@@ -40,11 +40,11 @@ const AppHeader = ({logout}) => {
 									<Button kind={KIND.secondary} onClick={(e) => handleAddGig(e)} endEnhancer={() => <Plus size={24} />}>Add gig</Button>
 									<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 								</li>
-								<li>
-									<Link to="/users">
-										<Button kind={KIND.secondary} endEnhancer={() => <Search size={24} />}>Users</Button>
-									</Link>
-								</li>
+								{/*<li>*/}
+								{/*	<Link to="/users">*/}
+								{/*		<Button kind={KIND.secondary} endEnhancer={() => <Search size={24} />}>Users</Button>*/}
+								{/*	</Link>*/}
+								{/*</li>*/}
 								<li>
 									<UserSearch />
 								</li>
