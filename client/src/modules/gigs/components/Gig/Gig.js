@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import UpdateGig from './UpdateGig'
 import DisplayGig from "./DisplayGig"
+import GigRating from "./GigRating"
 import {Card, StyledBody} from 'baseui/card';
 import {GigContainer} from './GigStyled'
 
@@ -15,6 +16,7 @@ const Gig = ({gig, type, withoutCrud}) => {
 		<GigContainer>
 			<Card title={`${gig.artist}`}>
 				<StyledBody>
+					<GigRating />
 					<UpdateGig initialValues={gig} switchEditMode={switchEditMode} editMode={editMode} />
 					<DisplayGig gig={gig} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} />
 				</StyledBody>

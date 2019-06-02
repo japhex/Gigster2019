@@ -2,14 +2,14 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
-import {Header, H1, SearchBlock} from './HeaderStyled';
+import {Header, H1} from './HeaderStyled';
 import {Button, KIND} from 'baseui/button';
 import {getLoggedInUser} from "api/users/users"
 import QueryHandler from "../../utils/QueryHandler"
 import CreateGig from "../../../modules/gigs/pages/CreateGig"
 import Plus from 'baseui/icon/plus'
 import Search from "baseui/icon/search"
-import {StatefulInput} from 'baseui/input';
+import UserSearch from 'modules/users/components/User/UserSearch'
 
 const AppHeader = ({logout}) => {
 	const [addGigActive, setAddGigActive] = useState(false)
@@ -46,16 +46,7 @@ const AppHeader = ({logout}) => {
 									</Link>
 								</li>
 								<li>
-									<StatefulInput
-										overrides={{
-											After: () => (
-												<SearchBlock>
-													<Search size="16px" />
-												</SearchBlock>
-											),
-										}}
-										placeholder="Search for user..."
-									/>
+									<UserSearch />
 								</li>
 							</ul>
 						</div>
