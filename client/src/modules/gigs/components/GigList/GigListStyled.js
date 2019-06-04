@@ -22,11 +22,13 @@ export const H1 = styled.div`
 `
 
 export const Sorting = styled.span`
-	display: block;
+	display: flex;
+	color:#999;
+	align-items: center;
 	cursor:pointer;
 	margin-left: auto;
 	border:2px solid;
 	border-radius:20px;
-	padding:5px 20px;
+	padding:5px 10px 5px 20px;
 	font-size:0.8rem;
 `
