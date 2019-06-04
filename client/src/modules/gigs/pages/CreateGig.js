@@ -18,37 +18,36 @@ const CreateGig = ({addMode, callback}) => (
 			<Formik onSubmit={async (values) => {
 				await createGig({variables: values})
 			}}
-			        render={({ errors, status, touched, isSubmitting }) => (
-				        <Modal isOpen={addMode}>
-					        <Form>
-						        <ModalHeader>Create gig</ModalHeader>
-						        <ModalBody>
-							        <Div>
-								        <Field type="text" name="artist" render={({field}) => (
-									        <Input type="text" name="artist" {...field} />
-								        )} />
-								        <Field type="date" name="date" render={({field}) => (
-									        <Input type="date" name="date" {...field} />
-								        )} />
-								        <Field type="text" name="venue" render={({field}) => (
-									        <Input type="text" name="venue" {...field} />
-								        )} />
-							        </Div>
-
-							        <ModalFooter>
-								        <Buttons>
-									        <Button size={SIZE.compact} isLoading={isSubmitting}>
-										        Create gig
-									        </Button>
-									        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
-										        Cancel
-									        </Button>
-								        </Buttons>
-							        </ModalFooter>
-						        </ModalBody>
-					        </Form>
-				        </Modal>
-			        )}
+		        render={({ errors, status, touched, isSubmitting }) => (
+			        <Modal isOpen={addMode}>
+				        <Form>
+					        <ModalHeader>Create gig</ModalHeader>
+					        <ModalBody>
+						        <Div>
+							        <Field type="text" name="artist" render={({field}) => (
+								        <Input type="text" name="artist" {...field} />
+							        )} />
+							        <Field type="date" name="date" render={({field}) => (
+								        <Input type="date" name="date" {...field} />
+							        )} />
+							        <Field type="text" name="venue" render={({field}) => (
+								        <Input type="text" name="venue" {...field} />
+							        )} />
+						        </Div>
+					        </ModalBody>
+					        <ModalFooter>
+						        <Buttons>
+							        <Button size={SIZE.compact} isLoading={isSubmitting}>
+								        Create gig
+							        </Button>
+							        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
+								        Cancel
+							        </Button>
+						        </Buttons>
+					        </ModalFooter>
+				        </Form>
+			        </Modal>
+		        )}
 			/>
 		)}
 	</Mutation>

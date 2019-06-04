@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import IconHand from "../../icons/Hand"
 
 export const Header = styled.header`
 	display: flex;
@@ -33,5 +34,20 @@ export const SearchBlock = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-right:10px;
+`
+
+export const UserDetails = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`
+
+export const Divider = styled.span`
+	display: block;
+	margin:0 10px;
+`
+
+export const StyledHandIcon = styled(IconHand)`
 	margin-right:10px;
 `

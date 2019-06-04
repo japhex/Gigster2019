@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import history from './../../../utils/routing';
 import { Query } from "react-apollo";
-import {Header, H1} from './HeaderStyled';
+import {Header, H1, UserDetails, Divider, StyledHandIcon} from './HeaderStyled';
 import {Button, KIND} from 'baseui/button';
 import {getLoggedInUser} from "api/users/users"
 import QueryHandler from "../../utils/QueryHandler"
@@ -50,12 +50,12 @@ const AppHeader = ({logout}) => {
 								</li>
 							</ul>
 						</div>
-						<div>
-							<div className="header__user">
-								Welcome, <span>{data.loggedInUser.username}</span>
-							</div>
-							<span onClick={handleLogout}>(logout)</span>
-						</div>
+						<UserDetails>
+							<StyledHandIcon  />
+							<span>{data.loggedInUser.username}</span>
+							<Divider>|</Divider>
+							<span onClick={handleLogout}>logout</span>
+						</UserDetails>
 					</Header>
 				)
 			}}

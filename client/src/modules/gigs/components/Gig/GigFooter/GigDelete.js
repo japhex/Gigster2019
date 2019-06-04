@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Mutation } from "react-apollo";
-import {Button, SIZE} from 'baseui/button';
+import {Button, KIND, SIZE} from 'baseui/button'
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
 import Confirm from 'components/utils/alerts/Confirm'
 import Delete from "baseui/icon/delete"
@@ -23,7 +23,7 @@ const GigDelete = ({gigId}) => {
 		}}>
 			{(deleteGig) => (
 				<>
-					<Button size={SIZE.compact} endEnhancer={() => <Delete size={24} />} onClick={() => {
+					<Button kind={KIND.secondary} size={SIZE.compact} endEnhancer={() => <Delete size={24} />} onClick={() => {
 						handleDeleteClick(deleteGig)
 					}}>
 						Delete
