@@ -27,6 +27,7 @@ const schemaString = `
     users: [User!]!
     loggedInUser: User
     user(username: String!): User
+    searchUsers(username: String!): [User]
     gigs: [Gig!]!
     gig(id: ID!): Gig
   }

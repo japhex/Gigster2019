@@ -6,7 +6,7 @@ import QueryHandler from 'components/utils/QueryHandler'
 import {Div} from './GigsStyled'
 
 const UserGigs = () => (
-	<Query query={getGigs} >
+	<Query query={getGigs}>
 		{({ loading, error, data }) => {
 			if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
