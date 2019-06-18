@@ -17,7 +17,8 @@ export const Header = styled.header`
 	}
 
 	.navbar {
-		li {
+		> ul > li {
+			position: relative;
 			display: inline-flex;
 			margin-right: 10px;
 		}
