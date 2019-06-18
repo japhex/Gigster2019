@@ -8,13 +8,11 @@ import Search from "baseui/icon/search"
 
 const UserSearch = () => {
 	const [users, setUsers] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
 
 	const handleKeyUp = async (e, client) => {
 		const username = e.target.value;
 		const users = await client.query({query:searchUsers, variables:{username:username}});
-
-		setSearchValue(username)
+		
 		setUsers(username === '' ? [] : users.data.searchUsers)
 	}
 
@@ -35,7 +33,7 @@ const UserSearch = () => {
 							onKeyUp={(e) => handleKeyUp(e, client)}
 						/>
 
-						<UserSearchList users={users} searchValue={searchValue} />
+						<UserSearchList users={users} />
 					</>
 				)
 			}}
