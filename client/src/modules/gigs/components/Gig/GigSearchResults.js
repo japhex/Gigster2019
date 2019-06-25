@@ -1,6 +1,6 @@
 import React from 'react'
 import {ResultsList} from './GigSearchResultsStyled'
-import GigResultParent from "./GigResult"
+import GigResultParent from "../GigResult/GigResult"
 
 const GigSearchResults = ({gigs}) => (
 	<ResultsList>
