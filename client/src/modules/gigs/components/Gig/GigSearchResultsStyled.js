@@ -38,7 +38,6 @@ export const Date = styled.div`
 `
 
 export const GigResultFooter = styled.div`
-	display:flex;
     margin-top: 6px;
     border-top: 1px solid #eee;
     padding: 5px 10px;
