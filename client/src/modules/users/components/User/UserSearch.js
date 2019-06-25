@@ -12,7 +12,7 @@ const UserSearch = () => {
 	const handleKeyUp = async (e, client) => {
 		const username = e.target.value;
 		const users = await client.query({query:searchUsers, variables:{username:username}});
-		
+
 		setUsers(username === '' ? [] : users.data.searchUsers)
 	}
 

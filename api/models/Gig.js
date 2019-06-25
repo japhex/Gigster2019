@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         date: DataTypes.DATE,
 	    venue: DataTypes.STRING,
 	    location: DataTypes.STRING,
+	    songkickId: DataTypes.INTEGER,
+	    songkickJson: DataTypes.STRING,
     }, {
         freezeTableName: true
     });

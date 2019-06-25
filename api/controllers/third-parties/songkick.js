@@ -1,5 +1,5 @@
 const rp = require('request-promise');
-const config = require('../../config/songkick.json');
+const config = require('../../config/songkick.js');
 
 module.exports = {
 	async searchArtist(req, res) {

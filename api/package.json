@@ -20,6 +20,7 @@
     "graphql": "14.2.1",
     "graphql-iso-date": "3.6.1",
     "graphql-tag": "2.10.1",
+    "graphql-type-json": "0.3.0",
     "jsonwebtoken": "^8.2.2",
     "mysql2": "^1.6.1",
     "nodemon": "^1.17.3",

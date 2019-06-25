@@ -1,5 +1,5 @@
 import {apiLogin, apiSignup} from "./controllers/auth"
-import {apiCreateGig, apiDeleteGig, apiGetGigs, apiUpdateGig} from './controllers/gigs'
+import {apiCreateGig, apiDeleteGig, apiGetGigs, apiUpdateGig, apiSearchGig} from './controllers/gigs'
 import {apiGetUserByUsername, apiGetUsers, apiSearchUsersByUsername} from './controllers/users'
 
 export default {
@@ -18,6 +18,7 @@ export default {
 		login: (root, form) => apiLogin(form),
 		createGig: (root, gig, { user }) => apiCreateGig(gig, user),
 		updateGig: (root, gig, { user }) => apiUpdateGig(gig, user),
-		deleteGig: (root, gig, { user }) => apiDeleteGig(gig, user)
+		deleteGig: (root, gig, { user }) => apiDeleteGig(gig, user),
+		searchGig: (root, gig, { user }) => apiSearchGig(gig, user),
 	}
 };

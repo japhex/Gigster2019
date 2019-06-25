@@ -1,6 +1,7 @@
 const models = require('../models');
 const rp = require('request-promise');
 import {checkUser} from './utils'
+import {songkick} from '../config/songkick';
 
 module.exports = {
 	async getAdditionalGigDetail(req, res) {
@@ -89,6 +90,18 @@ export const apiDeleteGig = async ({ id }, user) => {
 		userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
 
 		return userWithGigs.Gigs;
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}
+
+// Search gig
+export const apiSearchGig = async ({ artist }, user) => {
+	try {
+		checkUser(user);
+		const songkickArtist = await rp.get(`https://api.songkick.com/api/3.0/events.json?apikey=${songkick.apiKey}&artist_name=${artist}`);
+
+		return JSON.parse(songkickArtist).resultsPage.results.event;
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}
