@@ -10,6 +10,7 @@ import {searchGigMutation, getGigs} from "api/gigs/gigs"
 
 const SearchForGig = ({callback}) => {
 	const [gigs, setGigs] = useState([]);
+	const [submittingForm, setSubmittingForm] = useState(false)
 
 	return (
 		<Mutation mutation={searchGigMutation} update={(cache, {data}) => {
@@ -19,29 +20,31 @@ const SearchForGig = ({callback}) => {
 		}}>
 			{(searchGig) => (
 				<Formik onSubmit={async (values) => {
+					setSubmittingForm(true)
 					await searchGig({variables: values})
+					setSubmittingForm(false)
 				}}
-				        render={({errors, status, touched, isSubmitting}) => (
-				        	<>
-						        <Form>
-							        <Div>
-								        <Field type="text" name="artist" render={({field}) => (
-									        <Input type="text" name="artist" {...field} />
-								        )}/>
-							        </Div>
-							        <Buttons>
-								        <Button size={SIZE.compact} isLoading={isSubmitting}>
-									        Search
-								        </Button>
-								        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
-									        Cancel
-								        </Button>
-							        </Buttons>
-						        </Form>
+			        render={() => (
+			            <>
+					        <Form>
+						        <Div>
+							        <Field type="text" name="artist" render={({field}) => (
+								        <Input type="text" name="artist" {...field} />
+							        )}/>
+						        </Div>
+						        <Buttons>
+							        <Button size={SIZE.compact} isLoading={submittingForm}>
+								        Search
+							        </Button>
+							        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
+								        Cancel
+							        </Button>
+						        </Buttons>
+					        </Form>
 
-						        <GigSearchResults gigs={gigs} />
-					        </>
-				        )}
+					        <GigSearchResults gigs={gigs} />
+				        </>
+			        )}
 				/>
 			)}
 		</Mutation>

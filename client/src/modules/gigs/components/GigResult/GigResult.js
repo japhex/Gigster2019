@@ -14,9 +14,8 @@ const GigResultParent = ({gig}) => {
 
 	return (
 		<Mutation mutation={createSongkickGigMutation} update={(cache, { data }) => {
-			const newGigs = data.createSongkickGig();
+			const newGigs = data.createSongkickGig;
 			cache.writeQuery({query:getGigs, data: {gigs:newGigs}})
-			// callback()
 		}}>
 			{(createSongkickGig) => (
 				<GigResult onClick={(e) => saveGig(e, createSongkickGig)}>
