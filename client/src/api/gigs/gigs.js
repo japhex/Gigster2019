@@ -7,6 +7,8 @@ export const getGigs = gql`
         artist
         date
         venue
+	    songkickId
+	    songkickJson
     }
 }`;
 
@@ -17,6 +19,21 @@ export const createGigMutation = gql`
 			artist
 			date
 			venue
+			songkickId
+			songkickJson
+		}
+	}
+`;
+
+export const createSongkickGigMutation = gql`
+	mutation createSongkickGig($songkickId: ID!, $songkickJson: JSONObject!) {
+		createSongkickGig(songkickId: $songkickId, songkickJson: $songkickJson) {
+			id
+			artist
+			date
+			venue
+			songkickId
+			songkickJson
 		}
 	}
 `;
@@ -28,6 +45,8 @@ export const updateGigMutation = gql`
 			artist
 			date
 			venue
+			songkickId
+			songkickJson
 		}
 	}
 `;
@@ -39,6 +58,8 @@ export const deleteGigMutation = gql`
 			artist
 			date
 			venue
+			songkickId
+			songkickJson
 		}
 	}
 `;

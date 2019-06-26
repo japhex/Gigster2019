@@ -64,6 +64,30 @@ export const apiCreateGig = async ({ artist, date, venue }, user) => {
 	}
 }
 
+// Create songkick gig
+export const apiCreateSongkickGig = async ({ songkickId, songkickJson}, user) => {
+	try {
+		checkUser(user);
+
+		const userId = user.id
+
+		const gig = await models.gig.create({
+			date: songkickJson.start.date,
+			songkickId:songkickId,
+			songkickJson:JSON.stringify(songkickJson)
+		});
+
+		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+		await userWithGigs.addGig(gig.id)
+
+		userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+
+		return userWithGigs.Gigs;
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}
+
 // Update gig
 export const apiUpdateGig = async ({ id, artist, date, venue }, user) => {
 	try {

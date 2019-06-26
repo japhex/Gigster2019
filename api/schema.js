@@ -23,8 +23,10 @@ const schemaString = `
     id: ID!
     artist: String
     date: Date
-    venue: String!
-    location: String!
+    venue: String
+    location: String
+    songkickId: ID
+	songkickJson: JSONObject
   }
   
   type Query {
@@ -40,6 +42,7 @@ const schemaString = `
     signup(username: String!, password: String!): String
     login(username: String!, password: String!): String
     createGig(artist: String, date: Date, venue: String): [Gig!]!
+    createSongkickGig(songkickId: ID!, songkickJson: JSONObject): [Gig!]!
     updateGig(id: ID!, artist: String, date: Date, venue: String): [Gig!]!
     deleteGig(id: ID!): [Gig!]!
     searchGig(artist: String!): JSONObject
