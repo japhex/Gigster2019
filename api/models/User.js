@@ -15,7 +15,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true
         }
     }, {
-        freezeTableName: true
+        freezeTableName: true,
+	    charset: 'utf8',
+	    collate: 'utf8_unicode_ci'
     });
 
 	User.associate = function (models) {

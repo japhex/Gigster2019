@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
 	    songkickId: DataTypes.INTEGER,
 	    songkickJson: DataTypes.STRING,
     }, {
-        freezeTableName: true
+        freezeTableName: true,
+	    charset: 'utf8',
+	    collate: 'utf8_unicode_ci'
     });
 
 	Gig.associate = function (models) {

@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
         },
 	    artist: DataTypes.STRING
     }, {
-        freezeTableName: true
+        freezeTableName: true,
+	    charset: 'utf8',
+	    collate: 'utf8_unicode_ci'
     });
 
 	return support;

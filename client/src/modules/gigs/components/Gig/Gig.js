@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import UpdateGig from './UpdateGig'
 import DisplayGig from "./DisplayGig"
-import DisplaySongkickGig from './DisplaySongkickGig'
 import GigRating from "./GigRating"
 import {Card, StyledBody} from 'baseui/card';
 import {GigContainer} from './GigStyled'

@@ -5,7 +5,12 @@
     "database": "gigster",
     "host": "127.0.0.1",
     "port":"3306",
-    "dialect": "mysql"
+    "dialect": "mysql",
+	"define": {
+	  "charset": "utf8",
+	  "collate": "utf8_general_ci",
+	  "timestamps": true
+	}
   },
   "test": {
     "username": "japhex",
@@ -13,13 +18,23 @@
     "database": "gigster",
     "host": "gigster.cstjkya67e0j.eu-west-2.rds.amazonaws.com",
 	"port":"3306",
-    "dialect": "mysql"
+    "dialect": "mysql",
+	"define": {
+	  "charset": "utf8",
+	  "collate": "utf8_general_ci",
+	  "timestamps": true
+	}
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+	"define": {
+	  "charset": "utf8",
+	  "collate": "utf8_general_ci",
+	  "timestamps": true
+	}
   }
 }
