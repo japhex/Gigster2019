@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const GigListContainer = styled.div`
 	padding:20px;
+	width: ${props => props.type === 'old' ? '20%' : '80%'};
 `
 
 export const Ul = styled.div`

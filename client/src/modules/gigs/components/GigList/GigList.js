@@ -5,13 +5,11 @@ import ArrowDown from 'baseui/icon/arrow-down'
 import {GigListContainer, Ul, H1, Sorting} from "./GigListStyled"
 
 const GigList = ({type, title, gigs, withoutCrud}) => (
-	<GigListContainer>
+	<GigListContainer type={type}>
 		<>
 			<H1>
 				<ChevronRight size={24} />{title}
-				{type === 'old' &&
-					<Sorting>Sort <ArrowDown size={22} /></Sorting>
-				}
+				<Sorting>Sort <ArrowDown size={22} /></Sorting>
 			</H1>
 			{gigs.length > 0 ?
 				<Ul>

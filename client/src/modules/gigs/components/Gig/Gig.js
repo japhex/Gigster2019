@@ -16,7 +16,7 @@ const Gig = ({gig, type, withoutCrud}) => {
 	}
 
 	return (
-		<GigContainer>
+		<GigContainer type={type}>
 			<Card title={gigFormatted.artist}>
 				<StyledBody>
 					{type === 'old' &&

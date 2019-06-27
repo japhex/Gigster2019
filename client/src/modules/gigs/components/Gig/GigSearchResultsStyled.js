@@ -41,8 +41,8 @@ export const GigResultFooter = styled.div`
     margin-top: 6px;
     border-top: 1px solid #eee;
     padding: 5px 10px;
-	background: #111;
-    color: #cecece;
+	background: #eee;
+    color: #666;
     font-size: 0.7rem;
     text-transform: uppercase;
 `
