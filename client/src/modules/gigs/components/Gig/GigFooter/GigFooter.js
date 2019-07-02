@@ -5,11 +5,11 @@ import {Buttons} from "components/utils/styled/ModalStyled"
 import {Button, SIZE} from 'baseui/button'
 import Overflow from 'baseui/icon/overflow'
 
-const GigFooter = ({gigId, gigSource, switchEditMode}) => {
+const GigFooter = ({gigId, songkickGig, switchEditMode}) => {
 	return (
 		<Div>
 			<Buttons>
-				{gigSource !== 'songkick' &&
+				{!songkickGig &&
 					<Button size={SIZE.compact} endEnhancer={() => <Overflow size={24}/>} onClick={switchEditMode}>
 						Edit
 					</Button>

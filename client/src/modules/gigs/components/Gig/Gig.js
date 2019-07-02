@@ -20,12 +20,12 @@ const Gig = ({gig, type, withoutCrud}) => {
 			<Card title={gigFormatted.artist}>
 				<StyledBody>
 					{type === 'old' &&
-						<GigRating/>
+						<GigRating />
 					}
 					{!songkickGig &&
 						<UpdateGig initialValues={gigFormatted} switchEditMode={switchEditMode} editMode={editMode}/>
 					}
-					<DisplayGig gig={gigFormatted} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} />
+					<DisplayGig gig={gigFormatted} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} songkickGig={songkickGig} />
 				</StyledBody>
 			</Card>
 		</GigContainer>

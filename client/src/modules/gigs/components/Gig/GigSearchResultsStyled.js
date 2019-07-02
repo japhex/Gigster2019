@@ -10,6 +10,10 @@ export const GigResult = styled.div`
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor:pointer;
+    
+	&:hover {
+        background:#ccc;
+    }
 `
 
 export const GigResultHeader = styled.div`
@@ -39,12 +43,16 @@ export const Date = styled.div`
 
 export const GigResultFooter = styled.div`
     margin-top: 6px;
-    border-top: 1px solid #eee;
     padding: 5px 10px;
 	background: #eee;
     color: #666;
     font-size: 0.7rem;
     text-transform: uppercase;
+    
+	// THIS IS HORRIBLE.
+	${GigResult}:hover & {
+        background:#ccc;
+    }
 `
 
 export const Venue = styled.div`
