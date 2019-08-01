@@ -1,5 +1,5 @@
 import React from 'react'
-import {ResultsList} from './GigSearchResultsStyled'
+import {ResultsList} from '../GigStyled/GigSearchResultsStyled'
 import GigResultParent from "../GigResult/GigResult"
 
 const GigSearchResults = ({gigs}) => (

@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment/moment'
-import {GigResultHeader, Bands, Date, Venue, Location} from '../Gig/GigSearchResultsStyled'
+import {GigResultHeader, Bands, Date, Venue, Location} from '../GigStyled/GigSearchResultsStyled'
 
 const GigResultHeaderParent = ({gig}) => (
 	<GigResultHeader>

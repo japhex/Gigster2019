@@ -3,7 +3,7 @@ import {Field, Form, Formik} from 'formik'
 import {Input} from "baseui/input"
 import {Buttons} from "components/utils/styled/ModalStyled"
 import {Button, KIND, SIZE} from "baseui/button/index"
-import {Div} from "./AddManualGigStyled"
+import {Div} from "../GigStyled/AddManualGigStyled"
 import {Mutation} from "react-apollo"
 import GigSearchResults from './GigSearchResults'
 import {searchGigMutation, getGigs} from "api/gigs/gigs"

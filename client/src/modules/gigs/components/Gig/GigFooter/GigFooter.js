@@ -1,6 +1,6 @@
 import React from 'react'
 import GigDelete from "./GigDelete"
-import {Div} from './GigFooterStyled';
+import {Div} from '../../GigStyled/GigFooterStyled';
 import {Buttons} from "components/utils/styled/ModalStyled"
 import {Button, SIZE} from 'baseui/button'
 import Overflow from 'baseui/icon/overflow'

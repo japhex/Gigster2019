@@ -5,7 +5,7 @@ import {Modal, ModalHeader, ModalBody, ModalFooter} from 'baseui/modal';
 import {Button, KIND, SIZE} from 'baseui/button';
 import {Input} from 'baseui/input';
 import {updateGigMutation, getGigs} from "../../../../api/gigs/gigs"
-import {Div} from './UpdateGigStyled';
+import {Div} from '../GigStyled/UpdateGigStyled';
 import {Buttons} from "components/utils/styled/ModalStyled"
 
 const UpdateGig = ({editMode, initialValues, switchEditMode}) => (

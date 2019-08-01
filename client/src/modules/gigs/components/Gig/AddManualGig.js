@@ -3,7 +3,7 @@ import { Mutation } from "react-apollo";
 import { Formik, Field, Form } from 'formik';
 import {createGigMutation, getGigs} from "api/gigs/gigs"
 import {Input} from "baseui/input"
-import {Div} from "./AddManualGigStyled"
+import {Div} from "../GigStyled/AddManualGigStyled"
 import {Buttons} from "components/utils/styled/ModalStyled"
 import {Button, KIND, SIZE} from "baseui/button/index"
 

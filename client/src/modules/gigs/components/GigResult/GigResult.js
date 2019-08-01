@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {GigResult} from '../Gig/GigSearchResultsStyled'
+import {GigResult} from '../GigStyled/GigSearchResultsStyled'
 import GigResultHeaderParent from "./GigResultHeader"
 import GigResultFooterParent from "./GigResultFooter"
 import {Mutation} from "react-apollo"

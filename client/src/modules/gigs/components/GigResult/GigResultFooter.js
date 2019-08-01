@@ -1,5 +1,5 @@
 import React from 'react'
-import {GigResultFooter, Strong, Festival} from '../Gig/GigSearchResultsStyled'
+import {GigResultFooter, Strong, Festival} from '../GigStyled/GigSearchResultsStyled'
 
 const GigResultFooterParent = ({gig}) =>  (
 	gig.performance.length > 1 &&

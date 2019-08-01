@@ -35,7 +35,7 @@ export const TicketLeft = styled.div`
 	flex:3;
 `
 
-export const StubSupport = styled.div`
+export const Support = styled.div`
 	text-align: center;
 	align-items: center;
 	font-size:0.8rem;
