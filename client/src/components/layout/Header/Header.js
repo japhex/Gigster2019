@@ -51,7 +51,7 @@ const AppHeader = ({logout}) => {
 							</ul>
 						</div>
 						<UserDetails>
-							<StyledHandIcon  />
+							<StyledHandIcon />
 							<span>{data.loggedInUser.username}</span>
 							<Divider>|</Divider>
 							<span onClick={handleLogout}>logout</span>

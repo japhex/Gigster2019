@@ -4,7 +4,7 @@ import GigLayout from './components/layout/GigLayout/GigLayout';
 import UsersLayout from './components/layout/UsersLayout/UsersLayout';
 import UsersHome from './modules/users/pages/Users';
 import UserPage from './modules/users/pages/UserPage';
-import GigsHome from './modules/gigs/pages/Gigs';
+import GigsHome from './modules/gigs/pages/UserGigs';
 import CreateGig from './modules/gigs/pages/CreateGig';
 import UpdateGig from './modules/gigs/components/Gig/UpdateGig';
 import Login from './modules/auth/components/Login';

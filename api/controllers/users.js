@@ -28,3 +28,11 @@ export const apiSearchUsersByUsername = async (username) => {
 		throw new Error(`Error: ${err}`)
 	}
 }
+
+export const apiGetGigsByUser = async (userId) => {
+	try {
+		return await models.user.findOne({where: {id: userId}, include: ['Gigs']})
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}

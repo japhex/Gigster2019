@@ -33,6 +33,7 @@ const schemaString = `
     users: [User!]!
     loggedInUser: User
     user(username: String!): User
+    userGigs(userId: Int!): User
     searchUsers(username: String!): [User]
     gigs: [Gig!]!
     gig(id: ID!): Gig

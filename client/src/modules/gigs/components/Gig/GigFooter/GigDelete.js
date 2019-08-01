@@ -25,7 +25,12 @@ const GigDelete = ({gigId}) => {
 				<>
 					<Button kind={KIND.secondary} size={SIZE.compact} endEnhancer={() => <Delete size={24} />} onClick={() => {
 						handleDeleteClick(deleteGig)
-					}}>
+					}}
+			        overrides={{
+				        BaseButton: {
+				        	style: {backgroundColor:'#991100'}
+				        }
+			        }}>
 						Delete
 					</Button>
 					<Confirm active={active} callbackConfirm={() => handleDeleteGig(deleteGig)} callbackCancel={() => setActive(false)} />

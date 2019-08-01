@@ -1,6 +1,7 @@
 import React from "react"
 
-export const formatGig = (id, {performance, start, venue, type}) => {
+export const formatGig = (id, gig) => {
+	const {performance, start, location, venue, type, popularity} = gig
 	const artist = performance.find(band => band.billingIndex === 1).displayName
 	const supportsArray = [];
 
@@ -13,8 +14,11 @@ export const formatGig = (id, {performance, start, venue, type}) => {
 		id: id,
 		artist: artist,
 		date: start.date,
+		time: start.time !== null ? start.time : '0',
+		location: location.city,
 		venue: venue.displayName,
 		supports: supportsArray,
-		festival: type.toLowerCase() === 'festival'
+		festival: type.toLowerCase() === 'festival',
+		popularity: popularity
 	}
 }

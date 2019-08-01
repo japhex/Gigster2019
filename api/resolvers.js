@@ -1,6 +1,6 @@
 import {apiLogin, apiSignup} from "./controllers/auth"
 import {apiCreateGig, apiCreateSongkickGig, apiDeleteGig, apiGetGigs, apiUpdateGig, apiSearchGig} from './controllers/gigs'
-import {apiGetUserByUsername, apiGetUsers, apiSearchUsersByUsername} from './controllers/users'
+import {apiGetUserByUsername, apiGetUsers, apiSearchUsersByUsername, apiGetGigsByUser} from './controllers/users'
 
 export default {
 	User: {
@@ -10,6 +10,7 @@ export default {
 		users: () => apiGetUsers(),
 		loggedInUser: (parent, args, { user }) => user,
 		user: (parent, { username }) => apiGetUserByUsername(username),
+		userGigs: (parent, { userId }) => apiGetGigsByUser(userId),
 		searchUsers: (parent, { username }) => apiSearchUsersByUsername(username),
 		gigs: (parent, args, { user }) => apiGetGigs(user)
 	},

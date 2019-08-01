@@ -1,15 +1,16 @@
 import React from 'react'
-import GigList from "../../../gigs/components/GigList/GigList"
 import StatsHeader from "../../components/User/StatsHeader/StatsHeader"
 import './UserBlock.scss';
+import ViewUserGigs from "../../../gigs/pages/ViewUserGigs"
+import {UserSidebar} from './UserBlockStyled'
 
 const UserBlock = ({user}) => (
 	<>
-		<div className="user-sidebar">
+		<UserSidebar>
 			<h1 className="user-username">{user.username}</h1>
 			<StatsHeader user={user} />
-		</div>
-		<GigList gigs={user.gigs} withoutCrud={true} />
+		</UserSidebar>
+		<ViewUserGigs user={user} />
 	</>
 );
 

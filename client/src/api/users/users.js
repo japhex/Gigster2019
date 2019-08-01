@@ -35,3 +35,18 @@ export const searchUsers = gql`
 			username
 		}
 }`;
+
+export const getGigsByUser = gql`
+	query userGigs($userId: Int!) {
+		userGigs(userId: $userId) {
+			gigs {
+				id
+				artist
+				date
+				venue
+				songkickId
+				songkickJson
+			}
+		}
+	}
+`;
