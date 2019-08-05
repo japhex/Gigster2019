@@ -10,9 +10,11 @@ import {TicketArtist} from "./Ticket/TicketArtist"
 
 const Gig = ({gig, type, withoutCrud}) => {
 	const [editMode, setEditMode] = useState(false);
+
 	const songkickGig = JSON.parse(gig.songkickJson)
 	const gigFormatted = formatGig(gig.id, songkickGig)
 	const popularityAmount = Math.round(gigFormatted.popularity * 100)
+	const {artist, supports, festival, location, date, venue, time } = gigFormatted
 
 	const switchEditMode = () => {
 		setEditMode(!editMode);
@@ -25,12 +27,12 @@ const Gig = ({gig, type, withoutCrud}) => {
 					<Ticket>
 						<TicketLeft>
 							<Title>
-								<TicketArtist artist={gigFormatted.artist} popularity={popularityAmount} type={type} festival={gigFormatted.festival} />
-								<TicketSupport supports={gigFormatted.supports} />
+								<TicketArtist artist={artist} popularity={popularityAmount} type={type} festival={festival} />
+								<TicketSupport supports={supports} />
 							</Title>
 							<Details>
-								<TicketDate gigDate={gigFormatted.date} />
-								<TicketVenue location={gigFormatted.location} venue={gigFormatted.venue} time={gigFormatted.time} />
+								<TicketDate gigDate={date} />
+								<TicketVenue location={location} venue={venue} time={time} />
 							</Details>
 						</TicketLeft>
 					</Ticket>

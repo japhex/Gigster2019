@@ -3,35 +3,6 @@ const rp = require('request-promise');
 import {checkUser} from './utils'
 import {songkick} from '../config/songkick';
 
-module.exports = {
-	async getAdditionalGigDetail(req, res) {
-		const newGigs = [];
-		try {
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-
-			for (let i=0; i < user.Gigs.length; i++) {
-				const gig = user.Gigs[i];
-				const obj = gig.toJSON();
-
-				obj.artistInfo = await rp.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${gig.artist}&api_key=61726d01845437a55a440275a1b4e5b9&format=json`);
-
-				if (obj.artistInfo !== '') {
-					obj.artistInfo = JSON.parse(obj.artistInfo);
-				} else {
-					delete obj.artistInfo;
-				}
-
-				newGigs.push(obj);
-			}
-
-			return newGigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	}
-};
-
 // Get all gigs for user
 export const apiGetGigs = async (user) => {
 	try {
