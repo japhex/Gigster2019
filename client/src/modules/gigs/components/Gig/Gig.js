@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import UpdateGig from './UpdateGig'
 import DisplayGig from "./DisplayGig"
 import {StyledBody} from 'baseui/card';
 import { GigContainer, GigStyled, Ticket, TicketLeft, Title, Details } from '../GigStyled/GigStyled'
@@ -35,9 +34,6 @@ const Gig = ({gig, type, withoutCrud}) => {
 							</Details>
 						</TicketLeft>
 					</Ticket>
-					{!songkickGig &&
-						<UpdateGig initialValues={gigFormatted} switchEditMode={switchEditMode} editMode={editMode}/>
-					}
 					{/*<DisplayGig gig={gigFormatted} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} songkickGig={songkickGig} />*/}
 				</StyledBody>
 			</GigStyled>

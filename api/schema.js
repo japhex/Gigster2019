@@ -40,7 +40,6 @@ const schemaString = `
     login(username: String!, password: String!): String
     createGig(artist: String, date: Date, venue: String): [Gig!]!
     createSongkickGig(songkickId: ID!, songkickJson: JSONObject): [Gig!]!
-    updateGig(id: ID!, artist: String, date: Date, venue: String): [Gig!]!
     deleteGig(id: ID!): [Gig!]!
     searchGig(artist: String!): JSONObject
   }
