@@ -11,8 +11,7 @@ const UserGigs = () => (
 			if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
 			const gigs = data.gigs;
-			const oldGigs = gigs.filter(gig => Date.parse(JSON.parse(gig.songkickJson).start.date) < Date.now());
-			const newGigs = gigs.filter(gig => Date.parse(JSON.parse(gig.songkickJson).start.date) > Date.now());
+			const {oldGigs, newGigs} = gigs
 
 			return (
 				<Div>

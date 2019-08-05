@@ -3,9 +3,16 @@ import gql from "graphql-tag";
 export const getGigs = gql`
 {
     gigs {
-        id
-	    songkickId
-	    songkickJson
+	    oldGigs {
+            id
+            songkickId
+            songkickJson
+        }
+	    newGigs {
+            id
+            songkickId
+            songkickJson
+	    }
     }
 }`;
 

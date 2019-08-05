@@ -25,13 +25,18 @@ const schemaString = `
 	songkickJson: JSONObject
   }
   
+  type SortedGigs {
+    oldGigs: [Gig]
+    newGigs: [Gig]
+  }
+  
   type Query {
     users: [User!]!
     loggedInUser: User
     user(username: String!): User
     userGigs(userId: Int!): User
     searchUsers(username: String!): [User]
-    gigs: [Gig!]!
+    gigs: SortedGigs
     gig(id: ID!): Gig
   }
   
