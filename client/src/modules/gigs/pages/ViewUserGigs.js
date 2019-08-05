@@ -1,9 +1,9 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import {getGigsByUser} from 'api/users/users'
-import GigList from './../components/GigList/GigList'
+import GigList from '../components/Gig/GigList'
 import QueryHandler from 'components/utils/QueryHandler'
-import {Div} from './GigsStyled'
+import {Div} from '../components/GigStyled/GigsStyled'
 
 const UserGigs = ({user}) => (
 	<Query query={getGigsByUser}  variables={{userId:parseInt(user.id)}}>

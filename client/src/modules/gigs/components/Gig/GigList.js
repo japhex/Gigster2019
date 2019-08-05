@@ -1,5 +1,5 @@
 import React from 'react'
-import Gig from '../Gig/Gig';
+import Gig from './Gig';
 import ChevronRight from 'baseui/icon/chevron-right'
 import ArrowDown from 'baseui/icon/arrow-down'
 import {GigListContainer, Ul, H1, Sorting} from "../GigStyled/GigListStyled"

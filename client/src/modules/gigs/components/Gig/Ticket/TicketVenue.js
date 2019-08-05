@@ -7,7 +7,7 @@ export const TicketVenue = ({venue, location, time}) => (
 		<i>{location}</i>
 		<Time>
 			{time !== '0' &&
-				<>{time} PM</>
+				<>{time.substring(0,5)} PM</>
 			}
 		</Time>
 	</Venue>

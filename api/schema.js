@@ -21,10 +21,6 @@ const schemaString = `
   
   type Gig {
     id: ID!
-    artist: String
-    date: Date
-    venue: String
-    location: String
     songkickId: ID
 	songkickJson: JSONObject
   }

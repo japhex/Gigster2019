@@ -13,6 +13,7 @@ export const GigContainer = styled.div`
 
 export const GigStyled = styled.div`
 	background:#222;
+	min-height:270px;
 `
 
 export const Ticket = styled.div`
@@ -53,6 +54,7 @@ export const Title = styled.div`
 	justify-content: center;
 	border-bottom:2px solid #fff;
 	padding:5px 5px 10px 5px;
+	min-height:130px;
 	
 	h1 {
 		margin: 15px 0;
@@ -66,7 +68,7 @@ export const Title = styled.div`
 
 export const Popularity = styled.div`
 	height:5px;
-	background: linear-gradient(95deg, rgba(195,34,34,1) 0%, rgba(141,146,40,1) 51%, rgba(58,253,45,1) 100%);
+	background: rgba(58,253,45,1);
 	border:1px solid #999;
 	width: ${props => props.popularityAmount}%;
 `
@@ -121,4 +123,8 @@ export const Venue = styled.div`
 
 export const Time = styled.div`
 	margin-top:15px;
+`
+
+export const ArtistName = styled.h1`
+
 `
