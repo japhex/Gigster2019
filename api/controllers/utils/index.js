@@ -10,3 +10,7 @@ export const splitGigs = gigs => {
 
 	return {oldGigs, newGigs}
 }
+
+export const orderGigsByDate = gigs => {
+	return gigs.sort((a, b) => Date.parse(JSON.parse(a.songkickJson).start.date) - Date.parse(JSON.parse(b.songkickJson).start.date))
+}

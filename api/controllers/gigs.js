@@ -1,6 +1,6 @@
 const models = require('../models');
 const rp = require('request-promise');
-import {checkUser, splitGigs} from './utils'
+import {checkUser, splitGigs, orderGigsByDate} from './utils'
 import {songkick} from '../config/songkick';
 
 // Get all gigs for user
@@ -9,8 +9,10 @@ export const apiGetGigs = async (user) => {
 		checkUser(user);
 
 		const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});
+		const Gigs = returnUser.Gigs
 
-		return await splitGigs(returnUser.Gigs)
+		orderGigsByDate(Gigs)
+		return await splitGigs(Gigs)
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}
