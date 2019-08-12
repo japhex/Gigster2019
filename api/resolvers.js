@@ -20,6 +20,6 @@ export default {
 		createGig: (root, gig, { user }) => apiCreateGig(gig, user),
 		createSongkickGig: (root, gig, { user }) => apiCreateSongkickGig(gig, user),
 		deleteGig: (root, gig, { user }) => apiDeleteGig(gig, user),
-		searchGig: (root, gig, { user }) => apiSearchGig(gig, user),
+		searchGig: (root, artist, { user }) => apiSearchGig(artist, user),
 	}
 };

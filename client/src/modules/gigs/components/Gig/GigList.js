@@ -1,7 +1,6 @@
 import React from 'react'
 import Gig from './Gig';
 import ChevronRight from 'baseui/icon/chevron-right'
-import ArrowDown from 'baseui/icon/arrow-down'
 import {GigListContainer, Ul, H1, Sorting} from "../GigStyled/GigListStyled"
 
 const GigList = ({type, title, gigs, withoutCrud}) => (
@@ -9,7 +8,6 @@ const GigList = ({type, title, gigs, withoutCrud}) => (
 		<>
 			<H1>
 				<ChevronRight size={24} />{title}
-				<Sorting>Sort <ArrowDown size={22} /></Sorting>
 			</H1>
 			{gigs.length > 0 ?
 				<Ul>
