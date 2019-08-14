@@ -9,7 +9,7 @@ const GigList = ({type, title, gigs, withoutCrud}) => (
 			<H1>
 				<ChevronRight size={24} />{title}
 			</H1>
-			{gigs.length > 0 ?
+			{gigs !== null ?
 				<Ul>
 					{gigs.map(gig =>
 						<Gig key={gig.id} gig={gig} type={type} withoutCrud={withoutCrud} />

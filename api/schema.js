@@ -21,8 +21,7 @@ const schemaString = `
   
   type Gig {
     id: ID!
-    songkickId: ID
-	songkickJson: JSONObject
+	songKickGig: JSONObject
   }
   
   type SortedGigs {
@@ -47,6 +46,7 @@ const schemaString = `
     createSongkickGig(songkickId: ID!, songkickJson: JSONObject): [Gig!]!
     deleteGig(id: ID!): [Gig!]!
     searchGig(artist: String!): JSONObject
+    rateGig(id: ID!, rating: Int!): Gig!
   }
 `;
 

@@ -11,8 +11,7 @@ import {TicketArtist} from "./Ticket/TicketArtist"
 const Gig = ({gig, type, withoutCrud}) => {
 	const [editMode, setEditMode] = useState(false);
 
-	const songkickGig = JSON.parse(gig.songkickJson)
-	const gigFormatted = formatGig(gig.id, songkickGig)
+	const gigFormatted = formatGig(gig.id, gig.songKickGig)
 	const popularityAmount = Math.round(gigFormatted.popularity * 100)
 	const {artist, supports, festival, location, date, venue, time } = gigFormatted
 

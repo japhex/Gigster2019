@@ -4,14 +4,12 @@ export const getGigs = gql`
 {
     gigs {
 	    oldGigs {
-            id
-            songkickId
-            songkickJson
+		    id
+            songKickGig
         }
 	    newGigs {
-            id
-            songkickId
-            songkickJson
+		    id
+            songKickGig
 	    }
     }
 }`;
@@ -20,8 +18,7 @@ export const createGigMutation = gql`
 	mutation createGig($artist: String!, $date: Date!, $venue: String!) {
 		createGig(artist: $artist, date: $date, venue: $venue) {
 			id
-			songkickId
-			songkickJson
+            songKickGig
 		}
 	}
 `;
@@ -30,8 +27,7 @@ export const createSongkickGigMutation = gql`
 	mutation createSongkickGig($songkickId: ID!, $songkickJson: JSONObject!) {
 		createSongkickGig(songkickId: $songkickId, songkickJson: $songkickJson) {
 			id
-			songkickId
-			songkickJson
+            songKickGig
 		}
 	}
 `;
@@ -40,8 +36,7 @@ export const deleteGigMutation = gql`
 	mutation deleteGig($id: ID!) {
 		deleteGig(id: $id) {
 			id
-			songkickId
-			songkickJson
+            songKickGig
 		}
 	}
 `;

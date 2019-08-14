@@ -2,17 +2,18 @@ const models = require('../models');
 const rp = require('request-promise');
 import {checkUser, splitGigs, orderGigsByDate} from './utils'
 import {songkick} from '../config/songkick';
+import {UserGigs} from '../mongo_models/user_gigs'
+import {Gig} from '../mongo_models/gig'
 
 // Get all gigs for user
 export const apiGetGigs = async (user) => {
 	try {
 		checkUser(user);
 
-		const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});
-		const Gigs = returnUser.Gigs
+		const userGigs = await UserGigs.find({user:user.id});
+		const gigs = await Gig.find({_id:{$in: userGigs.map(gig => gig.gig)}});
 
-		orderGigsByDate(Gigs)
-		return await splitGigs(Gigs)
+		return await splitGigs(gigs)
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}
@@ -43,24 +44,13 @@ export const apiCreateSongkickGig = async ({ songkickId, songkickJson}, user) =>
 	try {
 		checkUser(user);
 
-		const userId = user.id
-		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
-		const existingGig = await models.gig.findOne({where: {songkickId: songkickId}});
+		const gig = new Gig({songKickGig: songkickJson})
+		gig.save()
 
-		if (existingGig === null) {
-			const gig = await models.gig.create({
-				date: songkickJson.start.date,
-				songkickId: songkickId,
-				songkickJson: JSON.stringify(songkickJson)
-			});
-			await userWithGigs.addGig(gig.id)
-		} else {
-			await userWithGigs.addGig(existingGig.id)
-		}
+		const userGig = new UserGigs({user: user.id, gig: gig.id, rating:0})
+		userGig.save()
 
-		userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
-
-		return userWithGigs.Gigs;
+		return await UserGigs.find({user:user.id});
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}

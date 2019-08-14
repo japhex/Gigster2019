@@ -1,6 +1,7 @@
 import {apiLogin, apiSignup} from "./controllers/auth"
 import {apiCreateGig, apiCreateSongkickGig, apiDeleteGig, apiGetGigs, apiSearchGig} from './controllers/gigs'
 import {apiGetUserByUsername, apiGetUsers, apiSearchUsersByUsername, apiGetGigsByUser} from './controllers/users'
+import {apiCreateGigRating} from './controllers/ratings'
 
 export default {
 	User: {
@@ -21,5 +22,6 @@ export default {
 		createSongkickGig: (root, gig, { user }) => apiCreateSongkickGig(gig, user),
 		deleteGig: (root, gig, { user }) => apiDeleteGig(gig, user),
 		searchGig: (root, artist, { user }) => apiSearchGig(artist, user),
+		rateGig: (root, gig, { user }) => apiCreateGigRating(gig, user),
 	}
 };

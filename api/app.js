@@ -1,4 +1,5 @@
 import { ApolloServer, gql } from "apollo-server-express";
+import mongoose from 'mongoose'
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
 const express = require('express');
@@ -6,6 +7,9 @@ const PORT = process.env.PORT || 3001;
 const models = require("./models");
 const jwt = require('express-jwt')
 const app = express();
+
+mongoose.connect('mongodb://localhost/gigster');
+mongoose.set('debug', true);
 
 app.use('/api', jwt({
 	secret: 'super secret',

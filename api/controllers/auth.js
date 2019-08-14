@@ -1,6 +1,7 @@
 const models = require('../models');
 const bcrypt = require('bcryptjs')
 const jsonwebtoken = require('jsonwebtoken')
+import {User} from '../mongo_models/user'
 
 // Signup
 export const apiSignup = async ({ username, password }) => {
@@ -23,7 +24,9 @@ export const apiSignup = async ({ username, password }) => {
 
 // Login
 export const apiLogin = async ({username, password}) => {
-	const user = await models.user.findOne({ where: { username:username } })
+
+	const user = await User.findOne({ username: username })
+	// const user = await models.user.findOne({ where: { username:username } })
 
 	// Check user exists by username
 	if (!user) {
@@ -39,11 +42,10 @@ export const apiLogin = async ({username, password}) => {
 
 	return jsonwebtoken.sign(
 		{
-			id: user.id,
+			id: user._id,
 			username: user.username,
-			is_admin: user.is_admin
 		},
 		'super secret',
-		{ expiresIn: '1y' }
+		{ expiresIn: '1d' }
 	)
 }
