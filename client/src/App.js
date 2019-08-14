@@ -3,7 +3,7 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from '@apollo/react-hooks';
 import routes from './routes';
 import { BrowserRouter as Router } from "react-router-dom"
 import history from './utils/routing';

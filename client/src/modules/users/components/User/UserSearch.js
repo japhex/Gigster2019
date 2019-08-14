@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {ApolloConsumer} from "react-apollo";
+import {useApolloClient} from "@apollo/react-hooks"
 import {searchUsers} from "api/users/users"
 import {StatefulInput} from "baseui/input/index"
 import {SearchBlock} from "components/layout/Header/HeaderStyled"
@@ -7,9 +7,10 @@ import UserSearchList from './UserSearchList'
 import Search from "baseui/icon/search"
 
 const UserSearch = () => {
+	const client = useApolloClient();
 	const [users, setUsers] = useState([]);
 
-	const handleKeyUp = async (e, client) => {
+	const handleKeyUp = async (e) => {
 		const username = e.target.value;
 		const users = await client.query({query:searchUsers, variables:{username:username}});
 
@@ -17,27 +18,21 @@ const UserSearch = () => {
 	}
 
 	return (
-		<ApolloConsumer>
-			{client => {
-				return (
-					<>
-						<StatefulInput
-							overrides={{
-								After: () => (
-									<SearchBlock>
-										<Search size="16px"/>
-									</SearchBlock>
-								),
-							}}
-							placeholder="Search for user..."
-							onKeyUp={(e) => handleKeyUp(e, client)}
-						/>
+		<>
+			<StatefulInput
+				overrides={{
+					After: () => (
+						<SearchBlock>
+							<Search size="16px"/>
+						</SearchBlock>
+					),
+				}}
+				placeholder="Search for user..."
+				onKeyUp={(e) => handleKeyUp(e)}
+			/>
 
-						<UserSearchList users={users} />
-					</>
-				)
-			}}
-		</ApolloConsumer>
+			<UserSearchList users={users} />
+		</>
 	)
 }
 

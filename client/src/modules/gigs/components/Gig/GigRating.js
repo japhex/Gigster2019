@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import { useMutation } from '@apollo/react-hooks';
 import {StarRating} from 'baseui/rating';
-import {Mutation} from "react-apollo"
 import {rateGigMutation} from "../../../../api/ratings/ratings"
 
 const GigRating = ({gigId, activeRating}) => {
 	const [value, setValue] = useState(0);
+	const [rateGig] = useMutation(rateGigMutation);
 
 	useEffect(() => {
 		if (activeRating) {
@@ -17,17 +18,13 @@ const GigRating = ({gigId, activeRating}) => {
 	}
 
 	return (
-		<Mutation mutation={rateGigMutation}>
-			{(rateGig) => (
-				<StarRating
-					value={value}
-					onChange={({value}) => {
-						rateGig({variables: {id: gigId, rating: value}})
-						setGigRating(value)
-					}}
-				/>
-			)}
-		</Mutation>
+		<StarRating
+			value={value}
+			onChange={({value}) => {
+				rateGig({variables: {id: gigId, rating: value}})
+				setGigRating(value)
+			}}
+		/>
 	)
 }
 
