@@ -19,6 +19,12 @@ const schemaString = `
     gigs: [Gig!]!
   }
   
+  type UserWithGigs {
+    id: ID!
+    username: String!
+    gigs: SortedGigs
+  }
+  
   type Gig {
     id: ID!
 	songKickGig: JSONObject
@@ -32,8 +38,8 @@ const schemaString = `
   type Query {
     users: [User!]!
     loggedInUser: User
-    user(username: String!): User
-    userGigs(userId: Int!): User
+    user(username: String!): UserWithGigs
+    userGigs(userId: ID!): UserWithGigs
     searchUsers(username: String!): [User]
     gigs: SortedGigs
     gig(id: ID!): Gig

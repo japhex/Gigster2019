@@ -13,11 +13,16 @@ export const getUser = gql`
 	    user(username: $username) {
 	        id
 	        username
-	        gigs {
-	            artist
-	            date
-	            venue
-	        }
+            gigs {
+                oldGigs {
+                    id
+                    songKickGig
+                }
+                newGigs {
+                    id
+                    songKickGig
+                }
+            }
 	    }
 }`;
 
@@ -37,16 +42,20 @@ export const searchUsers = gql`
 }`;
 
 export const getGigsByUser = gql`
-	query userGigs($userId: Int!) {
+	query userGigs($userId: ID!) {
 		userGigs(userId: $userId) {
-			gigs {
-				id
-				artist
-				date
-				venue
-				songkickId
-				songkickJson
-			}
-		}
+            id
+            username
+            gigs {
+                oldGigs {
+                    id
+                    songKickGig
+                }
+                newGigs {
+                    id
+                    songKickGig
+                }
+            }
+        }
 	}
 `;

@@ -9,9 +9,16 @@ export const checkUser = user => {
 
 export const getUserGigs = async (user) => {
 	const userGigs = await UserGigs.find({user:user.id});
-	const gigs = await Gig.find({_id:{$in: userGigs.map(gig => gig.gig)}});
+	const gigs = await Gig.find({_id:{$in: userGigs.map(gig => gig.gig)}}).sort('songKickGig.start.date');
 
 	return await splitGigs(gigs)
+}
+
+export const getUserWithGigs = async (user) => {
+	const userGigs = await UserGigs.find({user:user.id});
+	const gigs = await Gig.find({_id:{$in: userGigs.map(gig => gig.gig)}}).sort('songKickGig.start.date');
+
+	return {id: user._id, username: user.username, gigs: await splitGigs(gigs)}
 }
 
 export const splitGigs = gigs => {
@@ -19,8 +26,4 @@ export const splitGigs = gigs => {
 	const newGigs = gigs.filter(gig => Date.parse(gig.songKickGig.start.date) > Date.now());
 
 	return {oldGigs, newGigs}
-}
-
-export const orderGigsByDate = gigs => {
-	return gigs.sort((a, b) => Date.parse(a.songKickGig.start.date) - Date.parse(b.songKickGig.start.date))
 }

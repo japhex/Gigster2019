@@ -1,6 +1,6 @@
 const models = require('../models');
 const rp = require('request-promise');
-import {checkUser, splitGigs, getUserGigs, orderGigsByDate} from './utils'
+import {checkUser, getUserGigs} from './utils'
 import {songkick} from '../config/songkick';
 import {UserGigs} from '../mongo_models/user_gigs'
 import {Gig} from '../mongo_models/gig'
