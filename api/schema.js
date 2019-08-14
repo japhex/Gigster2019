@@ -43,7 +43,7 @@ const schemaString = `
     signup(username: String!, password: String!): String
     login(username: String!, password: String!): String
     createGig(artist: String, date: Date, venue: String): [Gig!]!
-    createSongkickGig(songkickId: ID!, songkickJson: JSONObject): [Gig!]!
+    createSongkickGig(songkickId: ID!, songkickJson: JSONObject): SortedGigs
     deleteGig(id: ID!): [Gig!]!
     searchGig(artist: String!): JSONObject
     rateGig(id: ID!, rating: Int!): Gig!

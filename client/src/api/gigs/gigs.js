@@ -26,8 +26,14 @@ export const createGigMutation = gql`
 export const createSongkickGigMutation = gql`
 	mutation createSongkickGig($songkickId: ID!, $songkickJson: JSONObject!) {
 		createSongkickGig(songkickId: $songkickId, songkickJson: $songkickJson) {
-			id
-            songKickGig
+            oldGigs {
+                id
+                songKickGig
+            }
+            newGigs {
+                id
+                songKickGig
+            }
 		}
 	}
 `;
