@@ -5,8 +5,7 @@ import {checkUser} from './utils'
 export const apiCreateGigRating = async ({id, rating}, user) => {
 	try {
 		checkUser(user);
-
-		return await UserGigs.findOneAndUpdate({gig:id}, {rating: rating});
+		await UserGigs.findOneAndUpdate({gig:id}, {rating: rating});
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}

@@ -2,7 +2,7 @@ import React from 'react'
 import { Popularity, ArtistName } from '../../GigStyled/GigStyled'
 import GigRating from "../GigRating"
 
-export const TicketArtist = ({artist, type, popularity, festival}) => {
+export const TicketArtist = ({id, artist, type, popularity, festival, activeRating}) => {
 	const artistTransformed = festival ? `🎪 ${artist} 🎪` : artist
 
 	return (
@@ -11,7 +11,7 @@ export const TicketArtist = ({artist, type, popularity, festival}) => {
 				{artistTransformed}
 			</ArtistName>
 			{type === 'old' ?
-				<GigRating />
+				<GigRating gigId={id} activeRating={activeRating} />
 				:
 				<Popularity popularityAmount={popularity} />
 			}

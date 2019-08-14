@@ -13,7 +13,7 @@ const Gig = ({gig, type, withoutCrud}) => {
 
 	const gigFormatted = formatGig(gig.id, gig.songKickGig)
 	const popularityAmount = Math.round(gigFormatted.popularity * 100)
-	const {artist, supports, festival, location, date, venue, time } = gigFormatted
+	const {id, artist, supports, festival, location, date, venue, time, rating } = gigFormatted
 
 	const switchEditMode = () => {
 		setEditMode(!editMode);
@@ -26,7 +26,7 @@ const Gig = ({gig, type, withoutCrud}) => {
 					<Ticket>
 						<TicketLeft>
 							<Title>
-								<TicketArtist artist={artist} popularity={popularityAmount} type={type} festival={festival} />
+								<TicketArtist id={id} activeRating={rating} artist={artist} popularity={popularityAmount} type={type} festival={festival} />
 								<TicketSupport supports={supports} />
 							</Title>
 							<Details>

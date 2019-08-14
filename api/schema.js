@@ -52,7 +52,7 @@ const schemaString = `
     createSongkickGig(songkickId: ID!, songkickJson: JSONObject): SortedGigs
     deleteGig(id: ID!): [Gig!]!
     searchGig(artist: String!): JSONObject
-    rateGig(id: ID!, rating: Int!): Gig!
+    rateGig(id: ID!, rating: Int!): Int
   }
 `;
 
