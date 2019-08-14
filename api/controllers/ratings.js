@@ -1,15 +1,12 @@
-const models = require('../models');
+import {UserGigs} from "../mongo_models/user_gigs"
 import {checkUser} from './utils'
 
 // Rate gig
-export const apiCreateGigRating = async (user) => {
+export const apiCreateGigRating = async ({id, rating}, user) => {
 	try {
 		checkUser(user);
 
-		const returnUser = await models.user.findOne({where: {id: user.id}, include: ['Gigs']});
-		const Gigs = returnUser.Gigs
-
-		return await splitGigs(Gigs)
+		return await UserGigs.findOneAndUpdate({gig:id}, {rating: rating});
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}

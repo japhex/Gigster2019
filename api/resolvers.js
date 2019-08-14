@@ -22,6 +22,6 @@ export default {
 		createSongkickGig: (root, gig, { user }) => apiCreateSongkickGig(gig, user),
 		deleteGig: (root, gig, { user }) => apiDeleteGig(gig, user),
 		searchGig: (root, artist, { user }) => apiSearchGig(artist, user),
-		rateGig: (root, gig, { user }) => apiCreateGigRating(gig, user),
+		rateGig: (root, rating, { user }) => apiCreateGigRating(rating, user),
 	}
 };
