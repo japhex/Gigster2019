@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const ResultsList = styled.div`
 	margin-top:20px;
+	height:60vh;
+	overflow-x:scroll;
 `
 
 export const GigResult = styled.div`
