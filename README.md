@@ -13,10 +13,9 @@ Gigster currently runs on:
 ### Back-end
 - Node.js
 - Express.js (thinking about moving to koa.js?)
-- MySQL (as mostly models and data are relational)
+- MongoDB using Mongoose
 - GraphQL
 - JWT Authentication
-- Sequelize.js (ORM)
 - request and request-promise (to handle external API requests, e.g. to the Last.FM API)
 
 ### Front-end
