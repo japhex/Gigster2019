@@ -18,6 +18,7 @@ export const GigStyled = styled.div`
 
 export const Ticket = styled.div`
 	display:flex;
+	flex-direction:column;
 	position: relative;
 	padding:5px;
 	color:#fff;
@@ -34,6 +35,10 @@ export const Ticket = styled.div`
 
 export const TicketLeft = styled.div`
 	flex:3;
+`
+
+export const TicketBottom = styled.div`
+
 `
 
 export const Support = styled.div`

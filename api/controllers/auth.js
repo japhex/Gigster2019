@@ -24,21 +24,11 @@ export const apiSignup = async ({ username, password }) => {
 
 // Login
 export const apiLogin = async ({username, password}) => {
-
 	const user = await User.findOne({ username: username })
-	// const user = await models.user.findOne({ where: { username:username } })
-
-	// Check user exists by username
-	if (!user) {
-		throw new Error('No user with that username')
-	}
+	if (!user) throw new Error('No user with that username')
 
 	const valid = await bcrypt.compare(password, user.password)
-
-	// Check password is valid
-	if (!valid) {
-		throw new Error('Incorrect password')
-	}
+	if (!valid) throw new Error('Incorrect password')
 
 	return jsonwebtoken.sign(
 		{

@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import DisplayGig from "./DisplayGig"
-import {StyledBody} from 'baseui/card';
-import { GigContainer, GigStyled, Ticket, TicketLeft, Title, Details } from '../GigStyled/GigStyled'
+import { GigContainer, GigStyled, Ticket, TicketLeft, TicketBottom, Title, Details } from '../GigStyled/GigStyled'
 import {formatGig} from './../../../middleware/utils'
 import {TicketDate} from "./Ticket/TicketDate"
 import {TicketVenue} from "./Ticket/TicketVenue"
 import {TicketSupport} from "./Ticket/TicketSupport"
 import {TicketArtist} from "./Ticket/TicketArtist"
+import GigDelete from "./GigFooter/GigDelete"
 
 const Gig = ({gig, type, withoutCrud}) => {
 	const [editMode, setEditMode] = useState(false);
@@ -22,21 +22,22 @@ const Gig = ({gig, type, withoutCrud}) => {
 	return (
 		<GigContainer type={type}>
 			<GigStyled>
-				<StyledBody>
-					<Ticket>
-						<TicketLeft>
-							<Title>
-								<TicketArtist id={id} activeRating={rating} artist={artist} popularity={popularityAmount} type={type} festival={festival} />
-								<TicketSupport supports={supports} />
-							</Title>
-							<Details>
-								<TicketDate gigDate={date} />
-								<TicketVenue location={location} venue={venue} time={time} />
-							</Details>
-						</TicketLeft>
-					</Ticket>
-					{/*<DisplayGig gig={gigFormatted} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} songkickGig={songkickGig} />*/}
-				</StyledBody>
+				<Ticket>
+					<TicketLeft>
+						<Title>
+							<TicketArtist id={id} activeRating={rating} artist={artist} popularity={popularityAmount} type={type} festival={festival} />
+							<TicketSupport supports={supports} />
+						</Title>
+						<Details>
+							<TicketDate gigDate={date} />
+							<TicketVenue location={location} venue={venue} time={time} />
+						</Details>
+					</TicketLeft>
+					<TicketBottom>
+						<GigDelete gigId={id} />
+					</TicketBottom>
+				</Ticket>
+				{/*<DisplayGig gig={gigFormatted} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} songkickGig={songkickGig} />*/}
 			</GigStyled>
 		</GigContainer>
 	)

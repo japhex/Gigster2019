@@ -4,7 +4,6 @@ import {getUserWithGigs} from "./utils"
 // Get all users
 export const apiGetUsers = async () => {
 	try {
-		// get all the users
 		return await User.find();
 	} catch(err){
 		throw new Error(`Error: ${err}`)

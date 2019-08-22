@@ -8,6 +8,9 @@ const GigList = ({type, title, gigs, withoutCrud}) => (
 		<>
 			<H1>
 				<ChevronRight size={24} />{title}
+				<h2>
+					{gigs.length} shows
+				</h2>
 			</H1>
 			{gigs !== null ?
 				<Ul>

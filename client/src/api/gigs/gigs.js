@@ -41,8 +41,14 @@ export const createSongkickGigMutation = gql`
 export const deleteGigMutation = gql`
 	mutation deleteGig($id: ID!) {
 		deleteGig(id: $id) {
-			id
-            songKickGig
+            oldGigs {
+                id
+                songKickGig
+            }
+            newGigs {
+                id
+                songKickGig
+            }
 		}
 	}
 `;

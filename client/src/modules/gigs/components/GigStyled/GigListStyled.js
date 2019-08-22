@@ -20,6 +20,11 @@ export const H1 = styled.div`
 	padding-bottom: 20px;
 	border-bottom:1px solid;
 	margin-bottom:15px;
+	
+	h2 {
+		margin-left:auto;
+		font-size: 1rem;
+	}
 `
 
 export const Sorting = styled.span`

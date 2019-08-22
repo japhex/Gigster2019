@@ -54,11 +54,7 @@ export const apiCreateSongkickGig = async ({ songkickId, songkickJson}, user) =>
 export const apiDeleteGig = async ({ id }, user) => {
 	try {
 		checkUser(user);
-
-		const userId = user.id
-
-		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
-		await userWithGigs.removeGig(id);
+		await UserGigs.deleteOne({user: user.id, gig: id})
 
 		return getUserGigs(user)
 	} catch(err){
