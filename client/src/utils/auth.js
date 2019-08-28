@@ -28,3 +28,10 @@ export const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) 
 		)
 	}}/>
 );
+
+export const setUserToken = (token, history) => {
+	if (token !== undefined) {
+		localStorage.setItem('token', token);
+		history.push(`/gigs`)
+	}
+}

@@ -5,19 +5,22 @@ import {useMutation} from "@apollo/react-hooks"
 import {Button, SIZE} from "baseui/button/index"
 import {Input} from "baseui/input"
 import {Field, Form, Formik} from "formik"
-import {signupMutation} from "api/users/users"
+import {signupMutation, loginMutation} from "api/users/users"
+import {setUserToken} from "../../../utils/auth"
 
 const Signup = ({ history }) => {
-	const [signup] = useMutation(signupMutation, {
-		update() {
-			history.replace('/login');
+	const [signup] = useMutation(signupMutation);
+	const [login] = useMutation(loginMutation, {
+		update(cache, { data: { login } }) {
+			setUserToken(login, history)
 		}
 	});
 
     return (
 	    <UnauthenticatedLayout>
-		    <Formik onSubmit={async (values) => {
-			    await signup({variables: values})
+		    <Formik onSubmit={async ({username, password}) => {
+			    await signup({variables: {username, password}})
+			    await login({variables: {username, password}})
 	        }}
 	            render={({ isSubmitting }) => (
 	                <Form>

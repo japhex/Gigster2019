@@ -8,7 +8,6 @@ import {getLoggedInUser} from "api/users/users"
 import QueryHandler from "../../utils/QueryHandler"
 import CreateGig from "../../../modules/gigs/pages/CreateGig"
 import Plus from 'baseui/icon/plus'
-import Search from "baseui/icon/search"
 import UserSearch from 'modules/users/components/User/UserSearch'
 
 const AppHeader = ({logout}) => {
@@ -40,11 +39,6 @@ const AppHeader = ({logout}) => {
 									<Button kind={KIND.secondary} onClick={(e) => handleAddGig(e)} endEnhancer={() => <Plus size={24} />}>Add gig</Button>
 									<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 								</li>
-								{/*<li>*/}
-								{/*	<Link to="/users">*/}
-								{/*		<Button kind={KIND.secondary} endEnhancer={() => <Search size={24} />}>Users</Button>*/}
-								{/*	</Link>*/}
-								{/*</li>*/}
 								<li>
 									<UserSearch />
 								</li>

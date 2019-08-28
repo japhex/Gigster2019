@@ -1,60 +1,42 @@
-import React, {useState} from "react"
-import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
+import React from "react"
+import {useMutation} from "@apollo/react-hooks"
 import { Link, withRouter } from 'react-router-dom';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
+import {loginMutation} from 'api/users/users'
+import {Button, SIZE} from "baseui/button/index"
+import {setUserToken} from "../../../utils/auth"
+import {Field, Form, Formik} from "formik"
+import {Input} from "baseui/input"
 
-const loginMutation = gql`
-	mutation login($username: String!, $password: String!){
-		login(username: $username, password: $password)
-	}
-`;
-
-const Login = (props) => {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-
-    const handleChange = (e) => {
-	    if (e.target.name === 'username') {
-		    setUsername(e.target.value)
-	    }
-	    if (e.target.name === 'password') {
-		    setPassword(e.target.value)
-	    }
-    }
-
-    const loginSuccess = (client, mutationResult) => {
-    	const token = mutationResult.data.login;
-    	
-    	if (token !== undefined) {
-    		localStorage.setItem('token', token);
-		    props.history.push(`/gigs`)
-	    }
-    }
+const Login = ({history}) => {
+	const [login] = useMutation(loginMutation, {
+		update(cache, { data: { login } }) {
+			setUserToken(login, history)
+		}
+	});
 
     return (
         <UnauthenticatedLayout>
-	        <Mutation mutation={loginMutation} update={loginSuccess}>
-		        {(login) => (
-		            <form onSubmit={e => {
-		            	e.preventDefault();
-		            	login({ variables: { username:username, password:password }})}
-		            }>
-		                <div className="form-control">
-		                    <input placeholder="Username" name="username" onChange={handleChange} />
-		                </div>
-		                <div className="form-control">
-		                    <input placeholder="Password" name="password" type="password" onChange={handleChange}/>
-		                </div>
-		                <button variant="contained" color="primary">Login</button>
-			            <div className="">
-		                    <small>Don't have an account?
-			                    <Link to="/signup">Signup</Link>
-		                    </small>
-			            </div>
-		            </form>
-		        )}
-	        </Mutation>
+	        <Formik onSubmit={async ({username, password}) => {
+		        await login({ variables: {username, password}})
+	        }}
+                render={({ isSubmitting }) => (
+	                <Form>
+		                <Field type="text" name="username" render={({field}) => (
+			                <Input type="text" name="username" {...field} />
+		                )} />
+		                <Field type="password" name="password" render={({field}) => (
+			                <Input type="password" name="password" {...field} />
+		                )} />
+		                <Button size={SIZE.compact} isLoading={isSubmitting}>
+			                Login
+		                </Button>
+	                    <small>Don't have an account?
+		                    <Link to="/signup">Signup</Link>
+	                    </small>
+                    </Form>
+                )}
+            />
         </UnauthenticatedLayout>
     );
 }

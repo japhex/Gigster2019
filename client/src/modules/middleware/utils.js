@@ -1,5 +1,3 @@
-import React from "react"
-
 export const formatGig = (id, gig) => {
 	const {performance, start, location, venue, type, popularity, rating} = gig
 	const artist = performance.find(band => band.billingIndex === 1).displayName
