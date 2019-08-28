@@ -1,4 +1,4 @@
-import {User} from '../mongo_models/user'
+import {User} from '../models/user'
 import {getUserWithGigs} from "./utils"
 
 // Get all users

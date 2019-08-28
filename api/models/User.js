@@ -1,28 +1,11 @@
-module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define('user', {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            field: 'id'
-        },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: true
-        }
-    }, {
-        freezeTableName: true,
-	    charset: 'utf8',
-	    collate: 'utf8_unicode_ci'
-    });
+import mongoose from 'mongoose'
+const Schema = mongoose.Schema
 
-	User.associate = function (models) {
-		User.belongsToMany(models.gig, {as: 'Gigs', foreignKey: 'userId', through: 'users_gigs'});
-	};
-  
-    return User;
-  }
+const userSchema = new Schema({
+	username: { type: String, required: true, unique: true },
+	password: { type: String, required: true },
+	created_at: Date,
+	updated_at: Date
+});
+
+export const User = mongoose.model('User', userSchema);

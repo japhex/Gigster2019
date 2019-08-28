@@ -1,5 +1,5 @@
-import {UserGigs} from "../../mongo_models/user_gigs"
-import {Gig} from "../../mongo_models/gig"
+import {UserGigs} from "../../models/user_gigs"
+import {Gig} from "../../models/gig"
 
 export const checkUser = user => {
 	if (!user) {

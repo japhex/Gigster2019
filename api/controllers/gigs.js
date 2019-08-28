@@ -1,9 +1,8 @@
-const models = require('../models');
 const rp = require('request-promise');
 import {checkUser, getUserGigs} from './utils'
 import {songkick} from '../config/songkick';
-import {UserGigs} from '../mongo_models/user_gigs'
-import {Gig} from '../mongo_models/gig'
+import {UserGigs} from '../models/user_gigs'
+import {Gig} from '../models/gig'
 
 // Get all gigs for user
 export const apiGetGigs = async (user) => {
@@ -17,20 +16,20 @@ export const apiGetGigs = async (user) => {
 
 // Create gig
 export const apiCreateGig = async ({ artist, date, venue }, user) => {
-	try {
-		checkUser(user);
-
-		const userId = user.id
-
-		const gig = await models.gig.create({artist:artist,date:date,venue:venue});
-
-		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
-		await userWithGigs.addGig(gig.id)
-
-		return getUserGigs(user)
-	} catch(err){
-		throw new Error(`Error: ${err}`)
-	}
+// 	try {
+// 		checkUser(user);
+//
+// 		const userId = user.id
+//
+// 		const gig = await models.gig.create({artist:artist,date:date,venue:venue});
+//
+// 		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+// 		await userWithGigs.addGig(gig.id)
+//
+// 		return getUserGigs(user)
+// 	} catch(err){
+// 		throw new Error(`Error: ${err}`)
+// 	}
 }
 
 // Create songkick gig

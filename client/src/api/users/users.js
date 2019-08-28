@@ -1,5 +1,12 @@
 import gql from "graphql-tag";
 
+export const signupMutation = gql`
+    mutation signup($username: String!, $password: String!) {
+        signup(username: $username, password: $password)
+		# Need to return new user record and sign in
+    }
+`;
+
 export const getUsers = gql`
 {
   users {

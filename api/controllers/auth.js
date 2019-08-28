@@ -1,23 +1,20 @@
-const models = require('../models');
 const bcrypt = require('bcryptjs')
 const jsonwebtoken = require('jsonwebtoken')
-import {User} from '../mongo_models/user'
+import {User} from '../models/user'
 
 // Signup
 export const apiSignup = async ({ username, password }) => {
-	const user = await models.user.create({
-		username,
-		password: await bcrypt.hash(password, 10),
-		is_admin: 0
-	})
+	console.log(username)
+	console.log(password)
+	const user = await new User({username: username, password: await bcrypt.hash(password, 10)})
+	user.save()
 
 	return jsonwebtoken.sign(
 		{
 			id: user.id,
-			username: user.username,
-			is_admin: user.is_admin
+			username: user.username
 		},
-		process.env.JWT_SECRET,
+		'super secret',
 		{ expiresIn: '1y' }
 	)
 }

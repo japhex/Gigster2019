@@ -1,4 +1,4 @@
-import {UserGigs} from "../mongo_models/user_gigs"
+import {UserGigs} from "../models/user_gigs"
 import {checkUser} from './utils'
 
 // Rate gig
