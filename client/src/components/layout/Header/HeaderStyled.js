@@ -38,7 +38,7 @@ export const SearchBlock = styled.div`
 	margin-right:10px;
 `
 
-export const UserDetails = styled.div`
+export const UserDetailsSection = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;

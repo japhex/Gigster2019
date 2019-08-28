@@ -35,3 +35,8 @@ export const setUserToken = (token, history) => {
 		history.push(`/gigs`)
 	}
 }
+
+export const logoutUser = (history) => {
+	localStorage.removeItem('token');
+	history.push(`/login`)
+}
