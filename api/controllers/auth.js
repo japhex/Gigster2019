@@ -4,8 +4,6 @@ import {User} from '../models/user'
 
 // Signup
 export const apiSignup = async ({ username, password }) => {
-	console.log(username)
-	console.log(password)
 	const user = await new User({username: username, password: await bcrypt.hash(password, 10)})
 	user.save()
 
