@@ -6,7 +6,7 @@ export const TicketSupport = ({supports}) => (
 		{supports && supports.length > 0 &&
 		<>
 			<p>
-				w/ support from:
+				supports:
 			</p>
 			{
 				supports.map((band, index) =>

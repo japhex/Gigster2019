@@ -21,7 +21,7 @@ export const Ticket = styled.div`
 	display:flex;
 	flex-direction:column;
 	position: relative;
-	padding:5px;
+	padding: 5px;
 	color:#fff;
 	
 	
@@ -50,6 +50,11 @@ export const Support = styled.div`
 	
 	p {
 		font-weight:bold;
+		margin-bottom:5px;
+	}
+	
+	span {
+		color:#ccc;
 	}
 `
 
@@ -59,12 +64,12 @@ export const Title = styled.div`
 	align-items: center;
 	justify-content: center;
 	border-bottom:2px solid #fff;
-	padding:5px 5px 10px 5px;
+	padding: 5px 5px 10px 5px;
 	min-height:130px;
 	
 	h1 {
 		margin: 15px 0;
-	    font-size: 2.2rem;
+	    font-size: ${props => props.type === 'old' ? `1.1rem` : `2.2rem`};
 	    text-transform: uppercase;
 	    text-align: center;
 	    line-height: 2rem;
@@ -72,11 +77,22 @@ export const Title = styled.div`
 	}
 `
 
+export const PopularityContainer = styled.div`
+	display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    text-transform: lowercase;
+    color:#999;
+`
+
 export const Popularity = styled.div`
 	height:5px;
 	background: rgba(58,253,45,1);
 	border:1px solid #999;
 	width: ${props => props.popularityAmount}%;
+	margin-left:10px;
 `
 
 export const Details = styled.div`
@@ -133,4 +149,8 @@ export const Time = styled.div`
 
 export const ArtistName = styled.h1`
 
+`
+
+export const Festival = styled.div`
+	font-size:2rem;
 `

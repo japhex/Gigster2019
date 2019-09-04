@@ -1,6 +1,16 @@
 import React, {useState} from 'react'
 import DisplayGig from "./DisplayGig"
-import { GigContainer, GigStyled, Ticket, TicketLeft, TicketBottom, Title, Details } from '../GigStyled/GigStyled'
+import {
+	GigContainer,
+	GigStyled,
+	Ticket,
+	TicketLeft,
+	TicketBottom,
+	Title,
+	Details,
+	PopularityContainer,
+	Popularity
+} from '../GigStyled/GigStyled'
 import {formatGig} from './../../../middleware/utils'
 import {TicketDate} from "./Ticket/TicketDate"
 import {TicketVenue} from "./Ticket/TicketVenue"
@@ -22,12 +32,19 @@ const Gig = ({gig, type, withoutCrud}) => {
 	return (
 		<GigContainer type={type}>
 			<GigStyled>
-				<GigDelete gigId={id} />
+				{/*{type !== 'old' &&*/}
+					{/*<GigDelete gigId={id}/>*/}
+				{/*}*/}
 				<Ticket>
 					<TicketLeft>
-						<Title>
-							<TicketArtist id={id} activeRating={rating} artist={artist} popularity={popularityAmount} type={type} festival={festival} />
+						<Title type={type}>
+							<TicketArtist id={id} activeRating={rating} artist={artist} type={type} festival={festival} />
 							<TicketSupport supports={supports} />
+							{/*{type !== 'old' &&*/}
+								{/*<PopularityContainer>*/}
+								{/*	Popularity: <Popularity popularityAmount={popularityAmount}/>*/}
+								{/*</PopularityContainer>*/}
+							{/*}*/}
 						</Title>
 						<Details>
 							<TicketDate gigDate={date} />

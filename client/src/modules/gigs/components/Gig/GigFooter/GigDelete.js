@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import {useMutation} from "@apollo/react-hooks"
 import {getGigs, deleteGigMutation} from "api/gigs/gigs"
-import {DeleteGigContainer} from '../../GigStyled/GigDeleteStyled'
+import {DeleteGigContainer, DeleteIcon} from '../../GigStyled/GigDeleteStyled'
 import Confirm from 'components/utils/alerts/Confirm'
-import Delete from "baseui/icon/delete"
 
 const GigDelete = ({gigId}) => {
 	const [active, setActive] = useState(false)
@@ -24,7 +23,7 @@ const GigDelete = ({gigId}) => {
 	return (
 		<DeleteGigContainer>
 			<div>
-				<Delete size={24} onClick={() => {
+				<DeleteIcon size={24} onClick={() => {
 					handleDeleteClick()
 				}} overrides={{
 					$size: 30
