@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import {Header, H1} from './HeaderStyled';
-import {Button, KIND} from 'baseui/button';
 import CreateGig from "../../../modules/gigs/pages/CreateGig"
-import Plus from 'baseui/icon/plus'
 import UserSearch from 'modules/users/components/User/UserSearch'
 import UserDetails from "./UserDetails"
+import {Button} from '../../utils/styled/Forms'
 
 const AppHeader = () => {
 	const [addGigActive, setAddGigActive] = useState(false)
@@ -23,7 +22,7 @@ const AppHeader = () => {
 			<div className="navbar">
 				<ul>
 					<li>
-						<Button kind={KIND.secondary} onClick={(e) => handleAddGig(e)} endEnhancer={() => <Plus size={24} />}>Add gig</Button>
+						<Button onClick={(e) => handleAddGig(e)}>Add gig</Button>
 						<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
 					</li>
 					<li>

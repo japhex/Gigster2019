@@ -7,7 +7,7 @@ const DisplayGig = ({gig, type, songkickGig, withoutCrud, switchEditMode}) => {
 		<>
 			<GigBody gig={gig} />
 			{!withoutCrud &&
-				<GigFooter gigId={gig.id} songkickGig={songkickGig} switchEditMode={switchEditMode} />
+				<GigFooter songkickGig={songkickGig} switchEditMode={switchEditMode} />
 			}
 		</>
 	)

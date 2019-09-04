@@ -1,20 +1,17 @@
 import React from 'react'
-import GigDelete from "./GigDelete"
 import {Div} from '../../GigStyled/GigFooterStyled';
 import {Buttons} from "components/utils/styled/ModalStyled"
-import {Button, SIZE} from 'baseui/button'
-import Overflow from 'baseui/icon/overflow'
+import {Button} from 'components/utils/styled/Forms'
 
-const GigFooter = ({gigId, songkickGig, switchEditMode}) => {
+const GigFooter = ({songkickGig, switchEditMode}) => {
 	return (
 		<Div>
 			<Buttons>
 				{!songkickGig &&
-					<Button size={SIZE.compact} endEnhancer={() => <Overflow size={24}/>} onClick={switchEditMode}>
+					<Button onClick={switchEditMode}>
 						Edit
 					</Button>
 				}
-				<GigDelete gigId={gigId} />
 			</Buttons>
 		</Div>
 	);

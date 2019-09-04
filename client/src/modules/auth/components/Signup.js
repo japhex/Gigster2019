@@ -2,11 +2,11 @@ import React from "react"
 import { Link } from 'react-router-dom';
 import UnauthenticatedLayout from 'components/layout/UnauthenticatedLayout/UnauthenticatedLayout';
 import {useMutation} from "@apollo/react-hooks"
-import {Button, SIZE} from "baseui/button/index"
-import {Input} from "baseui/input"
+import {Input} from "components/utils/styled/Forms"
 import {Field, Form, Formik} from "formik"
 import {signupMutation, loginMutation} from "api/users/users"
 import {setUserToken} from "../../../utils/auth"
+import {Button} from 'components/utils/styled/Forms'
 
 const Signup = ({ history }) => {
 	const [signup] = useMutation(signupMutation);
@@ -34,7 +34,7 @@ const Signup = ({ history }) => {
 			                <Input type="password" name="password" {...field} />
 		                )} />
 
-		                <Button size={SIZE.compact} isLoading={isSubmitting}>
+		                <Button isLoading={isSubmitting}>
 			                Signup
 		                </Button>
 

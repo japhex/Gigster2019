@@ -22,6 +22,7 @@ const Gig = ({gig, type, withoutCrud}) => {
 	return (
 		<GigContainer type={type}>
 			<GigStyled>
+				<GigDelete gigId={id} />
 				<Ticket>
 					<TicketLeft>
 						<Title>
@@ -33,9 +34,6 @@ const Gig = ({gig, type, withoutCrud}) => {
 							<TicketVenue location={location} venue={venue} time={time} />
 						</Details>
 					</TicketLeft>
-					<TicketBottom>
-						<GigDelete gigId={id} />
-					</TicketBottom>
 				</Ticket>
 				{/*<DisplayGig gig={gigFormatted} type={type} withoutCrud={withoutCrud} switchEditMode={switchEditMode} songkickGig={songkickGig} />*/}
 			</GigStyled>

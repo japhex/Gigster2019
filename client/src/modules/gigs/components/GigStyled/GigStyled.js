@@ -12,6 +12,7 @@ export const GigContainer = styled.div`
 `
 
 export const GigStyled = styled.div`
+	position: relative;
 	background:#222;
 	min-height:270px;
 `

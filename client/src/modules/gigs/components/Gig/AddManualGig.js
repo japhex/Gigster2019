@@ -2,10 +2,10 @@ import React from 'react'
 import { Mutation } from "react-apollo";
 import { Formik, Field, Form } from 'formik';
 import {createGigMutation, getGigs} from "api/gigs/gigs"
-import {Input} from "baseui/input"
 import {Div} from "../GigStyled/AddManualGigStyled"
+import {Input} from "components/utils/styled/Forms"
 import {Buttons} from "components/utils/styled/ModalStyled"
-import {Button, KIND, SIZE} from "baseui/button/index"
+import {Button} from 'components/utils/styled/Forms'
 
 const AddManualGig = ({callback}) => (
 	<Mutation mutation={createGigMutation} update={(cache, { data }) => {
@@ -31,10 +31,10 @@ const AddManualGig = ({callback}) => (
 						    )} />
 						</Div>
 				        <Buttons>
-					        <Button size={SIZE.compact} isLoading={isSubmitting}>
+					        <Button isLoading={isSubmitting}>
 					            Create gig
 					        </Button>
-					        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
+					        <Button onClick={callback} secondary>
 					            Cancel
 					        </Button>
 				        </Buttons>

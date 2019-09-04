@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Modal, ModalHeader, ModalBody, ModalFooter} from 'baseui/modal';
-import {Button, KIND, SIZE} from 'baseui/button';
 import {Buttons} from "components/utils/styled/ModalStyled"
+import {Button} from 'components/utils/styled/Forms'
 
 const Confirm = ({active, callbackConfirm, callbackCancel}) => {
 	const [activeAlert, setActiveAlert] = useState(false)
@@ -29,10 +29,10 @@ const Confirm = ({active, callbackConfirm, callbackCancel}) => {
 			</ModalBody>
 			<ModalFooter>
 				<Buttons>
-					<Button onClick={() => handleConfirmClick()} size={SIZE.compact}>
-						Yes
+					<Button onClick={() => handleConfirmClick()}>
+						Delete
 					</Button>
-					<Button onClick={() => handleCancelClick()} kind={KIND.secondary} size={SIZE.compact}>
+					<Button onClick={() => handleCancelClick()} secondary>
 						Cancel
 					</Button>
 				</Buttons>

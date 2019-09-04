@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {useMutation} from "@apollo/react-hooks"
 import {Field, Form, Formik} from 'formik'
-import {Input} from "baseui/input"
+import {Input} from "components/utils/styled/Forms"
 import {Buttons} from "components/utils/styled/ModalStyled"
-import {Button, KIND, SIZE} from "baseui/button/index"
 import {Div} from "../GigStyled/AddManualGigStyled"
 import GigSearchResults from './GigSearchResults'
 import {searchGigMutation} from "api/gigs/gigs"
+import {Button} from 'components/utils/styled/Forms'
 
 const SearchForGig = ({callback}) => {
 	const [gigs, setGigs] = useState([]);
@@ -32,10 +32,10 @@ const SearchForGig = ({callback}) => {
 					        )}/>
 				        </Div>
 				        <Buttons>
-					        <Button size={SIZE.compact} isLoading={submittingForm}>
+					        <Button isLoading={submittingForm}>
 						        Search
 					        </Button>
-					        <Button kind={KIND.secondary} size={SIZE.compact} onClick={callback}>
+					        <Button onClick={callback} secondary>
 						        Cancel
 					        </Button>
 				        </Buttons>
