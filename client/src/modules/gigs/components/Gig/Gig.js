@@ -1,16 +1,6 @@
 import React, {useState} from 'react'
 import DisplayGig from "./DisplayGig"
-import {
-	GigContainer,
-	GigStyled,
-	Ticket,
-	TicketLeft,
-	TicketBottom,
-	Title,
-	Details,
-	PopularityContainer,
-	Popularity
-} from '../GigStyled/GigStyled'
+import { GigContainer, GigStyled, Ticket, TicketLeft, TicketBottom, Title, Details, PopularityContainer, Popularity } from '../GigStyled/GigStyled'
 import {formatGig} from './../../../middleware/utils'
 import {TicketDate} from "./Ticket/TicketDate"
 import {TicketVenue} from "./Ticket/TicketVenue"
