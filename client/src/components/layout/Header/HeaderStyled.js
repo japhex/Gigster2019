@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import IconHand from "../../icons/Hand"
 
 export const Header = styled.header`
+	position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #121212;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

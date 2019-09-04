@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const GigContainer = styled.div`
 	width: ${props => props.type === 'old' ? '100%' : '49%'};
-    margin:5px 10px 0 0;
+    margin: 5px 10px 5px 0;
     margin-right: ${props => props.type === 'old' && 0};
     box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;
     
