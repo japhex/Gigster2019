@@ -26,3 +26,13 @@ export const H1 = styled.div`
 		font-size: 1rem;
 	}
 `
+
+export const Pill = styled.span`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background:${props => props.primary ? '#ba3b2d' : 'none'};
+	border-radius:5px;
+	color:#fff;
+	padding:3px 5px;
+`

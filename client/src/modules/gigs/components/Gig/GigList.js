@@ -1,7 +1,7 @@
 import React from 'react'
 import Gig from './Gig';
 import ChevronRight from 'baseui/icon/chevron-right'
-import {GigListContainer, Ul, H1} from "../GigStyled/GigListStyled"
+import {GigListContainer, Ul, H1, Pill} from "../GigStyled/GigListStyled"
 
 const GigList = ({type, title, gigs, withoutCrud}) => (
 	<GigListContainer type={type}>
@@ -9,7 +9,7 @@ const GigList = ({type, title, gigs, withoutCrud}) => (
 			<H1>
 				<ChevronRight size={24} />{title}
 				<h2>
-					{gigs.length} shows
+					<Pill primary>{gigs.length}</Pill> shows
 				</h2>
 			</H1>
 			{gigs !== null ?
