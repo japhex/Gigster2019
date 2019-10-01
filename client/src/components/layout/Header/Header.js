@@ -4,7 +4,7 @@ import {Header, H1} from './HeaderStyled';
 import CreateGig from "../../../modules/gigs/pages/CreateGig"
 import UserSearch from 'modules/users/components/User/UserSearch'
 import UserDetails from "./UserDetails"
-import {Button} from '../../utils/styled/Forms'
+import {Button} from 'japhex-ui'
 
 const AppHeader = () => {
 	const [addGigActive, setAddGigActive] = useState(false)

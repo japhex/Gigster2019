@@ -8,7 +8,7 @@ import {Gig} from '../models/gig'
 export const apiGetGigs = async (user) => {
 	try {
 		checkUser(user);
-		return getUserGigs(user)
+		return await getUserGigs(user)
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}
@@ -43,7 +43,7 @@ export const apiCreateSongkickGig = async ({ songkickId, songkickJson}, user) =>
 		const userGig = new UserGigs({user: user.id, gig: gig.id, rating:0})
 		userGig.save()
 
-		return getUserGigs(user)
+		return await getUserGigs(user)
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}
@@ -55,7 +55,7 @@ export const apiDeleteGig = async ({ id }, user) => {
 		checkUser(user);
 		await UserGigs.deleteOne({user: user.id, gig: id})
 
-		return getUserGigs(user)
+		return await getUserGigs(user)
 	} catch(err){
 		throw new Error(`Error: ${err}`)
 	}

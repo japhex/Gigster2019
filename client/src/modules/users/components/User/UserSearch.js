@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import {useApolloClient} from "@apollo/react-hooks"
 import {searchUsers} from "api/users/users"
-import {StatefulInput} from "baseui/input/index"
-import {SearchBlock} from "components/layout/Header/HeaderStyled"
 import UserSearchList from './UserSearchList'
-import Search from "baseui/icon/search"
+import {Input} from 'japhex-ui'
 
 const UserSearch = () => {
 	const client = useApolloClient();
@@ -19,14 +17,7 @@ const UserSearch = () => {
 
 	return (
 		<>
-			<StatefulInput
-				overrides={{
-					After: () => (
-						<SearchBlock>
-							<Search size="16px"/>
-						</SearchBlock>
-					),
-				}}
+			<Input
 				placeholder="Search for user..."
 				onKeyUp={(e) => handleKeyUp(e)}
 			/>
