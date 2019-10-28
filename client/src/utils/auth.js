@@ -14,7 +14,8 @@ const isUserAuthenticated = () => {
 		return true;
 	}
 
-	return true;
+	localStorage.removeItem('token');
+	return false;
 }
 
 export const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) => (
@@ -32,11 +33,11 @@ export const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) 
 export const setUserToken = (token, history) => {
 	if (token !== undefined) {
 		localStorage.setItem('token', token);
-		history.push(`/gigs`)
+		history.push(`/gigs/upcoming`)
 	}
 }
 
 export const logoutUser = (history) => {
 	localStorage.removeItem('token');
-	history.push(`/login`)
+	return history.push(`/login`)
 }

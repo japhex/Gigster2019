@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import {Header, H1} from './HeaderStyled';
-import CreateGig from "../../../modules/gigs/pages/CreateGig"
-import UserSearch from 'modules/users/components/User/UserSearch'
+import {Header, H1, Navbar} from './HeaderStyled';
+import Create from "../../gigs/pages/create"
+import Search from 'components/users/user/search'
 import UserDetails from "./UserDetails"
-import {Button} from 'japhex-ui'
 
 const AppHeader = () => {
 	const [addGigActive, setAddGigActive] = useState(false)
@@ -17,19 +16,23 @@ const AppHeader = () => {
 	return (
 		<Header>
 			<H1>
-				<Link to="/gigs">Gigster</Link>
+				<Link to="/gigs/upcoming">Gigster</Link>
 			</H1>
-			<div className="navbar">
+			<Navbar>
 				<ul>
 					<li>
-						<Button onClick={(e) => handleAddGig(e)}>Add gig</Button>
-						<CreateGig addMode={addGigActive} callback={(e) => handleAddGig(e)} />
+						<Link to="/gigs/upcoming">Upcoming gigs</Link>
 					</li>
 					<li>
-						<UserSearch />
+						<Link to="/gigs/past">Past gigs</Link>
+					</li>
+					<li>
+						<a href='#' onClick={(e) => handleAddGig(e)}>Add gig</a>
 					</li>
 				</ul>
-			</div>
+				<Create addMode={addGigActive} handleCloseClick={(e) => handleAddGig(e)} />
+				{/*<Search />*/}
+			</Navbar>
 			<UserDetails />
 		</Header>
 	);

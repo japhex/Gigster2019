@@ -58,3 +58,11 @@ export const searchGigMutation = gql`
 		searchGig(artist: $artist)
 	}
 `;
+
+
+export const searchGigs = gql`
+    query searchGigs($artist: String!) {
+        searchUsers(artist: $username) {
+            name
+        }
+    }`;

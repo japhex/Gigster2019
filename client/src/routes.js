@@ -2,12 +2,13 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import GigLayout from './components/layout/GigLayout/GigLayout';
 import UsersLayout from './components/layout/UsersLayout/UsersLayout';
-import UsersHome from './modules/users/pages/Users';
-import UserPage from './modules/users/pages/UserPage';
-import GigsHome from './modules/gigs/pages/UserGigs';
-import CreateGig from './modules/gigs/pages/CreateGig';
-import Login from './modules/auth/components/Login';
-import Signup from './modules/auth/components/Signup';
+import UsersHome from './components/users/pages/users';
+import UserPage from './components/users/pages/user';
+import GigsUpcoming from './components/gigs/pages/gigsUpcoming';
+import GigsPast from './components/gigs/pages/gigsPast';
+import Create from './components/gigs/pages/create';
+import Login from './components/auth/login';
+import Signup from './components/auth/signup';
 import { PrivateRoute } from './utils/auth';
 import 'App.scss';
 
@@ -15,9 +16,10 @@ export default (
 	<Switch>
 		<Route exact path="/login" component={Login} />
 		<Route exact path="/signup" component={Signup} />
-		<PrivateRoute exact path="/" component={GigsHome} layout={GigLayout} />
-		<PrivateRoute exact path="/gigs" component={GigsHome} layout={GigLayout} />
-		<PrivateRoute exact path="/gigs/create" component={CreateGig} layout={GigLayout} />
+		<PrivateRoute exact path="/" component={GigsUpcoming} layout={GigLayout} />
+		<PrivateRoute exact path="/gigs/upcoming" component={GigsUpcoming} layout={GigLayout} />
+		<PrivateRoute exact path="/gigs/past" component={GigsPast} layout={GigLayout} />
+		<PrivateRoute exact path="/gigs/create" component={Create} layout={GigLayout} />
 		<PrivateRoute exact path="/users" component={UsersHome} layout={UsersLayout} />
 		<PrivateRoute exact path="/users/:username" component={UserPage} layout={UsersLayout} />
 	</Switch>

@@ -1,10 +1,10 @@
 import React from 'react'
 import useReactRouter from 'use-react-router';
 import { useQuery } from '@apollo/react-hooks'
-import { UserDetailsSection, Divider, StyledHandIcon } from './HeaderStyled';
+import { UserDetailsSection, Username, Logout, Divider } from './HeaderStyled';
 import { getLoggedInUser } from "api/users/users"
 import { logoutUser } from "utils/auth"
-import QueryHandler from "../../utils/QueryHandler"
+import QueryHandler from "../../utils/queryHandler"
 
 const UserDetails = () => {
 	const { history } = useReactRouter()
@@ -15,10 +15,9 @@ const UserDetails = () => {
 
 	return (
 		<UserDetailsSection>
-			<StyledHandIcon />
-			<span>{loggedInUser.username}</span>
+			<Username>{loggedInUser.username}</Username>
 			<Divider>|</Divider>
-			<span onClick={() => logoutUser(history)}>logout</span>
+			<Logout onClick={() => logoutUser(history)}>logout</Logout>
 		</UserDetailsSection>
 	);
 }
