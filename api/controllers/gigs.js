@@ -67,6 +67,8 @@ export const apiSearchGig = async ({ artist }, user) => {
 		checkUser(user);
 		const songkickArtist = await rp.get(`https://api.songkick.com/api/3.0/events.json?apikey=${songkick.apiKey}&artist_name=${artist}`);
 
+		console.log(songkickArtist)
+
 		return JSON.parse(songkickArtist).resultsPage.results.event;
 	} catch(err){
 		throw new Error(`Error: ${err}`)

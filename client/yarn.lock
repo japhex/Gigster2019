@@ -6390,13 +6390,14 @@ iterall@^1.2.2:
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
   integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
 
-japhex-ui@latest:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/japhex-ui/-/japhex-ui-1.0.9.tgz#38ad76953dd0c7a71e023895a143fb3054a1a7bc"
-  integrity sha512-KxFF6UUjeWkLqpiGcajFsN8v3R2MlZ1Jm/Xb/aoQh/NQfcf9mHc2BPtGtli6E2rI5Ph6ehBju+Z8D1iSkiXlpg==
+japhex-ui@^1.0.41:
+  version "1.0.41"
+  resolved "https://registry.yarnpkg.com/japhex-ui/-/japhex-ui-1.0.41.tgz#f27eef51478f7430fd8e8446ce917f657e959d6f"
+  integrity sha512-j9npQ2J4fh1VD/jLAlB50g3hUjNh/YR2fMKUmVPT01KksOZsdfuu9oNE2DQjriOYCl97MXCKbNrCA1EfgmPnXg==
   dependencies:
     framer-motion "1.6.7"
     react "^16.4.0"
+    react-portal "4.2.0"
     styled-components "4.4.0"
     webpack "^4.12.0"
 
@@ -7277,6 +7278,11 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lottie-web@^5.5.7:
+  version "5.6.7"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.6.7.tgz#8d738fbc615f7bef553014474f0426fcdd2128e7"
+  integrity sha512-ckdo2Myr4iv0nZ+ENwAN3NIsL6QsNLDWW1l52/rjpsDOVFO4iSVNgupYZXWrvsNcLWofoS9oeP8HgX7AGQY8DQ==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
@@ -9349,7 +9355,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^3.0.0"
 
-prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9646,12 +9652,19 @@ react-movable@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-movable/-/react-movable-2.2.0.tgz#08e7de1290b4c0d847fe038debcd3cd0eff750bf"
   integrity sha512-hYv+vJ0pMXvemsnMgiDL7TH/muk1dGg9EHXH5tM6fFzdDmXGXlu8ijMErls9zYXzdZen/ghOUHBkBv4zC9EOyQ==
 
+react-portal@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-4.2.0.tgz#5400831cdb0ae64dccb8128121cf076089ab1afd"
+  integrity sha512-Zf+vGQ/VEAb5XAy+muKEn48yhdCNYPZaB1BWg1xc8sAZWD8pXTgPtQT4ihBdmWzsfCq8p8/kqf0GWydSBqc+Eg==
+  dependencies:
+    prop-types "^15.5.8"
+
 react-range@^1.0.5:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/react-range/-/react-range-1.4.1.tgz#f211c0fbf9695bf46bcfcef3047bc46c1dbf3f9b"
   integrity sha512-uzqRgrFZzQI96H7vS7WNE8yyVrZzNq0N1JJMhgFb9BxBGBzy0LHbZjyhLiSZrbJTFkPD0hC99Z5U/2sGEeuy+Q==
 
-react-router-dom@^5.0.0:
+react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"
   integrity sha512-7BPHAaIwWpZS074UKaw1FjVdZBSVWEk8IuDXdB+OkLb8vd/WRQIpA4ag9WQk61aEfQs47wHyjWUoUGGZxpQXew==
@@ -9765,10 +9778,26 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.4.0, react@^16.4.1:
+react-useanimations@1.2.10:
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/react-useanimations/-/react-useanimations-1.2.10.tgz#af28c4050c927b40df510e7cdd30c4fa5eeaa683"
+  integrity sha512-Xqc60UhI2WjC+PNkuOOFYnLszLFB3/36tEeaxWkxg5ILgY9FGeDahyKxTu+9YqdLfUzF8pqo7KbjFkHoPUW7XQ==
+  dependencies:
+    lottie-web "^5.5.7"
+
+react@^16.4.0:
   version "16.10.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.10.1.tgz#967c1e71a2767dfa699e6ba702a00483e3b0573f"
   integrity sha512-2bisHwMhxQ3XQz4LiJJwG3360pY965pTl/MRrZYxIBKVj4fOHoDs5aZAkYXGxDRO1Li+SyjTAilQEbOmtQJHzA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+
+react@^16.8.0:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

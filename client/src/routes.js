@@ -10,7 +10,6 @@ import Create from './components/gigs/pages/create';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import { PrivateRoute } from './utils/auth';
-import 'App.scss';
 
 export default (
 	<Switch>

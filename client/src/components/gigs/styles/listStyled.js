@@ -15,11 +15,12 @@ export const Ul = styled.div`
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
+	width:100%;
 `
 
 export const H1 = styled.div`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 	font-size: 1rem;
 	text-transform: uppercase;
 	color: #666;
@@ -35,9 +36,9 @@ export const H1 = styled.div`
 `
 
 export const Pill = styled.span`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 	background:${props => props.primary ? '#ba3b2d' : 'none'};
 	border-radius:5px;
 	color:#fff;

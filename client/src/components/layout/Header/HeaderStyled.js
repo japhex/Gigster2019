@@ -5,10 +5,10 @@ export const Header = styled.header`
 	align-items: center;
 	justify-content: space-between;
 	position: sticky;
-    top: 0;
-    z-index: 1;
-    padding:10px;
-    background: #24292e;
+  top: 0;
+  z-index: 1;
+  padding:10px;
+  background: #24292e;
 	box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
 	> div {

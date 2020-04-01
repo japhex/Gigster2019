@@ -16,7 +16,7 @@ const AppHeader = () => {
 	return (
 		<Header>
 			<H1>
-				<Link to="/gigs/upcoming">Gigster</Link>
+				<Link to="/">Gigster</Link>
 			</H1>
 			<Navbar>
 				<ul>

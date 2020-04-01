@@ -6,14 +6,14 @@ import {SearchModalStyled} from "../styles/searchResultsStyled"
 
 const Create = ({addMode, handleCloseClick}) => (
 	<SearchModalStyled modalActive={addMode} handleCloseClick={handleCloseClick}>
-		<Tabs centered>
-			<Tab label="Search for gig">
+		{/*<Tabs centered>*/}
+		{/*	<Tab label="Search for gig">*/}
 				<Search callback={handleCloseClick} />
-			</Tab>
-			<Tab label="Add gig manually">
-				<AddGigManual callback={handleCloseClick} />
-			</Tab>
-		</Tabs>
+	{/*		</Tab>*/}
+	{/*		<Tab label="Add gig manually">*/}
+	{/*			<AddGigManual callback={handleCloseClick} />*/}
+	{/*		</Tab>*/}
+	{/*	</Tabs>*/}
     </SearchModalStyled>
 )
 

@@ -23,11 +23,6 @@ export const Ticket = styled.div`
 	padding: 5px;
 	color:#444;
 	
-	
-	div {
-		//background:;
-	}
-	
 	h1, h2 {
 		margin:5px 0;
 	}
