@@ -7,6 +7,9 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import routes from './routes';
 import { BrowserRouter as Router } from "react-router-dom"
 import history from './utils/routing';
+import UserProviderWrapper from './context/user/userContextProvider'
+import SpotifyProviderWrapper from './context/spotify/spotifyContextProvider'
+
 
 const httpLink = createHttpLink({
 	uri: 'http://localhost:4000/api',
@@ -32,9 +35,13 @@ class App extends Component {
 	render() {
 		return (
 			<ApolloProvider client={client}>
-				<Router history={history}>
-					{routes}
-				</Router>
+				<UserProviderWrapper>
+					<SpotifyProviderWrapper>
+						<Router history={history}>
+							{routes}
+						</Router>
+					</SpotifyProviderWrapper>
+				</UserProviderWrapper>
 			</ApolloProvider>
 		);
 	}

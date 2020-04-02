@@ -17,6 +17,7 @@ const schemaString = `
     id: ID!
     username: String!
     gigs: [Gig!]!
+    spotify_hash: String
   }
   
   type UserWithGigs {
@@ -53,6 +54,7 @@ const schemaString = `
     deleteGig(id: ID!): SortedGigs
     searchGig(artist: String!): JSONObject
     rateGig(id: ID!, rating: Int!): Int
+    updateSpotifyHash(userId: ID!, hash: String): String
   }
 `;
 

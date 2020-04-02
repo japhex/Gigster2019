@@ -41,7 +41,9 @@ export const getUser = gql`
 export const getLoggedInUser = gql`
     query loggedInUser {
         loggedInUser {
+	        id
             username
+            spotify_hash
         }
 }`;
 
@@ -70,4 +72,10 @@ export const getGigsByUser = gql`
             }
         }
 	}
+`;
+
+export const updateSpotifyHashMutation = gql`
+    mutation updateSpotifyHash($userId: ID!, $hash: String!) {
+        updateSpotifyHash(userId: $userId, hash: $hash)
+    }
 `;

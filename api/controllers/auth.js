@@ -29,6 +29,7 @@ export const apiLogin = async ({username, password}) => {
 		{
 			id: user._id,
 			username: user.username,
+			spotify_hash: user.spotify_hash
 		},
 		'super secret',
 		{ expiresIn: '1d' }

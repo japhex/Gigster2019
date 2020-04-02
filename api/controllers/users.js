@@ -1,5 +1,5 @@
 import {User} from '../models/user'
-import {getUserWithGigs} from "./utils"
+import {checkUser, getUserWithGigs} from "./utils"
 
 // Get all users
 export const apiGetUsers = async () => {
@@ -33,6 +33,16 @@ export const apiSearchUsersByUsername = async (username) => {
 export const apiGetGigsByUser = async (userId) => {
 	try {
 		const user = await User.findOne({_id: userId});
+		return getUserWithGigs(user)
+	} catch(err){
+		throw new Error(`Error: ${err}`)
+	}
+}
+
+// Update user spotify hash
+export const apiUpdateSpotifyHash = async (userId, hash) => {
+	try {
+		const user = await User.findOneAndUpdate({_id: userId}, {spotify_hash: hash});
 		return getUserWithGigs(user)
 	} catch(err){
 		throw new Error(`Error: ${err}`)
