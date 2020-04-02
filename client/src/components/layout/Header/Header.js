@@ -34,7 +34,7 @@ const AppHeader = () => {
 					</li>
 				</ul>
 				<Create addMode={addGigActive} handleCloseClick={(e) => handleAddGig(e)} />
-				{/*<Search />*/}
+				<Search />
 			</Navbar>
 			<SpotifyUser />
 			<UserDetails />

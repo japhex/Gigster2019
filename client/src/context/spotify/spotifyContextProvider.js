@@ -9,15 +9,18 @@ const SpotifyProviderWrapper = ({children}) => {
 
 	useEffect(() => {
 		if (authenticated) {
+			//TODO: Build middleware for handling requests that don't hit the GraphQL API server
 			axios.get('http://localhost:4000/spotify/profile').then(({data}) => {
 				setUser(data)
 			}).catch(err => {
+				// TODO: Handle these properly...
 				console.log(err)
 			})
 
 			axios.get('http://localhost:4000/spotify/history').then(({data}) => {
 				setRecentlyPlayed(data)
 			}).catch(err => {
+				// TODO: Handle these properly...
 				console.log(err)
 			})
 		}
