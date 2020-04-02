@@ -4,7 +4,7 @@ import axios from "axios"
 
 const SpotifyProviderWrapper = ({children}) => {
 	const [ authenticated, setAuthenticated ] = useState(false)
-	const [ user, setUser ] = useState({images: [{url:''}]})
+	const [ user, setUser ] = useState({images: [{url:''}], display_name: ''})
 	const [ recentlyPlayed, setRecentlyPlayed ] = useState([])
 
 	useEffect(() => {
