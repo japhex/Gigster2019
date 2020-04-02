@@ -11,10 +11,14 @@ const SpotifyProviderWrapper = ({children}) => {
 		if (authenticated) {
 			axios.get('http://localhost:4000/spotify/profile').then(({data}) => {
 				setUser(data)
+			}).catch(err => {
+				console.log(err)
 			})
 
 			axios.get('http://localhost:4000/spotify/history').then(({data}) => {
 				setRecentlyPlayed(data)
+			}).catch(err => {
+				console.log(err)
 			})
 		}
 	}, [authenticated, setUser, setRecentlyPlayed])

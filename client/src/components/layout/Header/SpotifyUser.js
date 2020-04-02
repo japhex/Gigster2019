@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import SpotifyContext from "../../../context/spotify/spotifyContext"
-import { User, Username } from './styled/SpotifyUserStyled'
+import { User, Username, SpotifyUnauthorised } from './styled/SpotifyUserStyled'
 
 const urlParams = new URLSearchParams(window.location.search);
 const isUserAuthorized = urlParams.has('authorized')
@@ -22,7 +22,9 @@ const SpotifyUser = () => {
 					<img src={user.images[0].url} />
 				</>
 				:
-				<a href="http://localhost:4000/spotify/login">Connect your Spotify account</a>
+				<SpotifyUnauthorised>
+					<a href="http://localhost:4000/spotify/login">Connect your Spotify account</a>
+				</SpotifyUnauthorised>
 			}
 		</User>
 	);
