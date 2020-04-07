@@ -10,9 +10,11 @@ const SpotifyProviderWrapper = ({children}) => {
 	const { loading, error, data } = useQuery(getSpotifyUserProfile)
 
 	useEffect(() => {
-		if (data.spotifyUserProfile) {
+		if (data.spotifyUserProfile && data.spotifyUserProfile.user !== null) {
 			setUser(data.spotifyUserProfile.user)
 			setAuthenticated(true)
+		} else {
+			setAuthenticated(false)
 		}
 	}, [data, setUser, setAuthenticated])
 

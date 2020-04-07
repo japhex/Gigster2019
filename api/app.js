@@ -2,7 +2,6 @@ import { ApolloServer, gql } from "apollo-server-express"
 import mongoose from 'mongoose'
 import typeDefs from "./schema"
 import resolvers from "./resolvers"
-import spotifyEndpoints from './routes/spotify'
 
 const express = require('express')
 const jwt = require('express-jwt')
