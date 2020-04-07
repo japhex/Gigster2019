@@ -6,10 +6,8 @@ import Search from 'components/users/user/search'
 import UserDetails from "./UserDetails"
 import SpotifyUser from "./SpotifyUser"
 
-
 const AppHeader = () => {
 	const [ addGigActive, setAddGigActive ] = useState(false)
-
 
 	const handleAddGig = (e) => {
 		e.preventDefault()

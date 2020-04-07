@@ -26,16 +26,15 @@ app.use('/api', jwt({
 	credentialsRequired: false
 }))
 
-app.use('/spotify', spotifyEndpoints)
-
 // Create apollo server
 const server = new ApolloServer({
 	typeDefs: gql(typeDefs),
 	resolvers,
-	context: ({req}) => {
-		console.log(req.user)
+	context: ({req, res}) => {
 		return {
-			user: req.user
+			user: req.user,
+			req: req,
+			res: res
 		}
 	}
 })

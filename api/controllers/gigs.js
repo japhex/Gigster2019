@@ -5,7 +5,7 @@ import {UserGigs} from '../models/user_gigs'
 import {Gig} from '../models/gig'
 
 // Get all gigs for user
-export const apiGetGigs = async (user) => {
+export const apiGetGigs = async (user, res) => {
 	try {
 		checkUser(user);
 		return await getUserGigs(user)

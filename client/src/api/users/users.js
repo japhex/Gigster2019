@@ -43,7 +43,7 @@ export const getLoggedInUser = gql`
         loggedInUser {
 	        id
             username
-            spotify_hash
+            spotify_credentials
         }
 }`;
 

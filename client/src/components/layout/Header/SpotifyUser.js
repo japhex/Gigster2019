@@ -1,17 +1,15 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
+import {useQuery} from "@apollo/react-hooks"
 import SpotifyContext from "../../../context/spotify/spotifyContext"
 import { User, Username, SpotifyUnauthorised } from './styled/SpotifyUserStyled'
-
-const urlParams = new URLSearchParams(window.location.search);
-const isUserAuthorized = urlParams.has('authorized')
+import {getSpotifyLogin} from "../../../api/spotify/spotify"
 
 const SpotifyUser = () => {
+	const { loading, error, data } = useQuery(getSpotifyLogin)
 	const spotifyContext = useContext(SpotifyContext)
-	const { authenticated, setAuthenticated, user } = spotifyContext
+	const { authenticated, user } = spotifyContext
 
-	useEffect(() => {
-		setAuthenticated(isUserAuthorized)
-	}, [setAuthenticated, isUserAuthorized])
+	if (loading || error) return null
 
 	return (
 		<User>
@@ -23,7 +21,7 @@ const SpotifyUser = () => {
 				</>
 				:
 				<SpotifyUnauthorised>
-					<a href="http://localhost:4000/spotify/login">Connect your Spotify account</a>
+					<a href={data.spotifyLogin.url}>Connect your Spotify account</a>
 				</SpotifyUnauthorised>
 			}
 		</User>

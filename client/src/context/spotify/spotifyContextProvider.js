@@ -1,30 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { SpotifyProvider } from './spotifyContext';
-import axios from "axios"
+import {useQuery} from "@apollo/react-hooks"
+import {getSpotifyUserProfile} from "../../api/spotify/spotify"
 
 const SpotifyProviderWrapper = ({children}) => {
 	const [ authenticated, setAuthenticated ] = useState(false)
 	const [ user, setUser ] = useState({images: [{url:''}], display_name: ''})
 	const [ recentlyPlayed, setRecentlyPlayed ] = useState([])
+	const { loading, error, data } = useQuery(getSpotifyUserProfile)
 
 	useEffect(() => {
-		if (authenticated) {
-			//TODO: Build middleware for handling requests that don't hit the GraphQL API server
-			axios.get('http://localhost:4000/spotify/profile').then(({data}) => {
-				setUser(data)
-			}).catch(err => {
-				// TODO: Handle these properly...
-				console.log(err)
-			})
-
-			axios.get('http://localhost:4000/spotify/history').then(({data}) => {
-				setRecentlyPlayed(data)
-			}).catch(err => {
-				// TODO: Handle these properly...
-				console.log(err)
-			})
+		if (data.spotifyUserProfile) {
+			setUser(data.spotifyUserProfile.user)
+			setAuthenticated(true)
 		}
-	}, [authenticated, setUser, setRecentlyPlayed])
+	}, [data, setUser, setAuthenticated])
 
 	return (
 		<SpotifyProvider value={{

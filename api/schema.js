@@ -18,6 +18,7 @@ const schemaString = `
     username: String!
     gigs: [Gig!]!
     spotify_hash: String
+    spotify_credentials: JSONObject
   }
   
   type UserWithGigs {
@@ -36,6 +37,14 @@ const schemaString = `
     newGigs: [Gig]
   }
   
+  type SpotifyUrl {
+    url: String!
+  }
+  
+  type SpotifyUser {
+    user: JSONObject
+  }
+  
   type Query {
     users: [User!]!
     loggedInUser: User
@@ -44,6 +53,10 @@ const schemaString = `
     searchUsers(username: String!): [User]
     gigs: SortedGigs
     gig(id: ID!): Gig
+    spotifyLogin: SpotifyUrl
+	spotifyCallback(code: String!): JSONObject
+	spotifyPlaylistHistory: JSONObject
+	spotifyUserProfile: SpotifyUser
   }
   
   type Mutation {

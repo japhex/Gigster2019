@@ -2,6 +2,8 @@ import {apiLogin, apiSignup} from "./controllers/auth"
 import {apiCreateGig, apiCreateSongkickGig, apiDeleteGig, apiGetGigs, apiSearchGig} from './controllers/gigs'
 import {apiGetUserByUsername, apiGetUsers, apiSearchUsersByUsername, apiGetGigsByUser, apiUpdateSpotifyHash} from './controllers/users'
 import {apiCreateGigRating} from './controllers/ratings'
+import {apiSpotifyLogin, apiSpotifyCallback} from './controllers/spotify/authorize'
+import {apiSpotifyPlaylistHistory, apiSpotifyUserProfile} from './controllers/spotify/services'
 
 export default {
 	User: {
@@ -13,7 +15,11 @@ export default {
 		user: (parent, { username }) => apiGetUserByUsername(username),
 		userGigs: (parent, { userId }) => apiGetGigsByUser(userId),
 		searchUsers: (parent, { username }) => apiSearchUsersByUsername(username),
-		gigs: (parent, args, { user }) => apiGetGigs(user)
+		gigs: (parent, args, { user, res }) => apiGetGigs(user, res),
+		spotifyLogin: () => apiSpotifyLogin(),
+		spotifyCallback: (parents, {code}, {user}) => apiSpotifyCallback(user, code),
+		spotifyPlaylistHistory: () => apiSpotifyPlaylistHistory(),
+		spotifyUserProfile: (parents, args, {user}) => apiSpotifyUserProfile(user)
 	},
 	Mutation: {
 		signup: (root, form) => apiSignup(form),

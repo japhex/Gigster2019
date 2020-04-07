@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
 	username: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
-	spotify_hash: String,
+	spotify_credentials: {type: Object},
 	created_at: Date,
 	updated_at: Date,
 });
