@@ -3,13 +3,14 @@ import {useQuery} from "@apollo/react-hooks"
 import SpotifyContext from "../../../context/spotify/spotifyContext"
 import { User, Username, SpotifyUnauthorised } from './styled/SpotifyUserStyled'
 import {getSpotifyLogin} from "../../../api/spotify/spotify"
+import QueryHandler from "../../utils/queryHandler"
 
 const SpotifyUser = () => {
 	const { loading, error, data } = useQuery(getSpotifyLogin)
 	const spotifyContext = useContext(SpotifyContext)
 	const { authenticated, user } = spotifyContext
 
-	if (loading || error) return null
+	if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
 	return (
 		<User>

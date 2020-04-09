@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { SpotifyProvider } from './spotifyContext';
 import {useQuery} from "@apollo/react-hooks"
 import {getSpotifyUserProfile} from "../../api/spotify/spotify"
+import QueryHandler from "../../components/utils/queryHandler"
+import {isUserAuthenticated} from "../../utils/auth"
 
 const SpotifyProviderWrapper = ({children}) => {
 	const [ authenticated, setAuthenticated ] = useState(false)
@@ -10,13 +12,17 @@ const SpotifyProviderWrapper = ({children}) => {
 	const { loading, error, data } = useQuery(getSpotifyUserProfile)
 
 	useEffect(() => {
-		if (data.spotifyUserProfile && data.spotifyUserProfile.user !== null) {
-			setUser(data.spotifyUserProfile.user)
-			setAuthenticated(true)
-		} else {
-			setAuthenticated(false)
+		if (isUserAuthenticated()) {
+			if (data.spotifyUserProfile && data.spotifyUserProfile.user !== null) {
+				setUser(data.spotifyUserProfile.user)
+				setAuthenticated(true)
+			} else {
+				setAuthenticated(false)
+			}
 		}
 	}, [data, setUser, setAuthenticated])
+
+	// if (loading || error) return (<QueryHandler loading={loading} error={error} />)
 
 	return (
 		<SpotifyProvider value={{

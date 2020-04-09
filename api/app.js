@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { ApolloServer, gql } from "apollo-server-express"
 import mongoose from 'mongoose'
 import typeDefs from "./schema"

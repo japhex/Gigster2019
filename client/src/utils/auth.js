@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import * as jwt from 'jsonwebtoken';
 
-const isUserAuthenticated = () => {
+export const isUserAuthenticated = () => {
 	const token = localStorage.getItem('token');
 
 	if (!token) return false;

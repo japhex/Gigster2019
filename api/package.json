@@ -13,7 +13,6 @@
     "body-parser": "~1.18.2",
     "concurrently": "^3.6.1",
     "cookie-parser": "~1.4.3",
-    "dotenv": "^6.1.0",
     "esm": "3.2.22",
     "express": "4.16.4",
     "express-jwt": "^5.3.1",
@@ -33,5 +32,8 @@
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0",
     "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
   }
 }
