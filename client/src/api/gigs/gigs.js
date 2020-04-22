@@ -1,68 +1,69 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag'
 
 export const getGigs = gql`
-{
+  {
     gigs {
-	    oldGigs {
-		    id
-            songKickGig
-        }
-	    newGigs {
-		    id
-            songKickGig
-	    }
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
     }
-}`;
+  }
+`
 
 export const createGigMutation = gql`
-	mutation createGig($artist: String!, $date: Date!, $venue: String!) {
-		createGig(artist: $artist, date: $date, venue: $venue) {
-			id
-            songKickGig
-		}
-	}
-`;
+  mutation createGig($artist: String!, $date: Date!, $venue: String!) {
+    createGig(artist: $artist, date: $date, venue: $venue) {
+      id
+      songKickGig
+    }
+  }
+`
 
 export const createSongkickGigMutation = gql`
-	mutation createSongkickGig($songkickId: ID!, $songkickJson: JSONObject!) {
-		createSongkickGig(songkickId: $songkickId, songkickJson: $songkickJson) {
-            oldGigs {
-                id
-                songKickGig
-            }
-            newGigs {
-                id
-                songKickGig
-            }
-		}
-	}
-`;
+  mutation createSongkickGig($songkickId: ID!, $songkickJson: JSONObject!) {
+    createSongkickGig(songkickId: $songkickId, songkickJson: $songkickJson) {
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
+    }
+  }
+`
 
 export const deleteGigMutation = gql`
-	mutation deleteGig($id: ID!) {
-		deleteGig(id: $id) {
-            oldGigs {
-                id
-                songKickGig
-            }
-            newGigs {
-                id
-                songKickGig
-            }
-		}
-	}
-`;
+  mutation deleteGig($id: ID!) {
+    deleteGig(id: $id) {
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
+    }
+  }
+`
 
 export const searchGigMutation = gql`
-	mutation searchGig($artist: String!) {
-		searchGig(artist: $artist)
-	}
-`;
-
+  mutation searchGig($artist: String!) {
+    searchGig(artist: $artist)
+  }
+`
 
 export const searchGigs = gql`
-    query searchGigs($artist: String!) {
-        searchUsers(artist: $username) {
-            name
-        }
-    }`;
+  query searchGigs($artist: String!) {
+    searchUsers(artist: $username) {
+      name
+    }
+  }
+`

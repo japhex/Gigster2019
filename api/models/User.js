@@ -2,11 +2,11 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-	username: { type: String, required: true, unique: true },
-	password: { type: String, required: true },
-	spotify_credentials: {type: Object},
-	created_at: Date,
-	updated_at: Date,
-});
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  spotify_credentials: { type: Object },
+  created_at: Date,
+  updated_at: Date,
+})
 
-export const User = mongoose.model('User', userSchema);
+export const User = mongoose.model('User', userSchema)

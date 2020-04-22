@@ -1,12 +1,11 @@
-import { makeExecutableSchema } from 'graphql-tools';
-import {GraphQLDate} from 'graphql-iso-date';
-import {GraphQLJSONObject} from 'graphql-type-json';
-
+import { makeExecutableSchema } from 'graphql-tools'
+import { GraphQLDate } from 'graphql-iso-date'
+import { GraphQLJSONObject } from 'graphql-type-json'
 
 const resolveFunctions = {
-	Date: GraphQLDate,
-	JSONObject: GraphQLJSONObject
-};
+  Date: GraphQLDate,
+  JSONObject: GraphQLJSONObject,
+}
 
 const schemaString = `
 
@@ -69,8 +68,8 @@ const schemaString = `
     rateGig(id: ID!, rating: Int!): Int
     updateSpotifyHash(userId: ID!, hash: String): String
   }
-`;
+`
 
-makeExecutableSchema({ typeDefs: schemaString, resolvers: resolveFunctions });
+makeExecutableSchema({ typeDefs: schemaString, resolvers: resolveFunctions })
 
 export default schemaString

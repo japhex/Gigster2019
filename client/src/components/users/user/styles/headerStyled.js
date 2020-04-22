@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StatsHeader = styled.div`
-	display: flex;
+  display: flex;
 
-	&__box {
-		display: flex;
-		flex:1;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+  &__box {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
