@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import GigLayout from './components/layout/GigLayout/GigLayout'
 import UsersLayout from './components/layout/UsersLayout/UsersLayout'
 import UsersHome from './components/users/pages/users'
+import UsersSpotifyTopTracks from './components/users/pages/usersSpotifyTopTracks'
 import UserPage from './components/users/pages/user'
 import SpotifyWrapper from './components/layout/pages/spotifyWrapper'
 import GigsUpcoming from './components/gigs/pages/gigsUpcoming'
@@ -46,6 +47,12 @@ export default (
       exact
       path="/users/:username"
       component={UserPage}
+      layout={UsersLayout}
+    />
+    <PrivateRoute
+      exact
+      path="/users/spotify/top-tracks"
+      component={UsersSpotifyTopTracks}
       layout={UsersLayout}
     />
     <PrivateRoute

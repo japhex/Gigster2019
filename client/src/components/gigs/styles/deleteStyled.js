@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import * as variables from 'components/utils/styles/global/variables'
 import Delete from 'baseui/icon/delete'
 
 export const DeleteGigContainer = styled.div`

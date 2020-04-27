@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Header, H1, Navbar } from './styled/HeaderStyled'
 import Create from '../../gigs/pages/create'
 import Search from 'components/users/user/search'
 import UserDetails from './UserDetails'
 import SpotifyUser from './SpotifyUser'
+import SpotifyContext from '../../../context/spotify/spotifyContext'
 
 const AppHeader = () => {
+  const spotifyContext = useContext(SpotifyContext)
+  const { authenticated } = spotifyContext
   const [addGigActive, setAddGigActive] = useState(false)
 
   const handleAddGig = (e) => {
@@ -32,6 +35,11 @@ const AppHeader = () => {
               Add gig
             </a>
           </li>
+          {authenticated && (
+            <li>
+              <Link to="/users/spotify/top-tracks">Most Listened to</Link>
+            </li>
+          )}
         </ul>
         <Create
           addMode={addGigActive}

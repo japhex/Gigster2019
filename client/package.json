@@ -23,7 +23,7 @@
     "japhex-ui": "^1.0.41",
     "jsonwebtoken": "8.4.0",
     "jwt-decode": "^2.2.0",
-    "lodash": "4.17.15",
+    "lodash": "^4.17.15",
     "moment": "2.24.0",
     "node-sass": "4.11.0",
     "react": "^16.8.0",
@@ -52,6 +52,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "eslint": "^6.8.0",
     "prettier": "2.0.5"
   }
 }

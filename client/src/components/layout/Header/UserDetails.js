@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import useReactRouter from 'use-react-router'
+import { isEmpty } from 'lodash'
 import {
   UserDetailsSection,
   Username,
@@ -14,11 +15,17 @@ const UserDetails = () => {
   const userContext = useContext(UserContext)
   const { user } = userContext
 
+  console.log(user)
+
   return (
     <UserDetailsSection>
-      <Username>{user.username}</Username>
-      <Divider>|</Divider>
-      <Logout onClick={() => logoutUser(history)}>logout</Logout>
+      {!isEmpty(user) && (
+        <>
+          <Username>{user.username}</Username>
+          <Divider>|</Divider>
+          <Logout onClick={() => logoutUser(history)}>logout</Logout>
+        </>
+      )}
     </UserDetailsSection>
   )
 }

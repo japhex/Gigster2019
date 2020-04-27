@@ -21,3 +21,11 @@ export const getSpotifyUserProfile = gql`
     }
   }
 `
+
+export const getSpotifyRecentlyPlayed = gql`
+  {
+    spotifyRecentlyPlayed {
+      user
+    }
+  }
+`
