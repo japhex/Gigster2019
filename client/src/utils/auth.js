@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import * as jwt from 'jsonwebtoken'
+import UserProviderWrapper from 'context/user/userContextProvider'
 
 export const isUserAuthenticated = () => {
   const token = localStorage.getItem('token')
@@ -35,7 +36,7 @@ export const PrivateRoute = ({
       )
 
       return isUserAuthenticated() ? (
-        newComponent
+        <UserProviderWrapper>{newComponent}</UserProviderWrapper>
       ) : (
         <Redirect
           to={{ pathname: '/login', state: { from: props.location } }}
