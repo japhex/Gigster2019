@@ -57,12 +57,6 @@ export default (
     />
     <PrivateRoute
       exact
-      path="/users/spotify/linked-artists"
-      component={UsersSpotifyTopTracks}
-      layout={UsersLayout}
-    />
-    <PrivateRoute
-      exact
       path="/spotify/callback"
       component={SpotifyWrapper}
       layout={GigLayout}
