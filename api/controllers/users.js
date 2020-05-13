@@ -1,33 +1,53 @@
-const models = require('../models');
+import { User } from '../models/user'
+import { checkUser, getUserWithGigs } from './utils'
 
-module.exports = {
-	async getAll(req, res) {
-		try {
-			const users = await models.user.findAll({include:['Gigs']});
+// Get all users
+export const apiGetUsers = async () => {
+  try {
+    return await User.find()
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
 
-			return await this.sanitizeUsers(users);
-		} catch(err){
-			console.log(err);
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async getUser(req, res) {
-		try {
-			// FindAll instead of FindOne so we can still call sanitizeUsers on an array
-			const user = await models.user.findAll({where:{username:req.params.username}, include:['Gigs']});
+// Get user by username
+export const apiGetUserByUsername = async (username) => {
+  try {
+    const user = await User.findOne({ username: username })
+    return getUserWithGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
 
-			// Only 1 array item will ever exist for 1 user, return first property
-			return await this.sanitizeUsers(user)[0];
-		} catch(err){
-			console.log(err);
-			res.status(500);
-			return {error:err};
-		}
-	},
-	sanitizeUsers(users) {
-		users = users.map(({id, username, createdAt, Gigs}) => ({...{}, id, username, createdAt, Gigs}))
+// Search users by username
+export const apiSearchUsersByUsername = async (username) => {
+  try {
+    return await User.find({ username: { $regex: '.*' + username + '.*' } })
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
 
-		return users;
-	}
-};
+// Get gigs by UserID
+export const apiGetGigsByUser = async (userId) => {
+  try {
+    const user = await User.findOne({ _id: userId })
+    return getUserWithGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
+
+// Update user spotify hash
+export const apiUpdateSpotifyHash = async (userId, hash) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { spotify_hash: hash }
+    )
+    return getUserWithGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}

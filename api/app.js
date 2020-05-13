@@ -1,29 +1,59 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const APIAuth = require('./routes/users');
-const APIGigs = require('./routes/gigs');
-const APISearch = require('./routes/third-parties/songkick');
-const PORT = process.env.PORT || 3001;
-const app = express();
-const models = require("./models");
+require('dotenv').config()
+import { ApolloServer, gql } from 'apollo-server-express'
+import mongoose from 'mongoose'
+import typeDefs from './schema'
+import resolvers from './resolvers'
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
-  next();
-});
+const express = require('express')
+const jwt = require('express-jwt')
+const PORT = process.env.PORT || 3001
+const app = express()
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cookieParser());
+// Mongo connection
+mongoose.connect('mongodb://mongo:3007/gigster')
+mongoose.set('debug', true)
 
-app.use('/api/', APIAuth);
-app.use('/api/gigs', APIGigs);
-app.use('/api/search', APISearch);
-
-models.sequelize.sync().then(() => {
-    app.listen(PORT, function () {});
+// Set CORS headers
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  next()
 })
 
-module.exports = app;
+// Create api route
+app.use(
+  '/api',
+  jwt({
+    secret: 'super secret',
+    credentialsRequired: false,
+  })
+)
+
+// Create apollo server
+const server = new ApolloServer({
+  typeDefs: gql(typeDefs),
+  resolvers,
+  context: ({ req, res }) => {
+    return {
+      user: req.user,
+      req: req,
+      res: res,
+    }
+  },
+})
+
+// Apply middleware
+server.applyMiddleware({ app, path: '/api' })
+
+// Create app service
+app.listen(PORT, function () {})
+
+// GraphQL Server
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+)
+
+module.exports = app

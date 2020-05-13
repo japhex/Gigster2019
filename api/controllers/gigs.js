@@ -1,77 +1,81 @@
-const models = require('../models');
-const rp = require('request-promise');
+const rp = require('request-promise')
+import { checkUser, getUserGigs } from './utils'
+import { songkick } from '../config/songkick'
+import { UserGigs } from '../models/user_gigs'
+import { Gig } from '../models/gig'
 
-module.exports = {
-	async getAll(req, res) {
-		try {
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-			return user.Gigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async getAdditionalGigDetail(req, res) {
-		const newGigs = [];
-		try {
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+// Get all gigs for user
+export const apiGetGigs = async (user, res) => {
+  try {
+    checkUser(user)
+    return await getUserGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
 
-			for (let i=0; i < user.Gigs.length; i++) {
-				const gig = user.Gigs[i];
-				const obj = gig.toJSON();
+// Create gig
+export const apiCreateGig = async ({ artist, date, venue }, user) => {
+  // 	try {
+  // 		checkUser(user);
+  //
+  // 		const userId = user.id
+  //
+  // 		const gig = await models.gig.create({artist:artist,date:date,venue:venue});
+  //
+  // 		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
+  // 		await userWithGigs.addGig(gig.id)
+  //
+  // 		return getUserGigs(user)
+  // 	} catch(err){
+  // 		throw new Error(`Error: ${err}`)
+  // 	}
+}
 
-				obj.artistInfo = await rp.get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${gig.artist}&api_key=61726d01845437a55a440275a1b4e5b9&format=json`);
+// Create songkick gig
+export const apiCreateSongkickGig = async (
+  { songkickId, songkickJson },
+  user
+) => {
+  try {
+    checkUser(user)
 
-				if (obj.artistInfo !== '') {
-					obj.artistInfo = JSON.parse(obj.artistInfo);
-				} else {
-					delete obj.artistInfo;
-				}
+    const gig = new Gig({ songKickGig: songkickJson })
+    gig.save()
 
-				newGigs.push(obj);
-			}
+    const userGig = new UserGigs({ user: user.id, gig: gig.id, rating: 0 })
+    userGig.save()
 
-			return newGigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async createGig(req, res) {
-		try {
-			const gig = await models.gig.create(req.body);
-			let user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-			await user.addGig(gig.id)
+    return await getUserGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
 
-			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+// Delete gig
+export const apiDeleteGig = async ({ id }, user) => {
+  try {
+    checkUser(user)
+    await UserGigs.deleteOne({ user: user.id, gig: id })
 
-			return user.Gigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async updateGig(req, res) {
-		try {
-			await models.gig.update(req.body, {where: {id: req.params.id}});
-			const user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+    return await getUserGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
 
-			return user.Gigs;
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	},
-	async deleteGig(req, res) {
-		try {
-			let user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
-			await user.removeGig(req.params.id);
-			user = await models.user.findOne({where: {id: req.user.id}, include:['Gigs']});
+// Search gig
+export const apiSearchGig = async ({ artist }, user) => {
+  try {
+    checkUser(user)
+    const songkickArtist = await rp.get(
+      `https://api.songkick.com/api/3.0/events.json?apikey=${songkick.apiKey}&artist_name=${artist}`
+    )
 
-			return this.getAdditionalGigDetail(req, res);
-		} catch(err){
-			res.status(500);
-			return {error:err};
-		}
-	}
-};
+    console.log(songkickArtist)
+
+    return JSON.parse(songkickArtist).resultsPage.results.event
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}

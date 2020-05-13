@@ -1,14 +1,12 @@
-import React from 'react';
-import Header from './../Header/Header';
-import './UsersLayout.scss';
+import React from 'react'
+import Header from './../Header/Header'
+import { UsersLayoutContainer } from './UsersLayoutStyled'
 
-const UsersLayout = ({children}) => (
-	<div>
-		<Header />
-		<div className="layout-users">
-			{children}
-		</div>
-	</div>
-);
+const UsersLayout = ({ children }) => (
+  <>
+    <Header />
+    <UsersLayoutContainer>{children}</UsersLayoutContainer>
+  </>
+)
 
-export default UsersLayout;
+export default UsersLayout

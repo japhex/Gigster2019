@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "3007:27017"
+  api:
+    build: ./api
+    ports:
+      - "3006:3006"
+      - "4000:4000"
+  client:
+    build: ./client
+    ports:
+      - "3005:3005"

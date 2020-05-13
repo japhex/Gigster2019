@@ -13,18 +13,17 @@ Gigster currently runs on:
 ### Back-end
 - Node.js
 - Express.js (thinking about moving to koa.js?)
-- MySQL (as mostly models and data are relational)
+- MongoDB using Mongoose
+- GraphQL
 - JWT Authentication
-- Sequelize.js (ORM)
 - request and request-promise (to handle external API requests, e.g. to the Last.FM API)
 
 ### Front-end
 - React.js (including Suspense, Hooks...)
-- Redux (thinking about moving to purely the React Context API...)
-- Redux-saga
-- axios
+- GraphQL
+- Apollo
 - Formik
-- SASS (preferred over styled components, still)
+- Styled components
 
 ## Running the app
 You'll need to create a local MySQL DB called **gigster** and use something like MAMP to run a local MySQL server instance.
