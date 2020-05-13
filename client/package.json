@@ -25,7 +25,6 @@
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
     "moment": "2.24.0",
-    "node-sass": "4.11.0",
     "react": "^16.8.0",
     "react-apollo": "3.0.0",
     "react-dom": "^16.4.1",
@@ -44,7 +43,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3006",
   "browserslist": [
     ">0.2%",
     "not dead",
