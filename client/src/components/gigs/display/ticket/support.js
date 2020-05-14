@@ -1,6 +1,6 @@
 import React from 'react'
 import { SupportStyled } from '../../styles/gigStyled'
-import { MoreText } from 'japhex-ui'
+// import { MoreText } from 'japhex-ui'
 
 export const Support = ({ supports }) => (
   <SupportStyled>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Tabs, Tab } from 'japhex-ui'
+// import { Tabs, Tab } from 'japhex-ui'
 import Search from '../searchResult/search'
-import AddGigManual from '../display/addGigManual'
+// import AddGigManual from '../display/addGigManual'
 import { SearchModalStyled } from '../styles/searchResultsStyled'
 
 const Create = ({ addMode, handleCloseClick }) => (

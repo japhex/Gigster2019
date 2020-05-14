@@ -10,6 +10,9 @@ The concept of Gigster is a mix of two, its either:
 ## Tech Stack
 Gigster currently runs on:
 
+### Setup
+- Docker/Docker-compose
+
 ### Back-end
 - Node.js
 - Express.js (thinking about moving to koa.js?)
@@ -26,23 +29,11 @@ Gigster currently runs on:
 - Styled components
 
 ## Running the app
-You'll need to create a local MySQL DB called **gigster** and use something like MAMP to run a local MySQL server instance.
-
-Clone the repository and run the following in both the **client** and **api** directories:
-
-```
-npm install
-```
-
-That should be it, just run
+The easiest way is by using Docker, if you haven't used it before - don't be scared, its super simple.
+Just download and install Docker, make sure you're in the `root` directory of the app, and simple run:
 
 ```
-npm start
+docker-compose up
 ```
 
-## Running the app with a remote DB rather than local MySQL
-Start the api server in the **api** directory by using:
-
-```
-npm run start-test
-```
+This will start a set of Docker containers, providing everything the app needs to run.

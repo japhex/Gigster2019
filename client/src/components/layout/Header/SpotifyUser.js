@@ -22,7 +22,7 @@ const SpotifyUser = () => {
       {authenticated ? (
         <>
           <Username>{user.display_name}</Username>
-          <img src={user.images[0].url} />
+          <img alt={user.display_name} src={user.images[0].url} />
         </>
       ) : (
         <SpotifyUnauthorised>

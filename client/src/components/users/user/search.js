@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useApolloClient } from '@apollo/react-hooks'
-import { searchUsers, searchGigs } from 'api/users/users'
+import { searchUsers } from 'api/users/users'
 import Results from './results'
 import { Input } from 'japhex-ui'
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { SpotifyProvider } from './spotifyContext'
 import { useQuery } from '@apollo/react-hooks'
 import { getSpotifyUserProfile } from '../../api/spotify/spotify'
-import QueryHandler from '../../components/utils/queryHandler'
+// import QueryHandler from '../../components/utils/queryHandler'
 import { isUserAuthenticated } from '../../utils/auth'
 
 const SpotifyProviderWrapper = ({ children }) => {
