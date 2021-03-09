@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Modal } from 'japhex-ui'
+import { Modal } from 'components/ui/modal'
 
 export const ConfirmModal = styled(Modal)`
   > div {

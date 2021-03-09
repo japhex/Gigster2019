@@ -13,7 +13,7 @@ const Rating = ({ gigId, activeRating }) => {
     }
   }, [activeRating])
 
-  const setGigRating = (rating) => {
+  const setGigRating = rating => {
     setValue(rating)
   }
 

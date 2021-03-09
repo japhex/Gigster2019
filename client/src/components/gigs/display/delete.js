@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IconClose } from 'japhex-ui'
+import { IconCloseStyled } from '../../ui/modal/styling'
 import { useMutation } from '@apollo/react-hooks'
 import { getGigs, deleteGigMutation } from 'api/gigs/gigs'
 import { DeleteGigContainer } from '../styles/deleteStyled'
@@ -23,7 +23,7 @@ const Delete = ({ gigId }) => {
 
   return (
     <DeleteGigContainer>
-      <IconClose
+      <IconCloseStyled
         onClick={() => {
           handleDeleteClick()
         }}

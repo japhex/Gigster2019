@@ -1,9 +1,5 @@
 import styled from 'styled-components'
-import { Modal } from 'japhex-ui'
-
-export const SearchModalStyled = styled(Modal)`
-  max-height: 70vh;
-`
+import { Modal } from '../../ui/modal'
 
 export const ResultsList = styled.div`
   height: 400px;

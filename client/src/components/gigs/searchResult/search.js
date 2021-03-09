@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { Field, Form, Formik } from 'formik'
-import { Input, Button } from 'japhex-ui'
+import { Button } from 'components/ui/forms/button'
 import { Div } from '../styles/addGigManualStyled'
 import SearchResults from './searchResults'
 import { searchGigMutation } from 'api/gigs/gigs'
+import { Input } from 'components/ui/forms/input'
+import { SearchIcon } from '../../ui/icons/search'
 
-const Search = ({ callback }) => {
+const Search = () => {
   const [gigs, setGigs] = useState([])
   const [submittingForm, setSubmittingForm] = useState(false)
   const [searchGig] = useMutation(searchGigMutation, {
@@ -17,7 +19,7 @@ const Search = ({ callback }) => {
 
   return (
     <Formik
-      onSubmit={async (values) => {
+      onSubmit={async values => {
         setSubmittingForm(true)
         await searchGig({ variables: values })
         setSubmittingForm(false)
@@ -32,7 +34,9 @@ const Search = ({ callback }) => {
                 render={({ field }) => (
                   <>
                     <Input type="text" name="artist" {...field} />
-                    <Button isLoading={submittingForm}>Search</Button>
+                    <Button isLoading={submittingForm}>
+                      <SearchIcon />
+                    </Button>
                   </>
                 )}
               />

@@ -13,12 +13,12 @@ const SpotifyProviderWrapper = ({ children }) => {
 
   useEffect(() => {
     if (isUserAuthenticated()) {
-      if (data.spotifyUserProfile && data.spotifyUserProfile.user !== null) {
-        setUser(data.spotifyUserProfile.user)
-        setAuthenticated(true)
-      } else {
-        setAuthenticated(false)
-      }
+      // if (data.spotifyUserProfile && data.spotifyUserProfile.user !== null) {
+      //   setUser(data.spotifyUserProfile.user)
+      //   setAuthenticated(true)
+      // } else {
+      //   setAuthenticated(false)
+      // }
     }
   }, [data, setUser, setAuthenticated])
 

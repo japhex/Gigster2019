@@ -7,15 +7,7 @@ export const TabLabelContainer = styled.div`
 `
 
 export const GigListContainer = styled.div`
-  display: flex;
-  padding: 20px;
-`
-
-export const Ul = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  width: 100%;
+  padding: 30px;
 `
 
 export const H1 = styled.div`
@@ -39,7 +31,7 @@ export const Pill = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${(props) => (props.primary ? '#ba3b2d' : 'none')};
+  background: ${props => (props.primary ? '#ba3b2d' : 'none')};
   border-radius: 5px;
   color: #fff;
   padding: 0 5px;

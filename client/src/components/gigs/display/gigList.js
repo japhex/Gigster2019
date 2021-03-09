@@ -1,21 +1,25 @@
 import React from 'react'
 import Gig from './gig'
-import { GigListContainer, Ul } from '../styles/listStyled'
+import { GigListContainer } from '../styles/listStyled'
 
-const GigList = ({ type, title, gigs, withoutCrud }) => (
-  <GigListContainer>
-    <>
+const GigList = ({ type, title, gigs, withoutCrud }) => {
+  const gigType = type
+  return (
+    <GigListContainer>
       {gigs !== null ? (
-        <Ul>
-          {gigs.map((gig) => (
-            <Gig key={gig.id} gig={gig} type={type} withoutCrud={withoutCrud} />
-          ))}
-        </Ul>
+        gigs.map(gig => (
+          <Gig
+            key={gig.id}
+            gig={gig}
+            gigType={gigType}
+            withoutCrud={withoutCrud}
+          />
+        ))
       ) : (
         <>No {title}</>
       )}
-    </>
-  </GigListContainer>
-)
+    </GigListContainer>
+  )
+}
 
 export default GigList

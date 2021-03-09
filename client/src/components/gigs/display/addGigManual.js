@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation } from 'react-apollo'
 import { Formik, Field, Form } from 'formik'
-import { Input } from 'japhex-ui'
+import { Input } from 'components/ui/forms/input'
 import { createGigMutation, getGigs } from 'api/gigs/gigs'
 import { Div } from '../styles/addGigManualStyled'
 import { Buttons } from 'components/utils/styles/modalStyled'
@@ -16,9 +16,9 @@ const AddGigManual = ({ callback }) => (
       callback()
     }}
   >
-    {(createGig) => (
+    {createGig => (
       <Formik
-        onSubmit={async (values) => {
+        onSubmit={async values => {
           await createGig({ variables: values })
         }}
         render={({ errors, status, touched, isSubmitting }) => (

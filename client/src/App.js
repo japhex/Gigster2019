@@ -8,7 +8,9 @@ import routes from './routes'
 import { BrowserRouter as Router } from 'react-router-dom'
 import history from './utils/routing'
 import SpotifyProviderWrapper from './context/spotify/spotifyContextProvider'
-// import { AppStyled } from './AppStyled'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './themes/default'
+import { GlobalStyle } from './AppStyled'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/api',
@@ -33,13 +35,14 @@ const client = new ApolloClient({
 class App extends Component {
   render() {
     return (
-      // <AppStyled>
       <ApolloProvider client={client}>
-        <SpotifyProviderWrapper>
-          <Router history={history}>{routes}</Router>
-        </SpotifyProviderWrapper>
+        <ThemeProvider theme={theme}>
+          <SpotifyProviderWrapper>
+            <GlobalStyle />
+            <Router history={history}>{routes}</Router>
+          </SpotifyProviderWrapper>
+        </ThemeProvider>
       </ApolloProvider>
-      // </AppStyled>
     )
   }
 }

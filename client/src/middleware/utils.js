@@ -1,6 +1,6 @@
 export const formatGig = (id, gig) => {
   const { performance, start, location, venue, type, popularity, rating } = gig
-  const artist = performance.find((band) => band.billingIndex === 1).displayName
+  const artist = performance.find(band => band.billingIndex === 1).displayName
   const supportsArray = []
 
   performance.map(
@@ -21,5 +21,6 @@ export const formatGig = (id, gig) => {
     festival: type.toLowerCase() === 'festival',
     popularity,
     rating,
+    type,
   }
 }

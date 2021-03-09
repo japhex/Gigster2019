@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from 'japhex-ui'
+import { Button } from 'components/ui/forms/button'
 import {
   Buttons,
   ConfirmModal,

@@ -1,20 +1,17 @@
 import React from 'react'
-import { SupportStyled } from '../../styles/gigStyled'
-// import { MoreText } from 'japhex-ui'
+import { SupportStyled, Title, Band } from '../styled/support'
 
-export const Support = ({ supports }) => (
+export const Support = ({ supports, type }) => (
   <SupportStyled>
     {supports && supports.length > 0 && (
       <>
-        <p>support:</p>
-        {/*<MoreText maxLength={20}>*/}
-        {/*	{*/}
-        {/*		supports.map((band, index) =>*/}
-        {/*			<>{band}{(index < 9 && index !== supports.length - 1) && ', '}</>*/}
-        {/*		)*/}
-        {/*	}*/}
-        {/*</MoreText>*/}
-        {supports[0]}
+        <Title>{type === 'Festival' ? 'with:' : 'support:'}</Title>
+        {supports.map((band, index) => (
+          <Band>
+            {band}
+            {index !== supports.length - 1 && ', '}
+          </Band>
+        ))}
       </>
     )}
   </SupportStyled>
