@@ -7,7 +7,7 @@ import { client } from '../../../App'
 import { months } from '../../../utils/constants'
 
 import { FilterButton } from './styled/filter-button'
-import { MonthList } from './styled/filters'
+import { MonthList, Month } from './styled/filters'
 
 const MonthFilter = () => {
   const [month, setMonth] = useState('')
@@ -26,20 +26,25 @@ const MonthFilter = () => {
 
   const handleClick = selectedMonth => {
     setMonth(selectedMonth)
+    handleShowMonths()
     getFilteredGigs()
+  }
+
+  const handleShowMonths = () => {
+    setShowMonths(!showMonths)
   }
 
   // if (loading || error) <QueryHandler loading={loading} error={error} />
 
   return (
-    <FilterButton>
-      <span onClick={() => setShowMonths(!showMonths)}>Months</span>
+    <FilterButton onClick={handleShowMonths}>
+      <span>Months</span>
       {showMonths && (
         <MonthList>
           {months.map((monthName, index) => (
-            <li key={monthName} onClick={() => handleClick(index)}>
+            <Month key={monthName} onClick={() => handleClick(index)}>
               {monthName}
-            </li>
+            </Month>
           ))}
         </MonthList>
       )}

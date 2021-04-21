@@ -5,10 +5,15 @@ export const FilterButton = styled.button`
   align-items: center;
   justify-content: center;
   background: ${props => props.theme.colors.primary};
-  border: 1px solid ${props => props.theme.colors.white};
+  outline: 0;
+  border: none;
   padding: 14px 10px 10px 10px;
   color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.bebas};
   font-size: 1.2rem;
   cursor: pointer;
+
+  &:active {
+    border: 0;
+  }
 `

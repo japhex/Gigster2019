@@ -5,6 +5,7 @@ export const ResponsiveMenu = styled.div`
   top: 76px;
   left: 0;
   height: 100vh;
+  width: 50vw;
   display: ${props => (props.menuOpen ? 'block' : 'none')};
   background: ${props => props.theme.colors.primary};
 `

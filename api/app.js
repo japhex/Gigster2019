@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001
 const app = express()
 
 // Mongo connection
-mongoose.connect('mongodb://mongo:3007/gigster')
+mongoose.connect('mongodb://127.0.0.1:27017/gigster')
 mongoose.set('debug', true)
 
 // Set CORS headers

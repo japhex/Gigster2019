@@ -28,7 +28,7 @@ const schemaString = `
   
   type Gig {
     id: ID!
-	songKickGig: JSONObject
+		songKickGig: JSONObject
   }
   
   type SortedGigs {
@@ -51,11 +51,14 @@ const schemaString = `
     userGigs(userId: ID!): UserWithGigs
     searchUsers(username: String!): [User]
     gigs: SortedGigs
+    gigsUnfiltered: SortedGigs
+    gigsFestivalFilter: SortedGigs
+    gigsMonthFilter(month: Int!): SortedGigs 
     gig(id: ID!): Gig
     spotifyLogin: SpotifyUrl
-	spotifyCallback(code: String!): JSONObject
-	spotifyPlaylistHistory: JSONObject
-	spotifyUserProfile: SpotifyUser
+		spotifyCallback(code: String!): JSONObject
+		spotifyPlaylistHistory: JSONObject
+		spotifyUserProfile: SpotifyUser
   }
   
   type Mutation {

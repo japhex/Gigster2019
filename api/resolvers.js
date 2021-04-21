@@ -3,7 +3,9 @@ import {
   apiCreateGig,
   apiCreateSongkickGig,
   apiDeleteGig,
+  apiGetFestivalFilteredGigs,
   apiGetGigs,
+  apiGetMonthFilteredGigs,
   apiSearchGig,
 } from './controllers/gigs'
 import {
@@ -34,6 +36,11 @@ export default {
     userGigs: (parent, { userId }) => apiGetGigsByUser(userId),
     searchUsers: (parent, { username }) => apiSearchUsersByUsername(username),
     gigs: (parent, args, { user, res }) => apiGetGigs(user, res),
+    gigsUnfiltered: (parent, args, { user, res }) => apiGetGigs(user, res),
+    gigsFestivalFilter: (parent, args, { user, res }) =>
+      apiGetFestivalFilteredGigs(user, res),
+    gigsMonthFilter: (parent, { month }, { user, res }) =>
+      apiGetMonthFilteredGigs(user, month, res),
     spotifyLogin: () => apiSpotifyLogin(),
     spotifyCallback: (parents, { code }, { user }) =>
       apiSpotifyCallback(user, code),

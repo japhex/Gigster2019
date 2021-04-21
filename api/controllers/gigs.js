@@ -1,5 +1,10 @@
 const rp = require('request-promise')
-import { checkUser, getUserGigs } from './utils'
+import {
+  checkUser,
+  getFilteredByFestivalGigs,
+  getFilteredByMonthGigs,
+  getUserGigs,
+} from './utils'
 import { songkick } from '../config/songkick'
 import { UserGigs } from '../models/user_gigs'
 import { Gig } from '../models/gig'
@@ -9,6 +14,26 @@ export const apiGetGigs = async (user, res) => {
   try {
     checkUser(user)
     return await getUserGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
+
+// Get all gigs for user filtered by type=Festival
+export const apiGetFestivalFilteredGigs = async (user, res) => {
+  try {
+    checkUser(user)
+    return await getFilteredByFestivalGigs(user)
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
+
+// Get all gigs for user filtered by month
+export const apiGetMonthFilteredGigs = async (user, month, res) => {
+  try {
+    checkUser(user)
+    return await getFilteredByMonthGigs(user, month)
   } catch (err) {
     throw new Error(`Error: ${err}`)
   }
