@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useReactRouter from 'use-react-router'
 
+import AppContext from '../../context/app/context'
 import SpotifyContext from '../../context/spotify/spotifyContext'
 import Create from '../../pages/create'
 
@@ -10,6 +11,7 @@ import { MenuIconStyled } from './styled/HeaderStyled'
 import { Navbar, NavLink, ResponsiveMenu } from './styled/navigation.styled'
 
 const Menu = () => {
+  const { scroll, setScroll } = useContext(AppContext)
   const { location } = useReactRouter()
   const spotifyContext = useContext(SpotifyContext)
   const { authenticated } = spotifyContext
@@ -22,9 +24,14 @@ const Menu = () => {
     setAddGigActive(!addGigActive)
   }
 
+  const handleMenuClick = () => {
+    setMenuOpen(!menuOpen)
+    setScroll(!scroll)
+  }
+
   return (
     <>
-      <MenuIconStyled onClick={() => setMenuOpen(!menuOpen)} />
+      <MenuIconStyled onClick={handleMenuClick} />
       <ResponsiveMenu menuOpen={menuOpen}>
         <Navbar>
           {/* Need to make re-usable component for these with paths */}

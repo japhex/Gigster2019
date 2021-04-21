@@ -1,9 +1,14 @@
 import React from 'react'
 
+import { GlobalStyle } from '../../../../AppStyled'
+
 import { UnauthenticatedLayoutContainer } from './UnauthenticatedLayoutStyled'
 
 const UnauthenticatedLayout = ({ children }) => (
-  <UnauthenticatedLayoutContainer>{children}</UnauthenticatedLayoutContainer>
+  <>
+    <GlobalStyle />
+    <UnauthenticatedLayoutContainer>{children}</UnauthenticatedLayoutContainer>
+  </>
 )
 
 export default UnauthenticatedLayout

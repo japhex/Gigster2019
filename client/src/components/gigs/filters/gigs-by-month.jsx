@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { useLazyQuery } from '@apollo/client'
 
 import { getGigs, getGigsFilteredByMonth } from '../../../api/gigs/gigs'
 import { client } from '../../../App'
+import AppContext from '../../../context/app/context'
 import { months } from '../../../utils/constants'
 
 import { FilterButton } from './styled/filter-button'
 import { MonthList, Month } from './styled/filters'
 
 const MonthFilter = () => {
+  const { scroll, setScroll } = useContext(AppContext)
   const [month, setMonth] = useState('')
   const [showMonths, setShowMonths] = useState(false)
   const [getFilteredGigs] = useLazyQuery(getGigsFilteredByMonth, {
@@ -32,6 +34,7 @@ const MonthFilter = () => {
 
   const handleShowMonths = () => {
     setShowMonths(!showMonths)
+    setScroll(!scroll)
   }
 
   // if (loading || error) <QueryHandler loading={loading} error={error} />

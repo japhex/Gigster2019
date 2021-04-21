@@ -24,7 +24,9 @@ export const NavLink = styled.li`
   justify-content: center;
   margin: 0 0 25px 0;
 
-  a {
+  a,
+  span {
+    cursor: pointer;
     color: #fff;
     text-decoration: none;
     font-size: 1.6rem;
