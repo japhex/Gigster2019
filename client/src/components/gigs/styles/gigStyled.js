@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { StarRating } from 'baseui/rating'
 
 export const GigContainer = styled.div`
   width: 49%;

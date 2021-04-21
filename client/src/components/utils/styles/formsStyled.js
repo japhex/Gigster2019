@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import * as variables from 'components/utils/styles/global/variables'
+import * as variables from '../../utils/styles/global/variables'
 
 export const Input = styled.input`
   font-family: system-ui;
@@ -37,7 +37,7 @@ export const Button = styled.button`
   padding: 12px;
   color: #fff;
   text-transform: uppercase;
-  background: ${(props) =>
+  background: ${props =>
     props.secondary ? `rgb(0, 0, 0)` : variables.brandColor};
   border: 0;
   cursor: pointer;
@@ -48,13 +48,13 @@ export const Button = styled.button`
   }
 
   &:after {
-    background: ${(props) =>
+    background: ${props =>
       props.secondary ? `rgb(0, 0, 0)` : variables.brandColor};
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    content: ${(props) => (props.isLoading ? `loading` : props.children)};
+    content: ${props => (props.isLoading ? `loading` : props.children)};
   }
 `

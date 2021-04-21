@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Modal } from 'components/ui/modal'
+import { Modal } from '../../ui/modal'
 
 export const ConfirmModal = styled(Modal)`
   > div {

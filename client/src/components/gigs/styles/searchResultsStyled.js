@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Modal } from '../../ui/modal'
 
 export const ResultsList = styled.div`
   height: 400px;

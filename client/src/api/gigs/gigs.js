@@ -67,3 +67,48 @@ export const searchGigs = gql`
     }
   }
 `
+
+export const getGigsFilteredByFestival = gql`
+  query gigsFestivalFilter {
+    gigsFestivalFilter {
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
+    }
+  }
+`
+
+export const getGigsFilteredByMonth = gql`
+  query gigsMonthFilter($month: Int!) {
+    gigsMonthFilter(month: $month) {
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
+    }
+  }
+`
+
+export const getGigsUnfiltered = gql`
+  query gigsUnfiltered {
+    gigsUnfiltered {
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
+    }
+  }
+`
