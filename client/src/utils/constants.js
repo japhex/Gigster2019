@@ -12,3 +12,16 @@ export const months = [
   'Novermber',
   'December',
 ]
+
+export const years = () => {
+  const yearsArray = []
+  const date = new Date()
+
+  for (let i = 0; i < 30; i++) {
+    yearsArray.push(date.getFullYear() - i)
+  }
+
+  console.log(yearsArray)
+
+  return yearsArray
+}

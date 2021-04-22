@@ -88,6 +88,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
   body, html {
+	  min-height: 100vh;
 	  overflow: ${({ scroll }) => (scroll ? 'scroll' : 'hidden')};
   }
 `

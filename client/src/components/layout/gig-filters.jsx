@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import FestivalFilter from '../gigs/filters/gigs-by-festival'
 import FestivalFilterUnfiltered from '../gigs/filters/gigs-by-festival-unfilter'
 import MonthFilter from '../gigs/filters/gigs-by-month'
+import YearFilter from '../gigs/filters/gigs-by-year'
 import { Filter, FiltersContainer } from '../gigs/filters/styled/filters'
 
 const Filters = () => {
@@ -14,13 +15,16 @@ const Filters = () => {
   return (
     <FiltersContainer>
       <Filter>
-        <FestivalFilter handleFilterClick={() => handleFilterClick()} />
         <FestivalFilterUnfiltered
           handleFilterClick={() => handleFilterClick()}
         />
+        <FestivalFilter handleFilterClick={() => handleFilterClick()} />
       </Filter>
       <Filter>
         <MonthFilter />
+      </Filter>
+      <Filter>
+        <YearFilter />
       </Filter>
     </FiltersContainer>
   )

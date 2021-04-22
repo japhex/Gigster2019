@@ -1,5 +1,5 @@
-import { makeExecutableSchema } from 'graphql-tools'
 import { GraphQLDate } from 'graphql-iso-date'
+import { makeExecutableSchema } from 'graphql-tools'
 import { GraphQLJSONObject } from 'graphql-type-json'
 
 const resolveFunctions = {
@@ -53,7 +53,8 @@ const schemaString = `
     gigs: SortedGigs
     gigsUnfiltered: SortedGigs
     gigsFestivalFilter: SortedGigs
-    gigsMonthFilter(month: Int!): SortedGigs 
+    gigsMonthFilter(month: Int!): SortedGigs
+    gigsYearFilter(year: Int!): SortedGigs 
     gig(id: ID!): Gig
     spotifyLogin: SpotifyUrl
 		spotifyCallback(code: String!): JSONObject

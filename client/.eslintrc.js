@@ -35,6 +35,7 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'no-await-in-loop': 'off',
     'no-nested-ternary': 'off',
+    'no-plusplus': 'off',
     camelcase: 'off',
     radix: 'off',
     'import/order': [

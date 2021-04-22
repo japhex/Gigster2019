@@ -7,7 +7,7 @@ import AppContext from '../../context/app/context'
 import SpotifyContext from '../../context/spotify/spotifyContext'
 import Create from '../../pages/create'
 
-import { MenuIconStyled } from './styled/HeaderStyled'
+import { MenuIconStyled, CloseIconStyled } from './styled/HeaderStyled'
 import { Navbar, NavLink, ResponsiveMenu } from './styled/navigation.styled'
 
 const Menu = () => {
@@ -31,7 +31,11 @@ const Menu = () => {
 
   return (
     <>
-      <MenuIconStyled onClick={handleMenuClick} />
+      {menuOpen ? (
+        <CloseIconStyled onClick={handleMenuClick} />
+      ) : (
+        <MenuIconStyled onClick={handleMenuClick} />
+      )}
       <ResponsiveMenu menuOpen={menuOpen}>
         <Navbar>
           {/* Need to make re-usable component for these with paths */}

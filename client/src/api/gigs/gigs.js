@@ -98,6 +98,21 @@ export const getGigsFilteredByMonth = gql`
   }
 `
 
+export const getGigsFilteredByYear = gql`
+  query gigsMonthFilter($year: Int!) {
+    gigsYearFilter(year: $year) {
+      oldGigs {
+        id
+        songKickGig
+      }
+      newGigs {
+        id
+        songKickGig
+      }
+    }
+  }
+`
+
 export const getGigsUnfiltered = gql`
   query gigsUnfiltered {
     gigsUnfiltered {

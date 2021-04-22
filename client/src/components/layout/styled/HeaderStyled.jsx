@@ -2,6 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import { CloseIcon } from '../../ui/icons/close'
 import { MenuIcon } from '../../ui/icons/menu'
 
 export const Header = styled.header`
@@ -66,4 +67,12 @@ const Menu = styled(MenuIcon)`
   cursor: pointer;
 `
 
+const Close = styled(CloseIcon)`
+  height: 50px;
+  width: 50px;
+  fill: ${props => props.theme.colors.white};
+  cursor: pointer;
+`
+
 export const MenuIconStyled = props => <Menu {...props} />
+export const CloseIconStyled = props => <Close {...props} />

@@ -6,15 +6,9 @@ import {
   apiGetFestivalFilteredGigs,
   apiGetGigs,
   apiGetMonthFilteredGigs,
+  apiGetYearFilteredGigs,
   apiSearchGig,
 } from './controllers/gigs'
-import {
-  apiGetUserByUsername,
-  apiGetUsers,
-  apiSearchUsersByUsername,
-  apiGetGigsByUser,
-  apiUpdateSpotifyHash,
-} from './controllers/users'
 import { apiCreateGigRating } from './controllers/ratings'
 import {
   apiSpotifyLogin,
@@ -24,6 +18,13 @@ import {
   apiSpotifyPlaylistHistory,
   apiSpotifyUserProfile,
 } from './controllers/spotify/services'
+import {
+  apiGetUserByUsername,
+  apiGetUsers,
+  apiSearchUsersByUsername,
+  apiGetGigsByUser,
+  apiUpdateSpotifyHash,
+} from './controllers/users'
 
 export default {
   User: {
@@ -41,6 +42,8 @@ export default {
       apiGetFestivalFilteredGigs(user, res),
     gigsMonthFilter: (parent, { month }, { user, res }) =>
       apiGetMonthFilteredGigs(user, month, res),
+    gigsYearFilter: (parent, { year }, { user, res }) =>
+      apiGetYearFilteredGigs(user, year, res),
     spotifyLogin: () => apiSpotifyLogin(),
     spotifyCallback: (parents, { code }, { user }) =>
       apiSpotifyCallback(user, code),

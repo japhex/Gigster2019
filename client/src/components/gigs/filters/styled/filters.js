@@ -21,6 +21,8 @@ export const MonthList = styled.ul`
   left: 0;
   width: 100vw;
   height: 100%;
+  overflow-y: scroll;
+  max-height: 83vh;
   background: ${props => props.theme.colors.primary};
   padding: 14px 10px 10px 10px;
   color: ${props => props.theme.colors.white};
