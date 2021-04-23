@@ -17,7 +17,7 @@ export const MonthList = styled.ul`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 120px;
+  top: 115px;
   left: 0;
   width: 100vw;
   height: 100%;

@@ -1,16 +1,21 @@
-require('dotenv').config()
 import { ApolloServer, gql } from 'apollo-server-express'
 import mongoose from 'mongoose'
-import typeDefs from './schema'
+
 import resolvers from './resolvers'
+import typeDefs from './schema'
+
+require('dotenv').config()
 
 const express = require('express')
 const jwt = require('express-jwt')
+
 const PORT = process.env.PORT || 3001
 const app = express()
 
 // Mongo connection
-mongoose.connect('mongodb://127.0.0.1:27017/gigster')
+mongoose.connect(
+  'mongodb+srv://dbUser:igoAua87HDwhKgw4@cluster0.ezyqw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+)
 mongoose.set('debug', true)
 
 // Set CORS headers
@@ -39,8 +44,8 @@ const server = new ApolloServer({
   context: ({ req, res }) => {
     return {
       user: req.user,
-      req: req,
-      res: res,
+      req,
+      res,
     }
   },
 })

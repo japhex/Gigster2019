@@ -13,8 +13,8 @@ import SearchResults from './searchResults'
 
 const Search = () => {
   const [gigs, setGigs] = useState([])
-  const [submittingForm, setSubmittingForm] = useState(false)
-  const [searchGigAction] = useMutation(searchGigMutation, {
+  // CHANGE TO LAZY QUERY
+  const [searchGigAction, { loading }] = useMutation(searchGigMutation, {
     update(cache, { data: { searchGig } }) {
       setGigs(searchGig)
     },
@@ -23,9 +23,7 @@ const Search = () => {
   return (
     <Formik
       onSubmit={async values => {
-        setSubmittingForm(true)
         await searchGigAction({ variables: values })
-        setSubmittingForm(false)
       }}
       render={() => (
         <>
@@ -37,7 +35,7 @@ const Search = () => {
                 render={({ field }) => (
                   <>
                     <Input type="text" name="artist" {...field} />
-                    <Button isLoading={submittingForm}>
+                    <Button isLoading={loading}>
                       <SearchIcon />
                     </Button>
                   </>
@@ -46,7 +44,7 @@ const Search = () => {
             </Div>
           </Form>
 
-          <SearchResults gigs={gigs} />
+          {loading ? 'loading' : <SearchResults gigs={gigs} />}
         </>
       )}
     />

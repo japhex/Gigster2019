@@ -6,7 +6,9 @@ import GigResultParent from './result'
 
 const SearchResults = ({ gigs }) => (
   <ResultsList>
-    {gigs !== null && gigs.map(gig => <GigResultParent gig={gig} />)}
+    {gigs?.map(gig => (
+      <GigResultParent gig={gig} />
+    ))}
   </ResultsList>
 )
 

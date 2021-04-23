@@ -1,16 +1,18 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 
 import { useLazyQuery } from '@apollo/client'
 
 import { getGigs, getGigsFilteredByMonth } from '../../../api/gigs/gigs'
 import { client } from '../../../App'
 import AppContext from '../../../context/app/context'
+import useOutsideClick from '../../../hooks/useOutsideClick'
 import { months } from '../../../utils/constants'
 
 import { FilterButton } from './styled/filter-button'
 import { MonthList, Month } from './styled/filters'
 
 const MonthFilter = () => {
+  const ref = useRef()
   const { scroll, setScroll } = useContext(AppContext)
   const [month, setMonth] = useState('')
   const [showMonths, setShowMonths] = useState(false)
@@ -26,7 +28,7 @@ const MonthFilter = () => {
     fetchPolicy: 'network-only',
   })
 
-  const handleClick = selectedMonth => {
+  const handleClick = (e, selectedMonth) => {
     setMonth(selectedMonth)
     handleShowMonths()
     getFilteredGigs()
@@ -37,15 +39,20 @@ const MonthFilter = () => {
     setScroll(!scroll)
   }
 
-  // if (loading || error) <QueryHandler loading={loading} error={error} />
+  const handleOutsideClick = () => {
+    setShowMonths(false)
+    setScroll(true)
+  }
+
+  useOutsideClick(ref, handleOutsideClick)
 
   return (
-    <FilterButton onClick={handleShowMonths}>
+    <FilterButton onClick={handleShowMonths} ref={ref}>
       <span>Months</span>
       {showMonths && (
         <MonthList>
           {months.map((monthName, index) => (
-            <Month key={monthName} onClick={() => handleClick(index)}>
+            <Month key={monthName} onClick={e => handleClick(e, index)}>
               {monthName}
             </Month>
           ))}

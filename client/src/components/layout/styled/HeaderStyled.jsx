@@ -61,15 +61,15 @@ export const Divider = styled.span`
 `
 
 const Menu = styled(MenuIcon)`
-  height: 50px;
-  width: 50px;
+  width: 25px;
+  height: 25px;
   fill: ${props => props.theme.colors.white};
   cursor: pointer;
 `
 
 const Close = styled(CloseIcon)`
-  height: 50px;
-  width: 50px;
+  width: 25px;
+  height: 25px;
   fill: ${props => props.theme.colors.white};
   cursor: pointer;
 `

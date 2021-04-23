@@ -1,16 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 
 import { Link } from 'react-router-dom'
 import useReactRouter from 'use-react-router'
 
 import AppContext from '../../context/app/context'
 import SpotifyContext from '../../context/spotify/spotifyContext'
+import useOutsideClick from '../../hooks/useOutsideClick'
 import Create from '../../pages/create'
+import { theme } from '../../themes/default'
 
 import { MenuIconStyled, CloseIconStyled } from './styled/HeaderStyled'
 import { Navbar, NavLink, ResponsiveMenu } from './styled/navigation.styled'
 
 const Menu = () => {
+  const ref = useRef()
   const { scroll, setScroll } = useContext(AppContext)
   const { location } = useReactRouter()
   const spotifyContext = useContext(SpotifyContext)
@@ -29,14 +32,21 @@ const Menu = () => {
     setScroll(!scroll)
   }
 
+  const handleOutsideClick = () => {
+    setMenuOpen(false)
+    setScroll(true)
+  }
+
+  useOutsideClick(ref, handleOutsideClick)
+
   return (
     <>
       {menuOpen ? (
-        <CloseIconStyled onClick={handleMenuClick} />
+        <CloseIconStyled fill={theme.colors.white} onClick={handleMenuClick} />
       ) : (
-        <MenuIconStyled onClick={handleMenuClick} />
+        <MenuIconStyled fill={theme.colors.white} onClick={handleMenuClick} />
       )}
-      <ResponsiveMenu menuOpen={menuOpen}>
+      <ResponsiveMenu menuOpen={menuOpen} ref={ref}>
         <Navbar>
           {/* Need to make re-usable component for these with paths */}
           <NavLink active={currentLocation === '/gigs/upcoming'}>
