@@ -51,12 +51,12 @@ const Menu = () => {
           {/* Need to make re-usable component for these with paths */}
           <NavLink active={currentLocation === '/gigs/upcoming'}>
             <Link to="/gigs/upcoming">
-              <span onClick={handleMenuClick}>Upcoming gigs</span>
+              <span onClick={handleOutsideClick}>Upcoming gigs</span>
             </Link>
           </NavLink>
           <NavLink active={currentLocation === '/gigs/past'}>
             <Link to="/gigs/past">
-              <span onClick={handleMenuClick}>Past gigs</span>
+              <span onClick={handleOutsideClick}>Past gigs</span>
             </Link>
           </NavLink>
           <NavLink>
