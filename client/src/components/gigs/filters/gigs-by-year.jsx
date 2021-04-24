@@ -11,7 +11,7 @@ import { years } from '../../../utils/constants'
 import { FilterButton } from './styled/filter-button'
 import { MonthList, Month } from './styled/filters'
 
-const MonthFilter = () => {
+const YearFilter = () => {
   const ref = useRef()
   const { scroll, setScroll } = useContext(AppContext)
   const [year, setYear] = useState('')
@@ -62,4 +62,4 @@ const MonthFilter = () => {
   )
 }
 
-export default MonthFilter
+export default YearFilter

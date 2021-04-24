@@ -13,15 +13,14 @@ const GigResultParent = ({ gig }) => {
     refetchQueries: [{ query: getGigs }],
   })
 
-  const saveGig = async e => {
-    e.preventDefault()
+  const saveGig = async () => {
     await createGig({
       variables: { songkickId: gig.id, songkickJson: gig },
     })
   }
 
   return (
-    <GigResult onClick={e => saveGig(e)}>
+    <GigResult onClick={saveGig}>
       <GigResultHeaderParent gig={gig} />
       <GigResultFooterParent gig={gig} />
     </GigResult>
