@@ -1,5 +1,3 @@
-import React from 'react'
-
 import StatBox from 'components/users/user/stats/box'
 import { StatsHeader } from 'components/users/user/styles/headerStyled'
 

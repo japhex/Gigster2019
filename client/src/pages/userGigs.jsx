@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useQuery } from 'react-apollo'
 
 import { getGigsByUser } from 'api/users/users'

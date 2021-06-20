@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Div } from 'components/gigs/styles/footerStyled'
 import { Button } from 'components/utils/styles/formsStyled'
 import { Buttons } from 'components/utils/styles/modalStyled'

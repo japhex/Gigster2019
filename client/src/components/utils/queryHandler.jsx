@@ -1,5 +1,3 @@
-import React from 'react'
-
 import UseAnimations from 'react-useanimations'
 import alertCircle from 'react-useanimations/lib/alertCircle'
 import infinity from 'react-useanimations/lib/infinity'

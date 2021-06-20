@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Formik, Field, Form } from 'formik'
 import { Mutation } from 'react-apollo'
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import FestivalFilter from 'components/gigs/filters/gigs-by-festival'
 import FestivalFilterUnfiltered from 'components/gigs/filters/gigs-by-festival-unfilter'

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import { useMutation } from '@apollo/react-hooks'
 import { StarRating } from 'baseui/rating'

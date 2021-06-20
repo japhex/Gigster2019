@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { ButtonStyled } from 'components/ui/forms/button/styling'
 
 export const Button = props => {

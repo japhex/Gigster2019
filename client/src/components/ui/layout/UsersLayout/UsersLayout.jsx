@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { GlobalStyle } from 'AppStyled'
 import Header from 'components/layout/header'
 import { UsersLayoutContainer } from 'components/ui/layout/UsersLayout/UsersLayoutStyled'

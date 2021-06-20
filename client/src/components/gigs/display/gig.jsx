@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Detail } from 'components/gigs/display/styled/detail'
 import { Ticket, Header, Festival } from 'components/gigs/display/styled/ticket'
 import { Artist } from 'components/gigs/display/ticket/artist'

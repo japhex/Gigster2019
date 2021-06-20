@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useLazyQuery } from '@apollo/client'
 
 import { FilterButton } from './styled/filter-button'

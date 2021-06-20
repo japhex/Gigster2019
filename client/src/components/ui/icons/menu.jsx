@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Svg } from 'components/ui/icons/styled'
 
 export const MenuIcon = props => (

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Svg } from './styled'
 
 export const CloseIcon = props => (

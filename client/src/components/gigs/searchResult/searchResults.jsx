@@ -1,5 +1,3 @@
-import React from 'react'
-
 import GigResultParent from 'components/gigs/searchResult/result'
 import { ResultsList } from 'components/gigs/styles/searchResultsStyled'
 

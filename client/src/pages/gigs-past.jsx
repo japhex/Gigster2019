@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useQuery } from '@apollo/react-hooks'
 
 import { getGigs } from 'api/gigs/gigs'

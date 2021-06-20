@@ -1,6 +1,6 @@
-import React from 'react'
+import { createContext } from 'react'
 
-const AppContext = React.createContext()
+const AppContext = createContext()
 
 export const AppProvider = AppContext.Provider
 export const AppConsumer = AppContext.Consumer

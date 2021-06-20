@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 
 import { GlobalStyle } from 'AppStyled'
 import Filters from 'components/layout/gig-filters'

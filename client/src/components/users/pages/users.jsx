@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Card, StyledBody, StyledThumbnail } from 'baseui/card'
 import { Query } from 'react-apollo'
 import { Link } from 'react-router-dom'

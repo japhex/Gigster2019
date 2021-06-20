@@ -1,6 +1,6 @@
-import React from 'react'
+import { createContext } from 'react'
 
-const SpotifyContext = React.createContext()
+const SpotifyContext = createContext()
 
 export const SpotifyProvider = SpotifyContext.Provider
 export const SpotifyConsumer = SpotifyContext.Consumer

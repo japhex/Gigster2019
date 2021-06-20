@@ -1,5 +1,3 @@
-import React from 'react'
-
 const GigList = ({ digit, message }) => (
   <div className="user-stats__box">
     <h1>{digit}</h1>

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Tags = ({ gig }) => (
   <ul className="gig__tags">
     {gig.artistInfo !== undefined &&

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useMutation } from '@apollo/react-hooks'
 
 import { createSongkickGigMutation, getGigs } from 'api/gigs/gigs'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Query } from 'react-apollo'
 
 import { getUser } from 'api/users/users'

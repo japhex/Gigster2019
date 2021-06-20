@@ -1,5 +1,3 @@
-import React from 'react'
-
 import * as jwt from 'jsonwebtoken'
 import { Redirect, Route } from 'react-router-dom'
 

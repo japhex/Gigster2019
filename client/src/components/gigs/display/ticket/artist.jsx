@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Rating from 'components/gigs/display/rating'
 import { ArtistName } from 'components/gigs/styles/gigStyled'
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import StatsHeader from 'components/users/user/stats/header'
 import { UserSidebar } from 'components/users/user/styles/userBlockStyled'
 import UserGigs from 'pages/userGigs'

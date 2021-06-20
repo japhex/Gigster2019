@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useMutation } from '@apollo/react-hooks'
 import { Field, Form, Formik } from 'formik'
 import { Link } from 'react-router-dom'

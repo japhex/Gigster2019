@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Gig from './gig'
 
 const GigList = ({ type, title, gigs, withoutCrud }) => {
