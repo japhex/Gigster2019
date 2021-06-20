@@ -1,9 +1,8 @@
 import React from 'react'
 
-import UserGigs from '../../../pages/userGigs'
-
-import StatsHeader from './stats/header'
-import { UserSidebar } from './styles/userBlockStyled'
+import StatsHeader from 'components/users/user/stats/header'
+import { UserSidebar } from 'components/users/user/styles/userBlockStyled'
+import UserGigs from 'pages/userGigs'
 
 const Block = ({ user }) => (
   <>

@@ -1,8 +1,7 @@
 import React from 'react'
 
-import { StatsHeader } from '../styles/headerStyled'
-
-import StatBox from './box'
+import StatBox from 'components/users/user/stats/box'
+import { StatsHeader } from 'components/users/user/styles/headerStyled'
 
 const GigList = ({ user }) =>
   user.oldGigs !== undefined && (

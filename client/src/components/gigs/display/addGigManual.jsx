@@ -3,11 +3,11 @@ import React from 'react'
 import { Formik, Field, Form } from 'formik'
 import { Mutation } from 'react-apollo'
 
-import { createGigMutation, getGigs } from '../../../api/gigs/gigs'
-import { Input } from '../../ui/forms/input'
-import { Button } from '../../utils/styles/formsStyled'
-import { Buttons } from '../../utils/styles/modalStyled'
-import { Div } from '../styles/addGigManualStyled'
+import { createGigMutation, getGigs } from 'api/gigs/gigs'
+import { Div } from 'components/gigs/styles/addGigManualStyled'
+import { Input } from 'components/ui/forms/input'
+import { Button } from 'components/utils/styles/formsStyled'
+import { Buttons } from 'components/utils/styles/modalStyled'
 
 const AddGigManual = ({ callback }) => (
   <Mutation

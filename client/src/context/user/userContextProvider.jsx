@@ -2,9 +2,8 @@ import React from 'react'
 
 import { useQuery } from '@apollo/react-hooks'
 
-import { getLoggedInUser } from '../../api/users/users'
-
-import { UserProvider } from './userContext'
+import { getLoggedInUser } from 'api/users/users'
+import { UserProvider } from 'context/user/userContext'
 
 const UserProviderWrapper = ({ children }) => {
   const { loading, error, data } = useQuery(getLoggedInUser)

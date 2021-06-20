@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useLazyQuery } from '@apollo/client'
 
-import { getGigs, getGigsFilteredByFestival } from '../../../api/gigs/gigs'
-import { client } from '../../../App'
-
 import { FilterButton } from './styled/filter-button'
+
+import { getGigs, getGigsFilteredByFestival } from 'api/gigs/gigs'
+import { client } from 'App'
 
 const FestivalFilter = ({ handleFilterClick }) => {
   const [getFilteredGigs] = useLazyQuery(getGigsFilteredByFestival, {

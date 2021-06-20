@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ArtistName } from '../../styles/gigStyled'
-import Rating from '../rating'
+import Rating from 'components/gigs/display/rating'
+import { ArtistName } from 'components/gigs/styles/gigStyled'
 
 export const Artist = ({ id, artist, gigType, festival, activeRating }) => (
   <>

@@ -6,10 +6,6 @@ export const TabLabelContainer = styled.div`
   justify-content: center;
 `
 
-export const GigListContainer = styled.div`
-  padding: 30px;
-`
-
 export const H1 = styled.div`
   display: flex;
   align-items: center;

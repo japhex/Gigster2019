@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react'
 
 import UseAnimations from 'react-useanimations'
 
-import { Button } from '../../ui/forms/button'
-import { Buttons, ConfirmModal, TitleWithIcon } from '../styles/modalStyled'
+import { Button } from 'components/ui/forms/button'
+import {
+  Buttons,
+  ConfirmModal,
+  TitleWithIcon,
+} from 'components/utils/styles/modalStyled'
 
 const Confirm = ({ active, callbackConfirm, callbackCancel }) => {
   const [activeAlert, setActiveAlert] = useState(false)

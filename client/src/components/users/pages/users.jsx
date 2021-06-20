@@ -4,8 +4,8 @@ import { Card, StyledBody, StyledThumbnail } from 'baseui/card'
 import { Query } from 'react-apollo'
 import { Link } from 'react-router-dom'
 
-import { getUsers } from '../../../api/users/users'
-import QueryHandler from '../../utils/queryHandler'
+import { getUsers } from 'api/users/users'
+import QueryHandler from 'components/utils/queryHandler'
 
 const UsersList = () => (
   <Query query={getUsers}>

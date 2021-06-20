@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 
 import { useApolloClient } from '@apollo/react-hooks'
 
-import { searchUsers } from '../../../api/users/users'
-import { Input } from '../../ui/forms/input'
-
-import Results from './results'
+import { searchUsers } from 'api/users/users'
+import { Input } from 'components/ui/forms/input'
+import Results from 'components/users/user/results'
 
 const Search = () => {
   const client = useApolloClient()

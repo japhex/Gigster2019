@@ -1,15 +1,14 @@
 import React from 'react'
 
-import { formatGig } from '../../../middleware/utils'
-import { FestivalIcon } from '../../ui/icons/festival'
-
-import { Detail } from './styled/detail'
-import { Ticket, Header, Festival } from './styled/ticket'
-import { Artist } from './ticket/artist'
-import { Date } from './ticket/date'
-import { Support } from './ticket/support'
-import { Time } from './ticket/time'
-import { Venue } from './ticket/venue'
+import { Detail } from 'components/gigs/display/styled/detail'
+import { Ticket, Header, Festival } from 'components/gigs/display/styled/ticket'
+import { Artist } from 'components/gigs/display/ticket/artist'
+import { Date } from 'components/gigs/display/ticket/date'
+import { Support } from 'components/gigs/display/ticket/support'
+import { Time } from 'components/gigs/display/ticket/time'
+import { Venue } from 'components/gigs/display/ticket/venue'
+import { FestivalIcon } from 'components/ui/icons/festival'
+import { formatGig } from 'middleware/utils'
 
 const Gig = ({ gig, gigType }) => {
   const gigFormatted = formatGig(gig.id, gig.songKickGig)

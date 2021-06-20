@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import Delete from 'baseui/icon/delete'
+import styled from 'styled-components'
 
 export const DeleteGigContainer = styled.div`
   display: flex;

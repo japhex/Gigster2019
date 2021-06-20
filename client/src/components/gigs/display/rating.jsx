@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { StarRating } from 'baseui/rating'
 
-import { rateGigMutation } from '../../../api/ratings/ratings'
+import { rateGigMutation } from 'api/ratings/ratings'
 
 const Rating = ({ gigId, activeRating }) => {
   const [value, setValue] = useState(0)

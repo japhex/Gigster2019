@@ -1,6 +1,10 @@
 import React from 'react'
 
-import { SupportStyled, Title, Band } from '../styled/support'
+import {
+  SupportStyled,
+  Title,
+  Band,
+} from 'components/gigs/display/styled/support'
 
 export const Support = ({ supports, type }) => (
   <SupportStyled>

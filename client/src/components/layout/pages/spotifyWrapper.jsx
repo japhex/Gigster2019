@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { useHistory } from 'react-router-dom'
 
-import { getSpotifyCallback } from '../../../api/spotify/spotify'
+import { getSpotifyCallback } from 'api/spotify/spotify'
 
 const search = window.location.search
 const params = new URLSearchParams(search)

@@ -1,15 +1,25 @@
-import React from 'react'
+import { useState } from 'react'
 
-import Search from '../components/gigs/searchResult/search'
-import { Modal } from '../components/ui/modal'
+import Search from 'components/gigs/searchResult/search'
+import { Button } from 'components/ui/forms/button'
+import { Modal } from 'components/ui/modal'
 
-const Create = ({ addMode, handleCloseClick }) => (
-  <Modal modalActive={addMode} handleCloseClick={handleCloseClick}>
-    <Search />
-    {/*		<Tab label="Add gig manually"> */}
-    {/*			<AddGigManual callback={handleCloseClick} /> */}
-    {/*		</Tab> */}
-  </Modal>
-)
+const Create = () => {
+  const [addGigActive, setAddGigActive] = useState(false)
+
+  const handleAddGig = e => {
+    e.preventDefault()
+    setAddGigActive(!addGigActive)
+  }
+
+  return (
+    <>
+      <Button onClick={handleAddGig}>Add gig</Button>
+      <Modal modalActive={addGigActive} handleCloseClick={handleAddGig}>
+        <Search />
+      </Modal>
+    </>
+  )
+}
 
 export default Create

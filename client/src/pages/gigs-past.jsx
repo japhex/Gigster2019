@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useQuery } from '@apollo/react-hooks'
 
-import { getGigs } from '../api/gigs/gigs'
-import GigList from '../components/gigs/display/gigList'
-import QueryHandler from '../components/utils/queryHandler'
+import { getGigs } from 'api/gigs/gigs'
+import GigList from 'components/gigs/display/gigList'
+import QueryHandler from 'components/utils/queryHandler'
 
 const UserGigs = () => {
   const { loading, error, data } = useQuery(getGigs)

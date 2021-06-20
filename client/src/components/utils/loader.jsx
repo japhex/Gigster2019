@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LoaderContainer, Loader } from './styles/loaderStyled'
+import { LoaderContainer, Loader } from 'components/utils/styles/loaderStyled'
 
 const CSSLoader = () => (
   <LoaderContainer>

@@ -4,11 +4,11 @@ import { useMutation } from '@apollo/react-hooks'
 import { Field, Form, Formik } from 'formik'
 import { Link, withRouter } from 'react-router-dom'
 
-import { loginMutation } from '../../api/users/users'
-import { setUserToken } from '../../utils/auth'
-import { Button } from '../ui/forms/button'
-import { Input } from '../ui/forms/input'
-import UnauthenticatedLayout from '../ui/layout/UnauthenticatedLayout/UnauthenticatedLayout'
+import { loginMutation } from 'api/users/users'
+import { Button } from 'components/ui/forms/button'
+import { Input } from 'components/ui/forms/input'
+import UnauthenticatedLayout from 'components/ui/layout/UnauthenticatedLayout/UnauthenticatedLayout'
+import { setUserToken } from 'utils/auth'
 
 const Login = ({ history }) => {
   const [loginAction] = useMutation(loginMutation, {

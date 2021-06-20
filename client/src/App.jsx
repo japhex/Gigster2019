@@ -8,11 +8,11 @@ import { createHttpLink } from 'apollo-link-http'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
-import AppProviderWrapper from './context/app/provider'
-import SpotifyProviderWrapper from './context/spotify/spotifyContextProvider'
-import routes from './routes'
-import { theme } from './themes/default'
-import history from './utils/routing'
+import AppProviderWrapper from 'context/app/provider'
+import SpotifyProviderWrapper from 'context/spotify/spotifyContextProvider'
+import routes from 'routes'
+import { theme } from 'themes/default'
+import history from 'utils/routing'
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/api',

@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { GigListContainer } from '../styles/listStyled'
-
 import Gig from './gig'
 
 const GigList = ({ type, title, gigs, withoutCrud }) => {
   const gigType = type
   return (
-    <GigListContainer>
+    <>
       {gigs !== null ? (
         gigs.map(gig => (
           <Gig
@@ -20,7 +18,7 @@ const GigList = ({ type, title, gigs, withoutCrud }) => {
       ) : (
         <>No {title}</>
       )}
-    </GigListContainer>
+    </>
   )
 }
 

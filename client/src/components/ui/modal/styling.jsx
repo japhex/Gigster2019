@@ -3,7 +3,7 @@ import * as React from 'react'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-import { CloseIcon } from '../icons/close'
+import { CloseIcon } from 'components/ui/icons/close'
 
 export const ModalContainer = styled.div`
   display: flex;

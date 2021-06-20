@@ -2,14 +2,13 @@ import React, { useContext, useState, useRef } from 'react'
 
 import { useLazyQuery } from '@apollo/client'
 
-import { getGigs, getGigsFilteredByMonth } from '../../../api/gigs/gigs'
-import { client } from '../../../App'
-import AppContext from '../../../context/app/context'
-import useOutsideClick from '../../../hooks/useOutsideClick'
-import { months } from '../../../utils/constants'
-
-import { FilterButton } from './styled/filter-button'
-import { MonthList, Month } from './styled/filters'
+import { getGigs, getGigsFilteredByMonth } from 'api/gigs/gigs'
+import { client } from 'App'
+import { FilterButton } from 'components/gigs/filters/styled/filter-button'
+import { MonthList, Month } from 'components/gigs/filters/styled/filters'
+import AppContext from 'context/app/context'
+import useOutsideClick from 'hooks/useOutsideClick'
+import { months } from 'utils/constants'
 
 const MonthFilter = () => {
   const ref = useRef()

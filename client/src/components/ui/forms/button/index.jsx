@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ButtonStyled } from './styling'
+import { ButtonStyled } from 'components/ui/forms/button/styling'
 
 export const Button = props => {
   const { icon, children } = props

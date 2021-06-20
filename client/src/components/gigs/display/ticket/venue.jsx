@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { VenueStyled } from '../../styles/gigStyled'
+import { VenueStyled } from 'components/gigs/styles/gigStyled'
 
 export const Venue = ({ venue, location }) => (
   <VenueStyled>

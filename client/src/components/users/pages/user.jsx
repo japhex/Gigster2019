@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Query } from 'react-apollo'
 
-import { getUser } from '../../../api/users/users'
-import QueryHandler from '../../utils/queryHandler'
-import Block from '../user/block'
+import { getUser } from 'api/users/users'
+import Block from 'components/users/user/block'
+import QueryHandler from 'components/utils/queryHandler'
 
 const User = ({ match }) => {
   const paramUsername = match.params.username

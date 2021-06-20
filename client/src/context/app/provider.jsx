@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { AppProvider } from './context'
+import { AppProvider } from 'context/app/context'
 
 const AppProviderWrapper = ({ children }) => {
   const [scroll, setScroll] = useState(true)

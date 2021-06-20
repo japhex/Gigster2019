@@ -2,11 +2,10 @@ import React from 'react'
 
 import { useMutation } from '@apollo/react-hooks'
 
-import { createSongkickGigMutation, getGigs } from '../../../api/gigs/gigs'
-import { GigResult } from '../styles/searchResultsStyled'
-
-import GigResultFooterParent from './footer'
-import GigResultHeaderParent from './header'
+import { createSongkickGigMutation, getGigs } from 'api/gigs/gigs'
+import GigResultFooterParent from 'components/gigs/searchResult/footer'
+import GigResultHeaderParent from 'components/gigs/searchResult/header'
+import { GigResult } from 'components/gigs/styles/searchResultsStyled'
 
 const GigResultParent = ({ gig }) => {
   const [createGig] = useMutation(createSongkickGigMutation, {

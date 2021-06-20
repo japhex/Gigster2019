@@ -2,8 +2,8 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { CloseIcon } from '../../ui/icons/close'
-import { MenuIcon } from '../../ui/icons/menu'
+import { CloseIcon } from 'components/ui/icons/close'
+import { MenuIcon } from 'components/ui/icons/menu'
 
 export const Header = styled.header`
   display: flex;

@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import Menu from './menu'
-import { Header, Logo } from './styled/HeaderStyled'
-import { NavGroup } from './styled/navigation.styled'
-import UserDetails from './UserDetails'
+import Menu from 'components/layout/menu'
+import { Header, Logo } from 'components/layout/styled/HeaderStyled'
+import { NavGroup } from 'components/layout/styled/navigation.styled'
+import UserDetails from 'components/layout/UserDetails'
 
 const AppHeader = () => {
   return (

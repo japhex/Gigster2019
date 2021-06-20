@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import * as variables from '../../utils/styles/global/variables'
+
+import * as variables from 'components/utils/styles/global/variables'
 
 export const Input = styled.input`
   font-family: system-ui;

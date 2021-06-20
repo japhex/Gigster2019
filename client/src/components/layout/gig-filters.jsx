@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
-import FestivalFilter from '../gigs/filters/gigs-by-festival'
-import FestivalFilterUnfiltered from '../gigs/filters/gigs-by-festival-unfilter'
-import MonthFilter from '../gigs/filters/gigs-by-month'
-import YearFilter from '../gigs/filters/gigs-by-year'
-import { Filter, FiltersContainer } from '../gigs/filters/styled/filters'
+import FestivalFilter from 'components/gigs/filters/gigs-by-festival'
+import FestivalFilterUnfiltered from 'components/gigs/filters/gigs-by-festival-unfilter'
+import MonthFilter from 'components/gigs/filters/gigs-by-month'
+import YearFilter from 'components/gigs/filters/gigs-by-year'
+import {
+  Filter,
+  FiltersContainer,
+} from 'components/gigs/filters/styled/filters'
 
 const Filters = () => {
   const [filtered, setFiltered] = useState(false)

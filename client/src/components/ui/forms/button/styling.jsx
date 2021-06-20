@@ -25,16 +25,14 @@ const Button = styled(motion.button)`
   align-items: center;
   justify-content: center;
   border: 0;
-  line-height: 10px;
-  font-size: 14px;
   color: ${props => props.theme.colors.white};
-  border-radius: 4px;
+  font-family: ${props => props.theme.fonts.bebas};
+  border-radius: 2px;
   background: ${props => buttonType(props)};
   cursor: pointer;
-  padding: 16px;
 
   &:hover {
-    background: ${props => buttonType(props, true)};
+    filter: brightness(100%);
   }
 
   &:focus {
@@ -47,11 +45,17 @@ const Button = styled(motion.button)`
   }
 `
 
+const Text = styled(motion.span)`
+  padding: 13px;
+  font-size: 18px;
+  line-height: 1;
+`
+
 export const ButtonStyled = props => {
   const { children } = props
   return (
-    <Button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} {...props}>
-      {children}
+    <Button {...props}>
+      <Text>{children}</Text>
     </Button>
   )
 }

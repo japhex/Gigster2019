@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Button } from '../../utils/styles/formsStyled'
-import { Buttons } from '../../utils/styles/modalStyled'
-import { Div } from '../styles/footerStyled'
+import { Div } from 'components/gigs/styles/footerStyled'
+import { Button } from 'components/utils/styles/formsStyled'
+import { Buttons } from 'components/utils/styles/modalStyled'
 
 const Footer = ({ songkickGig, switchEditMode }) => {
   return (

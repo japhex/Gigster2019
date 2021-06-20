@@ -2,11 +2,14 @@ import React, { useContext } from 'react'
 
 import { useQuery } from '@apollo/react-hooks'
 
-import { getSpotifyLogin } from '../../api/spotify/spotify'
-import SpotifyContext from '../../context/spotify/spotifyContext'
-import QueryHandler from '../utils/queryHandler'
-
-import { User, Username, SpotifyUnauthorised } from './styled/SpotifyUserStyled'
+import { getSpotifyLogin } from 'api/spotify/spotify'
+import {
+  User,
+  Username,
+  SpotifyUnauthorised,
+} from 'components/layout/styled/SpotifyUserStyled'
+import QueryHandler from 'components/utils/queryHandler'
+import SpotifyContext from 'context/spotify/spotifyContext'
 
 const SpotifyUser = () => {
   const { loading, error, data } = useQuery(getSpotifyLogin)

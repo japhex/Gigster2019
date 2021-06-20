@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 
-import { GlobalStyle } from '../../../../AppStyled'
-import AppContext from '../../../../context/app/context'
-import Filters from '../../../layout/gig-filters'
-import Header from '../../../layout/header'
+import { GlobalStyle } from 'AppStyled'
+import Filters from 'components/layout/gig-filters'
+import Header from 'components/layout/header'
+import AppContext from 'context/app/context'
+import Create from 'pages/create'
 
 const GigLayout = ({ children }) => {
   const { scroll } = useContext(AppContext)
@@ -13,7 +14,10 @@ const GigLayout = ({ children }) => {
       <GlobalStyle scroll={scroll} />
       <Header />
       <Filters />
-      {children}
+      <div style={{ padding: '30px' }}>
+        <Create />
+        {children}
+      </div>
     </>
   )
 }

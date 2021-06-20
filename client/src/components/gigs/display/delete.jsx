@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 
 import { useMutation } from '@apollo/react-hooks'
 
-import { getGigs, deleteGigMutation } from '../../../api/gigs/gigs'
-import { IconCloseStyled } from '../../ui/modal/styling'
-import Confirm from '../../utils/alerts/confirm'
-import { DeleteGigContainer } from '../styles/deleteStyled'
+import { getGigs, deleteGigMutation } from 'api/gigs/gigs'
+import { DeleteGigContainer } from 'components/gigs/styles/deleteStyled'
+import { IconCloseStyled } from 'components/ui/modal/styling'
+import Confirm from 'components/utils/alerts/confirm'
 
 const Delete = ({ gigId }) => {
   const [active, setActive] = useState(false)

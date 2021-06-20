@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 import axios from 'axios'
 
-import { Player, Song, Action } from './styled/SpotifyPlayerStyled'
+import {
+  Player,
+  Song,
+  Action,
+} from 'components/layout/styled/SpotifyPlayerStyled'
 
 const SpotifyPlayer = ({ token, clientId }) => {
   const [isLoading, setIsLoading] = useState(true)

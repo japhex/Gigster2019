@@ -3,7 +3,7 @@ import React from 'react'
 import * as jwt from 'jsonwebtoken'
 import { Redirect, Route } from 'react-router-dom'
 
-import UserProviderWrapper from '../context/user/userContextProvider'
+import UserProviderWrapper from 'context/user/userContextProvider'
 
 export const isUserAuthenticated = () => {
   const token = localStorage.getItem('token')

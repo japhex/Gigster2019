@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { UserList } from './styles/userSearchStyled'
+import { UserList } from 'components/users/user/styles/userSearchStyled'
 
 const Results = ({ users }) => (
   <UserList users={users}>
