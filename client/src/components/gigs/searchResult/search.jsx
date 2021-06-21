@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 import { useMutation } from '@apollo/react-hooks'
-import { Field, Form, Formik } from 'formik'
+import { useForm } from 'react-hook-form'
 
 import { searchGigMutation } from 'api/gigs/gigs'
 import SearchResults from 'components/gigs/searchResult/searchResults'
@@ -11,6 +11,7 @@ import { Input } from 'components/ui/forms/input'
 import { SearchIcon } from 'components/ui/icons/search'
 
 const Search = () => {
+  const { register, handleSubmit } = useForm()
   const [gigs, setGigs] = useState([])
   // CHANGE TO LAZY QUERY
   const [searchGigAction, { loading }] = useMutation(searchGigMutation, {
@@ -19,34 +20,23 @@ const Search = () => {
     },
   })
 
-  return (
-    <Formik
-      onSubmit={async values => {
-        await searchGigAction({ variables: values })
-      }}
-      render={() => (
-        <>
-          <Form>
-            <Div>
-              <Field
-                type="text"
-                name="artist"
-                render={({ field }) => (
-                  <>
-                    <Input type="text" name="artist" {...field} />
-                    <Button isLoading={loading}>
-                      <SearchIcon />
-                    </Button>
-                  </>
-                )}
-              />
-            </Div>
-          </Form>
+  const onSubmit = async variables => {
+    await searchGigAction({ variables })
+  }
 
-          {loading ? 'loading' : <SearchResults gigs={gigs} />}
-        </>
-      )}
-    />
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Div>
+          <Input {...register('artist')} />
+          <Button isLoading={loading}>
+            <SearchIcon />
+          </Button>
+        </Div>
+      </form>
+
+      {loading ? 'loading' : <SearchResults gigs={gigs} />}
+    </>
   )
 }
 

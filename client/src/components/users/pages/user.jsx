@@ -1,22 +1,18 @@
-import { Query } from 'react-apollo'
+import { useQuery } from '@apollo/react-hooks'
 
-import { getUser } from 'api/users/users'
+import { getSpotifyCallback } from 'api/spotify/spotify'
 import Block from 'components/users/user/block'
 import QueryHandler from 'components/utils/queryHandler'
 
 const User = ({ match }) => {
   const paramUsername = match.params.username
+  const { data, loading, error } = useQuery(getSpotifyCallback, {
+    variables: { username: paramUsername },
+  })
 
-  return (
-    <Query query={getUser} variables={{ username: paramUsername }}>
-      {({ loading, error, data }) => {
-        if (loading || error)
-          return <QueryHandler loading={loading} error={error} />
+  if (loading || error) return <QueryHandler loading={loading} error={error} />
 
-        return <Block user={data.user} />
-      }}
-    </Query>
-  )
+  return <Block user={data.user} />
 }
 
 export default User
