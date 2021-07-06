@@ -65,7 +65,6 @@ export const Details = styled.div`
 export const VenueStyled = styled.div``
 
 export const ArtistName = styled.h1`
-  font-size: 2rem;
-  padding: 28px 0 20px 0;
+  font-size: 4rem;
   font-family: ${props => props.theme.fonts.bebas};
 `

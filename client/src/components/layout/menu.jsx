@@ -14,7 +14,7 @@ import {
 } from 'components/layout/styled/navigation.styled'
 import AppContext from 'context/app/context'
 import SpotifyContext from 'context/spotify/spotifyContext'
-import useOutsideClick from 'hooks/useOutsideClick'
+import useOutsideClick from 'middleware/hooks/useOutsideClick'
 import { theme } from 'themes/default'
 
 const Menu = () => {

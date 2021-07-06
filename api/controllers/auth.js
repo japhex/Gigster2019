@@ -1,11 +1,12 @@
+import { User } from '../models/user'
+
 const bcrypt = require('bcryptjs')
 const jsonwebtoken = require('jsonwebtoken')
-import { User } from '../models/user'
 
 // Signup
 export const apiSignup = async ({ username, password }) => {
   const user = await new User({
-    username: username,
+    username: username.toLowerCase(),
     password: await bcrypt.hash(password, 10),
   })
   user.save()
@@ -22,7 +23,7 @@ export const apiSignup = async ({ username, password }) => {
 
 // Login
 export const apiLogin = async ({ username, password }) => {
-  const user = await User.findOne({ username: username })
+  const user = await User.findOne({ username: username.toLowerCase() })
   if (!user) throw new Error('No user with that username')
 
   const valid = await bcrypt.compare(password, user.password)

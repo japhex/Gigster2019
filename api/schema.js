@@ -50,6 +50,7 @@ const schemaString = `
     user(username: String!): UserWithGigs
     userGigs(userId: ID!): UserWithGigs
     searchUsers(username: String!): [User]
+    searchGig(artist: String!): JSONObject
     gigs: SortedGigs
     gigsUnfiltered: SortedGigs
     gigsFestivalFilter: SortedGigs
@@ -68,7 +69,6 @@ const schemaString = `
     createGig(artist: String, date: Date, venue: String): [Gig!]!
     createSongkickGig(songkickId: ID!, songkickJson: JSONObject): SortedGigs
     deleteGig(id: ID!): SortedGigs
-    searchGig(artist: String!): JSONObject
     rateGig(id: ID!, rating: Int!): Int
     updateSpotifyHash(userId: ID!, hash: String): String
   }

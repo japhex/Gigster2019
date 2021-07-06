@@ -5,7 +5,6 @@ import { Date } from 'components/gigs/display/ticket/date'
 import { Support } from 'components/gigs/display/ticket/support'
 import { Time } from 'components/gigs/display/ticket/time'
 import { Venue } from 'components/gigs/display/ticket/venue'
-import { FestivalIcon } from 'components/ui/icons/festival'
 import { formatGig } from 'middleware/utils'
 
 const Gig = ({ gig, gigType }) => {
@@ -29,11 +28,7 @@ const Gig = ({ gig, gigType }) => {
         <Date gigDate={date} />
         <br />
         <Time time={time} />
-        {festival && (
-          <Festival>
-            <FestivalIcon />
-          </Festival>
-        )}
+        {festival && <Festival>[FESTIVAL]</Festival>}
       </Header>
       <Detail>
         <Artist

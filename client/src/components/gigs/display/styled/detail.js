@@ -9,5 +9,4 @@ export const Detail = styled.div`
   background-color: #fff;
   border-radius: 5px;
   margin: 1rem 0;
-  background-image: url('https://www.transparenttextures.com/patterns/concrete-wall-2.png');
 `

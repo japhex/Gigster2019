@@ -3,7 +3,7 @@ import { useLazyQuery } from '@apollo/client'
 import { FilterButton } from './styled/filter-button'
 
 import { getGigs, getGigsUnfiltered } from 'api/gigs/gigs'
-import { client } from 'App'
+import { client } from 'utils/apollo'
 
 const FestivalFilterUnfiltered = ({ handleFilterClick }) => {
   const [getFilteredGigs] = useLazyQuery(getGigsUnfiltered, {

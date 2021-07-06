@@ -54,8 +54,8 @@ export const deleteGigMutation = gql`
   }
 `
 
-export const searchGigMutation = gql`
-  mutation searchGig($artist: String!) {
+export const searchGigQuery = gql`
+  query searchGig($artist: String!) {
     searchGig(artist: $artist)
   }
 `

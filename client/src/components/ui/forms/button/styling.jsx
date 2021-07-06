@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 const buttonType = (props, hover = false) => {
@@ -18,19 +17,19 @@ const buttonType = (props, hover = false) => {
   }
 }
 
-const Button = styled(motion.button)`
-  display: ${props => (props.inline ? 'inline-flex' : 'flex')};
+const Button = styled.button`
+  display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   align-items: center;
   justify-content: center;
   border: 0;
-  color: ${props => props.theme.colors.white};
-  font-family: ${props => props.theme.fonts.bebas};
+  color: ${({ theme }) => theme.colors.white};
+  font-family: ${({ theme }) => theme.fonts.bebas};
   border-radius: 2px;
   background: ${props => buttonType(props)};
   cursor: pointer;
 
   &:hover {
-    filter: brightness(100%);
+    background: ${props => buttonType(props, true)};
   }
 
   &:focus {
@@ -39,13 +38,13 @@ const Button = styled(motion.button)`
 
   svg {
     height: 20px;
-    fill: ${props => props.theme.colors.white};
+    fill: ${({ theme }) => theme.colors.white};
   }
 `
 
-const Text = styled(motion.span)`
-  padding: 13px;
-  font-size: 18px;
+const Text = styled.span`
+  padding: 8px 13px 0px 13px;
+  font-size: 40px;
   line-height: 1;
 `
 

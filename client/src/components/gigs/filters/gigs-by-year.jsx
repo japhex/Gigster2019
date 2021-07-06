@@ -3,11 +3,11 @@ import { useContext, useRef, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 
 import { getGigs, getGigsFilteredByYear } from 'api/gigs/gigs'
-import { client } from 'App'
 import { FilterButton } from 'components/gigs/filters/styled/filter-button'
 import { MonthList, Month } from 'components/gigs/filters/styled/filters'
 import AppContext from 'context/app/context'
-import useOutsideClick from 'hooks/useOutsideClick'
+import useOutsideClick from 'middleware/hooks/useOutsideClick'
+import { client } from 'utils/apollo'
 import { years } from 'utils/constants'
 
 const YearFilter = () => {

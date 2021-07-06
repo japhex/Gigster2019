@@ -47,7 +47,7 @@ export const PrivateRoute = ({
 )
 
 export const setUserToken = (token, history) => {
-  if (token !== undefined) {
+  if (token) {
     localStorage.setItem('token', token)
     history.push(`/gigs/upcoming`)
   }

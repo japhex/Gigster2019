@@ -21,7 +21,5 @@ export const years = () => {
     yearsArray.push(date.getFullYear() - i)
   }
 
-  console.log(yearsArray)
-
   return yearsArray
 }

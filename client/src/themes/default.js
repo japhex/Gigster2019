@@ -16,5 +16,6 @@ export const theme = {
     primaryHover: 'hsl(216, 98%, 25%)',
     secondary: 'hsl(211, 27%, 70%)',
     secondaryHover: 'hsl(211, 25%, 80%)',
+    validationError: 'hsl(1, 75%, 56%)',
   },
 }

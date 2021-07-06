@@ -1,28 +1,23 @@
-import { useState } from 'react'
-
-import { useMutation } from '@apollo/react-hooks'
+import { useLazyQuery } from '@apollo/react-hooks'
 import { useForm } from 'react-hook-form'
 
-import { searchGigMutation } from 'api/gigs/gigs'
+import { searchGigQuery } from 'api/gigs/gigs'
 import SearchResults from 'components/gigs/searchResult/searchResults'
 import { Div } from 'components/gigs/styles/addGigManualStyled'
 import { Button } from 'components/ui/forms/button'
 import { Input } from 'components/ui/forms/input'
 import { SearchIcon } from 'components/ui/icons/search'
+import { Loader } from 'components/utils/styles/loaderStyled'
 
 const Search = () => {
   const { register, handleSubmit } = useForm()
-  const [gigs, setGigs] = useState([])
-  // CHANGE TO LAZY QUERY
-  const [searchGigAction, { loading }] = useMutation(searchGigMutation, {
-    update(cache, { data: { searchGig } }) {
-      setGigs(searchGig)
-    },
-  })
+  const [searchGigAction, { data, loading }] = useLazyQuery(searchGigQuery)
 
   const onSubmit = async variables => {
     await searchGigAction({ variables })
   }
+
+  if (loading) return <Loader />
 
   return (
     <>
@@ -35,7 +30,7 @@ const Search = () => {
         </Div>
       </form>
 
-      {loading ? 'loading' : <SearchResults gigs={gigs} />}
+      <SearchResults gigs={data?.searchGig} />
     </>
   )
 }
