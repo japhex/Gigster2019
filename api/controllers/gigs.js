@@ -103,15 +103,31 @@ export const apiDeleteGig = async ({ id }, user) => {
 }
 
 // Search gig
-export const apiSearchGig = async ({ artist }, user) => {
+export const apiSearchGig = async (
+  { artist, choice, dateFrom, dateTo },
+  user
+) => {
   try {
+    let songkickArtist
+    const dates = dateFrom && dateTo
+    const minDate = dates && `&min_date=${dateFrom}`
+    const maxDate = dates && `&max_date=${dateTo}`
     checkUser(user)
-    const songkickArtist = await rp.get(
-      `https://api.songkick.com/api/3.0/events.json?apikey=${songkick.apiKey}&artist_name=${artist}`
-    )
 
-    console.log(songkickArtist)
+    if (choice) {
+      const searchArtist = await rp.get(
+        `https://api.songkick.com/api/3.0/search/artists.json?apikey=${songkick.apiKey}&query=${artist}`
+      )
+      const artistId = JSON.parse(searchArtist).resultsPage.results.artist[0].id
 
+      songkickArtist = await rp.get(
+        `https://api.songkick.com/api/3.0/artists/${artistId}/gigography.json?apikey=${songkick.apiKey}${minDate}${maxDate}`
+      )
+    } else {
+      songkickArtist = await rp.get(
+        `https://api.songkick.com/api/3.0/events.json?apikey=${songkick.apiKey}&artist_name=${artist}${minDate}${maxDate}`
+      )
+    }
     return JSON.parse(songkickArtist).resultsPage.results.event
   } catch (err) {
     throw new Error(`Error: ${err}`)

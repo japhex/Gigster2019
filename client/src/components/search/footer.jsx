@@ -2,7 +2,7 @@ import {
   GigResultFooter,
   Strong,
   Festival,
-} from '../styles/searchResultsStyled'
+} from 'components/gigs/styles/searchResultsStyled'
 
 const GigResultFooterParent = ({ gig }) =>
   gig.performance.length > 1 && (

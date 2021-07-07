@@ -55,8 +55,18 @@ export const deleteGigMutation = gql`
 `
 
 export const searchGigQuery = gql`
-  query searchGig($artist: String!) {
-    searchGig(artist: $artist)
+  query searchGig(
+    $artist: String!
+    $choice: Boolean!
+    $dateFrom: String
+    $dateTo: String
+  ) {
+    searchGig(
+      artist: $artist
+      choice: $choice
+      dateFrom: $dateFrom
+      dateTo: $dateTo
+    )
   }
 `
 

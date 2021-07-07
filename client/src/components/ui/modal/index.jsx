@@ -1,5 +1,3 @@
-import { Portal } from 'react-portal'
-
 import {
   ModalContainer,
   ModalStyled,
@@ -13,16 +11,14 @@ export const Modal = props => {
 
   return (
     modalActive && (
-      <Portal>
-        <ModalContainer>
-          <ModalStyled {...props}>
-            <ModalHeader>
-              <IconCloseStyled onClick={handleCloseClick} />
-            </ModalHeader>
-            <ModalContent>{children}</ModalContent>
-          </ModalStyled>
-        </ModalContainer>
-      </Portal>
+      <ModalContainer>
+        <ModalStyled {...props}>
+          <ModalHeader>
+            <IconCloseStyled onClick={handleCloseClick} />
+          </ModalHeader>
+          <ModalContent>{children}</ModalContent>
+        </ModalStyled>
+      </ModalContainer>
     )
   )
 }

@@ -17,16 +17,19 @@ const buttonType = (props, hover = false) => {
   }
 }
 
-const Button = styled.button`
+export const Button = styled.button`
   display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   align-items: center;
   justify-content: center;
-  border: 0;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.bebas};
   border-radius: 2px;
   background: ${props => buttonType(props)};
   cursor: pointer;
+  padding: 4px 13px 0 13px;
+  border: 1px solid;
+  font-size: 40px;
+  line-height: 1;
 
   &:hover {
     background: ${props => buttonType(props, true)};
@@ -41,18 +44,3 @@ const Button = styled.button`
     fill: ${({ theme }) => theme.colors.white};
   }
 `
-
-const Text = styled.span`
-  padding: 8px 13px 0px 13px;
-  font-size: 40px;
-  line-height: 1;
-`
-
-export const ButtonStyled = props => {
-  const { children } = props
-  return (
-    <Button {...props}>
-      <Text>{children}</Text>
-    </Button>
-  )
-}

@@ -6,7 +6,7 @@ import {
   Date,
   Venue,
   Location,
-} from '../styles/searchResultsStyled'
+} from 'components/gigs/styles/searchResultsStyled'
 
 const GigResultHeaderParent = ({ gig }) => (
   <GigResultHeader>

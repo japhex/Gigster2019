@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const InputStyled = styled(motion.input)`
+export const InputStyled = styled.input`
   display: inline-flex;
   background-color: ${props => props.theme.colors.inputBg};
   border: 1px solid

@@ -1,7 +1,7 @@
-import GigResultParent from 'components/gigs/searchResult/result'
 import { ResultsList } from 'components/gigs/styles/searchResultsStyled'
+import GigResultParent from 'components/search/result'
 
-const SearchResults = ({ gigs }) => (
+const Results = ({ gigs }) => (
   <ResultsList>
     {gigs?.map(gig => (
       <GigResultParent gig={gig} />
@@ -9,4 +9,4 @@ const SearchResults = ({ gigs }) => (
   </ResultsList>
 )
 
-export default SearchResults
+export default Results

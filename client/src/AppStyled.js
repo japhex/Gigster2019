@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { theme } from 'themes/default'
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Bebas Neue';
@@ -24,6 +26,11 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: bold;
     font-style: normal;
     font-display: swap;
+  }
+  
+  * {
+	  box-sizing:border-box;
+	  line-height: 1.1rem;
   }
 
   a {
@@ -68,8 +75,9 @@ export const GlobalStyle = createGlobalStyle`
 	}
 	body {
 	  line-height: 1;
-	  font-family: ${props => props.theme.fonts.roboto};
+	  font-family: ${theme.fonts.roboto};
 	  margin: 0;
+		background: ${theme.colors.primary};
 	}
 	ol, ul {
 	  list-style: none;

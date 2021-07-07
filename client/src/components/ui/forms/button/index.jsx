@@ -1,12 +1,7 @@
-import { ButtonStyled } from 'components/ui/forms/button/styling'
+import { Button as ButtonStyled } from 'components/ui/forms/button/styling'
 
 export const Button = props => {
-  const { icon, children } = props
+  const { children } = props
 
-  return (
-    <ButtonStyled {...props}>
-      {icon}
-      <span>{children}</span>
-    </ButtonStyled>
-  )
+  return <ButtonStyled {...props}>{children}</ButtonStyled>
 }

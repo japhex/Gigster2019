@@ -8,7 +8,6 @@ const resolveFunctions = {
 }
 
 const schemaString = `
-
   scalar Date
   scalar JSONObject
 
@@ -50,7 +49,7 @@ const schemaString = `
     user(username: String!): UserWithGigs
     userGigs(userId: ID!): UserWithGigs
     searchUsers(username: String!): [User]
-    searchGig(artist: String!): JSONObject
+    searchGig(artist: String!, choice: Boolean!, dateFrom: String, dateTo: String): JSONObject
     gigs: SortedGigs
     gigsUnfiltered: SortedGigs
     gigsFestivalFilter: SortedGigs

@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 import { CloseIcon } from 'components/ui/icons/close'
+import { theme } from 'themes/default'
 
 export const ModalContainer = styled.div`
   display: flex;
-  background: ${props => props.theme.colors.modalBg};
+  background: ${theme.colors.modalBg};
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -16,13 +16,13 @@ export const ModalContainer = styled.div`
   font-family: arial;
 `
 
-const Modal = styled(motion.div)`
+const Modal = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80vw;
-  background: ${props => props.theme.colors.white};
+  width: 60vw;
+  background: ${theme.colors.primary};
   border-radius: 3px 3px 5px 5px;
-  box-shadow: ${props => props.theme.colors.dropShadow} 0px 1px 4px;
+  box-shadow: ${theme.colors.dropShadow} 0px 1px 4px;
 `
 
 export const IconCloseStyled = styled(CloseIcon)`
@@ -40,12 +40,6 @@ export const ModalContent = styled.div`
 export const ModalHeader = styled.header`
   display: flex;
   padding: 5px 5px 0;
-`
-
-export const ModalTitle = styled.div`
-  margin: 10px;
-  font-weight: bold;
-  width: 100%;
 `
 
 export const ModalStyled = props => <Modal {...props} />

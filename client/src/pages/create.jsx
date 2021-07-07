@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Search from 'components/gigs/searchResult/search'
+import Search from 'components/search/search'
 import { Button } from 'components/ui/forms/button'
 import { Modal } from 'components/ui/modal'
 
