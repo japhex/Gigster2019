@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { theme } from 'themes/default'
 
 export const FiltersContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => props.theme.colors.primary};
+  background: ${theme.colors.primary};
 `
 
 export const Filter = styled.div`
@@ -23,9 +24,9 @@ export const MonthList = styled.ul`
   height: 100%;
   overflow-y: scroll;
   max-height: 83vh;
-  background: ${props => props.theme.colors.primary};
+  background: ${theme.colors.primary};
   padding: 14px 10px 10px 10px;
-  color: ${props => props.theme.colors.white};
+  color: ${theme.colors.white};
 `
 
 export const Month = styled.li`

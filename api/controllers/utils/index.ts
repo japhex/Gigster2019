@@ -11,63 +11,40 @@ export const checkUser = user => {
   }
 }
 
-const returnGigs = async (user, options = {}) => {
+export const returnGigs = async (user, options = {}) => {
   const userGigs = await UserGigs.find({ user: user.id })
   const gigs = await Gig.find({
     _id: { $in: userGigs.map(gig => gig.gig) },
     ...options,
-  }).sort('songKickGig.start.date')
+  }).sort('date')
 
   return { userGigs, gigs }
 }
 
-export const getUserGigs = async (user, split = true) => {
-  const { userGigs, gigs } = await returnGigs(user)
-  return split ? splitGigs(userGigs, gigs) : gigs
-}
-
 export const getUserWithGigs = async user => {
-  const { userGigs, gigs } = await returnGigs(user)
+  const { gigs } = await returnGigs(user)
 
   return {
     id: user._id,
     username: user.username,
-    gigs: await splitGigs(userGigs, gigs),
+    gigs,
   }
 }
 
 export const getFilteredByFestivalGigs = async user => {
-  const { userGigs, gigs } = await returnGigs(user, {
+  return await returnGigs(user, {
     'songKickGig.type': 'Festival',
   })
-  return splitGigs(userGigs, gigs)
 }
 
 export const getFilteredByMonthGigs = async (user, filteredMonth) => {
-  const { userGigs, gigs } = await returnGigs(user)
-  const gigsFormatted = filterMonths(filteredMonth, gigs)
-  return splitGigs(userGigs, gigsFormatted)
+  const { gigs } = await returnGigs(user)
+  return filterMonths(filteredMonth, gigs)
 }
 
 export const getFilteredByYearGigs = async (user, filteredYear) => {
-  const { userGigs, gigs } = await returnGigs(user)
-  const gigsFormatted = filterYears(filteredYear, gigs)
-  return splitGigs(userGigs, gigsFormatted)
-}
-
-export const splitGigs = (userGigs, gigs) => {
-  gigs.map(gig => {
-    userGigs.map(userGig => {
-      if (userGig.gig === gig.id) {
-        gig.songKickGig.rating = userGig.rating
-      }
-    })
-  })
-
-  const oldGigs = gigs.filter(gig => Date.parse(gig.songKickGig.start.date) < Date.now())
-  const newGigs = gigs.filter(gig => Date.parse(gig.songKickGig.start.date) > Date.now())
-
-  return { oldGigs, newGigs }
+  const { gigs } = await returnGigs(user)
+  return filterYears(filteredYear, gigs)
 }
 
 export const filterMonths = (month, gigs) => {

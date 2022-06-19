@@ -1,0 +1,7 @@
+overwrite: true
+schema: 'http://localhost:4000/api'
+documents:
+  - 'src/api/**/*.ts'
+generates:
+  src/generated:
+    preset: gql-tag-operations-preset

@@ -1,6 +1,7 @@
 import { CloseIcon } from 'components/ui/icons/close'
 import { MenuIcon } from 'components/ui/icons/menu'
 import styled from 'styled-components'
+import { theme } from 'themes/default'
 
 export const Header = styled.header`
   display: flex;
@@ -9,7 +10,7 @@ export const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 0;
-  font-family: ${props => props.theme.fonts.bebas};
+  font-family: ${theme.fonts.bebas};
   padding: 16px 10px 10px;
   background: #24292e;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -22,7 +23,7 @@ export const Logo = styled.div`
   font-size: 3rem;
 
   a {
-    font-family: ${props => props.theme.fonts.bebas};
+    font-family: ${theme.fonts.bebas};
     font-weight: 800;
     color: #fff;
   }
@@ -60,14 +61,14 @@ export const Divider = styled.span`
 const Menu = styled(MenuIcon)`
   width: 25px;
   height: 25px;
-  fill: ${props => props.theme.colors.white};
+  fill: ${theme.colors.white};
   cursor: pointer;
 `
 
 const Close = styled(CloseIcon)`
   width: 25px;
   height: 25px;
-  fill: ${props => props.theme.colors.white};
+  fill: ${theme.colors.white};
   cursor: pointer;
 `
 

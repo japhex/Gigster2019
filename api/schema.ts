@@ -20,17 +20,16 @@ const schemaString = `
   type UserWithGigs {
     id: ID!
     username: String!
-    gigs: SortedGigs
+    gigs: [Gig]
   }
   
   type Gig {
     id: ID!
-		songKickGig: JSONObject
-  }
-  
-  type SortedGigs {
-    oldGigs: [Gig]
-    newGigs: [Gig]
+    artist: JSONObject
+    date: String
+    venue: JSONObject
+    lineup: [String]
+    festival: JSONObject
   }
   
   type Query {
@@ -39,21 +38,20 @@ const schemaString = `
     user(username: String!): UserWithGigs
     userGigs(userId: ID!): UserWithGigs
     searchUsers(username: String!): [User]
-    searchGig(artist: String!, choice: Boolean!, dateFrom: String, dateTo: String, page: Int): JSONObject
-    gigs: SortedGigs
-    gigsUnfiltered: SortedGigs
-    gigsFestivalFilter: SortedGigs
-    gigsMonthFilter(month: Int!): SortedGigs
-    gigsYearFilter(year: Int!): SortedGigs 
+    searchGig(artist: String!, date: String): JSONObject
+    gigs: [Gig]
+    gigsUnfiltered: [Gig]
+    gigsFestivalFilter: [Gig]
+    gigsMonthFilter(month: Int!): [Gig]
+    gigsYearFilter(year: Int!): [Gig] 
     gig(id: ID!): Gig
   }
   
   type Mutation {
     signup(username: String!, password: String!): String
     login(username: String!, password: String!): String
-    createGig(artist: String, date: Date, venue: String): [Gig!]!
-    createSongkickGig(songkickId: ID!, songkickJson: JSONObject): SortedGigs
-    deleteGig(id: ID!): SortedGigs
+    createGig(id: String!, artist: JSONObject, date: String, venue: JSONObject, lineup: [String], festival: JSONObject): Gig!
+    deleteGig(id: ID!): [Gig]
     rateGig(id: ID!, rating: Int!): Int
   }
 `

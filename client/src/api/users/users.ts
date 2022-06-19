@@ -27,14 +27,12 @@ export const getUser = gql`
       id
       username
       gigs {
-        oldGigs {
-          id
-          songKickGig
-        }
-        newGigs {
-          id
-          songKickGig
-        }
+        id
+        artist
+        date
+        venue
+        lineup
+        festival
       }
     }
   }
@@ -64,14 +62,12 @@ export const getGigsByUser = gql`
       id
       username
       gigs {
-        oldGigs {
-          id
-          songKickGig
-        }
-        newGigs {
-          id
-          songKickGig
-        }
+        id
+        artist
+        date
+        venue
+        lineup
+        festival
       }
     }
   }

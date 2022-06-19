@@ -1,28 +1,29 @@
 import { useMutation } from '@apollo/react-hooks'
-import { createSongkickGigMutation, getGigs } from 'api/gigs/gigs'
-import { GigResult } from 'components/gigs/styles/search-results.styled'
-import GigResultFooterParent from 'components/search/footer'
-import GigResultHeaderParent from 'components/search/header'
+import { format, parseISO } from 'date-fns'
+import { Flex } from '@chakra-ui/react'
+import { CreateGigDocument, Gig, GigsDocument } from '../../generated/graphql'
 
+interface Props {
+  gig: Gig
+}
 
-const GigResultParent = ({ gig }) => {
-  const [createGig] = useMutation(createSongkickGigMutation, {
-    refetchQueries: [{ query: getGigs }],
+const GigResult = ({ gig }: Props) => {
+  const [createGig] = useMutation(CreateGigDocument, {
+    refetchQueries: [{ query: GigsDocument }],
   })
 
   const saveGig = async () => {
-    // IN API METHOD CHECK TO SEE IF GIG ALREADY EXISTS FOR USER
     await createGig({
-      variables: { songkickId: gig.id, songkickJson: gig },
+      variables: { ...gig },
+      refetchQueries: ['gigs'],
     })
   }
 
   return (
-    <GigResult onClick={saveGig}>
-      <GigResultHeaderParent gig={gig} />
-      <GigResultFooterParent gig={gig} />
-    </GigResult>
+    <Flex onClick={saveGig}>
+      {gig.artist.name} - {format(parseISO(gig.date), 'MMMM do yyyy')} - {gig.venue.name}
+    </Flex>
   )
 }
 
-export default GigResultParent
+export default GigResult

@@ -9,6 +9,7 @@ import { UserDetailsSection, Username, Logout, Divider } from './styled/header.s
 const UserDetails = () => {
   const { history } = useReactRouter()
   const userContext = useContext(UserContext)
+  // @ts-ignore
   const { user } = userContext
 
   return (

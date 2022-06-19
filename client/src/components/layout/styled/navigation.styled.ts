@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { theme } from 'themes/default'
 
 export const ResponsiveMenu = styled.div<{ menuOpen: boolean }>`
   position: absolute;
@@ -7,7 +8,7 @@ export const ResponsiveMenu = styled.div<{ menuOpen: boolean }>`
   height: 100vh;
   width: 50vw;
   display: ${({ menuOpen }) => (menuOpen ? 'block' : 'none')};
-  background: ${props => props.theme.colors.primary};
+  background: ${theme.colors.primary};
 `
 
 export const Navbar = styled.ul`

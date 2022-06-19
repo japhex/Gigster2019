@@ -1,28 +1,25 @@
 import styled from 'styled-components'
+import { theme } from 'themes/default'
 
+// @ts-ignore
 const buttonType = (props, hover = false) => {
-  const {
-    type,
-    theme: {
-      colors: { primary, primaryHover, secondary, secondaryHover },
-    },
-  } = props
+  const { type } = props
   switch (type) {
     case 'primary':
-      return hover ? primaryHover : primary
+      return hover ? theme.colors.primaryHover : theme.colors.primary
     case 'secondary':
-      return hover ? secondaryHover : secondary
+      return hover ? theme.colors.secondaryHover : theme.colors.secondary
     default:
-      return hover ? primaryHover : primary
+      return hover ? theme.colors.primaryHover : theme.colors.primary
   }
 }
 
-export const Button = styled.button`
+export const Button = styled.button<{ inline: boolean }>`
   display: ${({ inline }) => (inline ? 'inline-flex' : 'flex')};
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.fonts.bebas};
+  color: ${theme.colors.white};
+  font-family: ${theme.fonts.bebas};
   border-radius: 2px;
   background: ${props => buttonType(props)};
   cursor: pointer;
@@ -41,6 +38,6 @@ export const Button = styled.button`
 
   svg {
     height: 20px;
-    fill: ${({ theme }) => theme.colors.white};
+    fill: ${theme.colors.white};
   }
 `

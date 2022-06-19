@@ -1,77 +1,54 @@
 import { useState } from 'react'
 
 import { useLazyQuery } from '@apollo/react-hooks'
-import { searchGigQuery } from 'api/gigs/gigs'
-import { DatePicker } from 'baseui/datepicker'
-import { FormControl } from 'baseui/form-control'
 import SearchForm from 'components/search/form'
-import Results from 'components/search/results'
-import { Choice } from 'components/search/styled/search.styled'
-import { format } from 'date-fns'
 import { useForm } from 'react-hook-form'
-import { baseui } from 'themes/baseui/overrides'
+import { Box, Button, Center, Flex, FormControl, FormLabel, Input, Spinner, Switch } from '@chakra-ui/react'
+import { Gig, SearchGigDocument, SearchGigQuery } from '../../generated/graphql'
+import GigResult from './result'
 
 const Search = () => {
   const { register, handleSubmit } = useForm()
-  const [value, setValue] = useState([new Date()])
-  const [choice, setChoice] = useState(false)
-  const [searchGigAction, { data, loading }] = useLazyQuery(searchGigQuery)
+  const [value, setValue] = useState('')
+  const [pastGig, setPastGig] = useState<boolean>(false)
+  const [searchGigAction, { data, loading }] = useLazyQuery<SearchGigQuery>(SearchGigDocument)
 
   const onSubmit = async variables => {
-    const dateFrom = value[0] ? format(value[0], 'yyyy-MM-dd') : ''
-    const dateTo = value[1] ? format(value[1], 'yyyy-MM-dd') : ''
     await searchGigAction({
-      variables: { ...variables, choice, dateFrom, dateTo },
+      variables: { ...variables, ...(pastGig && { date: 'past' }) },
     })
   }
-
-  const onChoice = async userChoice => {
-    setChoice(userChoice)
-  }
-
-  // if (loading) return <Loader />
 
   return (
     <>
       {!data ? (
         <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', justifyContent: 'center' }}>
-          <div style={{ width: '60%' }}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '15px',
-                marginBottom: '30px',
-              }}
-            >
-              <Choice selected={choice} onClick={() => onChoice(true)}>
+          <Flex direction="column" gap={4} py={4}>
+            <FormControl display="flex" alignItems="center">
+              <FormLabel htmlFor="past" mb="0">
                 Past gig
-              </Choice>
-              <Choice selected={!choice} onClick={() => onChoice(false)}>
-                Future gig
-              </Choice>
-            </div>
-            <div>
-              <FormControl label={() => 'Date range'} caption={() => 'pick a range to search for gigs'}>
-                <DatePicker
-                  range
-                  quickSelect={choice}
-                  value={value}
-                  maxDate={choice ? new Date() : null}
-                  minDate={!choice ? new Date() : null}
-                  onChange={({ date }) => setValue(Array.isArray(date) ? date : [date])}
-                  overrides={{
-                    ...baseui.nestedInput,
-                    ...baseui.inputWrapper,
-                  }}
-                />
-              </FormControl>
-            </div>
-            <SearchForm register={register} loading={loading} />
-          </div>
+              </FormLabel>
+              <Switch ref={register('past')} id="past" onChange={e => setPastGig(e.target.checked)} />
+            </FormControl>
+            <FormControl>
+              <Input
+                placeholder="Artist name..."
+                {...register('artist')}
+                value={value}
+                onChange={e => setValue(e.target.value)}
+              />
+            </FormControl>
+            <Button colorScheme="yellow" isLoading={loading} type="submit">
+              Search
+            </Button>
+          </Flex>
         </form>
+      ) : loading ? (
+        <Center>
+          <Spinner />
+        </Center>
       ) : (
-        <Results gigs={data.searchGig} />
+        data?.searchGig.map((gig: Gig) => <GigResult gig={gig} key={gig.id} />)
       )}
     </>
   )

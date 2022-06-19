@@ -1,22 +1,17 @@
-import { songkick } from '../config/songkick'
 import { Gig } from '../models/gig'
 import { UserGigs } from '../models/user-gigs'
+import axios from 'axios'
 
-import {
-  checkUser,
-  getFilteredByFestivalGigs,
-  getFilteredByMonthGigs,
-  getFilteredByYearGigs,
-  getUserGigs,
-} from './utils'
-
-const rp = require('request-promise')
+import { checkUser, getFilteredByFestivalGigs, getFilteredByMonthGigs, getFilteredByYearGigs } from './utils'
+import { formatBandsInTownGigData } from './utils/format'
 
 // Get all gigs for user
 export const apiGetGigs = async user => {
   try {
     checkUser(user)
-    return await getUserGigs(user)
+    return await Gig.find({
+      userId: user.id,
+    }).sort('date')
   } catch (err) {
     throw new Error(`Error: ${err}`)
   }
@@ -53,45 +48,11 @@ export const apiGetYearFilteredGigs = async (user, year) => {
 }
 
 // Create gig
-export const apiCreateGig = async () => {
-  // 	try {
-  // 		checkUser(user);
-  //
-  // 		const userId = user.id
-  //
-  // 		const gig = await models.gig.create({artist:artist,date:date,venue:venue});
-  //
-  // 		let userWithGigs = await models.user.findOne({where: {id: userId}, include:['Gigs']});
-  // 		await userWithGigs.addGig(gig.id)
-  //
-  // 		return getUserGigs(user)
-  // 	} catch(err){
-  // 		throw new Error(`Error: ${err}`)
-  // 	}
-}
-
-// Create songkick gig
-export const apiCreateSongkickGig = async ({ songkickJson }, user) => {
+export const apiCreateGig = async (gig, user) => {
   try {
     checkUser(user)
-    let gigExists = false
-    const existingGigs = await getUserGigs(user, false)
 
-    await existingGigs.forEach(gig => {
-      if (gig.songKickGig.id === songkickJson.id) {
-        gigExists = true
-      }
-    })
-
-    if (gigExists) return existingGigs
-
-    const gig = new Gig({ songKickGig: songkickJson })
-    gig.save()
-
-    const userGig = new UserGigs({ user: user.id, gig: gig.id, rating: 0 })
-    userGig.save()
-
-    return await getUserGigs(user)
+    return await Gig.create({ ...gig, userId: user.id })
   } catch (err) {
     throw new Error(`Error: ${err}`)
   }
@@ -103,24 +64,72 @@ export const apiDeleteGig = async ({ id }, user) => {
     checkUser(user)
     await UserGigs.deleteOne({ user: user.id, gig: id })
 
-    return await getUserGigs(user)
+    return { success: true }
   } catch (err) {
     throw new Error(`Error: ${err}`)
   }
 }
 
-// Search gig
-export const apiSearchGig = async ({ artist, past = false, dateFrom, dateTo }, user) => {
+// Search artist
+export const apiSearchArtist = async ({ artist, past = false, dateFrom, dateTo }, user) => {
+  console.log(past)
   try {
     const range = dateFrom && dateTo && `${dateFrom},${dateTo}`
     checkUser(user)
 
-    return await rp.get(
-      `https://rest.bandsintown.com/artists/${artist}/events?app_id=9c42d4dc9c1397201a4e3dc4d0bb840c${
-        past && '&date=past'
-      }${range && range}`
+    const { data } = await axios.get(
+      `https://app.ticketmaster.com/discovery/v2/attractions?apikey=4xAPPvdUgBGuLNsQOhk3SiohA5iNgHeo&keyword=${artist}&locale=*`
     )
+
+    return data
   } catch (err) {
     throw new Error(`Error: ${err}`)
   }
 }
+
+export const apiSearchGigBandsInTown = async ({ artist, date = 'upcoming' }, user) => {
+  try {
+    checkUser(user)
+
+    const { data } = await axios.get(
+      `https://rest.bandsintown.com/artists/${artist}/events?app_id=98d36afbb31d5dd4f2c62850e939ca61&date=${date}`
+    )
+    const apiArtist = {
+      name: data[0].artist.name,
+      image: data[0].artist.image_url,
+    }
+
+    return data.map(event => formatBandsInTownGigData(apiArtist, event))
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
+
+export const apiSearchGigTicketmaster = async ({ artist, past = false, dateFrom, dateTo }, user) => {
+  console.log(past)
+  try {
+    const range = dateFrom && dateTo && `${dateFrom},${dateTo}`
+    checkUser(user)
+
+    const { data } = await axios.get(
+      `https://app.ticketmaster.com/discovery/v2/events?apikey=4xAPPvdUgBGuLNsQOhk3SiohA5iNgHeo&locale=*&keyword=${artist}`
+    )
+
+    // event
+    console.log(data._embedded.events[0])
+    // venue
+    console.log(data._embedded.events[0]._embedded.venues)
+    // support
+    console.log(data._embedded.events[0]._embedded.attractions)
+    // festival (if end exists)
+    console.log(data?._embedded?.events[0]?.dates?.start?.localDate)
+    console.log(data?._embedded?.events[0]?.dates?.end?.localDate)
+
+    return data
+  } catch (err) {
+    throw new Error(`Error: ${err}`)
+  }
+}
+
+// bandsintown api key
+// 98d36afbb31d5dd4f2c62850e939ca61

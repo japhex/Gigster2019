@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { theme } from 'themes/default'
 
-export const Choice = styled.span`
+export const Choice = styled.span<{ selected: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;

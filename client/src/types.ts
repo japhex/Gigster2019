@@ -1,9 +1,3 @@
-import { Request } from 'express'
-
-export interface RequestWithProps extends Request {
-  user: string
-}
-
 export type Gig = {
   id: string
   artist: {

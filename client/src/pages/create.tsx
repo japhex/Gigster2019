@@ -1,25 +1,36 @@
-import { SyntheticEvent, useState } from 'react'
-
-import { Toolbar } from 'components/layout/styled/gig-layout.styled'
 import Search from 'components/search/search'
-import { Button } from 'components/ui/forms/button'
-import Modal from 'components/ui/modal'
+import {
+  ModalCloseButton,
+  ModalHeader,
+  ModalContent,
+  ModalOverlay,
+  useDisclosure,
+  ModalBody,
+  Modal,
+  Button,
+  Box,
+  Center,
+} from '@chakra-ui/react'
 
 const Create = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
-
-  const handleClose = (e: SyntheticEvent) => {
-    e.preventDefault()
-    setIsModalVisible(!isModalVisible)
-  }
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    <Toolbar>
-      <Button onClick={handleClose}>Add gig</Button>
-      <Modal title="" visible={isModalVisible} close={handleClose}>
-        <Search />
+    <Center>
+      <Button variant="outline" colorScheme="yellow" onClick={onOpen}>
+        Add gig
+      </Button>
+
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Search />
+          </ModalBody>
+        </ModalContent>
       </Modal>
-    </Toolbar>
+    </Center>
   )
 }
 

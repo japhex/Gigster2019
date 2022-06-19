@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { theme } from 'themes/default'
 
 export const InputStyled = styled.input`
   display: inline-flex;
-  background-color: ${props => props.theme.colors.inputBg};
-  border: 1px solid ${({ theme, error }) => (error ? theme.colors.validationError : theme.colors.inputBorder)};
+  background-color: ${theme.colors.inputBg};
+  border: 1px solid ${({ error }) => (error ? theme.colors.validationError : theme.colors.inputBorder)};
   border-radius: 0;
   box-shadow: rgba(0, 0, 0, 0) 0px 2px 6px 0px;
   color: hsl(0, 0%, 10%);
@@ -26,6 +27,6 @@ export const InputStyled = styled.input`
 
   &:focus {
     outline: 0;
-    border: 1px solid ${props => props.theme.colors.inputFocusBorder};
+    border: 1px solid ${theme.colors.inputFocusBorder};
   }
 `
