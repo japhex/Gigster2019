@@ -25,7 +25,7 @@
     "apollo-client-preset": "1.0.8",
     "apollo-link-context": "1.0.17",
     "apollo-link-http": "1.5.14",
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "babel-polyfill": "^6.26.0",
     "date-fns": "^2.19.0",
     "framer-motion": "4.1.17",
