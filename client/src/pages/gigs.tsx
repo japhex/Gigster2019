@@ -38,30 +38,24 @@ const Gigs = () => {
             outline="1px solid #eee"
           >
             <Box h="150px" w="100%" bgImg={artist.image} bgSize="cover" bgPosition="top"></Box>
+            <Tag colorScheme="orange" size="lg" borderRadius="0" w="100%">
+              <Flex w="100%">
+                <Box>{artist.name}</Box>
+                {festival.start_date && <Icon as={MdOutlineFestival} ml="auto" />}
+              </Flex>
+            </Tag>
             <Box p={4}>
               <Flex align="center" gap={4}>
-                <Tag colorScheme="orange" size="lg">
-                  {festival.start_date && <Icon as={MdOutlineFestival} />} {artist.name}
-                </Tag>
-                <Flex align="center" gap={2} ml="auto">
+                <Flex align="center" gap={2}>
                   <CalendarIcon />
                   <Text fontSize="sm">{format(new Date(date), 'MMM do yyyy - p')}</Text>
                 </Flex>
-              </Flex>
-              <Flex gap={2} mt={4}>
-                <Icon as={MdOutlineLocationOn} boxSize={5} mt={2} />
-                <Box>
-                  <Text fontSize="sm">{venue.name}</Text>
-                  <Text fontSize="xs">
-                    {venue.city}, {venue.country}
-                  </Text>
-                </Box>
                 {lineup.length > 1 && (
                   <Box ml="auto">
                     <Popover>
                       <PopoverTrigger>
                         <Button size="sm" leftIcon={<Icon boxSize={5} as={GrGroup} />}>
-                          support
+                          lineup
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent>
@@ -76,6 +70,15 @@ const Gigs = () => {
                     </Popover>
                   </Box>
                 )}
+              </Flex>
+              <Flex gap={2} mt={4}>
+                <Icon as={MdOutlineLocationOn} boxSize={5} mt={2} />
+                <Box>
+                  <Text fontSize="sm">{venue.name}</Text>
+                  <Text fontSize="xs">
+                    {venue.city}, {venue.country}
+                  </Text>
+                </Box>
               </Flex>
             </Box>
           </Box>
