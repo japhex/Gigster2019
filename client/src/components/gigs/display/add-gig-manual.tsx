@@ -1,7 +1,6 @@
 import { useMutation } from '@apollo/react-hooks'
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { createGigMutation, getGigs } from 'api/gigs/gigs'
-import { Div } from 'components/gigs/styles/add-gig-manual.styled'
 import { Input } from 'components/ui/forms/input'
 import { useForm } from 'react-hook-form'
 
@@ -23,11 +22,11 @@ const AddGigManual = ({ callback }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Div>
+      <>
         <Input {...register('artist')} />
         <Input {...register('date')} type="date" />
         <Input {...register('venue')} />
-      </Div>
+      </>
       <ButtonGroup>
         <Button isLoading={loading}>Create gig</Button>
         <Button onClick={callback} variant="outline">

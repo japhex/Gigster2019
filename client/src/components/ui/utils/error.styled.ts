@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { theme } from 'themes/default'
 
 export const Error = styled.div`
-  background: ${({ theme }) => theme.colors.validationError};
+  background: ${theme.colors.validationError};
   padding: 10px;
   color: #fff;
   font-size: 14px;
