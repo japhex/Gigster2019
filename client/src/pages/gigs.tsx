@@ -50,12 +50,12 @@ const Gigs = () => {
               <Flex mb={4}>
                 <Flex gap={2} my={2}>
                   {artist.genre && (
-                    <Tag size="sm" colorScheme={genreType[artist.genre]} variant="outline">
+                    <Tag size="sm" colorScheme={genreType[artist.genre]}>
                       {artist.genre}
                     </Tag>
                   )}
                   {artist.subGenre && (
-                    <Tag size="sm" colorScheme={genreType[artist.subGenre]} variant="outline">
+                    <Tag size="sm" colorScheme={genreType[artist.subGenre]}>
                       {artist.subGenre}
                     </Tag>
                   )}

@@ -9,4 +9,5 @@ export const genreType = {
   [Genres.HIPHOP]: 'orange',
   [Genres.FRENCH_RAP]: 'orange',
   [Genres.POP]: 'pink',
+  [Genres.PUNK]: 'pink',
 }

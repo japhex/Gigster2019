@@ -10,7 +10,7 @@ const GigLayout = ({ children }) => (
     <Filters />
     <Flex direction="column" p={2} gap={2}>
       <Create />
-      <Flex wrap="wrap" justify="space-between">
+      <Flex wrap="wrap" justify="space-between" px={2}>
         {children}
       </Flex>
     </Flex>

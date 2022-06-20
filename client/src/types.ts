@@ -7,4 +7,5 @@ export enum Genres {
   HIPHOP = 'Hip-Hop/Rap',
   FRENCH_RAP = 'French Rap',
   POP = 'Pop',
+  PUNK = 'Punk',
 }
