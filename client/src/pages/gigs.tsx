@@ -47,25 +47,18 @@ const Gigs = () => {
               </Flex>
             </Tag>
             <Box p={4}>
-              <Flex gap={2} mb={4}>
-                {artist.genre && (
-                  <Tag size="sm" colorScheme={genreType[artist.genre]} variant="outline">
-                    {artist.genre}
-                  </Tag>
-                )}
-                {artist.subGenre && (
-                  <Tag size="sm" colorScheme={genreType[artist.subGenre]} variant="outline">
-                    {artist.subGenre}
-                  </Tag>
-                )}
-              </Flex>
-              <Flex align="center" gap={4}>
-                <Flex align="center" gap={2}>
-                  <CalendarIcon />
-                  <Text fontSize="sm">
-                    {date?.start && format(new Date(date?.start), 'MMM do yyyy')}{' '}
-                    {date?.end && `- ${format(new Date(date?.end), 'MMM do yyyy')}`}
-                  </Text>
+              <Flex mb={4}>
+                <Flex gap={2} my={2}>
+                  {artist.genre && (
+                    <Tag size="sm" colorScheme={genreType[artist.genre]} variant="outline">
+                      {artist.genre}
+                    </Tag>
+                  )}
+                  {artist.subGenre && (
+                    <Tag size="sm" colorScheme={genreType[artist.subGenre]} variant="outline">
+                      {artist.subGenre}
+                    </Tag>
+                  )}
                 </Flex>
                 {lineup?.length > 1 && (
                   <Box ml="auto">
@@ -89,6 +82,15 @@ const Gigs = () => {
                     </Popover>
                   </Box>
                 )}
+              </Flex>
+              <Flex align="center" gap={4}>
+                <Flex align="center" gap={2}>
+                  <CalendarIcon />
+                  <Text fontSize="sm">
+                    {date?.start && format(new Date(date?.start), 'MMM do yyyy')}{' '}
+                    {date?.end && `- ${format(new Date(date?.end), 'MMM do yyyy')}`}
+                  </Text>
+                </Flex>
               </Flex>
               <Flex gap={2} mt={4}>
                 <Icon as={MdOutlineLocationOn} boxSize={5} mt={2} />

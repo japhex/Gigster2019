@@ -112,8 +112,14 @@ export const apiSearchGigTicketmaster = async ({ artist }, user) => {
     const apiArtist = {
       name: data._embedded.events[0].name,
       image: sortedImages[0].url,
-      genre: data._embedded.events[0].classifications[0].genre.name,
-      subGenre: data._embedded.events[0].classifications[0].subGenre.name,
+      genre:
+        data._embedded.events[0].classifications[0].genre.name === 'Undefined'
+          ? ''
+          : data._embedded.events[0].classifications[0].genre.name,
+      subGenre:
+        data._embedded.events[0].classifications[0].subGenre.name === 'Undefined'
+          ? ''
+          : data._embedded.events[0].classifications[0].subGenre.name,
     }
 
     return data._embedded.events.map(event => formatTicketmasterGigData(apiArtist, event))
