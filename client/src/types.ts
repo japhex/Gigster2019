@@ -1,21 +1,10 @@
-export type Gig = {
-  id: string
-  artist: {
-    name: string
-    image: string
-  }
-  date: string
-  venue: {
-    location: string
-    name: string
-    latitude: string
-    longitude: string
-    city: string
-    country: string
-  }
-  lineup: string[]
-  festival: {
-    start_date: string
-    end_date: string
-  }
+export enum Genres {
+  METAL = 'Metal',
+  NU_METAL = 'Nu-Metal',
+  ROCK = 'Rock',
+  ALTERNATIVE_ROCK = 'Alternative Rock',
+  HARD_ROCK = 'Hard Rock',
+  HIPHOP = 'Hip-Hop/Rap',
+  FRENCH_RAP = 'French Rap',
+  POP = 'Pop',
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { useLazyQuery } from '@apollo/react-hooks'
-import SearchForm from 'components/search/form'
 import { useForm } from 'react-hook-form'
 import { Box, Button, Center, Flex, FormControl, FormLabel, Input, Spinner, Switch } from '@chakra-ui/react'
 import { Gig, SearchGigDocument, SearchGigQuery } from '../../generated/graphql'
@@ -15,7 +14,7 @@ const Search = () => {
 
   const onSubmit = async variables => {
     await searchGigAction({
-      variables: { ...variables, ...(pastGig && { date: 'past' }) },
+      variables: { ...variables, type: 'Ticketmaser', ...(pastGig && { date: 'past' }) },
     })
   }
 

@@ -4,6 +4,11 @@ export interface RequestWithProps extends Request {
   user: string
 }
 
+export enum API {
+  TICKET_MASTER = 'Ticketmaster',
+  BANDS_IN_TOWN = 'BandsInTown',
+}
+
 export type Gig = {
   id: string
   artist: {

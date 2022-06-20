@@ -26,9 +26,10 @@ const schemaString = `
   type Gig {
     id: ID!
     artist: JSONObject
-    date: String
+    date: JSONObject
+    info: String
     venue: JSONObject
-    lineup: [String]
+    lineup: [JSONObject]
     festival: JSONObject
   }
   
@@ -38,7 +39,7 @@ const schemaString = `
     user(username: String!): UserWithGigs
     userGigs(userId: ID!): UserWithGigs
     searchUsers(username: String!): [User]
-    searchGig(artist: String!, date: String): JSONObject
+    searchGig(artist: String!, date: String, type: String): JSONObject
     gigs: [Gig]
     gigsUnfiltered: [Gig]
     gigsFestivalFilter: [Gig]
@@ -50,7 +51,7 @@ const schemaString = `
   type Mutation {
     signup(username: String!, password: String!): String
     login(username: String!, password: String!): String
-    createGig(id: String!, artist: JSONObject, date: String, venue: JSONObject, lineup: [String], festival: JSONObject): Gig!
+    createGig(id: String!, artist: JSONObject, date: JSONObject, venue: JSONObject, lineup: [JSONObject], festival: JSONObject): Gig!
     deleteGig(id: ID!): [Gig]
     rateGig(id: ID!, rating: Int!): Int
   }

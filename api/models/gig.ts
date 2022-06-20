@@ -7,10 +7,13 @@ const gigSchema = new Schema({
   artist: {
     name: { type: String },
     image: { type: String },
+    genre: { type: String },
+    subGenre: { type: String },
   },
-  date: { type: String },
+  date: { type: SchemaTypes.Mixed },
+  info: { type: String },
   venue: {
-    location: { type: String },
+    location: { type: SchemaTypes.Mixed },
     name: { type: String },
     latitude: { type: String },
     longitude: { type: String },

@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/react-hooks'
 import { format, parseISO } from 'date-fns'
-import { Flex } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 import { CreateGigDocument, Gig, GigsDocument } from '../../generated/graphql'
 
 interface Props {
@@ -21,7 +21,10 @@ const GigResult = ({ gig }: Props) => {
 
   return (
     <Flex onClick={saveGig}>
-      {gig.artist.name} - {format(parseISO(gig.date), 'MMMM do yyyy')} - {gig.venue.name}
+      <Box>{gig.artist.name}</Box>
+      {gig.date.start && format(parseISO(gig.date.start), 'MMMM do yyyy')}
+      {gig.date.end && `- ${format(parseISO(gig.date.end), 'MMMM do yyyy')}`}
+      <Box>{gig.venue.name}</Box>
     </Flex>
   )
 }

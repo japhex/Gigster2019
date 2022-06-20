@@ -3,7 +3,8 @@ import { UserGigs } from '../models/user-gigs'
 import axios from 'axios'
 
 import { checkUser, getFilteredByFestivalGigs, getFilteredByMonthGigs, getFilteredByYearGigs } from './utils'
-import { formatBandsInTownGigData } from './utils/format'
+import { formatBandsInTownGigData, formatTicketmasterGigData } from './utils/format'
+import { API } from '../types'
 
 // Get all gigs for user
 export const apiGetGigs = async user => {
@@ -70,20 +71,11 @@ export const apiDeleteGig = async ({ id }, user) => {
   }
 }
 
-// Search artist
-export const apiSearchArtist = async ({ artist, past = false, dateFrom, dateTo }, user) => {
-  console.log(past)
-  try {
-    const range = dateFrom && dateTo && `${dateFrom},${dateTo}`
-    checkUser(user)
-
-    const { data } = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/attractions?apikey=4xAPPvdUgBGuLNsQOhk3SiohA5iNgHeo&keyword=${artist}&locale=*`
-    )
-
-    return data
-  } catch (err) {
-    throw new Error(`Error: ${err}`)
+export const apiSearchGig = async ({ artist, type = 'Ticketmaster', date }, user) => {
+  if (type === API.TICKET_MASTER) {
+    return await apiSearchGigTicketmaster({ artist }, user)
+  } else if (type === API.BANDS_IN_TOWN) {
+    return await apiSearchGigBandsInTown({ artist, date }, user)
   }
 }
 
@@ -92,7 +84,7 @@ export const apiSearchGigBandsInTown = async ({ artist, date = 'upcoming' }, use
     checkUser(user)
 
     const { data } = await axios.get(
-      `https://rest.bandsintown.com/artists/${artist}/events?app_id=98d36afbb31d5dd4f2c62850e939ca61&date=${date}`
+      `https://rest.bandsintown.com/artists/${artist}/events?app_id=${process.env.BANDS_IN_TOWN_API_KEY}&date=${date}`
     )
     const apiArtist = {
       name: data[0].artist.name,
@@ -105,31 +97,27 @@ export const apiSearchGigBandsInTown = async ({ artist, date = 'upcoming' }, use
   }
 }
 
-export const apiSearchGigTicketmaster = async ({ artist, past = false, dateFrom, dateTo }, user) => {
-  console.log(past)
+export const apiSearchGigTicketmaster = async ({ artist }, user) => {
   try {
-    const range = dateFrom && dateTo && `${dateFrom},${dateTo}`
     checkUser(user)
 
     const { data } = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events?apikey=4xAPPvdUgBGuLNsQOhk3SiohA5iNgHeo&locale=*&keyword=${artist}`
+      `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TICKET_MASTER_API_KEY}&locale=*&keyword=${artist}`
     )
 
-    // event
-    console.log(data._embedded.events[0])
-    // venue
-    console.log(data._embedded.events[0]._embedded.venues)
-    // support
-    console.log(data._embedded.events[0]._embedded.attractions)
-    // festival (if end exists)
-    console.log(data?._embedded?.events[0]?.dates?.start?.localDate)
-    console.log(data?._embedded?.events[0]?.dates?.end?.localDate)
+    const sortedImages = data._embedded.events[0].images.sort((a, b) => {
+      return a.width > b.width ? -1 : 1
+    })
 
-    return data
+    const apiArtist = {
+      name: data._embedded.events[0].name,
+      image: sortedImages[0].url,
+      genre: data._embedded.events[0].classifications[0].genre.name,
+      subGenre: data._embedded.events[0].classifications[0].subGenre.name,
+    }
+
+    return data._embedded.events.map(event => formatTicketmasterGigData(apiArtist, event))
   } catch (err) {
     throw new Error(`Error: ${err}`)
   }
 }
-
-// bandsintown api key
-// 98d36afbb31d5dd4f2c62850e939ca61
