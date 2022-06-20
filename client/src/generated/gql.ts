@@ -1,0 +1,44 @@
+/* eslint-disable */
+import * as graphql from './graphql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+
+const documents = {
+    "\n  query gigs {\n    gigs {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.GigsDocument,
+    "\n  mutation createGig(\n    $id: String!\n    $artist: JSONObject\n    $date: String\n    $venue: JSONObject\n    $lineup: [String]\n    $festival: JSONObject\n  ) {\n    createGig(id: $id, artist: $artist, date: $date, venue: $venue, lineup: $lineup, festival: $festival) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.CreateGigDocument,
+    "\n  mutation deleteGig($id: ID!) {\n    deleteGig(id: $id) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.DeleteGigDocument,
+    "\n  query searchGig($artist: String!, $date: String) {\n    searchGig(artist: $artist, date: $date)\n  }\n": graphql.SearchGigDocument,
+    "\n  query gigsFestivalFilter {\n    gigsFestivalFilter {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.GigsFestivalFilterDocument,
+    "\n  query gigsMonthFilter($month: Int!) {\n    gigsMonthFilter(month: $month) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.GigsMonthFilterDocument,
+    "\n  query gigsYearFilter($year: Int!) {\n    gigsYearFilter(year: $year) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.GigsYearFilterDocument,
+    "\n  query gigsUnfiltered {\n    gigsUnfiltered {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n": graphql.GigsUnfilteredDocument,
+    "\n  mutation rateGig($id: ID!, $rating: Int!) {\n    rateGig(id: $id, rating: $rating)\n  }\n": graphql.RateGigDocument,
+    "\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password)\n  }\n": graphql.LoginDocument,
+    "\n  mutation signup($username: String!, $password: String!) {\n    signup(username: $username, password: $password)\n  }\n": graphql.SignupDocument,
+    "\n  query user($username: String!) {\n    user(username: $username) {\n      id\n      username\n      gigs {\n        id\n        artist\n        date\n        venue\n        lineup\n        festival\n      }\n    }\n  }\n": graphql.UserDocument,
+    "\n  query loggedInUser {\n    loggedInUser {\n      id\n      username\n    }\n  }\n": graphql.LoggedInUserDocument,
+    "\n  query searchUsers($username: String!) {\n    searchUsers(username: $username) {\n      id\n      username\n    }\n  }\n": graphql.SearchUsersDocument,
+    "\n  query userGigs($userId: ID!) {\n    userGigs(userId: $userId) {\n      id\n      username\n      gigs {\n        id\n        artist\n        date\n        venue\n        lineup\n        festival\n      }\n    }\n  }\n": graphql.UserGigsDocument,
+};
+
+export function gql(source: "\n  query gigs {\n    gigs {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  query gigs {\n    gigs {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  mutation createGig(\n    $id: String!\n    $artist: JSONObject\n    $date: String\n    $venue: JSONObject\n    $lineup: [String]\n    $festival: JSONObject\n  ) {\n    createGig(id: $id, artist: $artist, date: $date, venue: $venue, lineup: $lineup, festival: $festival) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  mutation createGig(\n    $id: String!\n    $artist: JSONObject\n    $date: String\n    $venue: JSONObject\n    $lineup: [String]\n    $festival: JSONObject\n  ) {\n    createGig(id: $id, artist: $artist, date: $date, venue: $venue, lineup: $lineup, festival: $festival) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  mutation deleteGig($id: ID!) {\n    deleteGig(id: $id) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  mutation deleteGig($id: ID!) {\n    deleteGig(id: $id) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  query searchGig($artist: String!, $date: String) {\n    searchGig(artist: $artist, date: $date)\n  }\n"): (typeof documents)["\n  query searchGig($artist: String!, $date: String) {\n    searchGig(artist: $artist, date: $date)\n  }\n"];
+export function gql(source: "\n  query gigsFestivalFilter {\n    gigsFestivalFilter {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  query gigsFestivalFilter {\n    gigsFestivalFilter {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  query gigsMonthFilter($month: Int!) {\n    gigsMonthFilter(month: $month) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  query gigsMonthFilter($month: Int!) {\n    gigsMonthFilter(month: $month) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  query gigsYearFilter($year: Int!) {\n    gigsYearFilter(year: $year) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  query gigsYearFilter($year: Int!) {\n    gigsYearFilter(year: $year) {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  query gigsUnfiltered {\n    gigsUnfiltered {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"): (typeof documents)["\n  query gigsUnfiltered {\n    gigsUnfiltered {\n      id\n      artist\n      date\n      venue\n      lineup\n      festival\n    }\n  }\n"];
+export function gql(source: "\n  mutation rateGig($id: ID!, $rating: Int!) {\n    rateGig(id: $id, rating: $rating)\n  }\n"): (typeof documents)["\n  mutation rateGig($id: ID!, $rating: Int!) {\n    rateGig(id: $id, rating: $rating)\n  }\n"];
+export function gql(source: "\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password)\n  }\n"): (typeof documents)["\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password)\n  }\n"];
+export function gql(source: "\n  mutation signup($username: String!, $password: String!) {\n    signup(username: $username, password: $password)\n  }\n"): (typeof documents)["\n  mutation signup($username: String!, $password: String!) {\n    signup(username: $username, password: $password)\n  }\n"];
+export function gql(source: "\n  query user($username: String!) {\n    user(username: $username) {\n      id\n      username\n      gigs {\n        id\n        artist\n        date\n        venue\n        lineup\n        festival\n      }\n    }\n  }\n"): (typeof documents)["\n  query user($username: String!) {\n    user(username: $username) {\n      id\n      username\n      gigs {\n        id\n        artist\n        date\n        venue\n        lineup\n        festival\n      }\n    }\n  }\n"];
+export function gql(source: "\n  query loggedInUser {\n    loggedInUser {\n      id\n      username\n    }\n  }\n"): (typeof documents)["\n  query loggedInUser {\n    loggedInUser {\n      id\n      username\n    }\n  }\n"];
+export function gql(source: "\n  query searchUsers($username: String!) {\n    searchUsers(username: $username) {\n      id\n      username\n    }\n  }\n"): (typeof documents)["\n  query searchUsers($username: String!) {\n    searchUsers(username: $username) {\n      id\n      username\n    }\n  }\n"];
+export function gql(source: "\n  query userGigs($userId: ID!) {\n    userGigs(userId: $userId) {\n      id\n      username\n      gigs {\n        id\n        artist\n        date\n        venue\n        lineup\n        festival\n      }\n    }\n  }\n"): (typeof documents)["\n  query userGigs($userId: ID!) {\n    userGigs(userId: $userId) {\n      id\n      username\n      gigs {\n        id\n        artist\n        date\n        venue\n        lineup\n        festival\n      }\n    }\n  }\n"];
+
+export function gql(source: string): unknown;
+export function gql(source: string) {
+  return (documents as any)[source] ?? {};
+}
+
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;
