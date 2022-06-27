@@ -9,7 +9,7 @@ export const Header = styled.header`
   justify-content: center;
   position: sticky;
   top: 0;
-  z-index: 0;
+  z-index: 1;
   font-family: ${theme.fonts.bebas};
   padding: 16px 10px 10px;
   background: #24292e;

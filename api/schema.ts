@@ -51,7 +51,7 @@ const schemaString = `
   type Mutation {
     signup(username: String!, password: String!): String
     login(username: String!, password: String!): String
-    createGig(id: String!, artist: JSONObject, date: JSONObject, venue: JSONObject, lineup: [JSONObject], festival: JSONObject): Gig!
+    createGig(id: String!, artist: JSONObject, info: String, date: JSONObject, venue: JSONObject, lineup: [JSONObject], festival: JSONObject): Gig!
     deleteGig(id: ID!): [Gig]
     rateGig(id: ID!, rating: Int!): Int
   }

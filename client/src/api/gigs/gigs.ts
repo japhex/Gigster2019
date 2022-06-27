@@ -6,6 +6,7 @@ export const getGigs = gql`
       id
       artist
       date
+      info
       venue
       lineup
       festival
@@ -18,14 +19,16 @@ export const createGigMutation = gql`
     $id: String!
     $artist: JSONObject
     $date: JSONObject
+    $info: String
     $venue: JSONObject
     $lineup: [JSONObject]
     $festival: JSONObject
   ) {
-    createGig(id: $id, artist: $artist, date: $date, venue: $venue, lineup: $lineup, festival: $festival) {
+    createGig(id: $id, artist: $artist, date: $date, info: $info, venue: $venue, lineup: $lineup, festival: $festival) {
       id
       artist
       date
+      info
       venue
       lineup
       festival

@@ -18,8 +18,16 @@ const Search = () => {
     })
   }
 
+  if (loading) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    )
+  }
+
   return (
-    <>
+    <Box py={4}>
       {!data ? (
         <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', justifyContent: 'center' }}>
           <Flex direction="column" gap={4} py={4}>
@@ -42,14 +50,14 @@ const Search = () => {
             </Button>
           </Flex>
         </form>
-      ) : loading ? (
-        <Center>
-          <Spinner />
-        </Center>
       ) : (
-        data?.searchGig.map((gig: Gig) => <GigResult gig={gig} key={gig.id} />)
+        <Flex direction="column" gap={4}>
+          {data?.searchGig.map((gig: Gig) => (
+            <GigResult gig={gig} key={gig.id} />
+          ))}
+        </Flex>
       )}
-    </>
+    </Box>
   )
 }
 

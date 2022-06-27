@@ -17,7 +17,7 @@ const Create = () => {
 
   return (
     <Center>
-      <Button variant="outline" colorScheme="yellow" onClick={onOpen}>
+      <Button colorScheme="gray" onClick={onOpen}>
         Add gig
       </Button>
 
@@ -25,7 +25,7 @@ const Create = () => {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody maxH="60vh" overflowY="scroll">
             <Search />
           </ModalBody>
         </ModalContent>

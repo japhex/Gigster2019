@@ -2,7 +2,6 @@ import UserProviderWrapper from 'context/user/provider'
 import * as jwt from 'jsonwebtoken'
 import { Redirect, Route } from 'react-router-dom'
 
-
 export const isUserAuthenticated = () => {
   const token = localStorage.getItem('token')
 
@@ -43,7 +42,7 @@ export const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) 
 export const setUserToken = (token, history) => {
   if (token) {
     localStorage.setItem('token', token)
-    history.push(`/gigs/upcoming`)
+    history.push(`/`)
   }
 }
 

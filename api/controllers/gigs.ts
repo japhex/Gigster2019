@@ -102,7 +102,7 @@ export const apiSearchGigTicketmaster = async ({ artist }, user) => {
     checkUser(user)
 
     const { data } = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TICKET_MASTER_API_KEY}&locale=*&keyword=${artist}`
+      `https://app.ticketmaster.com/discovery/v2/events?apikey=${process.env.TICKET_MASTER_API_KEY}&locale=*&keyword=${artist}&segmentName=music`
     )
 
     const sortedImages = data._embedded.events[0].images.sort((a, b) => {
