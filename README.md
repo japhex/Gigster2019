@@ -1,5 +1,5 @@
 # Gigster2019
-Latest maintained, up to date version with a modern stack
+2019 version of gigster
 
 ## Idea
 The concept of Gigster is a mix of two, its either:
